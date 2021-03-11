@@ -210,27 +210,6 @@
       </tags>
   </entry>
   <entry>
-    <title>csp 201712-2 游戏 暴力，附：约瑟夫环的递推</title>
-    <url>/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/</url>
-    <content><![CDATA[<p>中问题竟然愚蠢的看错题了。中文读题能力还不如英文，有待提升。</p>
-<p>所以这道题用普通的数组模拟操作就可以了。总之跟暴力模拟的约瑟夫环没什么区别。</p>
-<p>可以用next数组模拟指针做数据结构，但是数据范围不大的情况下不建议这么写，维护一个指针环写起来还是比较麻烦的。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">bool</span> survive[MAXN];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        survive[i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, snum = n;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(snum)</span><br><span class="line">    &#123;</span><br><span class="line">        idx = (idx + <span class="number">1</span>) % n;</span><br><span class="line">        <span class="keyword">if</span>(survive[idx] == <span class="literal">true</span>)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span>(cnt % k == <span class="number">0</span> || cnt % <span class="number">10</span> == k)&#123;</span><br><span class="line">                survive[idx] = <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//printf(&quot;%d\n&quot;, idx+1);</span></span><br><span class="line">                snum--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(snum == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="keyword">if</span>(survive[i] == <span class="literal">true</span>)<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">int</span> ans = solve(n, k);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是突然想到比得十分GG的蓝桥杯国赛，必须要记录一下约瑟夫环的标准数学（找规律）解法。</p>
-<p>将k固定，设解ANS[n,k] = ans(n)</p>
-<p>具有m个数的m约瑟夫环中，删除一个数之后，相当于重新标号后的m-1约瑟夫环问题。</p>
-<p>设从a(1)开始的m约瑟夫环答案为ans(m) = s，在m+1约瑟夫环中，由于经历了重新标号，m中的标号a(i)应该为a((k+i)%(m+1)) ,所以答案下标也要从s移动到(s+k)%(m+1).</p>
-<p>公式：ans(1) = 1, ans(m+1) = (ans(m)+k)%(m+1)。代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//标准约瑟夫环，非此题题解</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">int</span> i, s = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s = (s + k) % i;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s+1);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, s+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>acm</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>csp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>csp 201712-3 Crontab （恶心的）string处理 大模拟</title>
     <url>/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/</url>
     <content><![CDATA[<p><a href="http://118.190.20.162/view.page?gpid=T66">题目链接</a></p>
@@ -293,6 +272,27 @@
   </entry>
   <entry>
     <title>csp 201712-2 游戏 暴力，附：约瑟夫环的递推</title>
+    <url>/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/</url>
+    <content><![CDATA[<p>中问题竟然愚蠢的看错题了。中文读题能力还不如英文，有待提升。</p>
+<p>所以这道题用普通的数组模拟操作就可以了。总之跟暴力模拟的约瑟夫环没什么区别。</p>
+<p>可以用next数组模拟指针做数据结构，但是数据范围不大的情况下不建议这么写，维护一个指针环写起来还是比较麻烦的。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">bool</span> survive[MAXN];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        survive[i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, snum = n;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(snum)</span><br><span class="line">    &#123;</span><br><span class="line">        idx = (idx + <span class="number">1</span>) % n;</span><br><span class="line">        <span class="keyword">if</span>(survive[idx] == <span class="literal">true</span>)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span>(cnt % k == <span class="number">0</span> || cnt % <span class="number">10</span> == k)&#123;</span><br><span class="line">                survive[idx] = <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//printf(&quot;%d\n&quot;, idx+1);</span></span><br><span class="line">                snum--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(snum == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="keyword">if</span>(survive[i] == <span class="literal">true</span>)<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">int</span> ans = solve(n, k);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是突然想到比得十分GG的蓝桥杯国赛，必须要记录一下约瑟夫环的标准数学（找规律）解法。</p>
+<p>将k固定，设解ANS[n,k] = ans(n)</p>
+<p>具有m个数的m约瑟夫环中，删除一个数之后，相当于重新标号后的m-1约瑟夫环问题。</p>
+<p>设从a(1)开始的m约瑟夫环答案为ans(m) = s，在m+1约瑟夫环中，由于经历了重新标号，m中的标号a(i)应该为a((k+i)%(m+1)) ,所以答案下标也要从s移动到(s+k)%(m+1).</p>
+<p>公式：ans(1) = 1, ans(m+1) = (ans(m)+k)%(m+1)。代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//标准约瑟夫环，非此题题解</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">int</span> i, s = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s = (s + k) % i;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s+1);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, s+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>csp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>csp 201712-2 游戏 暴力，附：约瑟夫环的递推</title>
     <url>/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/</url>
     <content><![CDATA[<p><a href="http://118.190.20.162/view.page?gpid=T65">题目链接</a><br>题目描述：有一n点(500)m边(1e5)的图，有两种路，每个路有距离，走大路疲劳度+d(1e5)，走小路疲劳度+连续走的小路长度的平方。求从1到n最小的疲劳度。（答案不超过1e6）</p>
 <span id="more"></span>
@@ -311,6 +311,24 @@
 <p>3.2看了看数据范围，发现不能保证图中没有自环和重边。自环要判断一下（不判断不会超时）。最开始我为了避免往queue里放太多元素导致插入排序超时或者爆内存，读完图以后给vector按dis从小到大排了个序，然后发现排序反而比不排慢，不要排了。虽然用map存每对点大路小路两条长度最小的边也是很好的，但是写着太麻烦了。</p>
 <p>代码：（cmp的注释颜色很有趣）</p>
 <figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> piii pair<span class="meta-string">&lt;int, pii&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">505</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;piii&gt;path[MAXN];<span class="comment">//point, dis, type;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>//<span class="title">queue</span>用的<span class="title">cmp</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(piii a, piii b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.second.first &gt; b.second.first;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp0</span><span class="params">(piii a, piii b)</span><span class="comment">//sort用的cmp0</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.second.first &lt; b.second.first;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">priority_queue</span>&lt;piii, <span class="built_in">vector</span>&lt;piii &gt;, cmp&gt;q;<span class="comment">//point, dis, lazy</span></span><br><span class="line"><span class="keyword">int</span> visit[MAXN];</span><br><span class="line"><span class="function">piii <span class="title">mpp</span> <span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span><span class="comment">//pair&lt;int, pair&lt;int, int&gt; &gt;的make_pair函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pii x = mp(b, c);</span><br><span class="line">    piii xx = mp(a, x);</span><br><span class="line">    <span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">int</span> a, b, s, t;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>, &amp;t, &amp;a, &amp;b, &amp;s);</span><br><span class="line">        a--;<span class="comment">//此题可用0存边</span></span><br><span class="line">        b--;</span><br><span class="line">        <span class="keyword">if</span>(a == b)<span class="keyword">continue</span>;<span class="comment">//去掉自环</span></span><br><span class="line">        path[a].pb(mpp(b, s, t));</span><br><span class="line">        path[b].pb(mpp(a, s, t));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        visit[i] = <span class="number">1000001</span>;</span><br><span class="line">        <span class="comment">//sort(path[i].begin(), path[i].end(), cmp0);//优化</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> nextp, nextd, nextt;</span><br><span class="line">    visit[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; path[<span class="number">0</span>].<span class="built_in">size</span>(); i++)<span class="comment">//第一次入队</span></span><br><span class="line">    &#123;</span><br><span class="line">        nextp = path[<span class="number">0</span>][i].first;</span><br><span class="line">        nextd = path[<span class="number">0</span>][i].second.first;</span><br><span class="line">        nextt = path[<span class="number">0</span>][i].second.second;</span><br><span class="line">        <span class="keyword">if</span>(nextt == <span class="number">0</span> &amp;&amp; visit[nextp] &gt; nextd)&#123;<span class="comment">//visit剪枝+更新visit</span></span><br><span class="line">            q.push(mpp(nextp, nextd, <span class="number">0</span>));</span><br><span class="line">            visit[nextp] = nextd;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(nextt == <span class="number">1</span> &amp;&amp; nextd &lt;= <span class="number">1000</span> &amp;&amp; visit[nextp] &gt; nextd * nextd)&#123; <span class="comment">//爆1e6剪枝和visit剪枝</span></span><br><span class="line">            q.push(mpp(nextp, nextd*nextd, nextd));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())<span class="comment">//开始搜索</span></span><br><span class="line">    &#123;</span><br><span class="line">        piii pnow = q.top();<span class="comment">//当前访问点</span></span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">int</span> idx = pnow.first;</span><br><span class="line">        <span class="keyword">int</span> lenx = pnow.second.first;</span><br><span class="line">        <span class="keyword">int</span> lazx = pnow.second.second;</span><br><span class="line">        <span class="keyword">if</span>(lenx &gt; <span class="number">1000000</span>)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(lenx &gt; visit[idx])<span class="keyword">continue</span>;<span class="comment">//visit剪枝</span></span><br><span class="line">        <span class="keyword">if</span>(idx == n<span class="number">-1</span>)&#123;<span class="comment">//ans</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, pnow.second.first);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; path[idx].<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nextp = path[idx][i].first;</span><br><span class="line">            nextd = path[idx][i].second.first;</span><br><span class="line">            nextt = path[idx][i].second.second;</span><br><span class="line">            <span class="keyword">if</span>(nextt == <span class="number">0</span>)&#123; <span class="comment">//大路visit剪枝+更新+更新visit</span></span><br><span class="line">                <span class="keyword">if</span>(visit[nextp] &lt; nextd + lenx)<span class="keyword">continue</span>;</span><br><span class="line">                q.push(mpp(nextp, nextd + lenx, <span class="number">0</span>));</span><br><span class="line">                visit[nextp] = nextd + lenx;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nextt == <span class="number">1</span>)&#123;<span class="comment">//小路判断爆1e6(注意爆int)+visit剪枝+更新</span></span><br><span class="line">                <span class="keyword">double</span> sum = (<span class="keyword">double</span>)nextd * (<span class="keyword">double</span>)nextd + (<span class="keyword">double</span>)lenx + <span class="number">2</span> * (<span class="keyword">double</span>)lazx * (<span class="keyword">double</span>)nextd;</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; <span class="number">1000000</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(visit[nextp] &lt; nextd * nextd + lenx + <span class="number">2</span> * lazx * nextd)<span class="keyword">continue</span>;</span><br><span class="line">                q.push(mpp(nextp, nextd * nextd + lenx + <span class="number">2</span> * lazx * nextd, lazx + nextd));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>csp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>201803-4 棋局评估 min-max搜索</title>
+    <url>/acm/csp%20201803-4%20%E6%A3%8B%E5%B1%80%E8%AF%84%E4%BC%B0%20min-max%E6%90%9C%E7%B4%A2/</url>
+    <content><![CDATA[<p><a href="http://118.190.20.162/submitlist.page?gpid=T70">题目链接</a></p>
+<p>题意：井字棋，现在放了某些棋子。连成线的时候得分为(空格子数+1)（B赢*-1）问当前棋局中，如果Alice和Bob都按最优策略下棋，最终得分。</p>
+<span id="more"></span>
+<p>思路：典型的min-max对抗搜索，A选取分数最高的一种走法，B选取分数最低的一种走法。</p>
+<p>注意的是dfs返回值的初始化问题，min搜索初始值不一定小于0， max初始值不一定大于0（因为这个愚蠢的错了好几回）。</p>
+<p>代码：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> graph[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">judge</span><span class="params">()</span><span class="comment">//是否结束，返回赢家</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)<span class="keyword">if</span>(graph[<span class="number">0</span>][i] != <span class="number">0</span> &amp;&amp; graph[<span class="number">0</span>][i] == graph[<span class="number">1</span>][i] &amp;&amp; graph[<span class="number">2</span>][i] == graph[<span class="number">0</span>][i])<span class="keyword">return</span> graph[<span class="number">0</span>][i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)<span class="keyword">if</span>(graph[i][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[i][<span class="number">0</span>] == graph[i][<span class="number">1</span>] &amp;&amp; graph[i][<span class="number">2</span>] == graph[i][<span class="number">0</span>])<span class="keyword">return</span> graph[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(graph[<span class="number">0</span>][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[<span class="number">0</span>][<span class="number">0</span>] == graph[<span class="number">1</span>][<span class="number">1</span>] &amp;&amp; graph[<span class="number">0</span>][<span class="number">0</span>] == graph[<span class="number">2</span>][<span class="number">2</span>])<span class="keyword">return</span> graph[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(graph[<span class="number">2</span>][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[<span class="number">2</span>][<span class="number">0</span>] == graph[<span class="number">1</span>][<span class="number">1</span>] &amp;&amp; graph[<span class="number">2</span>][<span class="number">0</span>] == graph[<span class="number">0</span>][<span class="number">2</span>])<span class="keyword">return</span> graph[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getdonow</span><span class="params">()</span><span class="comment">//当前空格子数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[i][j] == <span class="number">0</span>)cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> donow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> person = donow % <span class="number">2</span>;<span class="comment">//当前操作者</span></span><br><span class="line">    <span class="keyword">if</span>(person == <span class="number">0</span>)person = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(judge() != <span class="number">0</span>)<span class="keyword">return</span> person == <span class="number">2</span>? donow+<span class="number">1</span> : -donow<span class="number">-1</span>;<span class="comment">//此时已结束，有赢家</span></span><br><span class="line">    <span class="keyword">if</span>(donow == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//此时已结束，平局</span></span><br><span class="line">    <span class="keyword">int</span> retmax = <span class="number">-100</span>, retmin = <span class="number">100</span>;<span class="comment">//完全可以合成一个写</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                graph[i][j] = person;<span class="comment">//准备下一步递归</span></span><br><span class="line">                <span class="keyword">if</span>(person == <span class="number">1</span>)retmax = <span class="built_in">max</span>(retmax, dfs(donow<span class="number">-1</span>));<span class="comment">//max</span></span><br><span class="line">                <span class="keyword">else</span> retmin = <span class="built_in">min</span>(retmin, dfs(donow<span class="number">-1</span>));<span class="comment">//min</span></span><br><span class="line">                graph[i][j] = <span class="number">0</span>;<span class="comment">//回溯</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(person == <span class="number">1</span>)<span class="keyword">return</span> retmax;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> retmin;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="keyword">int</span> flag;</span><br><span class="line">    <span class="keyword">int</span> donow;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(graph, <span class="number">0</span>, <span class="keyword">sizeof</span>(graph));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;graph[i][<span class="number">0</span>], &amp;graph[i][<span class="number">1</span>], &amp;graph[i][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        donow = getdonow();</span><br><span class="line">        <span class="keyword">int</span> ans = dfs(donow);</span><br><span class="line">        <span class="keyword">if</span>(ans &gt; <span class="number">0</span> &amp;&amp; ans % <span class="number">2</span> == <span class="number">0</span>)ans++;<span class="comment">//如果题目严谨，没有什么用</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(ans &lt; <span class="number">0</span> &amp;&amp; ans % <span class="number">2</span> == <span class="number">1</span>)ans --;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>acm</category>
       </categories>
@@ -339,21 +357,32 @@
       </tags>
   </entry>
   <entry>
-    <title>201803-4 棋局评估 min-max搜索</title>
-    <url>/acm/csp%20201803-4%20%E6%A3%8B%E5%B1%80%E8%AF%84%E4%BC%B0%20min-max%E6%90%9C%E7%B4%A2/</url>
-    <content><![CDATA[<p><a href="http://118.190.20.162/submitlist.page?gpid=T70">题目链接</a></p>
-<p>题意：井字棋，现在放了某些棋子。连成线的时候得分为(空格子数+1)（B赢*-1）问当前棋局中，如果Alice和Bob都按最优策略下棋，最终得分。</p>
-<span id="more"></span>
-<p>思路：典型的min-max对抗搜索，A选取分数最高的一种走法，B选取分数最低的一种走法。</p>
-<p>注意的是dfs返回值的初始化问题，min搜索初始值不一定小于0， max初始值不一定大于0（因为这个愚蠢的错了好几回）。</p>
-<p>代码：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> graph[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">judge</span><span class="params">()</span><span class="comment">//是否结束，返回赢家</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)<span class="keyword">if</span>(graph[<span class="number">0</span>][i] != <span class="number">0</span> &amp;&amp; graph[<span class="number">0</span>][i] == graph[<span class="number">1</span>][i] &amp;&amp; graph[<span class="number">2</span>][i] == graph[<span class="number">0</span>][i])<span class="keyword">return</span> graph[<span class="number">0</span>][i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)<span class="keyword">if</span>(graph[i][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[i][<span class="number">0</span>] == graph[i][<span class="number">1</span>] &amp;&amp; graph[i][<span class="number">2</span>] == graph[i][<span class="number">0</span>])<span class="keyword">return</span> graph[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(graph[<span class="number">0</span>][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[<span class="number">0</span>][<span class="number">0</span>] == graph[<span class="number">1</span>][<span class="number">1</span>] &amp;&amp; graph[<span class="number">0</span>][<span class="number">0</span>] == graph[<span class="number">2</span>][<span class="number">2</span>])<span class="keyword">return</span> graph[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(graph[<span class="number">2</span>][<span class="number">0</span>] != <span class="number">0</span> &amp;&amp; graph[<span class="number">2</span>][<span class="number">0</span>] == graph[<span class="number">1</span>][<span class="number">1</span>] &amp;&amp; graph[<span class="number">2</span>][<span class="number">0</span>] == graph[<span class="number">0</span>][<span class="number">2</span>])<span class="keyword">return</span> graph[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getdonow</span><span class="params">()</span><span class="comment">//当前空格子数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[i][j] == <span class="number">0</span>)cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> donow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> person = donow % <span class="number">2</span>;<span class="comment">//当前操作者</span></span><br><span class="line">    <span class="keyword">if</span>(person == <span class="number">0</span>)person = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(judge() != <span class="number">0</span>)<span class="keyword">return</span> person == <span class="number">2</span>? donow+<span class="number">1</span> : -donow<span class="number">-1</span>;<span class="comment">//此时已结束，有赢家</span></span><br><span class="line">    <span class="keyword">if</span>(donow == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//此时已结束，平局</span></span><br><span class="line">    <span class="keyword">int</span> retmax = <span class="number">-100</span>, retmin = <span class="number">100</span>;<span class="comment">//完全可以合成一个写</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                graph[i][j] = person;<span class="comment">//准备下一步递归</span></span><br><span class="line">                <span class="keyword">if</span>(person == <span class="number">1</span>)retmax = <span class="built_in">max</span>(retmax, dfs(donow<span class="number">-1</span>));<span class="comment">//max</span></span><br><span class="line">                <span class="keyword">else</span> retmin = <span class="built_in">min</span>(retmin, dfs(donow<span class="number">-1</span>));<span class="comment">//min</span></span><br><span class="line">                graph[i][j] = <span class="number">0</span>;<span class="comment">//回溯</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(person == <span class="number">1</span>)<span class="keyword">return</span> retmax;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> retmin;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="keyword">int</span> flag;</span><br><span class="line">    <span class="keyword">int</span> donow;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(graph, <span class="number">0</span>, <span class="keyword">sizeof</span>(graph));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;graph[i][<span class="number">0</span>], &amp;graph[i][<span class="number">1</span>], &amp;graph[i][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        donow = getdonow();</span><br><span class="line">        <span class="keyword">int</span> ans = dfs(donow);</span><br><span class="line">        <span class="keyword">if</span>(ans &gt; <span class="number">0</span> &amp;&amp; ans % <span class="number">2</span> == <span class="number">0</span>)ans++;<span class="comment">//如果题目严谨，没有什么用</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(ans &lt; <span class="number">0</span> &amp;&amp; ans % <span class="number">2</span> == <span class="number">1</span>)ans --;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>中期考核</title>
+    <url>/research-experience/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</url>
+    <content><![CDATA[<h3 id="中期考核"><a href="#中期考核" class="headerlink" title="中期考核"></a>中期考核</h3><p>研究工作花7分钟，未来计划没人听<br>讲研究工作非常重要<br>代表性方法，相关工作要分好类  </p>
+<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><p>1.是不是完全创新，或者某一种方法没解决的问题<br>把不重要的部分盖掉。<br>放可视化的结果放上来。<br>截图截作者和标题。  </p>
+<h4 id="未来计划：简略一点。"><a href="#未来计划：简略一点。" class="headerlink" title="未来计划：简略一点。"></a>未来计划：简略一点。</h4><p>字不要多<br>对比方法发表在哪里<br>画图<br>定义清楚<br>近几年文章爆发趋势<br>差异性<br>图可以拆成几页  </p>
+]]></content>
       <categories>
-        <category>acm</category>
+        <category>科研</category>
       </categories>
       <tags>
-        <tag>acm</tag>
-        <tag>csp</tag>
+        <tag>科研</tag>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科研脑洞</title>
+    <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
+    <content><![CDATA[<h3 id="脑洞"><a href="#脑洞" class="headerlink" title="脑洞"></a>脑洞</h3><p>1.feature层面存在grouping问题吗？如果有，可以换顺序吗？<br>2.三通道可以拆吗？用来自监督？<br>3.每个feature得到不同部位的权重，生成各个分类器的输入。说起来，一个数据变多个输入？<br>4.无监督数据不一定要作为伪标签，可以只用来更新relation?  </p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>脑洞</tag>
       </tags>
   </entry>
   <entry>
@@ -442,67 +471,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux服务器+pytorch实验环境配置常用命令行指令</title>
-    <url>/research-experiment/python+pycharm%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
-    <content><![CDATA[<hr>
-<h2 id="1-激活anaconda环境：激活-环境名。"><a href="#1-激活anaconda环境：激活-环境名。" class="headerlink" title="1.激活anaconda环境：激活+环境名。"></a>1.激活anaconda环境：激活+环境名。</h2><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">source <span class="built_in">activate</span> pytorch_wzy</span><br></pre></td></tr></table></figure>
-<h2 id="2-打错名字无所谓，会给提示，命令如下，查询所有anaconda环境："><a href="#2-打错名字无所谓，会给提示，命令如下，查询所有anaconda环境：" class="headerlink" title="2.打错名字无所谓，会给提示，命令如下，查询所有anaconda环境："></a>2.打错名字无所谓，会给提示，命令如下，查询所有anaconda环境：</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda</span> <span class="literal">info</span> --envs</span><br></pre></td></tr></table></figure>
-<h2 id="3-进入某个python：直接打，如果不是的话版本号详细些，形如："><a href="#3-进入某个python：直接打，如果不是的话版本号详细些，形如：" class="headerlink" title="3.进入某个python：直接打，如果不是的话版本号详细些，形如："></a>3.进入某个python：直接打，如果不是的话版本号详细些，形如：</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">python</span> <span class="number">3</span>.<span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-退出python环境（退出其他的环境大概也适用）："><a href="#4-退出python环境（退出其他的环境大概也适用）：" class="headerlink" title="4.退出python环境（退出其他的环境大概也适用）："></a>4.退出python环境（退出其他的环境大概也适用）：</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">quit</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<p>或者键盘直接ctrl+D</p>
-<h2 id="5-用pip安装东西：如下，安装opencv-import-cv2"><a href="#5-用pip安装东西：如下，安装opencv-import-cv2" class="headerlink" title="5.用pip安装东西：如下，安装opencv (import cv2) :"></a>5.用pip安装东西：如下，安装opencv (import cv2) :</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">pip <span class="keyword">install</span> opencv-python</span><br></pre></td></tr></table></figure>
-<p>举例是：opencv在pycharm中好像不能安装，否则直接用pycharm下载美滋滋。</p>
-<p>*注意先进入特定的conda环境下再安装，我装了好几个opencv，然后发现装到root下了。</p>
-<h2 id="6-pip自身版本更新："><a href="#6-pip自身版本更新：" class="headerlink" title="6.pip自身版本更新："></a>6.pip自身版本更新：</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">python -m pip install <span class="comment">--upgrade pip</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-查看GPU使用情况："><a href="#7-查看GPU使用情况：" class="headerlink" title="7.查看GPU使用情况："></a>7.查看GPU使用情况：</h2><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">nvidia</span>-<span class="keyword">smi</span> </span><br></pre></td></tr></table></figure>
-<p>更详细的有很多博客，暂时用不到。</p>
-<p>实时查看：如下10秒刷新一次。该状态一直运行</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">watch</span> -n <span class="number">10</span> nvidia-smi</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="8-某些包调回旧版本：刚刚训练时遇到UserWarning-Anti-aliasing-will-be-enabled-by-default-in-skimage-0-15，查了查需要卸载新版本scikit-image"><a href="#8-某些包调回旧版本：刚刚训练时遇到UserWarning-Anti-aliasing-will-be-enabled-by-default-in-skimage-0-15，查了查需要卸载新版本scikit-image" class="headerlink" title="8.某些包调回旧版本：刚刚训练时遇到UserWarning: Anti-aliasing will be enabled by default in skimage 0.15，查了查需要卸载新版本scikit-image."></a>8.某些包调回旧版本：刚刚训练时遇到UserWarning: Anti-aliasing will be enabled by default in skimage 0.15，查了查需要卸载新版本scikit-image.</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">pip uninstall scikit-<span class="built_in">image</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pip</span> install scikit-image==<span class="number">0</span>.<span class="number">13</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>*一行一打，不要着急</p>
-<h2 id="9-查看进程和kill进程"><a href="#9-查看进程和kill进程" class="headerlink" title="9.查看进程和kill进程"></a>9.查看进程和kill进程</h2><p>查看进程/查看并筛选：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ps -ef</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef|<span class="keyword">grep</span> wzy</span><br></pre></td></tr></table></figure>
-<p>删除进程：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> (ssid)</span><br></pre></td></tr></table></figure>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">kill</span> -<span class="number">9</span>强制退出</span><br></pre></td></tr></table></figure>
-
-<h2 id="10-查看文件大小并从大到小排序："><a href="#10-查看文件大小并从大到小排序：" class="headerlink" title="10.查看文件大小并从大到小排序："></a>10.查看文件大小并从大到小排序：</h2><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">du -<span class="keyword">sh</span> * | <span class="keyword">sort</span> -nr </span><br></pre></td></tr></table></figure>
-<h2 id="11-快速远程传输文件夹（linux镜像备份）："><a href="#11-快速远程传输文件夹（linux镜像备份）：" class="headerlink" title="11.快速远程传输文件夹（linux镜像备份）："></a>11.快速远程传输文件夹（linux镜像备份）：</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">rsync -av &lt;dir_path + dir_name&gt; wzy<span class="variable">@xxx</span>.xxx.xxx.xx(new_path)<span class="symbol">:&lt;new_dir_path&gt;</span></span><br></pre></td></tr></table></figure>
-<p>*注意：文件夹会整个copy到新文件夹下，不要在新文件夹带文件名，会嵌套</p>
-<hr>
-<h2 id="12-ssh服务器命令行直接运行程序："><a href="#12-ssh服务器命令行直接运行程序：" class="headerlink" title="12.ssh服务器命令行直接运行程序："></a>12.ssh服务器命令行直接运行程序：</h2><p>激活环境，再运行程序</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">python</span> train.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
-<p><strong>nohup指令</strong>：使程序关闭ssh窗口不停止运行：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">nohup python train.py <span class="number">1</span>&gt;nohup_train.<span class="keyword">out</span> <span class="number">2</span>&gt;err_train.<span class="keyword">out</span></span><br></pre></td></tr></table></figure>
-<p>ctrl+c不断线：后面加&amp;，和nohup可叠加使用（不推荐）</p>
-]]></content>
-      <categories>
-        <category>实验</category>
-        <category>pytorch</category>
-        <category>命令行</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>windows10</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python列表的用法</title>
-    <url>/research-experiment/python%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>实验</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>容器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python+ml科研经验-实验方面</title>
     <url>/research-experiment/python+ml%E5%AE%9E%E9%AA%8C%E7%BB%8F%E9%AA%8C/</url>
     <content><![CDATA[<h3 id="Main函数与Args的使用"><a href="#Main函数与Args的使用" class="headerlink" title="Main函数与Args的使用"></a>Main函数与Args的使用</h3><ul>
@@ -543,6 +511,95 @@
       </categories>
       <tags>
         <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux服务器+pytorch实验环境配置常用命令行指令</title>
+    <url>/research-experiment/python+pycharm%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
+    <content><![CDATA[<hr>
+<h2 id="1-激活anaconda环境：激活-环境名。"><a href="#1-激活anaconda环境：激活-环境名。" class="headerlink" title="1.激活anaconda环境：激活+环境名。"></a>1.激活anaconda环境：激活+环境名。</h2><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">source <span class="built_in">activate</span> pytorch_wzy</span><br></pre></td></tr></table></figure>
+<h2 id="2-打错名字无所谓，会给提示，命令如下，查询所有anaconda环境："><a href="#2-打错名字无所谓，会给提示，命令如下，查询所有anaconda环境：" class="headerlink" title="2.打错名字无所谓，会给提示，命令如下，查询所有anaconda环境："></a>2.打错名字无所谓，会给提示，命令如下，查询所有anaconda环境：</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda</span> <span class="literal">info</span> --envs</span><br></pre></td></tr></table></figure>
+<h2 id="3-进入某个python：直接打，如果不是的话版本号详细些，形如："><a href="#3-进入某个python：直接打，如果不是的话版本号详细些，形如：" class="headerlink" title="3.进入某个python：直接打，如果不是的话版本号详细些，形如："></a>3.进入某个python：直接打，如果不是的话版本号详细些，形如：</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">python</span> <span class="number">3</span>.<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-退出python环境（退出其他的环境大概也适用）："><a href="#4-退出python环境（退出其他的环境大概也适用）：" class="headerlink" title="4.退出python环境（退出其他的环境大概也适用）："></a>4.退出python环境（退出其他的环境大概也适用）：</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">quit</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>或者键盘直接ctrl+D</p>
+<h2 id="5-用pip安装东西：如下，安装opencv-import-cv2"><a href="#5-用pip安装东西：如下，安装opencv-import-cv2" class="headerlink" title="5.用pip安装东西：如下，安装opencv (import cv2) :"></a>5.用pip安装东西：如下，安装opencv (import cv2) :</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">pip <span class="keyword">install</span> opencv-python</span><br></pre></td></tr></table></figure>
+<p>举例是：opencv在pycharm中好像不能安装，否则直接用pycharm下载美滋滋。</p>
+<p>*注意先进入特定的conda环境下再安装，我装了好几个opencv，然后发现装到root下了。</p>
+<h2 id="6-pip自身版本更新："><a href="#6-pip自身版本更新：" class="headerlink" title="6.pip自身版本更新："></a>6.pip自身版本更新：</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">python -m pip install <span class="comment">--upgrade pip</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-查看GPU使用情况："><a href="#7-查看GPU使用情况：" class="headerlink" title="7.查看GPU使用情况："></a>7.查看GPU使用情况：</h2><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">nvidia</span>-<span class="keyword">smi</span> </span><br></pre></td></tr></table></figure>
+<p>更详细的有很多博客，暂时用不到。</p>
+<p>实时查看：如下10秒刷新一次。该状态一直运行</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">watch</span> -n <span class="number">10</span> nvidia-smi</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="8-某些包调回旧版本：刚刚训练时遇到UserWarning-Anti-aliasing-will-be-enabled-by-default-in-skimage-0-15，查了查需要卸载新版本scikit-image"><a href="#8-某些包调回旧版本：刚刚训练时遇到UserWarning-Anti-aliasing-will-be-enabled-by-default-in-skimage-0-15，查了查需要卸载新版本scikit-image" class="headerlink" title="8.某些包调回旧版本：刚刚训练时遇到UserWarning: Anti-aliasing will be enabled by default in skimage 0.15，查了查需要卸载新版本scikit-image."></a>8.某些包调回旧版本：刚刚训练时遇到UserWarning: Anti-aliasing will be enabled by default in skimage 0.15，查了查需要卸载新版本scikit-image.</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">pip uninstall scikit-<span class="built_in">image</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pip</span> install scikit-image==<span class="number">0</span>.<span class="number">13</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>*一行一打，不要着急</p>
+<h2 id="9-查看进程和kill进程"><a href="#9-查看进程和kill进程" class="headerlink" title="9.查看进程和kill进程"></a>9.查看进程和kill进程</h2><p>查看进程/查看并筛选：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ps -ef</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef|<span class="keyword">grep</span> wzy</span><br></pre></td></tr></table></figure>
+<p>删除进程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> (ssid)</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">kill</span> -<span class="number">9</span>强制退出</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-查看文件大小并从大到小排序："><a href="#10-查看文件大小并从大到小排序：" class="headerlink" title="10.查看文件大小并从大到小排序："></a>10.查看文件大小并从大到小排序：</h2><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">du -<span class="keyword">sh</span> * | <span class="keyword">sort</span> -nr </span><br></pre></td></tr></table></figure>
+<h2 id="11-快速远程传输文件夹（linux镜像备份）："><a href="#11-快速远程传输文件夹（linux镜像备份）：" class="headerlink" title="11.快速远程传输文件夹（linux镜像备份）："></a>11.快速远程传输文件夹（linux镜像备份）：</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">rsync -av &lt;dir_path + dir_name&gt; wzy<span class="variable">@xxx</span>.xxx.xxx.xx(new_path)<span class="symbol">:&lt;new_dir_path&gt;</span></span><br></pre></td></tr></table></figure>
+<p>*注意：文件夹会整个copy到新文件夹下，不要在新文件夹带文件名，会嵌套</p>
+<hr>
+<h2 id="12-ssh服务器命令行直接运行程序："><a href="#12-ssh服务器命令行直接运行程序：" class="headerlink" title="12.ssh服务器命令行直接运行程序："></a>12.ssh服务器命令行直接运行程序：</h2><p>激活环境，再运行程序</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">python</span> train.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
+<p><strong>nohup指令</strong>：使程序关闭ssh窗口不停止运行：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">nohup python train.py <span class="number">1</span>&gt;nohup_train.<span class="keyword">out</span> <span class="number">2</span>&gt;err_train.<span class="keyword">out</span></span><br></pre></td></tr></table></figure>
+<p>ctrl+c不断线：后面加&amp;，和nohup可叠加使用（不推荐）</p>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>pytorch</category>
+        <category>linux</category>
+        <category>命令行</category>
+      </categories>
+      <tags>
+        <tag>windows10</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python列表的用法</title>
+    <url>/research-experiment/python%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基于PIL的图片编辑</title>
+    <url>/research-experiment/python%E5%8F%AF%E8%A7%86%E5%8C%96-PIL%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<p>示例</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"></span><br><span class="line">bk_img = Image.<span class="keyword">open</span>(os.path.<span class="keyword">join</span>(path_image, <span class="string">&#x27;&#123;&#125;.jpg&#x27;</span>.format(path_u[i]))) # <span class="keyword">open</span> an image</span><br><span class="line">draw = ImageDraw.Draw(bk_img) # <span class="keyword">prepare</span> <span class="keyword">to</span> draw <span class="keyword">on</span> it</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">30</span>), &quot;epoch:&#123;&#125;&quot;.format(self.epoch), fill=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)) # <span class="number">10</span>列<span class="number">30</span>行，内容，fill=字体颜色</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">60</span>), &quot;predict:&#123;&#125;&quot;.format(w_list), fill=(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">110</span>), &quot;gt:&#123;&#125;&quot;.format(gt_list), fill=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">now_out_path = os.path.<span class="keyword">join</span>(self.args.save_dir, <span class="string">&#x27;wrong_prediction_best&#x27;</span>, <span class="string">&#x27;&#123;&#125;jpg&#x27;</span>.format(path_u[i])) # 输出路径</span><br><span class="line">bk_img.save(now_out_path) # 保存</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PIL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python的参数传递</title>
+    <url>/research-experiment/python%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
+    <content><![CDATA[<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">def <span class="builtin-name">add</span>(a, b):</span><br><span class="line">    a = a + b</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line">def add_list(a, b):</span><br><span class="line">    a = a.append(b)</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    c = [1, 3]</span><br><span class="line">    d = [2, 4]</span><br><span class="line">    <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    e = 5</span><br><span class="line">    add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[1,3]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4,5]</span></span><br><span class="line"><span class="attribute">None</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -621,34 +678,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python基于PIL的图片编辑</title>
-    <url>/research-experiment/python%E5%8F%AF%E8%A7%86%E5%8C%96-PIL%E6%A8%A1%E5%9D%97/</url>
-    <content><![CDATA[<p>示例</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"></span><br><span class="line">bk_img = Image.<span class="keyword">open</span>(os.path.<span class="keyword">join</span>(path_image, <span class="string">&#x27;&#123;&#125;.jpg&#x27;</span>.format(path_u[i]))) # <span class="keyword">open</span> an image</span><br><span class="line">draw = ImageDraw.Draw(bk_img) # <span class="keyword">prepare</span> <span class="keyword">to</span> draw <span class="keyword">on</span> it</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">30</span>), &quot;epoch:&#123;&#125;&quot;.format(self.epoch), fill=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)) # <span class="number">10</span>列<span class="number">30</span>行，内容，fill=字体颜色</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">60</span>), &quot;predict:&#123;&#125;&quot;.format(w_list), fill=(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">draw.text((<span class="number">10</span>, <span class="number">110</span>), &quot;gt:&#123;&#125;&quot;.format(gt_list), fill=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">now_out_path = os.path.<span class="keyword">join</span>(self.args.save_dir, <span class="string">&#x27;wrong_prediction_best&#x27;</span>, <span class="string">&#x27;&#123;&#125;jpg&#x27;</span>.format(path_u[i])) # 输出路径</span><br><span class="line">bk_img.save(now_out_path) # 保存</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>实验</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PIL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python的参数传递</title>
-    <url>/research-experiment/python%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
-    <content><![CDATA[<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">def <span class="builtin-name">add</span>(a, b):</span><br><span class="line">    a = a + b</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line">def add_list(a, b):</span><br><span class="line">    a = a.append(b)</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    c = [1, 3]</span><br><span class="line">    d = [2, 4]</span><br><span class="line">    <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    e = 5</span><br><span class="line">    add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[1,3]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4,5]</span></span><br><span class="line"><span class="attribute">None</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>实验</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pytorch tensor/numpy常用操作函数</title>
     <url>/research-experiment/pytorch%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="1-tensor-mean"><a href="#1-tensor-mean" class="headerlink" title="1. tensor.mean()"></a>1. tensor.mean()</h1><p>取算术平均值。指定参数可以计算每一行或者 每一列的算术平均数</p>
@@ -677,6 +706,25 @@
       <tags>
         <tag>pytorch</tag>
         <tag>tensor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>把导入的python项目正确放进pycharm</title>
+    <url>/research-experiment/%E6%8A%8Apython%E9%A1%B9%E7%9B%AE%E6%94%BE%E8%BF%9Bpycharm/</url>
+    <content><![CDATA[<p>载的python项目，导入之后，运行的时候不同文件都相互找不到了。改了什么，甚至不见了。怎么办呢</p>
+<hr>
+<p>解决方法：file-&gt;setting-&gt;project structure，这里除了项目文件列表，上面有一排mark标记<br><img src="https://img-blog.csdnimg.cn/20200223034337282.png" alt="tupian"></p>
+<p>简单粗暴的解决方案：把所有文件夹和子文件夹都标成Source即可。</p>
+<p>其他：如果不想在项目中看到某个文件夹，标成excluded就不见了。</p>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>pycharm</category>
+      </categories>
+      <tags>
+        <tag>pycharm</tag>
+        <tag>python</tag>
+        <tag>实验</tag>
       </tags>
   </entry>
   <entry>
@@ -711,54 +759,6 @@
       <tags>
         <tag>ccproxy</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>把导入的python项目正确放进pycharm</title>
-    <url>/research-experiment/%E6%8A%8Apython%E9%A1%B9%E7%9B%AE%E6%94%BE%E8%BF%9Bpycharm/</url>
-    <content><![CDATA[<p>载的python项目，导入之后，运行的时候不同文件都相互找不到了。改了什么，甚至不见了。怎么办呢</p>
-<hr>
-<p>解决方法：file-&gt;setting-&gt;project structure，这里除了项目文件列表，上面有一排mark标记<br><img src="https://img-blog.csdnimg.cn/20200223034337282.png" alt="tupian"></p>
-<p>简单粗暴的解决方案：把所有文件夹和子文件夹都标成Source即可。</p>
-<p>其他：如果不想在项目中看到某个文件夹，标成excluded就不见了。</p>
-]]></content>
-      <categories>
-        <category>实验</category>
-        <category>pycharm</category>
-      </categories>
-      <tags>
-        <tag>pycharm</tag>
-        <tag>python</tag>
-        <tag>实验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中期考核</title>
-    <url>/research-experience/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</url>
-    <content><![CDATA[<h3 id="中期考核"><a href="#中期考核" class="headerlink" title="中期考核"></a>中期考核</h3><p>研究工作花7分钟，未来计划没人听<br>讲研究工作非常重要<br>代表性方法，相关工作要分好类  </p>
-<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><p>1.是不是完全创新，或者某一种方法没解决的问题<br>把不重要的部分盖掉。<br>放可视化的结果放上来。<br>截图截作者和标题。  </p>
-<h4 id="未来计划：简略一点。"><a href="#未来计划：简略一点。" class="headerlink" title="未来计划：简略一点。"></a>未来计划：简略一点。</h4><p>字不要多<br>对比方法发表在哪里<br>画图<br>定义清楚<br>近几年文章爆发趋势<br>差异性<br>图可以拆成几页  </p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-        <tag>科研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科研脑洞</title>
-    <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
-    <content><![CDATA[<h3 id="脑洞"><a href="#脑洞" class="headerlink" title="脑洞"></a>脑洞</h3><p>1.feature层面存在grouping问题吗？如果有，可以换顺序吗？<br>2.三通道可以拆吗？用来自监督？<br>3.每个feature得到不同部位的权重，生成各个分类器的输入。说起来，一个数据变多个输入？<br>4.无监督数据不一定要作为伪标签，可以只用来更新relation?  </p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>脑洞</tag>
       </tags>
   </entry>
   <entry>
@@ -820,6 +820,106 @@
       </tags>
   </entry>
   <entry>
+    <title>Markdown转义字符</title>
+    <url>/tricks/Markdown%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>最近在疯狂搭建hexo+neXt博客。<br>用markdown时遇到了一些问题：转义字符怎么打？</p>
+<p>找到了不错的blog链接：<br><a href="https://www.cnblogs.com/Tom-Ren/p/10234956.html">链接</a></p>
+]]></content>
+      <categories>
+        <category>小技巧</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP入门笔记（一） 入门操作+程序框架+基本数据类型</title>
+    <url>/tricks/PHP%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>当年有人说，php是最好的语言。<br>就像现在python。<br>——2021年记</p>
+<p>学习地址：<a href="http://www.php.cn/">PHP中文网</a></p>
+<span id="more"></span>
+<p>1.初学者最简单的集成工具包：phpStudy。(php+Apcha+Mysql+xxxx)</p>
+<p>界面如下：<br><img src="/tricks/PHP%E5%85%A5%E9%97%A8/1.png" alt="图片1" align="center"></p>
+<p>2.网页文件根目录：安装目录\phpStudy\PHPTutorial\WWW（服务器可查看）</p>
+<p>运行文件方式：浏览器输入localhost/{filename}</p>
+<p>推荐编译器：Notepad++/phpStorm。反正我用前一个。</p>
+<p>3.语言基本框架：<?php ?></p>
+<p>*PHP是嵌入html的代码段，因此一个网页可以用多段代码。</p>
+<p>实例文件phpinfo用于获取版本号。<br><img src="/tricks/PHP%E5%85%A5%E9%97%A8/2.png" alt="图片2" align="center"></p>
+<p>4.防止中文乱码：在php后面一行加上：header(“content-type:text/html;charset=utf-8”);//不要加多余空格</p>
+<p>也可用html的方式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">5.输出：<span class="built_in">echo</span> ***;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">6.变量定义：<span class="variable">$&#123;name&#125;</span> = ****;</span><br><span class="line"></span><br><span class="line">整型：<span class="comment">#num#为10进制，#0num#为8进制，#0xnum#为16进制。</span></span><br><span class="line"></span><br><span class="line">布尔boolean：True/False</span><br><span class="line"></span><br><span class="line">字符串：单引号/双引号/&lt;&lt;&lt;<span class="string">ABC(或其他大写字母)...（顶格）ABC</span>;</span><br><span class="line"></span><br><span class="line">      *三种表示法对比：</span><br><span class="line"></span><br><span class="line">             双引号识别转义字符（\n等），支持解析变量。<span class="variable">$name</span>[space] 或者&#123;<span class="variable">$name</span>&#125;</span><br><span class="line"></span><br><span class="line">             单引号效率高，支持<span class="string">&#x27;\和\</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">             第三种常用于字符很长的时候，功能看作双引号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        *字符串拼接符号：（.） echo $a.$b;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">浮点数：普通定义同C语言，科学定义直接为8.5e3等</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">*var_dump()函数，参数为变量，用于取得此变量类型。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">7.转义字符：\\</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">单引号使用\&#x27;</span>。双引号直接使用‘’，且可以组合使用，双引号的字符串加单引号，单引号中变量可以解析。</span><br><span class="line"></span><br><span class="line">*\n和\t（双引号）通过在html网页查看源代码的方式对比：</span><br><span class="line"></span><br><span class="line">      \n相当于按了一个回车。</span><br><span class="line"></span><br><span class="line">      \t相当于按了一个tab。</span><br><span class="line"></span><br><span class="line">      但是两者显示到网页中都是空格的效果</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人主页建站攻略简述</title>
+    <url>/tricks/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/</url>
+    <content><![CDATA[<h2 id="0-github-page"><a href="#0-github-page" class="headerlink" title="0.github page"></a>0.github page</h2><p>如果只需要静态网站，可以直接以[username].github.io建立一个新项目，并在theme修改一个适合的主题。md形式的个人网站编辑起来也很方便。</p>
+<h2 id="1-云服务器："><a href="#1-云服务器：" class="headerlink" title="1.云服务器："></a>1.云服务器：</h2><p>同实验室用的服务器类似，在服务器网站上买。试了一下，我这个经常连服务器跑dl的人，租一台带公网ip的服务器，用着非常舒适。远程虚拟主机不知道，据说用着比较麻烦，小厂商服务器或者虚拟主机可能会有免费的，但是实验证明有点卡。</p>
+<p>个人购买：腾讯云，入门级的云服务器。（主要是我域名申请好久了，并且买完发现其带有很无脑的环境配置方法。）</p>
+<p>推荐linux系统，ubuntu或者centos，别的不说，直观感受资料多比较好找。</p>
+<h2 id="2-域名："><a href="#2-域名：" class="headerlink" title="2.域名："></a>2.域名：</h2><p>卖云服务器的网站一般都可以申请，不会太贵。重点是域名一般和云服务器放在一个厂商，否则转入转出有点烦。需要备案，身份证号之类的，会给邮件提示的。</p>
+<h2 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3.域名解析"></a>3.域名解析</h2><p>域名怎么关联在服务器上：域名解析，一般在云服务器的控制台操作。</p>
+<h2 id="4-实验环境配置："><a href="#4-实验环境配置：" class="headerlink" title="4.实验环境配置："></a>4.实验环境配置：</h2><p>在云服务器上配置环境，使得一般用html或tomcat或php+一系列环境。</p>
+<p>httpd最简单，不支持script的前提下挂最简单的html网站（如简历和博客）非常容易。<br>tomcat，比较传统的管理系统网站设计，写过XX管理系统实验的同学应该比较会。<br>php系列，比较新鲜，同时有一些现成的博客和论坛应用可以套用</p>
+<h3 id="4-1html-httpd："><a href="#4-1html-httpd：" class="headerlink" title="4.1html/httpd："></a>4.1html/httpd：</h3><p>apache httpd，用yum+指令直接安装好。（忘了保存那个博客，自己找找）然后在/var/www/html目录放上index.html就能打开了。除了比较单一，不会遇到其他的乱七八糟问题。</p>
+<h3 id="4-2tomcat："><a href="#4-2tomcat：" class="headerlink" title="4.2tomcat："></a>4.2tomcat：</h3><p>推荐给学过javaEE/jsp之类的管理系统同学，具体的就是跟着教程装一个jdk，装一个tomcat，简单设置，然后在提示的目录下放文件夹/项目。</p>
+<h3 id="4-3php-LNMP"><a href="#4-3php-LNMP" class="headerlink" title="4.3php+LNMP:"></a>4.3php+LNMP:</h3><p>基于php语言，比较新鲜，而且有很多应用。我没学过，详细环境安装跟着腾讯云的提示，一行一行的粘贴就好了。我装db的时候遇到点问题，想着有点麻烦而且网页功能不难，就去转其他路子了。</p>
+<p><a href="https://cloud.tencent.com/document/product/213/38056">https://cloud.tencent.com/document/product/213/38056</a> 腾讯云配置lnmp环境的文档。</p>
+<p>基于这个环境，很多人推荐用wordpress建立博客：<a href="https://cloud.tencent.com/document/product/213/8044">https://cloud.tencent.com/document/product/213/8044</a></p>
+<p>具体建立博客、论坛、网站的应用列表：<a href="https://blog.csdn.net/caoshangpa/article/details/78561806">https://blog.csdn.net/caoshangpa/article/details/78561806</a></p>
+<h2 id="5-模板（针对html网站）"><a href="#5-模板（针对html网站）" class="headerlink" title="5.模板（针对html网站）"></a>5.模板（针对html网站）</h2><p>配置好环境，就可以把想要的网站可以传到网页了。但想要一个好看的个人网站，设计也很重要，尤其是对于没有html+css基础的人，从零写一个精美的网站十分困难，现成的模板已经包装好了一些配置，可以很快的解决问题。</p>
+<p>个人使用：模板之家。其他类似的网站也可以，找到很多别人做的网站，感兴趣的下载下来改一改就可以用了。</p>
+<p>模板修改：仔细查看html文件中的&lt;class=&gt;标签的类型，可以在css的某个文件找到它的描述。有点css文件夹打开是一长条，不太实用。另外一些是一部分定义的特有的类的描述，一般都是集合了多个配置，如版面背景、尺寸、类型、字体等等，总之看到奇怪的标签就去css文件里找，就可以自己修改细节完善模板。也有一些比较通用，在网上能查到具体的含义。</p>
+<p>例如：<a href="https://blog.csdn.net/liyang_nash/article/details/81163782">https://blog.csdn.net/liyang_nash/article/details/81163782</a>  col-xs , col-sm , col-md , col-lg的解释（css一个用于排版的标签）。</p>
+<h2 id="6-网页制作和发布"><a href="#6-网页制作和发布" class="headerlink" title="6.网页制作和发布"></a>6.网页制作和发布</h2><p>一个网页包含head/body/footer几部分。</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">head除了<span class="params">&lt;title&gt;</span>是标签的描述之外不用管他，footer可能有copyright作者和年份。一般body是需要改动的部分。</span><br><span class="line"></span><br><span class="line">最基本的一些：<span class="params">&lt;p&gt;</span>标签。<span class="params">&lt;a href&gt;</span> ...<span class="params">&lt;/a&gt;</span>给文字加超链接。</span><br><span class="line"></span><br><span class="line"><span class="params">&lt;ul&gt;</span>带黑点的列表，<span class="params">&lt;ol&gt;</span>数字编号列表，列表中的每一项用<span class="params">&lt;li&gt;</span>包围。</span><br><span class="line"></span><br><span class="line">标题<span class="params">&lt;h1&gt;</span> <span class="params">&lt;h2&gt;</span>...。</span><br><span class="line"></span><br><span class="line"><span class="params">&lt;br&gt;</span>换行，<span class="params">&lt;hr/&gt;</span>添加分割线。</span><br><span class="line"></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//ui.itcast.cn/news/20190801/11381494832.shtml 分割线</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//www.divcss5.com/html/h323.shtml 常用标签元素</span></span><br></pre></td></tr></table></figure>
+<p>总之，各个标签怎么用，细节怎么写，参考别人的主页，简单的网站，以及已经做好的模板的源代码，是最容易解决的。</p>
+<h2 id="7-备案"><a href="#7-备案" class="headerlink" title="7.备案"></a>7.备案</h2><p>首先拿到域名、拿到服务器都需要备案，身份证+人脸识别视频（白背景+正规衣服）+网站名称和说明。一般没有第一次填写没有问题的，客服会打电话来教学和帮助修改。</p>
+<p>网站名称和说明需要注意：有些地区不能出现姓名、博客、日记、论坛等关键词（神仙设定），说明时不能出现可能有、大概、等这类概率性的词。</p>
+<p>此外，备案通过后，需要把备案号加在主页底部。这个也会有人打电话说明。</p>
+<p>保持手机畅通是最重要的。</p>
+<hr>
+<p>搭好的个人主页：<a href="http://wintersky.xyz/index.html">http://wintersky.xyz/index.html</a></p>
+<p>查资料是程序员必备的技能。</p>
+]]></content>
+      <categories>
+        <category>小技巧</category>
+      </categories>
+      <tags>
+        <tag>个人网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows10锁屏背景的位置-无需更换文件格式-方便保存</title>
+    <url>/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/</url>
+    <content><![CDATA[<h3 id="2021-02-24-更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸"><a href="#2021-02-24-更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸" class="headerlink" title="2021.02.24 更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸"></a>2021.02.24 更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸</h3><h2 id="window10的壁纸在哪里？"><a href="#window10的壁纸在哪里？" class="headerlink" title="window10的壁纸在哪里？"></a>window10的壁纸在哪里？</h2><p>win10的锁屏位置，网上一查全都是在这个文件夹下的一堆乱命名文件，自己修改格式为jpg</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">C</span>:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw<span class="number">5</span>n<span class="number">1</span>h<span class="number">2</span>txyewy\LocalState\Assets\</span><br></pre></td></tr></table></figure>
+<p>错误：博主打开一看，这个文件夹只有一个文件，而且确实可以修改为jpg，修改完变成了看着特别小的图片，另外系统默认的四张背景也不在里面。这根本不是我想要的。虽然不能保证谁都会遇到这个问题，遇到这个问题还是需要解决方案的。</p>
+<img src="/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/1.png" alt="图片1" align="center">
+
+<p>而且，人们想要一张spotlight壁纸，一般都是刚刚出现过的锁屏壁纸。并不是急于找到所有可能不知道什么时候出现的壁纸。</p>
+<p>所以，真正的壁纸位置，是：</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\W</span>eb<span class="symbol">\S</span>creen</span><br></pre></td></tr></table></figure>
+<p>打开看到，壁纸已经是标准大小+标准格式了，而且路径不带用户名方便敲打，而默认的几张壁纸的也不会错过了。img105.jpg就是即将出现的锁屏，100到104应该都眼熟了吧。<br><img src="/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/2.png" alt="图片2" align="center"></p>
+<p>还有一个重要的问题：平时你看到的这个105，其实是下一次准备出现的锁屏壁纸。这是因为每次用户从锁屏界面进入时，系统自带的不知道什么xx程序会运行并把这张105换成下一次锁屏出现的图片方便使用。所以，如果不是想看下一次的锁屏，而是看上了刚刚锁屏出现过的图片，那么下手要趁早，在系统换壁纸之前把105拷走。</p>
+<p>博主目前的做法是win+r，输入路径名，迅速选中壁纸并完成copy-paste操作，是很考验手速了。注意：如果没有及时paste，也可能会出现copy好了旧图片，结果paste变成了新图片。跟系统比手快哈。</p>
+<p>如果想要方便一点，可以写个脚本，逻辑很简单，保存上一张img105.jpg的日期or内容等信息，通过比较就可以在每次img105.jpg更新后将其自动copy到另一个文件夹，这样就不会因为手残错过好看的壁纸咯~o(<em>￣▽￣</em>)ブ</p>
+<p>代码博主没有写，如果写好了会更新（反正目前博主对自己的手速很自信o(<em>￣▽￣</em>)ブ）</p>
+]]></content>
+      <categories>
+        <category>小技巧</category>
+      </categories>
+      <tags>
+        <tag>windows10</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字节跳动校园招聘内推码</title>
     <url>/shixi/1/</url>
     <content><![CDATA[<p>字节跳动校园招聘内推码：ASZ7RWS （邵帅）<br><a href="https://job.bytedance.com/campus%E5%9C%A8%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8">https://job.bytedance.com/campus在字节跳动</a> 2021 校园招聘中，每人最多可投递两个职位，每个职位可选择选择服从调剂的三个城市。如果你投递的职位未被录用，HR 有可能会根据你选择的服从调剂城市，再次邀请你进入校招流程。你的申请职位及招聘进度会随之更新，请留意相关邮件及短信通知。</p>
@@ -839,7 +939,7 @@
     <url>/shixi/2/</url>
     <content><![CDATA[<p>蚂蚁集团是中国最大的移动支付平台支付宝的母公司，也是全球领先的金融科技开放平台，致力于以科技推动包括金融服务业在内的全球现代服务业的数字化升级，携手合作伙伴为消费者和小微企业提供普惠、绿色、可持续的服务，为世界带来微小而美好的改变，用科技让普通人和小企业，享受平等的金融和生活服务。<br>蚂蚁集团旗下产品包括支付宝、蚂蚁财富、芝麻信用、花呗、相互宝、余额宝、蚂蚁森林、网商银行等。</p>
 <p>岗位类型<br>研发类：JAVA C/C++ 前端 客户端 数据研发等<br>安全类：安全工程师<br>算法类：机器学习 图像图形 自然语言处理等<br>设计类：创意设计师 体验设计等<br>其　它：产品 运营等</p>
-<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#x79;&#105;&#x78;&#x69;&#x2e;&#122;&#x79;&#102;&#64;&#x61;&#110;&#116;&#103;&#x72;&#x6f;&#117;&#112;&#46;&#x63;&#x6f;&#109;">&#x79;&#105;&#x78;&#x69;&#x2e;&#122;&#x79;&#102;&#64;&#x61;&#110;&#116;&#103;&#x72;&#x6f;&#117;&#112;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#121;&#x69;&#x78;&#105;&#46;&#x7a;&#121;&#x66;&#x40;&#97;&#x6e;&#x74;&#103;&#114;&#x6f;&#117;&#112;&#x2e;&#x63;&#111;&#109;">&#121;&#x69;&#x78;&#105;&#46;&#x7a;&#121;&#x66;&#x40;&#97;&#x6e;&#x74;&#103;&#114;&#x6f;&#117;&#112;&#x2e;&#x63;&#111;&#109;</a></p>
 ]]></content>
       <categories>
         <category>工作</category>
@@ -870,7 +970,7 @@
 <li>扎实的编程功底（C++/python），熟悉主流深度学习框架；<br>（pytorch/tensorflow/mxnet/caffe）；</li>
 <li>实习期 3 个月以上，每周至少出勤 4 天；</li>
 </ol>
-<p>简历请发：<a href="mailto:&#x6b;&#97;&#x69;&#x73;&#101;&#x72;&#122;&#x68;&#97;&#x6f;&#x40;&#116;&#x65;&#x6e;&#x63;&#x65;&#110;&#116;&#46;&#x63;&#x6f;&#x6d;">&#x6b;&#97;&#x69;&#x73;&#101;&#x72;&#122;&#x68;&#97;&#x6f;&#x40;&#116;&#x65;&#x6e;&#x63;&#x65;&#110;&#116;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>简历请发：<a href="mailto:&#107;&#97;&#x69;&#x73;&#x65;&#114;&#122;&#x68;&#x61;&#111;&#64;&#x74;&#x65;&#110;&#x63;&#101;&#x6e;&#116;&#x2e;&#x63;&#111;&#x6d;">&#107;&#97;&#x69;&#x73;&#x65;&#114;&#122;&#x68;&#x61;&#111;&#64;&#x74;&#x65;&#110;&#x63;&#101;&#x6e;&#116;&#x2e;&#x63;&#111;&#x6d;</a></p>
 <p>邮箱主题/简历命名格式：腾讯优图实习申请+姓名+CVer推荐</p>
 ]]></content>
       <categories>
@@ -934,164 +1034,6 @@
         <category>工作</category>
         <category>暑期实习</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Markdown转义字符</title>
-    <url>/tricks/Markdown%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>最近在疯狂搭建hexo+neXt博客。<br>用markdown时遇到了一些问题：转义字符怎么打？</p>
-<p>找到了不错的blog链接：<br><a href="https://www.cnblogs.com/Tom-Ren/p/10234956.html">链接</a></p>
-]]></content>
-      <categories>
-        <category>小技巧</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人主页建站攻略简述</title>
-    <url>/tricks/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/</url>
-    <content><![CDATA[<h2 id="0-github-page"><a href="#0-github-page" class="headerlink" title="0.github page"></a>0.github page</h2><p>如果只需要静态网站，可以直接以[username].github.io建立一个新项目，并在theme修改一个适合的主题。md形式的个人网站编辑起来也很方便。</p>
-<h2 id="1-云服务器："><a href="#1-云服务器：" class="headerlink" title="1.云服务器："></a>1.云服务器：</h2><p>同实验室用的服务器类似，在服务器网站上买。试了一下，我这个经常连服务器跑dl的人，租一台带公网ip的服务器，用着非常舒适。远程虚拟主机不知道，据说用着比较麻烦，小厂商服务器或者虚拟主机可能会有免费的，但是实验证明有点卡。</p>
-<p>个人购买：腾讯云，入门级的云服务器。（主要是我域名申请好久了，并且买完发现其带有很无脑的环境配置方法。）</p>
-<p>推荐linux系统，ubuntu或者centos，别的不说，直观感受资料多比较好找。</p>
-<h2 id="2-域名："><a href="#2-域名：" class="headerlink" title="2.域名："></a>2.域名：</h2><p>卖云服务器的网站一般都可以申请，不会太贵。重点是域名一般和云服务器放在一个厂商，否则转入转出有点烦。需要备案，身份证号之类的，会给邮件提示的。</p>
-<h2 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3.域名解析"></a>3.域名解析</h2><p>域名怎么关联在服务器上：域名解析，一般在云服务器的控制台操作。</p>
-<h2 id="4-实验环境配置："><a href="#4-实验环境配置：" class="headerlink" title="4.实验环境配置："></a>4.实验环境配置：</h2><p>在云服务器上配置环境，使得一般用html或tomcat或php+一系列环境。</p>
-<p>httpd最简单，不支持script的前提下挂最简单的html网站（如简历和博客）非常容易。<br>tomcat，比较传统的管理系统网站设计，写过XX管理系统实验的同学应该比较会。<br>php系列，比较新鲜，同时有一些现成的博客和论坛应用可以套用</p>
-<h3 id="4-1html-httpd："><a href="#4-1html-httpd：" class="headerlink" title="4.1html/httpd："></a>4.1html/httpd：</h3><p>apache httpd，用yum+指令直接安装好。（忘了保存那个博客，自己找找）然后在/var/www/html目录放上index.html就能打开了。除了比较单一，不会遇到其他的乱七八糟问题。</p>
-<h3 id="4-2tomcat："><a href="#4-2tomcat：" class="headerlink" title="4.2tomcat："></a>4.2tomcat：</h3><p>推荐给学过javaEE/jsp之类的管理系统同学，具体的就是跟着教程装一个jdk，装一个tomcat，简单设置，然后在提示的目录下放文件夹/项目。</p>
-<h3 id="4-3php-LNMP"><a href="#4-3php-LNMP" class="headerlink" title="4.3php+LNMP:"></a>4.3php+LNMP:</h3><p>基于php语言，比较新鲜，而且有很多应用。我没学过，详细环境安装跟着腾讯云的提示，一行一行的粘贴就好了。我装db的时候遇到点问题，想着有点麻烦而且网页功能不难，就去转其他路子了。</p>
-<p><a href="https://cloud.tencent.com/document/product/213/38056">https://cloud.tencent.com/document/product/213/38056</a> 腾讯云配置lnmp环境的文档。</p>
-<p>基于这个环境，很多人推荐用wordpress建立博客：<a href="https://cloud.tencent.com/document/product/213/8044">https://cloud.tencent.com/document/product/213/8044</a></p>
-<p>具体建立博客、论坛、网站的应用列表：<a href="https://blog.csdn.net/caoshangpa/article/details/78561806">https://blog.csdn.net/caoshangpa/article/details/78561806</a></p>
-<h2 id="5-模板（针对html网站）"><a href="#5-模板（针对html网站）" class="headerlink" title="5.模板（针对html网站）"></a>5.模板（针对html网站）</h2><p>配置好环境，就可以把想要的网站可以传到网页了。但想要一个好看的个人网站，设计也很重要，尤其是对于没有html+css基础的人，从零写一个精美的网站十分困难，现成的模板已经包装好了一些配置，可以很快的解决问题。</p>
-<p>个人使用：模板之家。其他类似的网站也可以，找到很多别人做的网站，感兴趣的下载下来改一改就可以用了。</p>
-<p>模板修改：仔细查看html文件中的&lt;class=&gt;标签的类型，可以在css的某个文件找到它的描述。有点css文件夹打开是一长条，不太实用。另外一些是一部分定义的特有的类的描述，一般都是集合了多个配置，如版面背景、尺寸、类型、字体等等，总之看到奇怪的标签就去css文件里找，就可以自己修改细节完善模板。也有一些比较通用，在网上能查到具体的含义。</p>
-<p>例如：<a href="https://blog.csdn.net/liyang_nash/article/details/81163782">https://blog.csdn.net/liyang_nash/article/details/81163782</a>  col-xs , col-sm , col-md , col-lg的解释（css一个用于排版的标签）。</p>
-<h2 id="6-网页制作和发布"><a href="#6-网页制作和发布" class="headerlink" title="6.网页制作和发布"></a>6.网页制作和发布</h2><p>一个网页包含head/body/footer几部分。</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">head除了<span class="params">&lt;title&gt;</span>是标签的描述之外不用管他，footer可能有copyright作者和年份。一般body是需要改动的部分。</span><br><span class="line"></span><br><span class="line">最基本的一些：<span class="params">&lt;p&gt;</span>标签。<span class="params">&lt;a href&gt;</span> ...<span class="params">&lt;/a&gt;</span>给文字加超链接。</span><br><span class="line"></span><br><span class="line"><span class="params">&lt;ul&gt;</span>带黑点的列表，<span class="params">&lt;ol&gt;</span>数字编号列表，列表中的每一项用<span class="params">&lt;li&gt;</span>包围。</span><br><span class="line"></span><br><span class="line">标题<span class="params">&lt;h1&gt;</span> <span class="params">&lt;h2&gt;</span>...。</span><br><span class="line"></span><br><span class="line"><span class="params">&lt;br&gt;</span>换行，<span class="params">&lt;hr/&gt;</span>添加分割线。</span><br><span class="line"></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//ui.itcast.cn/news/20190801/11381494832.shtml 分割线</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//www.divcss5.com/html/h323.shtml 常用标签元素</span></span><br></pre></td></tr></table></figure>
-<p>总之，各个标签怎么用，细节怎么写，参考别人的主页，简单的网站，以及已经做好的模板的源代码，是最容易解决的。</p>
-<h2 id="7-备案"><a href="#7-备案" class="headerlink" title="7.备案"></a>7.备案</h2><p>首先拿到域名、拿到服务器都需要备案，身份证+人脸识别视频（白背景+正规衣服）+网站名称和说明。一般没有第一次填写没有问题的，客服会打电话来教学和帮助修改。</p>
-<p>网站名称和说明需要注意：有些地区不能出现姓名、博客、日记、论坛等关键词（神仙设定），说明时不能出现可能有、大概、等这类概率性的词。</p>
-<p>此外，备案通过后，需要把备案号加在主页底部。这个也会有人打电话说明。</p>
-<p>保持手机畅通是最重要的。</p>
-<hr>
-<p>搭好的个人主页：<a href="http://wintersky.xyz/index.html">http://wintersky.xyz/index.html</a></p>
-<p>查资料是程序员必备的技能。</p>
-]]></content>
-      <categories>
-        <category>小技巧</category>
-      </categories>
-      <tags>
-        <tag>个人网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP入门笔记（一） 入门操作+程序框架+基本数据类型</title>
-    <url>/tricks/PHP%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>当年有人说，php是最好的语言。<br>就像现在python。<br>——2021年记</p>
-<p>学习地址：<a href="http://www.php.cn/">PHP中文网</a></p>
-<span id="more"></span>
-<p>1.初学者最简单的集成工具包：phpStudy。(php+Apcha+Mysql+xxxx)</p>
-<p>界面如下：<br><img src="/tricks/PHP%E5%85%A5%E9%97%A8/1.png" alt="图片1" align="center"></p>
-<p>2.网页文件根目录：安装目录\phpStudy\PHPTutorial\WWW（服务器可查看）</p>
-<p>运行文件方式：浏览器输入localhost/{filename}</p>
-<p>推荐编译器：Notepad++/phpStorm。反正我用前一个。</p>
-<p>3.语言基本框架：<?php ?></p>
-<p>*PHP是嵌入html的代码段，因此一个网页可以用多段代码。</p>
-<p>实例文件phpinfo用于获取版本号。<br><img src="/tricks/PHP%E5%85%A5%E9%97%A8/2.png" alt="图片2" align="center"></p>
-<p>4.防止中文乱码：在php后面一行加上：header(“content-type:text/html;charset=utf-8”);//不要加多余空格</p>
-<p>也可用html的方式</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">5.输出：<span class="built_in">echo</span> ***;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">6.变量定义：<span class="variable">$&#123;name&#125;</span> = ****;</span><br><span class="line"></span><br><span class="line">整型：<span class="comment">#num#为10进制，#0num#为8进制，#0xnum#为16进制。</span></span><br><span class="line"></span><br><span class="line">布尔boolean：True/False</span><br><span class="line"></span><br><span class="line">字符串：单引号/双引号/&lt;&lt;&lt;<span class="string">ABC(或其他大写字母)...（顶格）ABC</span>;</span><br><span class="line"></span><br><span class="line">      *三种表示法对比：</span><br><span class="line"></span><br><span class="line">             双引号识别转义字符（\n等），支持解析变量。<span class="variable">$name</span>[space] 或者&#123;<span class="variable">$name</span>&#125;</span><br><span class="line"></span><br><span class="line">             单引号效率高，支持<span class="string">&#x27;\和\</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">             第三种常用于字符很长的时候，功能看作双引号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        *字符串拼接符号：（.） echo $a.$b;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">浮点数：普通定义同C语言，科学定义直接为8.5e3等</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">*var_dump()函数，参数为变量，用于取得此变量类型。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">7.转义字符：\\</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">单引号使用\&#x27;</span>。双引号直接使用‘’，且可以组合使用，双引号的字符串加单引号，单引号中变量可以解析。</span><br><span class="line"></span><br><span class="line">*\n和\t（双引号）通过在html网页查看源代码的方式对比：</span><br><span class="line"></span><br><span class="line">      \n相当于按了一个回车。</span><br><span class="line"></span><br><span class="line">      \t相当于按了一个tab。</span><br><span class="line"></span><br><span class="line">      但是两者显示到网页中都是空格的效果</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows10锁屏背景的位置-无需更换文件格式-方便保存</title>
-    <url>/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/</url>
-    <content><![CDATA[<h3 id="2021-02-24-更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸"><a href="#2021-02-24-更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸" class="headerlink" title="2021.02.24 更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸"></a>2021.02.24 更新：联想锁屏壁纸好用，可以直接把喜欢的壁纸保存，可以找到很多高清壁纸</h3><h2 id="window10的壁纸在哪里？"><a href="#window10的壁纸在哪里？" class="headerlink" title="window10的壁纸在哪里？"></a>window10的壁纸在哪里？</h2><p>win10的锁屏位置，网上一查全都是在这个文件夹下的一堆乱命名文件，自己修改格式为jpg</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">C</span>:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw<span class="number">5</span>n<span class="number">1</span>h<span class="number">2</span>txyewy\LocalState\Assets\</span><br></pre></td></tr></table></figure>
-<p>错误：博主打开一看，这个文件夹只有一个文件，而且确实可以修改为jpg，修改完变成了看着特别小的图片，另外系统默认的四张背景也不在里面。这根本不是我想要的。虽然不能保证谁都会遇到这个问题，遇到这个问题还是需要解决方案的。</p>
-<img src="/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/1.png" alt="图片1" align="center">
-
-<p>而且，人们想要一张spotlight壁纸，一般都是刚刚出现过的锁屏壁纸。并不是急于找到所有可能不知道什么时候出现的壁纸。</p>
-<p>所以，真正的壁纸位置，是：</p>
-<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\W</span>eb<span class="symbol">\S</span>creen</span><br></pre></td></tr></table></figure>
-<p>打开看到，壁纸已经是标准大小+标准格式了，而且路径不带用户名方便敲打，而默认的几张壁纸的也不会错过了。img105.jpg就是即将出现的锁屏，100到104应该都眼熟了吧。<br><img src="/tricks/%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8/2.png" alt="图片2" align="center"></p>
-<p>还有一个重要的问题：平时你看到的这个105，其实是下一次准备出现的锁屏壁纸。这是因为每次用户从锁屏界面进入时，系统自带的不知道什么xx程序会运行并把这张105换成下一次锁屏出现的图片方便使用。所以，如果不是想看下一次的锁屏，而是看上了刚刚锁屏出现过的图片，那么下手要趁早，在系统换壁纸之前把105拷走。</p>
-<p>博主目前的做法是win+r，输入路径名，迅速选中壁纸并完成copy-paste操作，是很考验手速了。注意：如果没有及时paste，也可能会出现copy好了旧图片，结果paste变成了新图片。跟系统比手快哈。</p>
-<p>如果想要方便一点，可以写个脚本，逻辑很简单，保存上一张img105.jpg的日期or内容等信息，通过比较就可以在每次img105.jpg更新后将其自动copy到另一个文件夹，这样就不会因为手残错过好看的壁纸咯~o(<em>￣▽￣</em>)ブ</p>
-<p>代码博主没有写，如果写好了会更新（反正目前博主对自己的手速很自信o(<em>￣▽￣</em>)ブ）</p>
-]]></content>
-      <categories>
-        <category>小技巧</category>
-      </categories>
-      <tags>
-        <tag>windows10</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件创新</title>
-    <url>/dailylife-notes/innovation/notes/</url>
-    <content><![CDATA[<ul>
-<li><p><a href="%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6.md">期望开发的软件</a></p>
-</li>
-<li><p><a href="%E6%9C%BA%E5%99%A8%E4%BA%BA.md">机器人的结构</a></p>
-</li>
-<li><p><a href="%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC.md">理想笔记本的功能</a></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>机器人</title>
-    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
-    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
-<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
-<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
-<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
-<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
-<li>4.学习模块：主动学习；强化学习；</li>
-<li>5.记忆模块：人脸识别和记录；消息记录；</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>期望开发的软件</title>
-    <url>/dailylife-notes/innovation/%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="我想开发的软件程序"><a href="#我想开发的软件程序" class="headerlink" title="我想开发的软件程序"></a>我想开发的软件程序</h3><ul>
-<li>高级脸型身材分析：视频格式，3d建模，图像识别和分析处理。</li>
-<li>高级运动减脂营：ai的运动教练，提醒，图片识别和大小分析，自然语音处理，群聊格式。</li>
-<li>*想学小程序的编程，喵。</li>
-<li>学习小管家（软件+嵌入式）：针对载入的教程，监督学习，可提问。对完成效果合理评估。（机器学习、自然语言理解、大数据分析、图像/语音/视频分析）</li>
-<li>行动力评估系统：评价一个人的行动力、爱心等，作为一张名片。希望最终能成为社会通识。</li>
-<li>懒人伙伴系统：对没有遵守规则的现象在社区进行通报批评，对长期坚持的进行表扬和奖励，分小组相互监督。</li>
-<li>软件过滤器：封装一些软件的常用功能接口，过滤掉不应该使用的功能。或加群，如不按时间解锁需要支付大量金币（rmb）。</li>
-<li>拍照识别神器：文字识别，然后识别题干和选项，自动分割题目，可打乱题目顺序和选项顺序进行训练</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>理想笔记本</title>
-    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
-    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
-<li><p>生活日记</p>
-</li>
-<li><p>计划管理</p>
-</li>
-<li><p>paper笔记</p>
-</li>
-<li><p>重要通知</p>
-</li>
-<li><p>（课程笔记，作业笔记，学术报告）</p>
-</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>人生目标分析</title>
@@ -1186,6 +1128,34 @@
 ]]></content>
   </entry>
   <entry>
+    <title>软件创新</title>
+    <url>/dailylife-notes/innovation/notes/</url>
+    <content><![CDATA[<ul>
+<li><p><a href="%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6.md">期望开发的软件</a></p>
+</li>
+<li><p><a href="%E6%9C%BA%E5%99%A8%E4%BA%BA.md">机器人的结构</a></p>
+</li>
+<li><p><a href="%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC.md">理想笔记本的功能</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>喜欢的课</title>
+    <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
+    <content><![CDATA[<h3 id="喜欢的网课"><a href="#喜欢的网课" class="headerlink" title="喜欢的网课"></a>喜欢的网课</h3><ul>
+<li>1.心理学与生活（6.6截止），课件已全部上传。</li>
+<li>2.走进天文学（6.6截止），课件已全部上传。</li>
+</ul>
+<h4 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h4><ul>
+<li>1.职业与创业胜任力（2.10-6.1），据说老师讲得很细很好。</li>
+<li>4.普通天文学：开课很多周了。结束考试，未结课。</li>
+<li>5.天文探秘：内容未知待考察。</li>
+<li>3.走进创业：2.10-6.15。案例驱动。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>出国需要的部分</title>
     <url>/dailylife-notes/goals/%E5%87%BA%E5%9B%BD%E9%9C%80%E6%B1%82/</url>
     <content><![CDATA[<h2 id="出国需要的点"><a href="#出国需要的点" class="headerlink" title="出国需要的点"></a>出国需要的点</h2><ul>
@@ -1218,17 +1188,17 @@
 ]]></content>
   </entry>
   <entry>
-    <title>喜欢的课</title>
-    <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
-    <content><![CDATA[<h3 id="喜欢的网课"><a href="#喜欢的网课" class="headerlink" title="喜欢的网课"></a>喜欢的网课</h3><ul>
-<li>1.心理学与生活（6.6截止），课件已全部上传。</li>
-<li>2.走进天文学（6.6截止），课件已全部上传。</li>
-</ul>
-<h4 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h4><ul>
-<li>1.职业与创业胜任力（2.10-6.1），据说老师讲得很细很好。</li>
-<li>4.普通天文学：开课很多周了。结束考试，未结课。</li>
-<li>5.天文探秘：内容未知待考察。</li>
-<li>3.走进创业：2.10-6.15。案例驱动。</li>
+    <title>期望开发的软件</title>
+    <url>/dailylife-notes/innovation/%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="我想开发的软件程序"><a href="#我想开发的软件程序" class="headerlink" title="我想开发的软件程序"></a>我想开发的软件程序</h3><ul>
+<li>高级脸型身材分析：视频格式，3d建模，图像识别和分析处理。</li>
+<li>高级运动减脂营：ai的运动教练，提醒，图片识别和大小分析，自然语音处理，群聊格式。</li>
+<li>*想学小程序的编程，喵。</li>
+<li>学习小管家（软件+嵌入式）：针对载入的教程，监督学习，可提问。对完成效果合理评估。（机器学习、自然语言理解、大数据分析、图像/语音/视频分析）</li>
+<li>行动力评估系统：评价一个人的行动力、爱心等，作为一张名片。希望最终能成为社会通识。</li>
+<li>懒人伙伴系统：对没有遵守规则的现象在社区进行通报批评，对长期坚持的进行表扬和奖励，分小组相互监督。</li>
+<li>软件过滤器：封装一些软件的常用功能接口，过滤掉不应该使用的功能。或加群，如不按时间解锁需要支付大量金币（rmb）。</li>
+<li>拍照识别神器：文字识别，然后识别题干和选项，自动分割题目，可打乱题目顺序和选项顺序进行训练</li>
 </ul>
 ]]></content>
   </entry>
@@ -1263,6 +1233,19 @@
 ]]></content>
   </entry>
   <entry>
+    <title>机器人</title>
+    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
+    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
+<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
+<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
+<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
+<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
+<li>4.学习模块：主动学习；强化学习；</li>
+<li>5.记忆模块：人脸识别和记录；消息记录；</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>人生目标</title>
     <url>/dailylife-notes/society/%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h3 id="明确的人生目标"><a href="#明确的人生目标" class="headerlink" title="明确的人生目标"></a>明确的人生目标</h3><ul>
@@ -1280,6 +1263,23 @@
 <li>第一阶段只收集资料不做任何决定。</li>
 <li>第二阶段前深呼吸20次以上。</li>
 <li>第三阶段绝对不反悔，全心应对前进执行中出现的情况。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>理想笔记本</title>
+    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
+<li><p>生活日记</p>
+</li>
+<li><p>计划管理</p>
+</li>
+<li><p>paper笔记</p>
+</li>
+<li><p>重要通知</p>
+</li>
+<li><p>（课程笔记，作业笔记，学术报告）</p>
+</li>
 </ul>
 ]]></content>
   </entry>
@@ -1313,16 +1313,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>时间管理</title>
-    <url>/dailylife-notes/society/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h3 id="如何管理时间"><a href="#如何管理时间" class="headerlink" title="如何管理时间"></a>如何管理时间</h3><p>大脑会认为急迫的事情都很重要。   </p>
-<ul>
-<li>尤利西斯合约：当下的自己和未来不理智的自己做一个约定。   </li>
-<li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>拒绝别人</title>
     <url>/dailylife-notes/society/%E6%8B%92%E7%BB%9D%E5%88%AB%E4%BA%BA/</url>
     <content><![CDATA[<h3 id="拒绝别人"><a href="#拒绝别人" class="headerlink" title="拒绝别人"></a>拒绝别人</h3><p>拒绝自己无法完成的事情是为别人着想，长痛不如短痛。<br>拒绝一个请求不代表拒绝一个人。<br>接受一个要求代表需要放弃一些更重要的事情。   </p>
@@ -1330,6 +1320,16 @@
 <li>1时间换空间法：例如邀约：可以啊，不过我好像还有另一个重要的事情，解决掉之后在来吧。</li>
 <li>2对方筛选法：例如老板要求：我很喜欢，但是我手上还有a.b.c工作，您看我能不能先不做哪个工作。</li>
 <li>3提供其他方案：提出其他你愿意做的事情。例如：我看xxx好像比较感兴趣。我下个月帮你可以吗。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>时间管理</title>
+    <url>/dailylife-notes/society/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h3 id="如何管理时间"><a href="#如何管理时间" class="headerlink" title="如何管理时间"></a>如何管理时间</h3><p>大脑会认为急迫的事情都很重要。   </p>
+<ul>
+<li>尤利西斯合约：当下的自己和未来不理智的自己做一个约定。   </li>
+<li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
 </ul>
 ]]></content>
   </entry>
