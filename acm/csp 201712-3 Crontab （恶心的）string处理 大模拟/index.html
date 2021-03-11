@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":10,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="题目链接 然后贴上一份别人比我写得好看的代码 不得不说，不提前规划好怎么写，或者不用C++的string，或者写代码的时候不够心细，处理起来是很恶心的。所以考试的时候一定要先写简单的部分，否则这题性价比挺低的，尤其是错了点细节可能会让你写了上百行的代码得20分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="csp 201712-3 Crontab （恶心的）string处理 大模拟">
+<meta property="og:url" content="http://example.com/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/index.html">
+<meta property="og:site_name" content="Starry Wintersky">
+<meta property="og:description" content="题目链接 然后贴上一份别人比我写得好看的代码 不得不说，不提前规划好怎么写，或者不用C++的string，或者写代码的时候不够心细，处理起来是很恶心的。所以考试的时候一定要先写简单的部分，否则这题性价比挺低的，尤其是错了点细节可能会让你写了上百行的代码得20分。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-21T17:03:07.000Z">
+<meta property="article:modified_time" content="2021-02-24T15:13:08.290Z">
+<meta property="article:author" content="Ziyuan Wang">
+<meta property="article:tag" content="acm">
+<meta property="article:tag" content="csp">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>csp 201712-3 Crontab （恶心的）string处理 大模拟 | Starry Wintersky</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a target="_blank" rel="noopener" href="https://github.com/starry097" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Starry Wintersky</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>简历</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-notes">
+
+    <a href="/notes/" rel="section"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="小星星starry的个人网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          csp 201712-3 Crontab （恶心的）string处理 大模拟
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-22 01:03:07" itemprop="dateCreated datePublished" datetime="2018-07-22T01:03:07+08:00">2018-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 23:13:08" itemprop="dateModified" datetime="2021-02-24T23:13:08+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T66">题目链接</a></p>
+<p>然后贴上一份别人比我写得好看的<a target="_blank" rel="noopener" href="https://blog.csdn.net/banana_cjb/article/details/79174688">代码</a></p>
+<p>不得不说，不提前规划好怎么写，或者不用C++的string，或者写代码的时候不够心细，处理起来是很恶心的。所以考试的时候一定要先写简单的部分，否则这题性价比挺低的，尤其是错了点细节可能会让你写了上百行的代码得20分。</p>
+<span id="more"></span>
+<p><strong>本人遇到的问题：</strong></p>
+<p>1.数组下标写错。代码能力所致。</p>
+<p>2.erase写错，因为是多重遍历，跳出循环需要处理一下字符串。所以提前规划好要怎么写是很重要的，不要中途改来改去。</p>
+<p>3.日期数错。这个就尴尬了，用了一个数组记某个月过去这一年多少天，也就是31.28.31.30…的前缀数组。但是我算错了一个数，硬生生少了40分。</p>
+<p>4.看错题忽略掉关键细节。首先Jun这种表示法，大小写都有可能。最后的15分看了别人的代码才发现错哪了。然后数据范围是左闭右开。</p>
+<p>5.整数和字符串转化问题。不同于java，这里的string拼接整数，不能用+加号，或者直接构造，否则会出现奇怪的结果。然后整数转字符串可以注意一下补位的问题。</p>
+<p>6.合法数据的额外判断。4月31号， 非闰年的2月29号等之类的数据要额外排除掉。</p>
+<p><strong>然后string的一些用法：</strong></p>
+<p>1.size()和length()。取得字符串长度。size等同于其他STL，length在string中刚好是同义词，就是说用哪个都可以。</p>
+<p>2.at()和[]。取得某个位置的元素可以用at(i)后者直接下标访问。</p>
+<p>3.+和append。用来拼接。append可以添加另一个字符的子串（string str, int pos, int len），或者多个相同字符（int time, char ch）</p>
+<p>4.erase。用来删除从pos开始的len长度的字符（int pos, int len）。或删除一个或两个迭代器之间的字符。</p>
+<p>5.find。用来查找某个字符串中某字符/串第一次出现的位置，没有返回npos。（str/char，pos=0）.</p>
+<p>6.substr。返回某个字符串从pos开始，长度为len的子串。</p>
+<p>7.replace。把某个字符串，从pos开始，长度为len的串，替换成新串。（pos, len, string newstr）</p>
+<p><strong>然后处理逻辑：</strong><br>每个指令存5个string类型的vector，分别记录其合法分、小时、天、月、星期的两位字符串。通过遍历找到所有合法组，用星期和范围判断是否是一个指令，把拼接成的字符串存起来，最后通过排序得到按时间排序的指令集。</p>
+<ul>
+<li><p>数据处理：</p>
+<ul>
+<li><p>1.将Week和Month的英文串替换成数字。用两个数组遍历查找一遍即可。</p>
+</li>
+<li><p>2.将可能出现的数字替换成两位的字符串。可能会有补位问题。</p>
+</li>
+<li><p>3.处理<em>。如果是</em>将范围内所有数丢进vector。</p>
+</li>
+<li><p>4.否则按步骤循环处理每个,</p>
+</li>
+<li><p>5.在处理一组,隔开的解时，判断是否有-，有则转换整数将范围内所有数丢进vector，否则将整体丢进vector。</p>
+</li>
+</ul>
+</li>
+<li><p>遍历判断：</p>
+<ul>
+<li><p>1.通过5重循环（年、月、日、时、分）拼接字符串，一边拼接一边判断是否超过范围，超过修改str并continue.</p>
+</li>
+<li><p>2.遍历之前判重，避免插入重复数据（理论上来说不会）</p>
+</li>
+<li><p>3.走到最内层时。将特殊不合法日期去掉。并计算一下星期，查找是否在合法week_vector中，如果不在去掉。</p>
+<p>代码：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">string</span> Months[] = &#123;<span class="string">&quot; &quot;</span>, <span class="string">&quot;jan&quot;</span>, <span class="string">&quot;feb&quot;</span>, <span class="string">&quot;mar&quot;</span>, <span class="string">&quot;apr&quot;</span>, <span class="string">&quot;may&quot;</span>, <span class="string">&quot;jun&quot;</span>, <span class="string">&quot;jul&quot;</span>, <span class="string">&quot;aug&quot;</span>, <span class="string">&quot;sep&quot;</span>, <span class="string">&quot;oct&quot;</span>, <span class="string">&quot;nov&quot;</span>, <span class="string">&quot;dec&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">string</span> Weekdays[] = &#123;<span class="string">&quot;sun&quot;</span>, <span class="string">&quot;mon&quot;</span>, <span class="string">&quot;tue&quot;</span>, <span class="string">&quot;wed&quot;</span>, <span class="string">&quot;thu&quot;</span>, <span class="string">&quot;fri&quot;</span>, <span class="string">&quot;sat&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Dnum[] = &#123;<span class="number">0</span>, <span class="number">31</span>, <span class="number">59</span>, <span class="number">90</span>, <span class="number">120</span>, <span class="number">151</span>, <span class="number">181</span>, <span class="number">212</span>, <span class="number">243</span>, <span class="number">273</span>, <span class="number">304</span>, <span class="number">334</span>, <span class="number">365</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">string</span> sttime, edtime;<span class="comment">//起止时间，左闭右开</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Ans</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">string</span> time, work;</span><br><span class="line"> </span><br><span class="line">&#125;Ans;</span><br><span class="line"><span class="built_in">vector</span>&lt;Ans&gt;ans;<span class="comment">//答案组，多条指令不清空。</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Ans &amp;a, <span class="keyword">const</span> Ans &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; mm, hh, DD, MM, Wek;</span><br><span class="line">    <span class="built_in">string</span> work;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mm.<span class="built_in">clear</span>(), hh.<span class="built_in">clear</span>(), DD.<span class="built_in">clear</span>(), MM.<span class="built_in">clear</span>(), Wek.<span class="built_in">clear</span>();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//----------- string和int转换--------------</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">stoi</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;&quot;stoi:&quot;&lt;&lt;str&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">            ret *= <span class="number">10</span>;</span><br><span class="line">            ret += str.at(<span class="number">0</span>) - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            str = str.substr(<span class="number">1</span>, str.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">itos</span><span class="params">(<span class="keyword">int</span> ipt)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>(ipt)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> ch = ipt % <span class="number">10</span> + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            ipt /= <span class="number">10</span>;</span><br><span class="line">            ret = ch + ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(ret.<span class="built_in">size</span>() &lt; <span class="number">2</span>)ret = <span class="string">&#x27;0&#x27;</span> + ret;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//------------修改过的replaceAll(C++里没有)--------------</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">replaceAll</span><span class="params">(<span class="built_in">string</span> oldstr, <span class="built_in">string</span> old_value, <span class="built_in">string</span> new_value)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;&quot;replaceAll&quot;&lt;&lt;oldstr&lt;&lt;&quot;: &quot;&lt;&lt;old_value&lt;&lt;&quot;-&gt;&quot;&lt;&lt;new_value&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; oldstr.length(); i++)<span class="keyword">if</span>(oldstr[i] &lt;= <span class="string">&#x27;Z&#x27;</span> &amp;&amp; oldstr[i] &gt;= <span class="string">&#x27;A&#x27;</span>)oldstr[i] = oldstr[i] - <span class="string">&#x27;A&#x27;</span> + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">while</span>((pos=oldstr.<span class="built_in">find</span>(old_value))!=<span class="built_in">string</span>::npos)   &#123;</span><br><span class="line">                oldstr = oldstr.replace(pos,old_value.<span class="built_in">size</span>(),new_value);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> oldstr;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//------------分别处理5个数据。因为逻辑基本相同，理论上来说可以带上vector参数用一个函数实现。</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">convMin</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strn;</span><br><span class="line">        <span class="built_in">string</span> pb;</span><br><span class="line">        <span class="keyword">if</span>(str == <span class="string">&quot;*&quot;</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++)&#123;pb = itos(i); mm.push_back(pb);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> pos;</span><br><span class="line">                <span class="keyword">if</span>((pos = str.<span class="built_in">find</span>(<span class="string">&#x27;,&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                        strn = str.substr(<span class="number">0</span>, pos);</span><br><span class="line">                str = str.substr(pos+<span class="number">1</span>, str.<span class="built_in">size</span>() - pos);&#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;strn = str; str = <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">                <span class="keyword">int</span> posn;</span><br><span class="line">                <span class="keyword">if</span>((posn = strn.<span class="built_in">find</span>(<span class="string">&#x27;-&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="built_in">string</span> left = strn.substr(<span class="number">0</span>, posn);</span><br><span class="line">                    <span class="keyword">int</span> il = stoi(left);</span><br><span class="line">                    <span class="built_in">string</span> right = strn.substr(posn+<span class="number">1</span>, strn.<span class="built_in">size</span>()-posn);</span><br><span class="line">                    <span class="keyword">int</span> ir = stoi(right);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = il; i &lt;= ir; i++)&#123;pb = itos(i); mm.push_back(pb);&#125;</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> mm.push_back(itos(stoi(strn)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*cout&lt;&lt;&quot;mm:&quot;&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">        for(int i = 0; i &lt; mm.size(); i++)cout&lt;&lt;mm[i]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="comment">        cout&lt;&lt;endl;*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">convHour</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strn;</span><br><span class="line">        <span class="built_in">string</span> pb;</span><br><span class="line">        <span class="keyword">if</span>(str == <span class="string">&quot;*&quot;</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">24</span>; i++)&#123;pb = itos(i); hh.push_back(pb);&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> pos, posn;</span><br><span class="line">                <span class="keyword">if</span>((pos = str.<span class="built_in">find</span>(<span class="string">&#x27;,&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;strn = str.substr(<span class="number">0</span>, pos);str = str.substr(pos+<span class="number">1</span>, str.<span class="built_in">size</span>() - pos);&#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;strn = str; str = <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">                <span class="keyword">if</span>((posn = strn.<span class="built_in">find</span>(<span class="string">&#x27;-&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="built_in">string</span> left = strn.substr(<span class="number">0</span>, posn);</span><br><span class="line">                    <span class="keyword">int</span> il = stoi(left);</span><br><span class="line">                    <span class="built_in">string</span> right = strn.substr(posn+<span class="number">1</span>, strn.<span class="built_in">size</span>()-posn);</span><br><span class="line">                    <span class="keyword">int</span> ir = stoi(right);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = il; i &lt;= ir; i++)&#123;pb = itos(i); hh.push_back(pb);&#125;</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> hh.push_back(itos(stoi(strn)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*cout&lt;&lt;&quot;hh:&quot;&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">        for(int i = 0; i &lt; hh.size(); i++)cout&lt;&lt;hh[i]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="comment">        cout&lt;&lt;endl;*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">convDay</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strn;</span><br><span class="line">        <span class="built_in">string</span> pb;</span><br><span class="line">        <span class="keyword">if</span>(str == <span class="string">&quot;*&quot;</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">32</span>; i++)&#123;pb = itos(i); DD.push_back(pb);&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> pos, posn;</span><br><span class="line">                <span class="keyword">if</span>((pos = str.<span class="built_in">find</span>(<span class="string">&#x27;,&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;strn = str.substr(<span class="number">0</span>, pos);str = str.substr(pos+<span class="number">1</span>, str.<span class="built_in">size</span>() - pos);&#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;strn = str; str = <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">                <span class="keyword">if</span>((posn = strn.<span class="built_in">find</span>(<span class="string">&#x27;-&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="built_in">string</span> left = strn.substr(<span class="number">0</span>, posn);</span><br><span class="line">                    <span class="keyword">int</span> il = stoi(left);</span><br><span class="line">                    <span class="built_in">string</span> right = strn.substr(posn+<span class="number">1</span>, strn.<span class="built_in">size</span>()-posn);</span><br><span class="line">                    <span class="keyword">int</span> ir = stoi(right);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = il; i &lt;= ir; i++)&#123;pb = itos(i); DD.push_back(pb);&#125;</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> DD.push_back(itos(stoi(strn)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*cout&lt;&lt;&quot;DD:&quot;&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">        for(int i = 0; i &lt; DD.size(); i++)cout&lt;&lt;DD[i]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="comment">        cout&lt;&lt;endl;*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">convMon</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strn;</span><br><span class="line">        <span class="built_in">string</span> pb;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">12</span>; i++)&#123;</span><br><span class="line">            pb = itos(i);</span><br><span class="line">            str = replaceAll(str, Months[i], pb);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(str == <span class="string">&quot;*&quot;</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">13</span>; i++)&#123;pb = itos(i);MM.push_back(pb);&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> pos, posn;</span><br><span class="line">            <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((pos = str.<span class="built_in">find</span>(<span class="string">&#x27;,&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;strn = str.substr(<span class="number">0</span>, pos);str = str.substr(pos+<span class="number">1</span>, str.<span class="built_in">size</span>() - pos);&#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;strn = str; str = <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">                <span class="keyword">if</span>((posn = strn.<span class="built_in">find</span>(<span class="string">&#x27;-&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="built_in">string</span> left = strn.substr(<span class="number">0</span>, posn);</span><br><span class="line">                    <span class="keyword">int</span> il = stoi(left);</span><br><span class="line">                    <span class="built_in">string</span> right = strn.substr(posn+<span class="number">1</span>, strn.<span class="built_in">size</span>()-posn);</span><br><span class="line">                    <span class="keyword">int</span> ir = stoi(right);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = il; i &lt;= ir; i++)&#123;pb = itos(i);MM.push_back(pb);&#125;</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> MM.push_back(itos(stoi(strn)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">convWek</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strn;</span><br><span class="line">        <span class="built_in">string</span> pb;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            pb = itos(i);</span><br><span class="line">            str = replaceAll(str, Weekdays[i], pb);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(str == <span class="string">&quot;*&quot;</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)&#123;pb = itos(i); Wek.push_back(pb);&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> pos , posn;</span><br><span class="line">            <span class="keyword">while</span>(str != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((pos = str.<span class="built_in">find</span>(<span class="string">&#x27;,&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;strn = str.substr(<span class="number">0</span>, pos);str = str.substr(pos+<span class="number">1</span>, str.<span class="built_in">size</span>() - pos);&#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;strn = str; str = <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">                <span class="keyword">if</span>((posn = strn.<span class="built_in">find</span>(<span class="string">&#x27;-&#x27;</span>)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="built_in">string</span> left = strn.substr(<span class="number">0</span>, posn);</span><br><span class="line">                    <span class="keyword">int</span> il = stoi(left);</span><br><span class="line">                    <span class="built_in">string</span> right = strn.substr(posn+<span class="number">1</span>, strn.<span class="built_in">size</span>()-posn);</span><br><span class="line">                    <span class="keyword">int</span> ir = stoi(right);</span><br><span class="line">                    <span class="comment">//cout&lt;&lt;left&lt;&lt;&quot; -- &quot;&lt;&lt;right&lt;&lt;endl;</span></span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = il; i &lt;= ir; i++)&#123;pb = itos(i); Wek.push_back(pb);&#125;</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> Wek.push_back(itos(stoi(strn)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//-------判断闰年和查找星期------------</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">luyear</span><span class="params">(<span class="keyword">int</span> year)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> year%<span class="number">400</span> == <span class="number">0</span> || (year%<span class="number">100</span> != <span class="number">0</span> &amp;&amp; year%<span class="number">4</span> == <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getWeekday</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">int</span> year = stoi(str.substr(<span class="number">0</span>, <span class="number">4</span>));</span><br><span class="line">        <span class="keyword">int</span> month = stoi(str.substr(<span class="number">4</span>, <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">int</span> day = stoi(str.substr(<span class="number">6</span>, <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1970</span>; i &lt; year; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(luyear(i))ans += <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> ans += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans %= <span class="number">7</span>;</span><br><span class="line">        ans += Dnum[month<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">if</span>(luyear(year) &amp;&amp; month &gt; <span class="number">2</span>)ans++;</span><br><span class="line">        ans %= <span class="number">7</span>;</span><br><span class="line">        ans += day<span class="number">-1</span>;</span><br><span class="line">        ans %= <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//创建ans组集</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getAns</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str;</span><br><span class="line">        sort(mm.<span class="built_in">begin</span>(), mm.<span class="built_in">end</span>());</span><br><span class="line">        sort(hh.<span class="built_in">begin</span>(), hh.<span class="built_in">end</span>());</span><br><span class="line">        sort(DD.<span class="built_in">begin</span>(), DD.<span class="built_in">end</span>());</span><br><span class="line">        sort(MM.<span class="built_in">begin</span>(), MM.<span class="built_in">end</span>());</span><br><span class="line">        sort(Wek.<span class="built_in">begin</span>(), Wek.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y = stoi(sttime.substr(<span class="number">0</span>, <span class="number">4</span>)); y &lt;= stoi(edtime.substr(<span class="number">0</span>, <span class="number">4</span>)); y++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; MM.<span class="built_in">size</span>(); l++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(l &gt; <span class="number">0</span> &amp;&amp; MM[l] == MM[l<span class="number">-1</span>])&#123;str.erase(<span class="number">4</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                str = itos(y) + MM[l];</span><br><span class="line">                <span class="keyword">if</span>(str &lt; sttime.substr(<span class="number">0</span>, <span class="number">6</span>) || str &gt; edtime.substr(<span class="number">0</span>, <span class="number">6</span>))&#123;str.erase(<span class="number">4</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; DD.<span class="built_in">size</span>(); k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    str = itos(y) + MM[l] + DD[k];</span><br><span class="line">                    <span class="keyword">if</span>(k &gt; <span class="number">0</span> &amp;&amp; DD[k] == DD[k<span class="number">-1</span>])&#123;str.erase(<span class="number">6</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                    <span class="keyword">if</span>(str &lt; sttime.substr(<span class="number">0</span>, <span class="number">8</span>) || str &gt; edtime.substr(<span class="number">0</span>, <span class="number">8</span>))&#123;str.erase(<span class="number">6</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; hh.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(j &gt; <span class="number">0</span> &amp;&amp; hh[j] == hh[j<span class="number">-1</span>])&#123;str.erase(<span class="number">8</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                        str = itos(y) + MM[l] + DD[k] +  hh[j];</span><br><span class="line">                        <span class="keyword">if</span>(str &lt; sttime.substr(<span class="number">0</span>, <span class="number">10</span>) || str &gt; edtime.substr(<span class="number">0</span>, <span class="number">10</span>))&#123;str.erase(<span class="number">8</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mm.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; mm[i] == mm[i<span class="number">-1</span>])&#123;str.erase(<span class="number">10</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;<span class="comment">//判重</span></span><br><span class="line">                            <span class="keyword">if</span>(DD[k] == <span class="string">&quot;31&quot;</span> &amp;&amp; (MM[l] == <span class="string">&quot;04&quot;</span> || MM[l] == <span class="string">&quot;06&quot;</span> || MM[l] == <span class="string">&quot;09&quot;</span> || MM[l] == <span class="string">&quot;11&quot;</span> || MM[l] == <span class="string">&quot;02&quot;</span>))&#123;str.erase(<span class="number">10</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;<span class="comment">//去掉非法日期</span></span><br><span class="line">                            <span class="keyword">if</span>(MM[l] == <span class="string">&quot;02&quot;</span> &amp;&amp; (DD[k] == <span class="string">&quot;30&quot;</span> || (DD[k] == <span class="string">&quot;29&quot;</span> &amp;&amp; !luyear(y))))&#123;str.erase(<span class="number">10</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                            str = itos(y) + MM[l] + DD[k] +  hh[j]+ mm[i] + <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">                            <span class="keyword">if</span>(str &lt; sttime.substr(<span class="number">0</span>, <span class="number">12</span>) || str &gt;= edtime.substr(<span class="number">0</span>, <span class="number">12</span>))&#123;str.erase(<span class="number">10</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125; <span class="comment">//判断范围</span></span><br><span class="line">                            <span class="keyword">int</span> gwed = getWeekday(str);</span><br><span class="line">                            <span class="built_in">string</span> sgwed = itos(gwed);</span><br><span class="line">                            <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">                            <span class="keyword">for</span>(<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; Wek.<span class="built_in">size</span>(); m++)&#123;<span class="comment">//判断合法星期</span></span><br><span class="line">                                <span class="keyword">if</span>(Wek[m] == sgwed)flag = <span class="literal">true</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span>(flag == <span class="literal">false</span>)&#123;str.erase(<span class="number">10</span>, <span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">                            Ans now;</span><br><span class="line">                            now.time = str, now.work = work;ans.push_back(now);</span><br><span class="line">                            str.erase(<span class="number">10</span>, <span class="number">2</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                        str.erase(<span class="number">8</span>, <span class="number">2</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    str.erase(<span class="number">6</span>, <span class="number">2</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                str.erase(<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> </span><br><span class="line">    Order(<span class="built_in">string</span> a, <span class="built_in">string</span> b, <span class="built_in">string</span> c, <span class="built_in">string</span> d, <span class="built_in">string</span> e, <span class="built_in">string</span> f)<span class="comment">//构造函数直接调用</span></span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        work = f;</span><br><span class="line">        convMin(a);</span><br><span class="line">        convHour(b);</span><br><span class="line">        convDay(c);</span><br><span class="line">        convMon(d);</span><br><span class="line">        convWek(e);</span><br><span class="line">        getAns();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ans.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;sttime&gt;&gt;edtime;</span><br><span class="line">    <span class="built_in">string</span> a, b, c, d, e, w;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e&gt;&gt;w;</span><br><span class="line">        Order *ord = <span class="keyword">new</span> Order(a, b, c, d, e, w);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>(), cmp);<span class="comment">//给所有合法指令集按时间排序。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans[i].time&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;ans[i].work&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+	  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------这么快就看完啦<i class="fa fa-paw"></i>谢谢阅读哟^ω^-------------</div>
+    
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/acm/" rel="tag"># acm</a>
+              <a href="/tags/csp/" rel="tag"># csp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/" rel="prev" title="csp 201712-2 游戏 暴力，附：约瑟夫环的递推">
+      <i class="fa fa-chevron-left"></i> csp 201712-2 游戏 暴力，附：约瑟夫环的递推
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/" rel="next" title="2018年清华夏令营机试题（思想） 积木 二分+线段树">
+      2018年清华夏令营机试题（思想） 积木 二分+线段树 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ziyuan Wang"
+      src="/images/user.jpg">
+  <p class="site-author-name" itemprop="name">Ziyuan Wang</p>
+  <div class="site-description" itemprop="description">小星星starry的个人网站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/starry097" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;starry097" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zywang5515@foxmail.com" title="E-Mail → mailto:zywang5515@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://starry097.github.io/" title="http:&#x2F;&#x2F;starry097.github.io" rel="noopener" target="_blank">github page</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_38362788" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_38362788" rel="noopener" target="_blank">csdn blogs</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ziyuan Wang</span>
+</div>
+  <div class="powered-by"> <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+ 
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+ 
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+ 
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+ 
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+ 
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+ 
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+</body>
+</html>
