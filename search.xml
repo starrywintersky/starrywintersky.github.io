@@ -625,8 +625,6 @@
       <categories>
         <category>实验</category>
         <category>python</category>
-        <category>机器学习</category>
-        <category>计算机视觉</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -690,7 +688,7 @@
       <categories>
         <category>实验</category>
         <category>pytorch</category>
-        <category>机器学习</category>
+        <category>科研</category>
         <category>深度学习</category>
       </categories>
       <tags>
@@ -735,10 +733,18 @@
   <entry>
     <title>中期考核</title>
     <url>/research-experience/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</url>
-    <content><![CDATA[<h3 id="中期考核"><a href="#中期考核" class="headerlink" title="中期考核"></a>中期考核</h3><p>研究工作花7分钟，未来计划没人听<br>讲研究工作非常重要<br>代表性方法，相关工作要分好类  </p>
-<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><p>1.是不是完全创新，或者某一种方法没解决的问题<br>把不重要的部分盖掉。<br>放可视化的结果放上来。<br>截图截作者和标题。  </p>
-<h4 id="未来计划：简略一点。"><a href="#未来计划：简略一点。" class="headerlink" title="未来计划：简略一点。"></a>未来计划：简略一点。</h4><p>字不要多<br>对比方法发表在哪里<br>画图<br>定义清楚<br>近几年文章爆发趋势<br>差异性<br>图可以拆成几页  </p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e7b45b9fe07bef141e0e5a5ec55f29cb584719ebbca43753a060c9e37545ee3d">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16285386b9ed78bd884943538926f2f76623b847d0e17848a8fd6b9294911b9636b5d237c65cc5a5b3da3607258bc3e854620fde6f7cdbebad870061e7fab2c0feca0f6b2132c416bd9b1182e981adde289623865514974d8ab48886f94489a77d024e68cc5c085a84eb7eafbc752655218a5d2bd63e9da3a0ef21a7106a15b1f1073df03b2d7bdb48201e875ac2bdd5b313cad7be86d6822e64b5abfcd78ba007b49a971fb70b2a9585ffb5b6609d1f6e44f1638b91a82d16dc40462625543bf7ddb0110f46fa7ba933a0a5990c34483689feb13a429360bfd8c7efdaee0c51313f4c7b6abe9b455d750263a4ec32311819a09aac7fb61035c36d07ddde5d26cddeddce1a81746971bde356a0cb72940aad1ebd9335d29697418e1bcf1044df03636a0c0f6bc81ec99c98c6da209dc766f2333237582733e941102e537de04fbdcc984b145b115603153d7a506b2d0643b415b8f5b9d9988d6beb9abcbce87b938751cc9d2e21821e5904bb684298a93502a36474a9174c010c3d9d972c4a3e6561be81c29a71b6c6b7773d1a387afbae991cc4159b3867006897003d6b2d2f171fafa51289cc41bd57be680d4d2fa8b2da38c1eeb839f2675805d5b0de6476c6aa1c5bb73836b5e5e73691a28a06214b12a010f9febb243ce6851e8773e86328237936445ef182250f45e4b5a4ee5e3eda7fbd35848df68490b7b4253c5dab6bcdf2536d39326c0df4e673c1190556b6579211d25588e12fe6588164a0ddfa7199bd7e50c45eb8e632830674f76e4b274d29f0ba8cd0369cb83e22b316be7bfde3070ea53277599e6c8cd995442dd49d61adbd8165c276cf92b208cf20008d37960f7569eafa5c6bf3d3a7bd91c698e52bb290dfd4487c8a787ce4697e76164c0b8986c8ad38023961b5adcac291cf7caa04515ae939be0da113a6af87308a09737fe3aafe3331707b14aecfc12af118ec15d842978b99cfa274e3fea5cb1a51e4a25ad617c1c9e8fbb2ebd7174db5b33d2ad60f16f1f25669354c7fa4dc91c4a569a83b1416c2230446bb57d9a9c8f77fb5971cccc2364eb7dc1fb74e819d440c52a73772385d47a0720ac22a98a8ac50c45a3353dda434a32aa72f2c0915170f0e7ee0aeb718667c4fd203050477796ebc3de0c172a524c116456a6aaf8773</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>科研</category>
       </categories>
@@ -750,8 +756,18 @@
   <entry>
     <title>科研脑洞-idea</title>
     <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
-    <content><![CDATA[<h3 id="脑洞"><a href="#脑洞" class="headerlink" title="脑洞"></a>脑洞</h3><p>1.feature层面存在grouping问题吗？如果有，可以换顺序吗？<br>2.三通道可以拆吗？用来自监督？<br>3.每个feature得到不同部位的权重，生成各个分类器的输入。说起来，一个数据变多个输入？<br>4.无监督数据不一定要作为伪标签，可以只用来更新relation?  </p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7280b82b5d1f8e59f905a7e68da620b009ac123be098ef904bfbd54d1b8efa07">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16bb197bd5cec8e3946fbdb4e40c728c6a2e12aa813f867cc76a2180c0e4340a83a7627a7c043271cd503bc42bb5951add705e5c1103d6db9c0fe19c4c428564ba1bdd655d7a93ffbc179ce7b2bff3efbe92e784477f65010190a8b478a0732fc4fb7518ad47a2f6b6f4bfcae68c13cc5f1c4190563b41195e680b0ef0925211da43f7b762bc1cd008665139e248fbfc494ca689a8b68168fb2383aa153c4ee89b40e10da1c03b4fd8cef5890524d23c5041f609f37e7bc40a6b0eb1f1a31766bce24140ae05bea0140d3446080a577bb914133eef07a8d0c81d18fac6d9e1b73cda6d388421f3cf714c0c0eb2656b848a0ac6f715eed646a941154b4b82c432c478c285ce18680147b39186783d8e5f5f3ce7594d41896feccad54845c4dc2c4766182156e7900b6414b5f2f7057f6a851bf5ee15a8189bd10fe6231f746f12ff09b558ebadb6e89dba46598b21c45190eec2b3e6fa9fe95c0330cc94fa71d03cf4c2171f6c4c7efa597ff844070ddf52a70ce8e6202d9d0e38e11897308c55f81be3f9fa52f51ea4b2e5c2b9290980e44814065faff90d6c4b2658d89f8e2956</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>科研</category>
         <category>机器学习</category>
@@ -789,7 +805,7 @@
   <entry>
     <title>Hexo+NexT主题个人博客魔改教程集合</title>
     <url>/tricks/Hexo+next%E9%AD%94%E6%94%B9%E6%95%99%E7%A8%8B%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<p>搭建+魔改参考链接：持续更新中</p>
+    <content><![CDATA[<p>个人博客，基于Hexo+NexT主题+github Page+域名解析。<br>搭建+魔改过程中的参考链接.<br>持续更新中..</p>
 <span id="more"></span>
 
 <h2 id="搭建教程"><a href="#搭建教程" class="headerlink" title="搭建教程"></a>搭建教程</h2><p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">搭建教程：hexo史上最全搭建教程_网络_Fangzh的技术博客-CSDN博客</a><br><a href="https://blog.csdn.net/qq_34243930/article/details/102557949">搭建教程：用Github Pages+Hexo搭建博客之(一)搭建Github Pages+Hexo+部署到GitHub服务器 夏普通-CSDN博客</a></p>
@@ -805,11 +821,19 @@
 
 </li>
 </ul>
-<h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上配置custom domain之外，注意在相应域名管理网站添加域名解析。<br><a href="https://blog.csdn.net/u012348774/article/details/79577333">解析:Github博客+腾讯云域名_Yan-CSDN博客</a></p>
-<h2 id="收藏夹"><a href="#收藏夹" class="headerlink" title="收藏夹"></a>收藏夹</h2><p>hexo-pdf</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-pdf</span></span><br></pre></td></tr></table></figure>
+<h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上setting栏配置custom domain之外，注意在相应域名管理网站添加域名解析。<br><a href="https://blog.csdn.net/u012348774/article/details/79577333">解析:Github博客+腾讯云域名_Yan-CSDN博客</a></p>
+<ul>
+<li>  有一个大坑：deploy可能会使得CNAME（存储的custom domain地址）消失，所以要在本地的hexo/source（about,tags, _posts的父文件夹）人工添加一个一模一样的CNAME。（参考：腾讯云社区热心博主）</li>
+</ul>
+<h2 id="收藏夹"><a href="#收藏夹" class="headerlink" title="收藏夹"></a>收藏夹</h2><p>解决方案：把某一类tags/categories放在单独的导航栏中<br><a href="https://www.cnblogs.com/codebook/p/10312965.html">参考教程</a></p>
+<ul>
+<li>  另外，设置hide属性，隐藏某些博客不在首页出现。如果找到当时的参考教程就更新一下链接。</li>
+</ul>
+<h2 id="hexo-pdf"><a href="#hexo-pdf" class="headerlink" title="hexo-pdf"></a>hexo-pdf</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-pdf</span></span><br></pre></td></tr></table></figure>
 <p>markdown语法</p>
 <figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="xml">外部链接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %&#125;</span></span><br><span class="line"><span class="xml">本地连接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> ./pdf名字.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><a href="https://blog.csdn.net/qq_43701912/article/details/107018127">加密教程-csdn</a></p>
 ]]></content>
       <categories>
         <category>小技巧</category>
@@ -1038,141 +1062,62 @@
   <entry>
     <title>人生目标分析</title>
     <url>/dailylife-notes/goals/%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87/</url>
-    <content><![CDATA[<h1 id="人生目标分析"><a href="#人生目标分析" class="headerlink" title="人生目标分析"></a>人生目标分析</h1><h2 id="1-终极目标：名利双收。"><a href="#1-终极目标：名利双收。" class="headerlink" title="1.终极目标：名利双收。"></a>1.终极目标：名利双收。</h2><p>-关于名：想在各个领域出类拔萃，受人尊敬。<br>-关于财：想成为富人，随便住带泳池的五星酒店，有一套独立的400平别墅和两辆车。</p>
-<h2 id="3-我的专业与未来：计算机，搞ai科技，挣大钱。"><a href="#3-我的专业与未来：计算机，搞ai科技，挣大钱。" class="headerlink" title="3.我的专业与未来：计算机，搞ai科技，挣大钱。"></a>3.我的专业与未来：计算机，搞ai科技，挣大钱。</h2><ul>
-<li><p>为什么搞科研：想搞得出类拔萃，受人称赞。想申请国外好学校。</p>
-<pre><code>          - 1留在国外，入职顶尖的it公司，挣大钱。
-          - 2镀金回国，当受人尊敬的学阀，高级工程师，或者开创业公司。
-</code></pre>
-</li>
-<li><p>需要忍受的：多年的辛苦科研。</p>
-<pre><code>      - 我的学术追求：单从当前方向，没有，只为名利与称赞，以及攻击性未来规划。
-      从整体方向上，对某些模块感兴趣。感兴趣？主要是神经科学脑机接口，以及vr触觉。目的：生产更加真实的机器人，以及改造人类。想自己在相关方向创业，做东西给自己用或者卖钱。而不是搞科研。
-        考虑高端科技公司以及高校相关方向。
-</code></pre>
-</li>
-<li><p>学什么：电磁信号？确实需要学新东西。英语，为了出国以及常留国外。</p>
-</li>
-<li><p>知识管理和学习力：打通毅力以坚持不懈。形成完整的知识体系。</p>
-</li>
-</ul>
-<h2 id="4-爱好梳理与目的："><a href="#4-爱好梳理与目的：" class="headerlink" title="4.爱好梳理与目的："></a>4.爱好梳理与目的：</h2><h3 id="文艺向"><a href="#文艺向" class="headerlink" title="文艺向"></a>文艺向</h3><ul>
-<li>唱歌：为了表现欲，为了让人称赞。想当主播挣钱。如果在大晚会上有表演机会可以找男朋友。</li>
-<li>vtuber：当主播挣钱。（看来经过分析可以pass了。）</li>
-<li>舞蹈：同唱歌。</li>
-<li>钢琴：同唱歌。此外，想获奖。</li>
-<li>其他乐器、手绘、写字等。<pre><code>      为什么想让人称赞：找到强大的存在感。在集体中有一定的领导力。
-      找男朋友（否认）我的目标呢？？？优秀不见得有人找上门来。
-</code></pre>
-</li>
-</ul>
-<h4 id="实际需求："><a href="#实际需求：" class="headerlink" title="实际需求："></a>实际需求：</h4><pre><code>        - 1.找存在感：说明内心不够稳定，更需要的是稳定而自信的情商训练。
-        - 2.当主播：更需要训练的是说话沟通，同样是情商。外加说话以及幽默感。
-        - 3.找男朋友，爱好特长只是其中一部分。外在形象更重要。
-        - 4.作为放松活动，以及表演，挣得奖项。是可行的。
-        - 5.表现欲强大，恐惧于表现，真的需要训练。
-</code></pre>
-<h3 id="运动向"><a href="#运动向" class="headerlink" title="运动向"></a>运动向</h3><ul>
-<li>游泳：喜欢的运动。减压。好强。比赛。</li>
-<li>跳操：喜欢的运动。锻炼。表演。（同跳舞）</li>
-<li>羽毛球：喜欢的运动。锻炼和修复。比赛（有点难）。</li>
-<li>健身：不喜欢的运动。锻炼体型和减肥，找男朋友。</li>
-<li>跑步：不喜欢的运动。锻炼身体素质和减肥。</li>
-</ul>
-<h4 id="比赛：游泳比较有希望，需要关注各种大小赛事，以及在技术上提高，而不是单纯玩耍。比较需要考虑的问题是关节。"><a href="#比赛：游泳比较有希望，需要关注各种大小赛事，以及在技术上提高，而不是单纯玩耍。比较需要考虑的问题是关节。" class="headerlink" title="比赛：游泳比较有希望，需要关注各种大小赛事，以及在技术上提高，而不是单纯玩耍。比较需要考虑的问题是关节。"></a>比赛：游泳比较有希望，需要关注各种大小赛事，以及在技术上提高，而不是单纯玩耍。比较需要考虑的问题是关节。</h4><ul>
-<li>羽毛球：纯粹是娱乐，跟人有机玩是互动交流的好机会。</li>
-<li>跳操：当跳舞吧。</li>
-<li>跑步：不喜欢就算了，跳操可以代替。</li>
-<li>健身：还是必要的。</li>
-</ul>
-<h3 id="学科"><a href="#学科" class="headerlink" title="学科"></a>学科</h3><ul>
-<li>天文学：爱好。天文摄影。可以去听普通天文学，一方面混进教室，一方面养成优良习惯。摄影：买不起，建议十年后再来。</li>
-<li>心理学：爱好，想学会识人。不如先打造情商，其他的作为爱好。</li>
-</ul>
-<h3 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h3><ul>
-<li>office和ps：丰富自己。现在学这个干嘛？好像没用呢？</li>
-<li>摄影、构图：没用</li>
-</ul>
-<h2 id="5-外在形象打造"><a href="#5-外在形象打造" class="headerlink" title="5.外在形象打造"></a>5.外在形象打造</h2><ul>
-<li>减肥、美容、化妆：为了成为美女以吸引人的目光。（有更多露脸机会）。<pre><code>              为了当主播等职业（需要调研，说话短板）。
-              最终还是为了出类拔萃以及找男朋友（说话情商短板）。
-</code></pre>
-</li>
-<li>情商：提高情商，以和人多沟通，受人欢迎，打造出类拔萃的形象。</li>
-<li>话术和幽默感：同上，情商以上。让人舒服，让自己也舒服。打造形象。</li>
-<li>领导力：为了令人信服。建立在情商以上。</li>
-<li>智商：为了出类拔萃（别人看不到），让自己开心，更容易学习（归类知识管理）。</li>
-</ul>
-<h2 id="6-其他特质"><a href="#6-其他特质" class="headerlink" title="6.其他特质"></a>6.其他特质</h2><ul>
-<li>大吃大喝：纯粹是欲望。需要克己。</li>
-<li>买买买：表达外在美。在减肥美容化妆之前不可行。甚至形象气质也不符合。需要克己。</li>
-<li>甜点：纯爱好，以及发朋友圈炫耀，以出类拔萃。找男朋友。（显然不是必需品）</li>
-<li>大件物品：一是打造形象（无用），二是纯粹人生执念（没钱）。</li>
-</ul>
-<h2 id="7-理财"><a href="#7-理财" class="headerlink" title="7.理财"></a>7.理财</h2><ul>
-<li>投资储蓄：慢慢学习。</li>
-<li>知识变现：可以根据文章探索主播、公众号、社群等运营简要判断（慢慢来）。网课就算了吧。<br>针对知识变现，还是先把知识搞到精通。</li>
-<li>创业：其实就目前而言不重要。还是搞好学术。</li>
-<li>管理：为了领导力。先学情商，再加上这点。</li>
-</ul>
-<h1 id="综上："><a href="#综上：" class="headerlink" title="综上："></a>综上：</h1><ul>
-<li>1.学会表达，合适的表现自己。</li>
-<li>2.勇于争抢想要的东西，修炼情商以不让人讨厌。</li>
-<li>3.形象。外在的减肥比较重要，其他自然发展。内在的情商+表达更是刚需。</li>
-<li>4.想在各个领域出类拔萃，然而对于找男朋友来说沟通社交更加重要，对于出国来说游泳比赛钢琴比赛目前比较有需求。</li>
-<li>5.对于专业知识，不妨功利性驱动，大发成果，广申名校。英语同理。</li>
-<li>需要学习力以自驱。知识管理以高效学习。</li>
-<li>6.对于挣大钱。一方面做好理财规划，慢慢填充知识，了解市场。</li>
-<li>7.其他提上日程的爱好：钢琴（比赛）、歌舞（表演丰富履历）、游泳（比赛）、羽毛球（玩耍交流为主）、天文（履历）、心理（情商）、神经科学（目标）。</li>
-</ul>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="6920973892b25ceba72e40a8821bb854cdc14d6e4fba115ca3db761011afb615">1f1ff6fb140e19a4a5cd54e44db8b96da7041058026014ff9faf706705e1d307c9194cbaa9900dbddfcb1548b146c9876654e1d2928109a93bcc3986f5c57806584751b45d51a285c9a911f85696e8ac25fe6ad22481e6e2b107c61c1afb7512eff279330047f4e45bdf85db20c1a952d81095d7b6f05de8add8a8b17fdf7b2fada51dc95b4d0b546c8c20cea6033b8ece2e4c6dab353020cd5bf35d4e31d05abfb8b5a38c389d9c9c6008eeb99ae982a2d849f8fb0f014111476c4b8de63ebdd3d1334909b9cae8f3b171ea9f620244896a1eafb137fe7c40eff3ce459a2e8e36d982967826bd9feb8297027c07aabffd436096e0ce113501a61e15f729edbcb8846730c92f4b3c91aa4eae10420a1c69ca0b6a611c668d6e3efa261a8cc181a37080f9200610f16ea233012e508083b508f1daf5c622e1d0e4a726409623ad461a7c83a37338dcc73db82ce601c9adba420c08bac5fe828fd0aef8adff98adc6cb1d6d112050bc70317837c3c1aa90d5e7b3f4b201aecfa69a9dad613f3aa9ac0ca46a27931b4d937ca3ce48d2524abbb247f8a87b035a390ef63b810807d39fbf70dbca975c49bbaf17c9a5cc8c93b24ba04af0bbb4015cb5270586400cb9ec28f0a9093e407a6172aca6702cdc4e78aaea5899e72c89063bb6e4ae785fbb0597ae61cd579ea0f2948fca3e019bc78e89d076e3a2828df09a69ce18e95e94e9b01719488bc020318cd61ffa9fa5d7e09b30921200b200383fb20b282e0d11b3d4d50cc95cfdcfbdead87531076e4f34c84d57234d43eb7bd4037b0a11a2f871d28f9b88e6bd846d44bd2640b40fcb3f2a4becf898b1c6b4f87ce1de3b26087d8a085b00e7e7e4544707aee6a979a8e38f4bb065a4820808ac438fb95efeb9b917da564c9013555bb0f53ba19eff804de0512de047af520898f6c140d3d3e839fbb5e24c786413dc6e4bc18f3c919881f19940ca6376d81d821bbb749237f04aa3ce5ad46a974f43035bd9158ff9ef13bdc785fd4383f53e6380fc1e38f9223d8f07793d8eb97a28926b5b095fa019412131dd565ff841eaad5512977d1d8e81d08456192d24611cc0cd0fcfca90f0c7b020d0f211fe2580fe7ec88c8f3d41a136a816e40eff133a2253e1e9c0cd50004ee67a14b1e3a435ec8b39013b68147a3d90f2e9e02f2ca4f9180f86dc60dfb1739d367b89380e61744eb57f7bbe4a2b7eb5bb06c86da752198f75cd916b64805fee801b87f4f0536b74f35dc37e1b2b6cc17b594f9868a045ff6a9ab2c30a7c7c9784a8ff684bdb8a3216248d9d20b068f92844bfc2f20b21fcf51bf733251135a9eba9c91e65e7aa5155e9cef4b4c9946be5ce3f942f861a0a1736870f5b44e80808c377abd71612cbc8f76262a941b598ddb4d638da6c11a6c35f3e46325cb2441390a318466f3eade1f8f016ca756ffeff455d65e4e4a9100f14077cdc140badb6026f00dc2603714c8abe0755e0c13fa2dcfb56100f5c6e56864aa7f79edac162b9f110542356af3a9efb81f7d337f6229464eba42fb7366427f6abe86c86296a37969c07a5dbc1084f12099918d8190fd581358928dc483c00507d9d5eee62cfba98ae3dc3bbf89cd06e3a2f0521f1db1fb6913eb148f7426142a9b67b407dc7020c7c94d130d315d68c357807786caf72805b6f56023497dbe6b2e554a6b15e89a0a1adb49a56d67d86561d29e2321de7587bcb7f37a13b81391725b993a753497cc6d80fac4217c7f5554c7b66aad625e294c3ecd3d06af2d8dffbfc851bd2c2a342ef9875c32ac9a49ebdbd0b81c745d4d9038b5155b7423ec0c85de8df56da919e426406345712b193eccd1f1468495dceaf81e63ef94cce90e87aa11b3abe0ed795bf729b75466a0ea2f4591cbd0e70684d73f9dc84cd86ee7f0dd1b1cba49285eba888ca59349dddf06f9ea7df63ae666eb05d8ed804a2e6d3c8508e731aa8e4a64141e9572324d38af9bf053da0c60406c405321c89ed084480465e6f7cd56b4e7ac01a19b56fddfe2c225639e5c68b6e0599f45411cd725d18a46dc7e902c28799598ad8ee6e621a27f6bec125a6d1fbbeb22859cd091c71bcf102440d8d9d68eb5049beed625060b4403b101c00d796100740d6d805fb4b93fe1cbe0044412eb1cbeefb34b164cab8588f451a9897086f82a15dcb2bd3588833ae1d7e05a83fc2994baa04173494aaa98693792c267f722c843101cb57ae7bea718bf2afc2672f728dc885deb9c0e0fe874414017f7f718029637c7a1fe5535a5fc10580c0254af6ae573148b05c3921ceff6fe7be7c27e83582dcb00a1cc88906da942a2ef6e90a5923d967a2d194a820d78e6d4f861931a8036e90a33d9a36d85f4fdfca11f787b9243df4513c34cb2c562025ee3087b4e68f30ed79bb3e2a7bf923b8baa5b01d5d255b20651dd4090bc3556d4353b7ec940b436d30020b5a64f3a413fb944287ac192054f8d0c694ba44a2e3667bb3502615c5822a21f2a50419d463f57eafe62d278384e0c1557b0b9b25c74cd4baa600b9f1079fc20a3a2c7b599a046333b34b4837809c4ff16f05a5be98e6400718032ea5bb15fd1edc9b6b75fc0f8bcc1561b575130b419bd1983b68ffd24d027d9acfa65fe847f1ed0a651ebaf5c43cb8c84e4392989f8f107eb6eb1475a9fe18f3912c7cd5586037c4a3cd65a95052db9caed1c9d773be9220517289d6498bd9411f517e9b6c078b526a7a702dde2c912f748d724f982865a1f5b59dbe297b5e977cb05fb4d227259ba6fed5aaaca702802a4f7d365f349fe296a32b9c6e63cf60893507ef87a3275293e35811cabf3c35b1bef73c8d9390c87c463008163249f504d7beb865cc607478276dc64c6ec785644a3081aeba3dcffdf838b409243da8288cecdc3c74009772aa1d8ab8b4ae3b4cb07a0f2b2404a499384fee12dabf0e23e8a1b93c08b7e93a6c9dc65381e4325fc591d0ac1d5ede07b43991c1c2b4ba98b173824dcf42434c5e5f6e180eccf8f7841436ec5d486b0f0f1216738965cf9d2b8bb389671ce0497e28e1846855ca94f83d6e7927c049e7c78cfffa888fb461498e2500a23504d2c7525afc55327b178bf9dc12e54a1548b8a9a79838500fab48b26d79f4a953e4db2071a26d3ef2211849f98b083f10f05c5e8f55154d2db1c8462465fd3ee0d270dc1f67231cdb6c5e4caf9fc9366b09ea676e85dac5daa8a1360b776c61b26d3e834c5cea04600d913fd8440f8e763af233dbe063814a1ecfe3ce66628bd66440441db999032fc636400c3f5f8106a579394f96140dabc68efcc252edaa7c34c2c4a064cd43cb02754dc0611913dcffdbf0219e49377010016b2656da815bb9a605b602e525baaf519e3f09c4cc8aeaa54a3d5861a193ddcc48d947d21831061f451a3eb8e7b0a0bfa1fb3981382ec7eeec8876a03805794600970404d87e2def1a5d035e2bb3431a742128f04c49cf0910d3a03eee7e98e074abfba3539f5fce736e42a29352e54937be53a2f9b91f88fba71b7054f31fd647f5e55f6d22dedc0fee7cd341010fa5901a66f6ad6a425fac1a5baeea15001afc0f4b653c652adbfb24358564752afcc444917bc8c28b3ab155a7f5ae998bf37e776917a5137f74ff10d690004e31b3971d501de3bba25ed7899a42b5120da61a98e9b6c6bdeda8ffeb96a31a0cf3db8a0e856e35278b0016fda88962fbf02035c402e6ec7484410afad44e8777ddd93b2c65d850e5ae31ab441989a90dbfe6cb35cb51368e9cbb0d867f68b59aceb462691ad03d2462dbd46cd382b3d7be315c91dde33f9496f6904745789a1332a23a84609842054c83d59898b9a0a01957da72219f598d800b50758cb61cd3b959d5494a54e25f61ff9d7fcd75ccf6ccdb514a51cb1a88af70dc5677067c44f8708b01de3bff50b2b93618a4663cd3191365d8b10393f495c4056322a052d8da35f4db415de9d00e073f57a13d6c53e18d41a34b3ee3fad1d3e4cfa37eb460f9b02ea7650f43c67e197d0ce41f14a36d6b5a826a51a9bbcfca3e3518b0bf845a98328460860b678f62fa471e54e05f1a004473115ea3c2e686f1b0b50cda83058ba7e89ac8f18d2fa6d75e2ba31d5c77291b9c112cdc485408437ebb6957aaa55517145a5e782ef451a6e0a9796c86bf34bb64db0d81824fd4773273d2d20c7a7c1b901fa71c2993ae4e848bb10011964b62b1ac9534b280a0594f388a1c1bd56b1f596dedbdc8c14a017f51ddbec3b4741503d12ba05968945ff3aaba92b6cb4c0a069a4728991a5d642dd85ae3d8e4f544257f8dba1350af7a22f18f27c082dcf466b660777b51215696d9245c905aba5748561bd92c8e0c21ddd5841f61d532acd7e05fb742758c7b62319cf463150a9bd17471a994814fbc284094ed759f16933bf28ce5323a677c3dff54a0417ba430a135ea6186e9c4fa67b0594630c23cc0079b9a158901c09c6b95d37d6c82e78094adfdf4a4ff7cd9ae5c9e04630aa6283cf0a40f326618b1cba688d6496d688fe7df457544410c3e315e7c2c9e9695f3c3e83529c19aa47effa8b88a29a20f3ba17d5799982065253662d252b132929c27a80eaae2f72b5f1f0109fa7b5b6fa8db07d886f0de37fe198a46e7817b4cc7e12c1b822abd38a905072c9729f73b6b33345da7d56de18380b709110dab0684f3f465f38e07f458afad6a0f0eba2aae4af90a3f81171e8fdeca7a9701df768ec2b9cf014b2d32470d408f18487f9565b01f33ea8302d6e88e7ef6e16929abc72eb1ec388a263569d1dba187f70f4f623a43f7e3f2e55949b75bb5db19b4056030f831db155d8d37e2de59fe5de707c4e22093bc11f283ea44dc7728bb9555c5714c6326127d8584eda672e46d16ef3ff4262323cbfb4228f6839668d46dfa5c6a3f7837f65862d9ec32ae43e6a61f77699106c28e35f91e824f19263ca9fbc49d3867f3c176768dc6490e470915c8705ab090b0d9f9a08b688dea4004effe7b1bf3d49781780148aacd4314e1ae6e5e77d3c5fb4270b6f488a92ed0480522412e25fe9ffd679edf639c3a597153c01b419e4b277a5357a559e85c8a2d91d2767251bdab9479964cc2add8be1c90de38191584b9437fd01f008ad9a3d9852655a28db5fed8e930d489e5dbceb3db9be9037433a4964eb982cfa2349fc8f1a7e6af891564c97b8fe23a8a9f1f0e33742b9209359f048ffb2c4aa8fb1cdfdae30fc5be636c8e5d2eacdadd34e2883f36bf5f00877a38b863a3c37d8c72b8947316c3c190500802b0990562791a502a3850986964a06eb2e44c5d4aa7b1c9ed06f9440829b6b42f56004be13ed608edc0a058a4553caa42f64ac5a99abfad7a68329c631d2e64e6a2875af274d13a8a47d3ab5823190cb1e460ba280009838b4fed3d9fd3b22da07b4391fafc151095cf7fa2416eb79f06b6fcaf58260474e6e8efc7b144aa2c829a6a6f4c2272a43801402fff6e3cba72f5d7eee6cdd14d1a56a35ad579f23fc763efc35c69eddcc119b309fd27257fb70b281500761d1567b72aef4feafd9572fb5d846d91e8190e37d12a21b693f5ae154e02242057bf0a2a76d05f7cdc5e77ba9a350569e67cf5488fd9c9d96a0001040bdd9c229dfaeeda664a11cc6e4f3ca1185b13f375e7576bfd864764a405c034f53dbaa753e596e695f9834fdd547aec84e157a1118c2dcc7f0ca8f1895688a54bab0910a126fb1bebe4a5a191802991e7306761357bb48237b56e755ff41d76012bca913fa19072f64652c1084c9a7a4f427a19b442fa72605df23d811e21b242940c4167daafc7748a2e6190e23d0fbe2b64f5bfd40f14c72e004f040e0ab211d2e0d85444f3bb710d10fb2ef2bbaaf5fe439947485644dae97a6de8b1447180eabbbbcd340f918f88f5056a9da46231e4fb814e0652bdb809ff1fab348a8c8f0e2d41d409b9828442d5434f8e4dca975a5092d5a9eb8dbf10235456ada9b850aec919ee3ea175c22f81f2ac98e5fe3aad7aaedfcfd6d0edde7cc6f16615e4d58255edb0f8e5bb8d96330acaa9eecd52b66bf7cb16f654a0d9117177fd983cca5c680d918bb03f462b6421f09765d91c6d30d6f9b4335bb9f1e03d7a21470e71b08ddbca4c0858ea84e393e5ee0bbfe203664a1744d800d8bb365520b85afa757936bd9798ee521888425488ef99035a9cd617da3aab7b44cc4e91777aa813de1ab482edead6297236eb0661ecabbea19a0fe3acfb99a70f4fdb9ae0694d2be827bb5979cd9e705ee5ef7892ada6f6edd6e05d9808e4d85b9e79a81d592211793c5d453d04f9bf6d203788907cc1720e675d1b794f6695bdcd51a7214fe1176416ff35c8749b1c16c92cdd2cd32fbddb0ab08752ed8b9327bfd6e228e69021d0958cbba8e51ee06c83e831e2cb0fed74aa68f4a242df1106bebfa1cff4c720ee171326d380c2177b2df730df5e251965c126e3500314f6b7a6a130fbf5725c158392c064527256df9a6b591cfb5db9e94aa9ad779c20c52ab5ad7f17c24623f9b7f7521db3a40143a196eb46903cfa95298e4b290700f585bccb41a6374f36f33484a4857d15ddb1625f495735b3842314e02d68b1a2a29d6663c7c689fc1fd269920d6b4d9614ce4430b22a8fc3e503f1031961ade144772dc0212d49f64025bb3bb0805cb91fa819418d69954a627bad3c5ab9318b6a1588579bea8f3f455f4d8770870b8a08e6a882071153a6d2200052c6bd481aa5905f2a79ae6ec4ef579b42006d052bfe700da6a7bdcc1f796a0549528477d6329295d7c8d7e17408dcd4b6fd14c45d82a47e4c40fc4fda4d9fb6ac7eb429a7fbf728a20a82ff88c38e6041178feed0164bcb85898001ddcb8ffd8cc489263fb2029a7ddc828c1a2431b9f4a5152666c1f02414fa57e15c2e3684ed82d89025e74b79b51b687fb84a7bafc0ddbe57d29f5456f144bc4a7663e3797f420e182104c8c3c9fae0e2d3bfb86a18c280162ce5cdae53941d1ff841cfcfd7213a97c2a09048f3af8029d113f9f1de9ae872cb42f949dc0e7af072ece62c8f5dd5cb49469f310da6586f3d15e5db6322ae2d8859a99f14f9f70618b0e8d27b58fbd9472b61200b7768a85b9c56556d63224856bdd7700734fe738af7c83e431ed6df5b83db78d3ade16248ef6af889808288c888ff094b6527ff63ca7a87fa5f4db99c3679627402c97dfb344d6c0f120c93e63516e633e30b526278a2286d11f8f9fc5f16cbe27c7080fd403e934f954815e0be8a0a7308e7b291b54bf8b62ba28f0e6e4c5e79feb27784f772483e1a42c0fccb004a080a1f49a3e511d2c84d251927ac36b79cb8e2d6f3e215b8ab4f90b1cc4c9e68c71658d565eaf23c0d34783abfbddbdb3505a0211b7bfa9f497fc8334086f4c228e28f42ea51cfaf8b708baaa28593bf3e3ce9514e08088b3104dc5416e7b51d29f0f887cc32fffc0d1969cd3d717d40c28ab2237295e7aef48548e474ae583addb45e2235e2ca961ac7cce7d4bfca5b8c011bae1ace6b259f77324d48b86bbce5b7440cf963f4ff1f0cdbf0600e617104fc1c043f55b5bb125b7136f8dbee67923cb755653cdd27a89eb079ce30f68c5e677cd9811ac70f78e4ce1fa74f146c4b7a49a829b38601584e93a11598885fbae35878fd54460f753d5e928ec7a1708cc949ca481187d3f26a3ba6c9d0bb18cac4d46218b4fa561d4300bca1107f8d8d5f5fc4885dfaff786bdf811d8028fe2293b4c0ed4b2fd008f41fb8c280c7e52bceb1289d834e1c727675a4d92bfa6e49c3f120d759e5f13cf2ba56158249abc99412e4f6feb11210ed33d18ee0b521e329300c80ca5b43d6e1dbc2fdb0dcec9b0f0f58d863b16f00b2b225433f42b832d9ea6058b227561f4b912622dbc408a6475167fad8f2ff713e7ed532adf56f98b89086d1f9cdb3e5e07935507b8ffd8097d6aa146b4e1e07f14352cb3ea20371d4c229834f09e16affdbc97c5e9e99ab967eef0a5ee7bc09d95da70074d5d88c03b79205f010eb64d90cf4c2b12d84459c9ea2918c5fa3c3ef8ffb3b8fcc327b9f25791b644bf2d6e0a8e6fe401ab1390db08be20f28d208a7b227332032d264ae63ed06eee4b051dc0fd7f2d4c13c88f77cd96ac115bbbed9433f5bbafdfa4ee047041925bfe44755313f8e6a13136f3a18a1e41f23fb8974550c5fcf3c491ade57a4a0c6b2a9068c3d57deabf7b0d85aa72a61255cb88bdda9b3b937209b6b0e9a6454add4a87f66deba311908ea945232746235989d3dd9be96ab0d69c7ac4957b184c3911ae4ba7fbc7c8d34048f7b4ebde2906dd70fe8053439c2e4a3e25d0bf9d40b8cf5b3bc25d4d974f90b9a8cc6c9b138946c9b2c3075b5aa4f8e29fe5ae0d5b0b254d69a48cf726ac9839a7ba60454a26b9bf649aaca3e2711b3d3f3d5a1fad3461cb0e5ce95a28e8244897583e648fb48acc898302a0dfa6a6291c385eb41807408629d14df90b68b739afb5ebde192ce95bf63f65555e9c808fea7d27f7b921b4aab667939ce731c44682ff4ce10b703584332397668131b632b9857b27cf796393850faa86efe9b87b232497a751fe24828f88196663973888def18352b427506df3965d5fd12f0337df748b1d750a849c56c453c1b0954603e64bc04e22ce2719ecd3320a930e220d1e2885a1b883ab6261c1c95a2bd87954077c6a96ed98870aad59a3dc0a51b0aa09d3f2b807de2b2baec3f12af855585120aa130157a432c9271fd2c80f6fa4dd04a4e1603d7b24582baa4125d24b23eb69482f46739dcae35ce2fe5cff211e4fde62d55de94bed9db746a1377c514bbf0c40e773cff0d04ce5d0b50e10e1920f80cff86d07fd267adb10667148f3372eb3af651d9f3c2b092914295fcf34b215de0f24c38ff8ea0aa805fb099d72cd773916103e73997b0e075e2e0d349d5226e07f40969b2c9966b8893daaec546d68b0cbb69e768406317b5e6cf380c44a5d928fdb3cf4d307d739b8cd0a80612875c74ac4b22269608a7256751aa11c7bceb8aebb0ca66dec6434265601df0cbe988ca2362f35a9958c7077c4d9c98fb4e9074a3abfcc19d697b0581a901ede72f713d499f13d46779292b4ec47a467a9a0ad5e4e9d02d9ba779ae96d4058405408cf85f5cf4093860678e9f48e286f68a4dd6d33a4f756abad85907be126ce5ad9669ac4d079ba5109a676507eac572a1e23e9d4a8d94747ef8450f0a3f83d17cf5ec712fdd1792c47687fdf1ecffd377a109b21e0125c291ecbdaa01a58f9e995968efec67d64f44f7fd5d900c559f5fa791551e3e21f5664e0e3cb164c830bbbf922a3df134ec66e553ec5a6d35e29a8d48a65faa70f7ecb2e4b8dbcc0ea0cab6de3a752d5dbc0d52bb5a5d57082ff85432162767e2a98e91b47c23c896e812f1030a893bdb40ea36c46aead252cd5d1639db0b90e285c8b81fb935e62dc55bbd17da6c95037cded400b72d6e6c82f70d05835415e1e44b393162be32a000648a0326808a0970db2543fd6cb39aac83489425bd220b46bf45a350044e1c3a5f402f7ce8a94a2c97d8df6573ea2b38171729bf12309bb39fa4872ce6f094255d68c421145653be54aa3157e7c1dd71e8189bd931f11b974d9ba497068fe91ec2c852f67297d530ec0580bd71ca5c12d9681060dd0b92f5f8cb50c497f9bea037765177dc6ce122010e92a586c92bef50576ab3da0452f73035334ef99925063c357a0283ce91fa77ed7aeae75a05a64454a7b5f398f840a96f82d8eac5166de82f974b8ed4ac338c37f35b427f6ec0201ce1d4d501e7cdc9a1e09e77ba9443b0a4ee533f7576353ca1d471c73b970ee475d7dde252ff6f8cbe2fc4673ed628f8f6aa958af101188a7713754b24d5c8189105a0749e5db46a4a6cf06793583365d79c48bb3574608d7fbf71520143d812bfd0e555e8d36d16ca0684158254613618304aaef497385b24a98d2133729931bf57e84870954f06e27675af96cde0f212ca569b4fe4d6ac60ba9ea5bac5d7904a3a786159aedc017f2aa06a819a8808646361dab77afe92246e455896f1e821950bcc50c434d6753923ce7ab9ae0ebdedb7380985c4d969fa3bb22d998e7b3849de7f522a694929bfcc9ce795f62b8bc973278db013c137801c388fdead44016043c94281779c791d8646f8a1fdb2e5c89dd728029fe7c92d2d4f63391789fc2beb8210edf455694851ba22a485ce08c5c44202d205825b455b7a379f2f744dc7f7b52261444c5b9c19faf1fa410dc0a0c01f8f91b340ac680d6453a9e627fa93dfa51c1d377db74f9bb876a88c4b92d64f51ef797ecd817286d200e435af43addccd366a8b37b154299f29d7d32a55e1d30ffdc650902890ae1889a554d588b1227b380f6cc195b40a6b74a595aed6babe684176a21f095651f857b0daa22128d6bc2aeb7a4bbd439a31abad04c859069f7e5762b711aea497499f02b8411409fe266789d5f6b238de0c96dac05a832ef76bfc89cb6509cc46453c1d59b39f338c9fbfd3403ce56819f786e961a01a6737d8c1ad14f8d830194e118f3d9eb9a411896a824a59bf2b16d387746cc2ea6002b0edecfafe14d068d2677bf9551e14ffab4b39625166ebaa3cc7d37b28a3864940e06660d379c9e3225b48c83e154cfc3c02d1fe65072d88dbace57f7f31e3bce0b05039b0224f01e811d70266025bf75d794dafd8b9d64617261f961f47c953992d7a3e91ae4a2381f3a4238127dfa636404b6a6197e9b0dbbca26d80018e8e97019a67b3ce9e56393870a60021110ca2e6c2522bce52931ce7152e3d15ecaead35924a8055d971e92ee813ee70a75b8b309643a71011ec08b22ac0bab29382efe5693b1d14c9c8dc55a1fde71fb05a109fa7fe0c42afe775ec6c1e749c36298eb25c66a03ff9072a7aa9379609ae37ad5171dcde14062755caa0a9dc364ab9ea8e2f05b0da7712d8f1b726a657939c3510b62dc0d5e0ac1bf4b4306e3902ce0ee4250749b27dd0c3fbb6bca8c8f180b9348ca940de9be46924067d13292b5e41a12ad1299577285d6e4df74f080494891e7f90b15f7a37b0a2b5847247d36e65bfbb72e224d629ee26757cf4313a9db4c86572ab79241503d522eda38aa7f744f8781406237721a9a65569981976cbebc36c2b4bfa76417861ba7a5fc959da55c9a09d3dc81cc4240716493fac45feffeab907647c503aa04fa98df75356b349e2312211f5ce8d32a13c08a5c0f6b956c71a5413a11d90d5e19a18a14a15633ac550dc7872fe67235be80079a97ec53efa9a08fa5819342f72dadc1535832b3b4bb8f52edcdbd21e6580a28d100799091758eacc62cd6b202923874ff17c4e8ffecdbd78f59b01820edcb035c6a56c2c51e2e8e6718f26002f81c2043682a0d10a777c470a0f140b5977642030fd7da28cb0b6f9ea9dc3c418ad80899f853f5f28dde1c45b87e4b465596d14c7e3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>goals</category>
+      </categories>
   </entry>
   <entry>
     <title>出国需要的部分</title>
     <url>/dailylife-notes/goals/%E5%87%BA%E5%9B%BD%E9%9C%80%E6%B1%82/</url>
-    <content><![CDATA[<h2 id="出国需要的点"><a href="#出国需要的点" class="headerlink" title="出国需要的点"></a>出国需要的点</h2><ul>
-<li>1.文艺1项，体育1项<pre><code>          （钢琴等级，可参加钢琴、歌唱、舞蹈比赛，体育需参加比赛）
-</code></pre>
-</li>
-<li>2.学术3项<pre><code>          （acm. ccsp）(如果有一个ml相关的最好)
-</code></pre>
-</li>
-<li>3.社团2项<pre><code>          （最认可辩论演讲）（天文心理吧。辩论演讲用活动代替）
-</code></pre>
-</li>
-<li>4.志愿者2项<pre><code>              （公益，环境，家庭，community。相信党员有安排）
-</code></pre>
-</li>
-<li>5.科研项目，实习（必须是大公司），夏校交流（含金量），推荐信（清北）</li>
-</ul>
-<hr>
-<ul>
-<li>1.创新创业和挑战杯</li>
-<li>2.社会实践类活动</li>
-<li>3.文体类比赛和特长</li>
-<li>4.大量奖学金</li>
-<li>5.学术不错，实习单位好，有很不错的学术交流</li>
-<li>6.乱七八糟的训练营以示博学且产学研结合</li>
-<li>7.社团或研会的职务及奖励，如果有社会层的更好。</li>
-</ul>
-<hr>
-<p>简历要吹，成绩和排名重要，奖学金和竞赛要争取，实习可以适当拉长时间因为没有证据。</p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e43f5dd5e004f61bf545dff6975061ef687f2b122e965202f9409f36931412d1">1f1ff6fb140e19a4a5cd54e44db8b96d09dd131e7121b8a73d898b7a206ad3e33e237a1e73072aa9612e4024528f33f4bb4895ccdf9ea6eaaf1559aac448834710fa1201a6eacf645499bcd5bac9900519ec92356b27a487bda3fdda2c65304896e73856abf4fbf26963ae3dffc5b4b20963a10a274baf148806f96ae181f6b737f7d375f8278394245ea2888d36638c3026744cf055ff954f85480d9d970b9b9eaf61d59cf34d07df9169891e76db0695a5ffccfa388e76ae14c37b25dc1c9b9f0b83c6691f28e3b3ffc87eac02a3b99399ee8217feb613abba030cb304c9637fac298dec730c39fcaa7275c2b764580809e90d4bbb3cf399b2c586834d3848bb1be5abf36b1207e3af311b2ff6aad0a126b91034fb0798647b617e36a50f9b2cc09c710716109cc20c23822ef4eda5ac8849a4f8762ac1f8b8b2f636f4a9c9ae384a8695c43faf1a08f8ee9cf4c001852c64e67b6f9a67f38afacb3cd9a574b75c0a17267bcc914225e940cc268c1e8bda1e36a708c3b896712df22060a452c4be89670350049f7108f285e3e2b59523c8166b09714c2af844f912af3a9506f34ad78d06082685728e6c72744556bef442c2a098e8245fed2bdfdd628407ecf3f7e104d76645863850a756e236b4f56dd74c1fe98929f888f533ab421a828578b257cd9484622fe4970051ea4b085ad21f91b4f7896030e66a2401b65d9eaebe13e951802521f9a4020898762300ff95f03e8a3e6ca6c3aa0621a1521f2e1002323da01b722f109f074358f1eba843fc47e192a56d6aef2caca421b47a4e2cf86a7569f00b48dc7287e932c3b75c0ddece61f5b98dc2dad5ec05c5dee7d582a9299afb8f35e438e2300ad69879b2309b32e9c35be2231d128133e1933f150e72f62ac5193f0139dda6b103921133900b474670d1ab9044926b61821a19bc074c3812bb210a16629745b4e9cb1f8cb95bdedc10f39199fbfcfad25c6d1153045e5d37037fa80ed6271f384242069d0e6f086eb82fa40eefbc3c3c52eedad3fe132e30a7819408e93b92ba43ae5172bc13bbd08c25023c35f73804e35032826967a54e3009fb9f1ab64b1912e8cd602000150febde7d0229343d5f8b219538c4bfb2119d04055f7afaaefb207b261b2ac979c51deae976a6a61e13c1fd6a1795f6ba0dffe1dc2d122a5579c31069c2efecde9ef979816f9902a834f82dd48ff655244e0fb358eaf60acfa785073e421a6bc55c5e586592efcdbc5daffa584964e10708cbf1f3a685482bb8eb7a39ea226e5a46cf7498161a79c6043c13e83f4ddd945f6faeea65168fd1c4ff66d25fa86f11e5c1be37e4c4ef1f708394e3ba4ae2e16f7dc8ccec43c55523484fa35fc52210c8f3a99aa8190debd0c5e6d65018a06b2884cae1113859f6a7a593a36cdfd067f0caa070b56d4f11899e74057321debf22607921fc633d865283d3c88b26ee3517d862e1fdadf1df8eb50cc2eded23b9a4bf6a96a1234873185c7c8d37fef442c177eba4e328818eb732efc1004ba088e87a8da84f4e16f4ded88a4cf00ead74efc0d0174fe93693e4ad21d3a271c1a39a2b2d3e7ffd329d35ff165901d2004abde296ff44dc4bb05a348df2479ff8b191fddc0a58b66f161fcac777ad8803a6c42ee0af0c08e37b75cdd4d880d563c33fd40116dcc20742592487bf4b243e1bb80b0f666786ecbda00d455048bbe6d1935bad2be8e3e9504e264b299e22d761782c0be44d1383799dd3e863b52a4569e1b3c1bf1ae35f42bf1f251c7111339a1dcf4929afbe53df8a2b5575dac94c35eb6613c51a56f67111f80970379d2acef1bc06e6a25853b360cf755dc252</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>goals</category>
+      </categories>
   </entry>
   <entry>
     <title>喜欢的课</title>
     <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
-    <content><![CDATA[<h3 id="喜欢的网课"><a href="#喜欢的网课" class="headerlink" title="喜欢的网课"></a>喜欢的网课</h3><ul>
-<li>1.心理学与生活（6.6截止），课件已全部上传。</li>
-<li>2.走进天文学（6.6截止），课件已全部上传。</li>
-</ul>
-<h4 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h4><ul>
-<li>1.职业与创业胜任力（2.10-6.1），据说老师讲得很细很好。</li>
-<li>4.普通天文学：开课很多周了。结束考试，未结课。</li>
-<li>5.天文探秘：内容未知待考察。</li>
-<li>3.走进创业：2.10-6.15。案例驱动。</li>
-</ul>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2e10cf87cf97dfa84a31d2d070ff17b696b8214b9f64c110f7ec8cf5deb46e56">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16ab443752b341a677aa804c92e6ca455a5403450c55bde3c73c3cbdd9a71acae7d1543e8a4f55284677d45a0cd1b470428cbf3098a69db57d75487197383c4eaacf7f4cd5cc4c01fedb2a5082d025d650cfbe610ebaec63421f94e94e64200f4c57f01ae232737038a3be6d94269a36d98da3acc9a2b90e95b126b9b6264f7f02cbdf9fd1005fd5c071b655b2f03a63f1c571092408570aa7fa6009ae2089b63165f48fa2e1528803005ba93acbb601046553b2d2c706dc38cfae5b453679d42372b925e62a14008d68ec248d1786cfc5cec62c08743a192822a9cadcfd0d515d7ea1c2916283e3319dd88fd32c9101269ddcf54bfc6a977fcb72aa15c9d96ccf796e32749a5e72154f87f5eeb701df5986e2acff3404e324a8ca3ddecb7c3a17cb3923ae80b746b23fd618e4c174eb53b0ab616b4bf32dc5bf10aed698695273f0a0a4564f685642a19cbf08db3ae77850eded6d9454dbd485bb33d880104ba3035252775db57c32a73a5d78c0fe7a6e0a07f5bd85b7bf330fc2aa2c921fa0d90ed0b5afb6519992becde453926bfa5420babb08028fbb7d8cd5b82b9c411ad49ee311f2c4287fc779e7f787c9dece9c2c011f199b6ea48cf6e9524ddd537e6cfaa3460611ac72dde92a15a1560c3131a2ef21693ca445984a12ca4f2f325173267979241a3ca89fc7ac88a6a124d75684fc34d46aec49c4240e3e196c859fdc836ccf473daae64355710b601e9eb14109bd6c0f8c3c36380ec9dadd56a978bc22b0b67ca32ec17056548d202d2688131183269fbe56052271375bdd35a684415da2da5f8a5ca9725dd1242114d714e4a78e532756a6327ecbdb917a6ad4989877a308fa154e5785bf390e103b682ba85f17339d2c88265f51fd7b105470c9a921f063767df611fa52c3c6bc83f28c33</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>goals</category>
+      </categories>
   </entry>
   <entry>
     <title>软件创新</title>
@@ -1186,6 +1131,10 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
   </entry>
   <entry>
     <title>期望开发的软件</title>
@@ -1201,6 +1150,10 @@
 <li>拍照识别神器：文字识别，然后识别题干和选项，自动分割题目，可打乱题目顺序和选项顺序进行训练</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
   </entry>
   <entry>
     <title>理想笔记本</title>
@@ -1218,6 +1171,10 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
   </entry>
   <entry>
     <title>机器人</title>
@@ -1231,46 +1188,46 @@
 <li>5.记忆模块：人脸识别和记录；消息记录；</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
   </entry>
   <entry>
     <title>notes</title>
     <url>/dailylife-notes/society/notes/</url>
-    <content><![CDATA[<h3 id="人生规划"><a href="#人生规划" class="headerlink" title="人生规划"></a>人生规划</h3><ul>
-<li><p><a href="%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87.md">人生目标</a></p>
-</li>
-<li><p><a href="%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86.md">时间管理</a></p>
-</li>
-<li><p><a href="%E5%81%9A%E5%86%B3%E5%AE%9A.md">做决定</a></p>
-</li>
-<li><p><a href="%E5%BE%AE%E4%B9%A0%E6%83%AF.md">微习惯</a></p>
-</li>
-<li><p><a href="%E6%8B%92%E7%BB%9D%E5%88%AB%E4%BA%BA.md">拒绝别人</a></p>
-</li>
-<li><p><a href="%E6%BC%94%E8%AE%B2.md">演讲</a></p>
-</li>
-<li><p><a href="%E7%A4%BE%E4%BA%A4.md">社交</a></p>
-</li>
-<li><p><a href="%E9%94%BB%E7%82%BC%E5%A4%A7%E8%84%91.md">锻炼大脑</a></p>
-</li>
-<li><p><a href="%E7%90%86%E8%B4%A2.md">理财</a></p>
-</li>
-</ul>
-<h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><ul>
-<li><a href="%E6%B8%85%E8%A1%A5%E5%87%89%E9%85%8D%E6%96%B9.md">清补凉配方</a></li>
-<li><a href="%E7%94%B7%E5%A3%AB%E5%BD%A2%E8%B1%A1.md">男士形象</a></li>
-<li><a href="%E8%8B%B1%E6%96%87%E6%AD%8C.md">英文歌</a></li>
-</ul>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="3c07fcb9ddba7400e27b41d6c519f86c5f96129d25e753039d6ebc72dd736261">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16704a2ff2f33367dbe0e73b7b189c8211f127fab1e9458180c606ea04028c880a28400b93570762b859ea869be8373ebb46c6b8467b9a275fbf865588411eabe7645baf0ef6f32da330de4d9ecaef14221d108bd829d94b03db9d38971572f26bf74c508d757c4e95d2fb679a5b5a174c24c7aadd97449d48296377e87e0d469c30b838456ba365c8f15e8d0231bd830ab342155747d710ef422e1cbf257e0a300323f58d0d181bb6d7465555d0c97945bf815eb0dd1e2b0ace47aa5dbecb76f90acf4e21d0c242cfb3719de66bd7fb5d57d80235d16eef8c26a228c7aa0f5a53794224901c660819929f7e3aec33452debd5781d34986baf5943c1e9eadd6380a873085fd930b51d31fb10bf46a2b9d0508adce645e332383a12d8133d2ae8559a77f1973677c77f12f47fa07c5833b0654deae67804e116817660075f12e468e9522ce17cd0fbf9ed357c55cea741d8ca142c2164d5dc6cedddc035277ad3eefea8568b57e3ac137c16760a5e341cd380061d5a2e6e97395ba8981e7e6c399b0cabb8f2692bf1bdee79e57f660fe38172d46f2690079910db5eb3a00447e50cd44a27a4a1dee35c82e2b3e8e2582b5f54810432fc8cce5d8e51cf92197fa908a1a657f9779998c5be853b5bbe8e07ddbe9a8d8d191f044919464ee4277bac8891d989b2769e5504702e35817e7342fca356aeeb2d51bee42ae0f7933eacbada45faf9050f744ef42826d9073540a4b8c9606c8facb79fcdc95ccc6e69a28b1e24c48aeeaa1fd75e594b0f9772e50cacc58ee9fd1f9ebe78982e6f825a517d56fe096ccfc4c409b554e55587192e99b47a2a618dda256f0bb25d01f828f4d2598c12bb3940afbf482a2ed7b68033a568b634359b4710bdaee5f998a1e11c00ec6be9d2d9f2243c7879423519c0e57c7f8876940740f0db8f7f2ffe1b94d150fe6c2018c5e2b64dc270b20c8ff897f737fc90570d43bffcca86607208d7a94a541adceeaae80de252b847ef9e5de2897a1f66492c71374cca81a40b92a7c320a8983eeffe62c7fcdcf5bd2d1d5a15ee0a9866bec344b2cc03cf4f5ac8955d143dd2c20a38c2f548a462cefafe0e18b07518153a1181fe63c454906bc2523b7979fc95da9184a478b674613f2e051b73e35bfe6118e06c5a1800ed1d611c6fb5642ab3ab1a1e10106b1b1c343aa42fb6bca2f0d409167c41aee336fbd53292808bf8e0815283c90d4d72702344b1ac0ed4063708abeab8273201ff8fb435509a92da3c74b40150ba373f466a2c9fd4e961a3b5568c17284c11c5263ad46c78cd4ca343dab4c70b81ac3ec8b087b8b640bae53b0f36ce99aa03100c6af229b440f655644933ef0bf68858a7ce5e20d0df8f82f365df997801fcc27449ab300146c4b517a8b5f5d93dc070fa5bc3438862edf764a55c139e300aaf83069b71be914d32017a08a06249cb3f40dd6e67add820d95cf00d67d20efd04cc8810ac4500111a412002d9344f45cd90118d45048efdeef2a992eed747b07c1af73c549241a31c3e35a4a1d6346ec3c576d31f649571</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
-    <title>人生目标</title>
+    <title>明确人生目标</title>
     <url>/dailylife-notes/society/%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87/</url>
-    <content><![CDATA[<h3 id="明确的人生目标"><a href="#明确的人生目标" class="headerlink" title="明确的人生目标"></a>明确的人生目标</h3><ul>
-<li>清楚的目标：你怎么确定你达到了这个目标。</li>
-<li>明确的筛选标准：90%法则，从0-10打分，只要低于9分就不要了。</li>
-<li>故事传递价值观（如童话对小孩子的影响）<br>想象自己即将临终，想说一个什么样的故事，希望这个故事是什么样的。</li>
-</ul>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="16465b467a667e6d34d0e168f14734aa57d112f22428f318ac1e2c02e8a18d7a">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16690a5f461ea4b02567c34352049e76f84543d17b721a0b8fd6da22f272253138bb27190ecad120cca92b7e0dfef35ea9456af07f33530631fb7a79593a3583f6cfe3af8a0111588524eff7dd9fdd28810fcf47fe26b1b7903c3f9015b33d46db0b1961328a5e1893334f986a1164adfbe373b22ffa1ec9fdbf059adeb7ccb85efc49c84a68e35144c4e6cebc5c2acd6bedd48d2b47afbf45f7befc2eb289afefc42abd5cb8b419ee4b2e4c0888a0e00e21d59272ddbe54197cc98e6f08697fab7eaa5e28543c8092f9272cb5fd17a5ed5e44a9a99fc81a3849524216292efc85898a6b6eb7f51611edd01e357f1646d2f0a0eb69e6892700c0d188a65fb3d581b4b60123484b806c92a3bffe60e733efbbcb6ae6c7ae630044506bb4558c6de22219e63c950de6fece3e2cbf4a9d993db872b78eb442fb4bdd7ac2d6457cffa901ec248907f9708de5374c8a1a83dae6b575e26a627b089db967ec5f8fba42b2c2b95d05f7f96cb14d68dc011009244ef2d6f3f6b4dfcc8b820613734dd88a4ea0acb282daf0747360982d5c287e25a3286c933102aad197fd76696cafe1d7ec8a5c076d8d9023d6e616122eefcc3967b0925f8d5f13270395c005040c781a1bc60a4bd198e32e9b1b0b31396f1cfb496acf7a2c8f333f68cbbc5f38a9010afe</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>做决定</title>
@@ -1282,6 +1239,10 @@
 <li>第三阶段绝对不反悔，全心应对前进执行中出现的情况。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>家装设计</title>
@@ -1293,6 +1254,10 @@
 <p>各类空间分类 链接<a href="https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b">https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b</a>(下载链接：<a href="http://pan.baidu.com/s/1jIqr4do">http://pan.baidu.com/s/1jIqr4do</a> 密码：n7s2）<br>记得再来哦~~^0^</p>
 <hr>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>微习惯</title>
@@ -1311,6 +1276,10 @@
 <p>你看，当我们的目标是锻炼30分钟的时候，总是无法完成。但当我们决定只做一个俯卧撑的时候，反而超额完成了。</p>
 <p>这一个小小的微习惯，会给我们带来继续做下去的惯性……</p>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>拒绝别人</title>
@@ -1321,7 +1290,12 @@
 <li>2对方筛选法：例如老板要求：我很喜欢，但是我手上还有a.b.c工作，您看我能不能先不做哪个工作。</li>
 <li>3提供其他方案：提出其他你愿意做的事情。例如：我看xxx好像比较感兴趣。我下个月帮你可以吗。</li>
 </ul>
+<hr>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>时间管理</title>
@@ -1332,6 +1306,10 @@
 <li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>清补凉</title>
@@ -1339,6 +1317,10 @@
     <content><![CDATA[<p>清补凉配方：<br>椰子粉，牛奶，椰果，龟苓膏，西米，薏米，大枣，红绿豆</p>
 <p>西湖特级龙井一两100+，一斤1000+，50g</p>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>理财</title>
@@ -1353,6 +1335,10 @@
 <li>6.资金的增长至少是抛物线型的，尽早开始，持之以恒。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>演讲</title>
@@ -1364,21 +1350,30 @@
 <li>可带走的收获：一个概念名，一个金句，一个重复的口号，一个画面。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>社交</title>
     <url>/dailylife-notes/society/%E7%A4%BE%E4%BA%A4/</url>
-    <content><![CDATA[<h3 id="人脉"><a href="#人脉" class="headerlink" title="人脉"></a>人脉</h3><p>清晰和睦，能和不好相处的人相处。<br>自信的求助别人。<br>自己的能力和其它人的差值。<br>除了职场以外的人脉圈。<br>考虑别人的需求。<br>职场中是长板效应。<br>在坚持中迭代和升级。<br>想做什么，对成长有没有帮助，怎么衡量是否成功，要做什么努力，原因是。</p>
-<h4 id="列举人脉"><a href="#列举人脉" class="headerlink" title="列举人脉"></a>列举人脉</h4><p>列出所有认识的人，各类同学、上级、理发师等。<br>不要一次性交易，不要指望酒会认识新朋友。<br>问问做什么工作、具体讲讲，关心其他人，表现出有兴趣。<br>对方必须知道名字。  </p>
-<h4 id="区分有效人脉和无效人脉："><a href="#区分有效人脉和无效人脉：" class="headerlink" title="区分有效人脉和无效人脉："></a>区分有效人脉和无效人脉：</h4><p>数据库，ABC分类。<br>A明确喜欢和欣赏你，啦啦队。B愿意被动的推荐你，需要主动积极的建立关系。C不太确定，希望保持良好沟通。D完全不想跟你沟通。<br>C-B-A转化。<br>维护方式：交流。</p>
-<h4 id="交流三个层面："><a href="#交流三个层面：" class="headerlink" title="交流三个层面："></a>交流三个层面：</h4><ul>
-<li>表层，打招呼和寒暄，分享很浅。   </li>
-<li>职业相关，包括职业，动态，内容和问题。业务关系。   </li>
-<li>真实层面，更加深层次的东西。需要主动打开自己的秘密，建立更加坦诚和真实的交流，建立真实的人脉。</li>
-</ul>
-<h4 id="维护人脉："><a href="#维护人脉：" class="headerlink" title="维护人脉："></a>维护人脉：</h4><p>保持亲自、系统化的沟通，每个月。<br>A类人脉需要特殊关照。<br>节点时间准备不同的问候语，尤其是重要人脉，不要群发。<br>习惯：年前28、29的时候发送一对一的专属信息<br>不要在过年前请人帮忙。<br>节日生日准备小礼物。<br>重视对口碑的维护。把关系放在产品和服务前。<br>需要稍微利他，割让一些自己的利益。  </p>
-<h4 id="要有底线。"><a href="#要有底线。" class="headerlink" title="要有底线。"></a>要有底线。</h4><p>没有谁是不可替代的。  </p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2d0096d122eff4d3fe1e4ac60c30dd342ad144fbcff0db7d6f30f7e27dd3c8b2">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b1670ed3c568f703c57c97aca2aac911017f76f563e1cdafad652c89a0a51258b951d3030b37a0caba41af06c1013813108e9e9c3252cf4b1c8f01679f640963014386cd0a7872fdf924b09edd4656428279b46b332ca7adf770b26d6b36aff59302dd1358c2e970c254beb304bd908d9fc8e44a0cafd53843cf2aa878469bac43e2762d0e22421569bd4b7796c45bca77131a22259a5b9e25746cf8ebea77a80ed6221461ea7d85ccb20e6512bb6d0b72175a225473234d16891f8995a74878e88218ca6886dde595f191b73ca752d3301b2e559ac52804b52dfd7661f35996d21a1828866641d351984876ec430252fc9b9371322c9526ed2a6218fa08691c646c9b28290e581e9f93579947df8fa555b1a6fde05eb0454e855ad849a6839a45d7c2c50f0dba4c5e14632fda40413d0ffeb25bdf97f91c9a50ab665c1404fa0e38c27cbce71121d4c5a16825c5cd1de7e62130ba2ca7a0f03a883d3d799ebbbfd12a137713a0971135501c84afc8460e4269a00bf4df4fa7dfcbb5c52dbd3d4ab04d083feb35d4ef3cd219b66d119042913ce7c7bf9937a718ac93609314a7233a20d5efa721de62caa25dd1da1fd3de6fffebefb40583f4e45265e16a607cf984605081df3c0168d8eac493854d83e4d5b3197f4f737f791f67383c90b021915858cc7655666b84c6416a83513683b554444c94bbda8ee0d989f652b2f839b57c1a861771b53c6091362708ead9adfbb6e31207ad25ff447ad62be429eccb8e77201a9712bd64f32692a51c49d06b976186bd48f859cfd5fc40cdfa7045bec7d861a9d470a2da507083b17f8a3ad1cbab9d058dbf1809556ce760caa66f748783717da9024e6a7248c5c1e288043fdc01ae5159709f662e9cdce03638051e400a91763e7c7ff4879786fbea98cb303a99953ee94608b80d4f7ac9e396f14bf5351d679d7639fe2e0ab827acf29cb1fe77d0c6b6d51fca53d7612c44f307a4356654408c72fa7f76bb0446cd527379703e1954452fef24e5126ff70b8e66f9731f57db3b4b8cb130f27694a52c3a52877dbf4a19ffbd49664887943e057dd1f7bfd6ded574e42e8e2fcbdeed8a3f2437cb16db5cccbc9cec97291119150d8f51dd7782166bb4c95f87af191eae40a988361f07ccfa8d18c588f1c155095b46f5b0488125c1eac6d3517560774b2b8ec8e77979d81c1039ceab4fb7350f817e9252f9205792cd23e7e4f96163480a9909cb76017905ba0ce87edbf95aa66c64c06f2497354c7c354a4cba96070bdf530b8b615a89daefb150cadc1d92dbf61d2edb5da291f2f2b69296cec9dbc49f485eb14540df9c206a989a620f30de14bdd2d09be4fbe06c6a5be7f8240881e29bebd573a6381698d89ec2e46365ea4e909265fb051fda3dee864235d8e20baa641cb7b693af87b60ed20a90761c051c764c255abfab2686a7f3a05ffb978cea75623095708589ddf506a44cf5556ae6312b63cab014afa8934569324f218768d1c58b81d7eee6abf64778b9f96a9df639ae37fe3ffef6abfaf8558338423944cfcbd529408922911366c9fd8837203a62293b6a64d9534b1334d438ba203d8c9319130c5df03a532c5cfaa10fc8a8f6191e5845442c9265c9265ee59a128b7952cec8f59650b39528ca342cd80abf58a68dee21e8879461c8162a0a788a9932b65121887df454de96f7bfd513f4a21348842a4d838f8f585f68eae09c440dc76bd22919624a67d5c1a23a4668ed66bfc3004678c2e327f37293340c1804aa4cc4a1474d8330fe5c16d6f46e3d88f145042111e87f62b6dffa0abef3e5eb7454ba796f91f76296a560fcb82b8625e131a54c31981fc9eb2c5fe0a5e2e0ec70b71280bb2949f2474b76c662fb7d4f91d9b497f4bbfcf23424f4012c62f21d1f056104d6ac44c2c10c877fcedab7524219184034f793b133f52128fcd056d9d6e1247180acc44a5a6d829fc582006e7a888fa6c835444240ebd30262fabe043437cf641fdb9772dc3fd97762a9b5124af2796af54fedc866e6bfbc1f42ffca9afab088eb0132d5945ceabef2935593f69f0903e5a17435cd06df6a1e6a53ec31dc83f492b4eafda5e64a75d0fd42fc245995d430dd0fd18d5e61c89937fe44964fe2974f45140ffc02d910002d954c1b30d5ce0e2a27199bfd550c3e64f340f76fbfd599a138e07e3a45b31b2c8fb25d622efb6628be4000a06f8487bce2e327cbaed432cc025aa5525fe35d0dcd4d629ac0752c526b39a709cecfc0c97bd5f156ce936231979a54378fc26cf17b16a961b70bcbb48087d98cb556b062284ed0feca1201390e838b955cc071196c1d550dff57af6fbd483f563d551f881576d50cb907a5b6ca254cf376ea02d842e11837c7480dc401e95864d92b4cd18f99e6e0d4b4ddaf179636c24eb004a22589f7a7ce14533f152c33b70ec6840e724b4e0e846ed4e58cc7bf7fc0865174c7d36cbe5e21685bce41c5eaafe3bef25a9a43d878fc90671d56788f9b9047128020505085c25da89508546a421fd470980c7b44752ab3f74830935990877048344af9ea398331ea14814c6a4a37113f6897849f428919a2b34f630afbf1fbbfc0d1a6c46c8d638913c813bad23e6124fdc0879d2f8c5d969aa9683fb2934eeb6ab41bc2564931a589106fba06daf65798c805fc129ba08e13de914187dcd8ed9d29c18f98b30f2f0bd2e69fd9f8b48b784f982a2fccbbf900ac0a5b3f7f22770432ef9d0e8dd1690e7057c766e0435527c867eb96aa2c465380e7bcdab8d2721253666423103205ef6f48d04c93fcf08111a9ee44c0de7e458c3f38f55d9f13a8a1825acd311392dee426fd89af7e6e0b0a40ef7d97251497bc9dbdc0c99578a38307719ba4b7d246e1f9dd743359ae06efd55935d28398c9ad26d1428016538d948402f3f9f6b5a23218360dff73304fe713a43881924f2dfac3f77a18024db8bf0913aa92f4a92012450e493098af5d99a12695340c237c9dd8c6017e70f68e6ef03da840a417326fead0cb249d76d98476fd83edaac00ade09a869363189f10ec03c28caa9f6b61dd4a97db68c086124447eef49ef6f520103df7d780ef7f5b627e96311df571f3e1e9e9e0bf6525495938fbf14f079d2a566b217b95b20e29375320dcd72741e0ed46113fe780e2101a148061b26c656d9dcff394d5001abfd7798dd91c8611d07be3562cacaf939ec7cb89bc85ef4e129b1ce7d17e49462d8106b4fe6e78b8abce5bf80a4cc788bd280c581ffd280b57dd564fc45ff7ed02a2a59f1d0b288aea305422db2c73be7b10d1dcd9df858614dec5b019c920c89688145fbdcfb1418b75418757f7d9abc2fb552f38e00b7882b5e4211fca53334af94d3b76c68e16a47db15717eec928e9e9dd16b6e1eb93b29efc802336e778a51ff6c34175</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>喜欢的英文歌</title>
@@ -1386,14 +1381,30 @@
     <content><![CDATA[<p>喜欢的英文歌</p>
 <p>Arrietty’s song</p>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>男士形象</title>
     <url>/dailylife-notes/society/%E7%94%B7%E5%A3%AB%E5%BD%A2%E8%B1%A1/</url>
-    <content><![CDATA[<p>1.男士必备单品：衬衫（不同颜色和款式，西装</p>
-<p>2.男生需要的特质：(1有礼貌有涵养2需求感表现的不高3成熟强势又温柔体贴的反差4干脆5正能量</p>
-<p>3.比拼的是形象和展示面，把自己打造一个很好的人设，打扮</p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="15e1324aa053091ca3b1fbb44c7ef884ab0fc4f0f2dd529f3a916328d7646bd9">1f1ff6fb140e19a4a5cd54e44db8b96d62ebd18c922066fd7fa98df957dd60ae5f361870c22267d6eb24cc1055eeda8cb866b9b2604a4a53156d123dbc5108099ad8aef0605e3706f607d62bf59134a3fff629ae45a009f7ad849763afec6a91ab74493faf536953050df89e7682179923416cdb796d85ee56c1b9aac1c6cffb695da66d01b9de221c836e9d1a4fe0f70942f089e7b52b4f235a9a102854693016da25377805d11151b5cb3ba569f4be9f97065b072247cb0811395a49aef9a2274d603e535c53acff68fdb29642dd613d23115486150c5d2913f44ea8348295e34ff927b0ca59d950c0601359697f243ff8202902c5dcc2c6aeaff5400dee92986271a2bee07e3e1ff623066b1e040734d5ba390298f66e05e8891c764055cd7b8e9826cdf3917eb9084980bc92f53101bc10de1bb103ac3245346f5b1af094</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>锻炼大脑的方法</title>
@@ -1405,6 +1416,10 @@
 <li>4.保存意志力，不在状态不佳的时候做决定。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
   </entry>
   <entry>
     <title>A2-RL Aesthetics Aware Reinforcement Learning for Image Cropping</title>
@@ -1424,6 +1439,7 @@
 <p>cropping<br>裁剪<br>#proposal <br>提议\建议（region proposal ）<br>theoretically<br>理论上<br>composition<br>构图<br>optimize<br>优化<br>intuitional<br>直觉的<br>mechanism<br>机制<br>manipulate<br>操纵<br>convolution<br>卷积<br>supervision<br>监督<br>execute<br>执行<br>assess<br>评估<br>annotation<br>注释<br>converge<br>收敛<br>estimation<br>评价<br>novel<br>新的<br>heuristic<br>启发式<br>asynchronous<br>异步的<br>obtain<br>得到<br>corresponding<br>相应的<br>optimization<br>最优化<br>densely<br>密集的<br>penalty<br>刑罚<br>entropy<br>熵<br>extract<br>提取<br>modify<br>修改<br>denote<br>代表<br>inevitably<br>不可避免地<br>capture<br>捕获<br>parameters<br>参数<br>discriminate<br>辨析<br>trigger<br>触发器</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1451,6 +1467,7 @@
 <p>多分类（图像中有多个物体，计算是否有a，是否有b，是否有c）：n-hot编码，每一位是二项分布，用sigmoid</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>机器学习</category>
         <category>知识点</category>
       </categories>
@@ -1464,6 +1481,7 @@
     <content><![CDATA[<p><a href="https://blog.csdn.net/niaolianjiulin/article/details/53098437">https://blog.csdn.net/niaolianjiulin/article/details/53098437</a></p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>机器学习</category>
         <category>知识点</category>
         <category>计算机视觉</category>
@@ -1483,6 +1501,7 @@
 <p>5.随机梯度下降：由于梯度下降每一步计算量过大，将数据分成一些组（bench），每次计算某一组的梯度然后下山。不一定每一步都是全局梯度，但是整体速度明显提升。</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>机器学习</category>
         <category>知识点</category>
       </categories>
@@ -1497,6 +1516,7 @@
     <content><![CDATA[<p>用drl训练注意力模型，判断两个视频的人脸是否相同。drl的工作是在一堆帧中选择一个丢弃。</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1522,6 +1542,7 @@
 <p>多个agent移动</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1538,6 +1559,7 @@
 <p>为了能train出DDPG，先使用监督的数据训练以达到一个好的初始化，通过controllable gating mechanism将各个可能的动作都执行，同时根据reward信号提升DDPG的效果</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1557,6 +1579,7 @@
 <p>DRL使用A3C，细节被忽略。</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1584,6 +1607,7 @@
 <h2 id="来源：sensetime"><a href="#来源：sensetime" class="headerlink" title="来源：sensetime"></a>来源：sensetime</h2><p>complexity<br>复杂性<br>artifacts<br>人工制品<br>parameter<br>参数<br>specialized<br>专业的<br>degradation<br>毁坏<br>severity<br>严重程度<br>appropriate<br>合适的，适当的<br>inherently<br>固有地<br>progressively<br>逐步地<br>scheme<br>方案<br>collaboratively<br>协同地<br>deem<br>认为<br>conventional<br>传统的<br>philosophy<br>哲学<br>depict<br>描绘<br>distortions<br>畸变<br>adaptively<br>自适应<br>simultaneously<br>同时地<br>immense<br>巨大的<br>aforementioned<br>上述<br>extent<br>程度<br>demonstrated<br>论证<br>potentially<br>潜在地<br>simultaneously<br>同时地<br>discriminative<br>判别式<br>contaminated<br>污染<br>recursion<br>递归<br>compression<br>压缩<br>distortion<br>失真<br>orthogonal<br>正交<br>incorporated<br>合并<br>mechanism<br>机制<br>hallucination<br>幻觉<br>out-of-focus blur<br>失焦模糊<br>exposure<br>暴露<br>intermediate<br>中间的<br>irreversible<br>不可逆<br>Markov Decision Process<br>马尔可夫决策<br>refine<br>精炼<br>propose<br>建议<br>recurrent<br>复发的<br>plausible<br>貌似有理的<br>corrupt<br>腐坏的<br>robustness<br>鲁棒性<br>essential<br>本质的<br>derive<br>得到<br>empirically<br>经验性的<br>depict<br>描绘<br>concatenated<br>级联的<br>derived<br>衍生的<br>episode<br>片段<br>sequential<br>时序<br>gradient<br>梯度<br>iteration<br>迭代、重复</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1599,6 +1623,7 @@
     <content><![CDATA[<p>DAN是一种人脸对齐的方法，采用级联神经网络结构，充分利用人脸的全局信息而非局部信息，使其效果优于现有的人脸对齐方法。<br>       该方法的总体思想为如下几步：<br>       1）DAN 参考CSR的框架，通过前向深度网络提取特征代替人工特征，训练前向网络得到关键点位的偏差代替CSR中的回归器<br>       2）用级联的网络结构来实现CSR中的迭代<br>       3）利用人脸全局信息T(I)、H、F作为前向网络的输入，得到关键点位的偏差<br>       4）构造级联网络结构<br>       5）分级训练网络，每级网络loss停止收敛时，训练下一级网络。</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1615,6 +1640,7 @@
 <p>Region Proposal Network：<br>每个点有3种长宽比*3种大小尺寸的窗口。选择跟groundtruth匹配度最高的窗口。<br>fast-RCNN:每一部分区域选择匹配最高的窗口，迭代。<br>文章：通过DRL选择窗口，提高准确度和速度。<br><img src="https://www.evernote.com/shard/s324/res/66418cc7-979f-4cc0-887f-f2acb8e60f25" alt="img"></p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1629,24 +1655,24 @@
     <url>/research-paper/drl9/</url>
     <content><![CDATA[<p>主题：色彩增强<br>原文：<a href="https://www.arxiv-vanity.com/papers/1804.04450/">https://www.arxiv-vanity.com/papers/1804.04450/</a><br>简介：使用DRL的颜色增强方法，选取图像增强的操作。训练使用高质量图像，进行扭曲-恢复的训练。（！这个可以节省标记时间和成本和主观性，为其他提供参考）</p>
 <p>#感觉跟修复受损图像的有点像啊</p>
-<p>他人工作：<br>Exemplar-based methods：（不用管了）<br>基于学习： 源颜色分布到目标颜色分布</p>
+<h1 id="他人工作："><a href="#他人工作：" class="headerlink" title="他人工作："></a>他人工作：</h1><p>Exemplar-based methods：（不用管了）<br>基于学习： 源颜色分布到目标颜色分布</p>
 <ul>
 <li>多模态问题：？？<br>我们：马尔科夫决策过程，将修饰看作全局颜色调整。<br>基本操作：亮度、对比度、白平衡</li>
 </ul>
 <p>#不同图像受到不同人群喜爱：改变重一点轻一点。<br>#逆过程（有人要吗？？）；滤镜添加<br>#想法：锐化等。图像局部处理（目标检测/图像分割+处理过程）。<br>#随机训练：但是可能和现实可能见到的图片相差甚远。现实。死黑死白到失真问题。</p>
-<p>对比：<br>基于关键词搜索；基于图片风格搜索； 数据库中找到候选图像，然后搜索局部颜色增强算子。<br>基于学习：深度。。<br>和我们最接近：Yan \etal[19] 。区别：我们的智能体直接选择一个操作。不需要按步骤评价。不受限于数据集。动作集不受限。<br>之前的数据集有分布偏差，需要训练对得到特定分布，泛化性差。<br>生成对抗网络：可以用于此工作。*一个生成对抗网络的应用例子。</p>
-<p>模型：<br>目标函数：人类输入图像作为标准背景、我们要的图像跟它比最接近。<br><img src="https://www.evernote.com/shard/s324/res/be3a7ba2-d791-4b9e-a2aa-3358561f3a83" alt="img1"><br>最小。<br>对比函数：<br><img src="https://www.evernote.com/shard/s324/res/cfd53a08-5e39-4254-bd21-1e8940b814fc" alt="img2"><br>马尔可夫决策：状态（上下文+颜色）、动作。。<br>deterministic 每一步操作确定。<br>加上次数t:<br><img src="https://www.evernote.com/shard/s324/res/6bf57f00-1ec3-4993-bc9c-e88deee3b466" alt="img3"></p>
-<p>框架：Q-learning<br>学习：选取最高。<br>#此算法是贪心。考虑采用其他选取方法？</p>
+<h1 id="对比："><a href="#对比：" class="headerlink" title="对比："></a>对比：</h1><p>基于关键词搜索；基于图片风格搜索； 数据库中找到候选图像，然后搜索局部颜色增强算子。<br>基于学习：深度。。<br>和我们最接近：Yan \etal[19] 。区别：我们的智能体直接选择一个操作。不需要按步骤评价。不受限于数据集。动作集不受限。<br>之前的数据集有分布偏差，需要训练对得到特定分布，泛化性差。<br>生成对抗网络：可以用于此工作。*一个生成对抗网络的应用例子。</p>
+<h1 id="模型："><a href="#模型：" class="headerlink" title="模型："></a>模型：</h1><p>目标函数：人类输入图像作为标准背景、我们要的图像跟它比最接近。<br><img src="https://www.evernote.com/shard/s324/res/be3a7ba2-d791-4b9e-a2aa-3358561f3a83" alt="img1"><br>最小。<br>对比函数：<br><img src="https://www.evernote.com/shard/s324/res/cfd53a08-5e39-4254-bd21-1e8940b814fc" alt="img2"><br>马尔可夫决策：状态（上下文+颜色）、动作。。<br>deterministic 每一步操作确定。<br>加上次数t:<br><img src="https://www.evernote.com/shard/s324/res/6bf57f00-1ec3-4993-bc9c-e88deee3b466" alt="img3"></p>
+<h1 id="框架：Q-learning"><a href="#框架：Q-learning" class="headerlink" title="框架：Q-learning"></a>框架：Q-learning</h1><p>学习：选取最高。<br>#此算法是贪心。考虑采用其他选取方法？</p>
 <p>动作空间: #叠加有效。<br><img src="https://www.evernote.com/shard/s324/res/cf41a78b-dda8-4df0-b545-9cd83e9bb022" alt="img4"></p>
 <p>？语境特征： CIELab</p>
-<p>训练：<br>1.扭曲-恢复训练。选取一些简单、实际、非线性类型的随机扭曲</p>
+<h1 id="训练："><a href="#训练：" class="headerlink" title="训练："></a>训练：</h1><p>1.扭曲-恢复训练。选取一些简单、实际、非线性类型的随机扭曲</p>
 <p>基于tf， Adam优化器</p>
 <p>特征选择：sixth layer of VGG16 [16] model</p>
-<p>优点：1.最重要：扭曲恢复方法。2.强化学习还可以。</p>
-<hr>
+<h1 id="优点：1-最重要：扭曲恢复方法。2-强化学习还可以。"><a href="#优点：1-最重要：扭曲恢复方法。2-强化学习还可以。" class="headerlink" title="优点：1.最重要：扭曲恢复方法。2.强化学习还可以。"></a>优点：1.最重要：扭曲恢复方法。2.强化学习还可以。</h1><hr>
 <p>pose estimation 姿态估计<br>semantic &lt;语&gt;语义的，语义学的<br>segmentation 分割; 分段; 切分; 分节<br>sophisticated 复杂的; 精致的; 富有经验的; 深奥…<br>distortion 扭曲，变形; 失真，畸变; 扭转<br>terminate 结束; 使终结; 解雇; 到达终点站; 结束的<br>Notation 记号，标记法<br>recognition 意识<br>threshold 阈值<br>Temporal 时间的; 世俗的; 暂存的; &lt;语&gt;表示时…<br>Inference 推理; 推断; 推论<br>Intuitively 直觉地，直观地; 由直觉而得地<br>gradient 梯度，陡度; 变化率，梯度变化曲线; &lt;…<br>in line with 本着; 跟…一致，符合<br>recognition network 识别网络</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
@@ -1674,6 +1700,7 @@
 <p>enforce<br>执行</p>
 ]]></content>
       <categories>
+        <category>科研</category>
         <category>论文</category>
         <category>论文笔记</category>
         <category>深度学习</category>
