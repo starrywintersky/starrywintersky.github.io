@@ -976,6 +976,7 @@
 
 </li>
 </ul>
+<h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上配置custom domain之外，注意在相应域名管理网站添加域名解析。</p>
 ]]></content>
       <categories>
         <category>小技巧</category>
