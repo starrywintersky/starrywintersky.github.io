@@ -864,6 +864,10 @@
 </li>
 </ul>
 <h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上配置custom domain之外，注意在相应域名管理网站添加域名解析。<br><a href="https://blog.csdn.net/u012348774/article/details/79577333">解析:Github博客+腾讯云域名_Yan-CSDN博客</a></p>
+<h2 id="收藏夹"><a href="#收藏夹" class="headerlink" title="收藏夹"></a>收藏夹</h2><p>hexo-pdf</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-pdf</span></span><br></pre></td></tr></table></figure>
+<p>markdown语法</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="xml">外部链接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %&#125;</span></span><br><span class="line"><span class="xml">本地连接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> ./pdf名字.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>小技巧</category>
