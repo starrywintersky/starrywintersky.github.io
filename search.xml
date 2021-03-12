@@ -958,18 +958,21 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo+NexT主题魔改教程集合</title>
+    <title>Hexo+NexT主题个人博客魔改教程集合</title>
     <url>/tricks/Hexo+next%E9%AD%94%E6%94%B9%E6%95%99%E7%A8%8B%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<p>搭建+魔改参考链接：持续更新中</p>
 <span id="more"></span>
 
-<p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">搭建教程：hexo史上最全搭建教程_网络_Fangzh的技术博客-CSDN博客</a><br><a href="https://blog.csdn.net/qq_34243930/article/details/102557949">搭建教程：用Github Pages+Hexo搭建博客之(一)搭建Github Pages+Hexo+部署到GitHub服务器 夏普通-CSDN博客</a><br><a href="https://hexo.io/zh-cn/docs/setup">Hexo官方文档</a><br><a href="https://github.com/iissnan/hexo-theme-next">NexT主题项目</a><br><a href="http://yearito.cn/posts/hexo-advanced-settings.html">功能</a><br><a href="http://yearito.cn/posts/hexo-theme-beautify.html">美化</a><br><a href="https://clustrmaps.com/">ClustrMap站点访问量统计</a><br><a href="https://tholman.com/github-corners/">GithubCorner github侧边链接</a></p>
-<p>其他注意事项：</p>
-<ul>
+<h2 id="搭建教程"><a href="#搭建教程" class="headerlink" title="搭建教程"></a>搭建教程</h2><p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">搭建教程：hexo史上最全搭建教程_网络_Fangzh的技术博客-CSDN博客</a><br><a href="https://blog.csdn.net/qq_34243930/article/details/102557949">搭建教程：用Github Pages+Hexo搭建博客之(一)搭建Github Pages+Hexo+部署到GitHub服务器 夏普通-CSDN博客</a></p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="https://hexo.io/zh-cn/docs/setup">Hexo官方文档</a><br><a href="https://github.com/iissnan/hexo-theme-next">NexT主题项目</a></p>
+<h2 id="魔改"><a href="#魔改" class="headerlink" title="魔改"></a>魔改</h2><p><a href="http://yearito.cn/posts/hexo-advanced-settings.html">功能</a><br><a href="http://yearito.cn/posts/hexo-theme-beautify.html">美化</a></p>
+<h2 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h2><p><a href="https://clustrmaps.com/">ClustrMap站点访问量统计</a><br><a href="https://tholman.com/github-corners/">GithubCorner github侧边链接</a></p>
+<h2 id="其他注意事项："><a href="#其他注意事项：" class="headerlink" title="其他注意事项："></a>其他注意事项：</h2><ul>
 <li>   改名：zh-cn文件映射中修改</li>
 <li>   运行：(我也不知道我怎么就记成了start或者starting)<figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure></li>
 <li>   部署：参考文档配置_config.yml，但注意和参考文献不同，branch填main而不是master<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo deployment</span></span><br></pre></td></tr></table></figure></li>
-<li>   更新:更新到github（第一次配置+部署后）：<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+<li>   更新:更新到github（第一次配置+部署后）：<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure></li>
+<li>  阅读全文栏<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
