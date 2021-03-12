@@ -748,7 +748,7 @@
       </tags>
   </entry>
   <entry>
-    <title>科研脑洞</title>
+    <title>科研脑洞-idea</title>
     <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
     <content><![CDATA[<h3 id="脑洞"><a href="#脑洞" class="headerlink" title="脑洞"></a>脑洞</h3><p>1.feature层面存在grouping问题吗？如果有，可以换顺序吗？<br>2.三通道可以拆吗？用来自监督？<br>3.每个feature得到不同部位的权重，生成各个分类器的输入。说起来，一个数据变多个输入？<br>4.无监督数据不一定要作为伪标签，可以只用来更新relation?  </p>
 ]]></content>
@@ -762,9 +762,12 @@
       </tags>
   </entry>
   <entry>
-    <title>科研脑洞</title>
+    <title>如何读博</title>
     <url>/research-experience/%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8D%9A/</url>
-    <content><![CDATA[<ul>
+    <content><![CDATA[<p>读博方面的一些经验，来自网友</p>
+<span id="more"></span>
+
+<ul>
 <li>  如何适应英语环境：多说英语，和不同的人聊天练习。</li>
 <li>  如何处理和老板的关系：让老板知道你在干活，他们不一定对每个学生都有了解。</li>
 <li>  内心感受：你没有你想象中的那么累。</li>
