@@ -43,6 +43,35 @@
       </tags>
   </entry>
   <entry>
+    <title>2018年清华夏令营机试题（思想） 积木 二分+线段树</title>
+    <url>/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/</url>
+    <content><![CDATA[<p>题目描述：一摞积木(1e5)，每个长宽都是1*1，高h，密度ρ，由题目输入。每块积木承重a，由题目输入（超重不会塌）。现在我从第一块开始一块一块的堆积木，问堆到第几块的时候超重体积超过V，V由题目输入。</p>
+<span id="more"></span>
+
+<p>思想：</p>
+<p>首先，所有积木的超重体积随着积木的增多是单调递增的。因此可以用二分记录它在放上哪块积木时超重，然后用一个数组add记录放上某块积木时新增的超重部分的体积，求前缀和就是放上第i块后超重部分的总体积，最后二分查找一下V就可以了。当然题目是多组询问，也可以给询问排序后遍历一遍取得所有答案。</p>
+<p>但是这里有个很大的问题，就是积木可能是有一部分超重，一部分没超重，不能看做一个整体。可以说在放上第i块积木时有一部分超重了，但是没有全超重，然后可能在放上第i+1块，第i+2块，…，第j块超重部分一直在增加，直到第j块放上整个积木完全超重体积不再增加。</p>
+<p>任意时刻，F（下表面）= F（上表面） + G0（自重）。我可以二分一下每块积木的上下表面超重时分别是第几块，得到一个变换区间(i, j)。</p>
+<p>在(i,j)变换区间内有一个有趣的问题，就是放上第k块积木时超重体积增加了多少呢。</p>
+<p>假如一块积木S，在变换区间内的某时刻的超重临界点在P点，称重Fp。那么放上积木k的时候，Fp’ = Fp + G(k)。因此积木平衡点将上移直到抵消这个G(k)，而抵消是通过减少上方自重，因此从原来的临界点P到新的临界点P’，减少的积木重量为G(k)，即是新增超重部分的重量G(k)。则新增体积为V(s, k) = G(k) / ρ(s)。</p>
+<p>值得一提的是边界i和j需要单独计算一下新增的超重部分体积，这个最后处理。i,j开区间内直接处理即可。</p>
+<p>现在我定义一个公式A(s, k) = V(s, k) / G(k) = 1/ρ(s)。</p>
+<p>我们需要分别求放上某块积木k的时候，其下方所有积木增加的重量，于是对于每一个在变换区间的积木x1, x2, …, xn，体积增加都是V(xi, k)。定义∑V(k)  = G(k) * ∑A(k)。</p>
+<p>对于每块积木来说，在它变换区间范围内的点，虽然V不一定相同，但是A都是相同的1/ρ(s)。</p>
+<p>因此可以给数组A构造一个线段树，初始化为0，对于每块积木s的变换区间（共n个）进行一次区间更新，给所有数加上1/ρ(s)，复杂度O(nlogn)，然后更新完依次取得每个点的最终值，复杂度O(nlogn)。</p>
+<p>然后给每个点的最终值*G(k)，加到add上，将n个区间的边界分别加到add上，O(n)。</p>
+<p>最后还是可以通过add的前缀数组处理多组询问的答案。</p>
+<p>代码：2021年仍然不会写=w=。</p>
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>机试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210223 Codeforces Round 704 (Div. 2)</title>
     <url>/acm/0223codeforces/</url>
     <content><![CDATA[<h1 id="21-02-23-codeforces-704-div2（补题完成度【4-5】）"><a href="#21-02-23-codeforces-704-div2（补题完成度【4-5】）" class="headerlink" title="[21.02.23]codeforces 704 div2（补题完成度【4/5】）"></a>[21.02.23]codeforces 704 div2（补题完成度【4/5】）</h1><p>复健选手的第一场cf，rating0-575。<br>现在的cf竟然是从灰名往上爬升了。还是说我已经是掉到灰名水平了。震惊。</p>
@@ -113,35 +142,6 @@
       </tags>
   </entry>
   <entry>
-    <title>2018年清华夏令营机试题（思想） 积木 二分+线段树</title>
-    <url>/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/</url>
-    <content><![CDATA[<p>题目描述：一摞积木(1e5)，每个长宽都是1*1，高h，密度ρ，由题目输入。每块积木承重a，由题目输入（超重不会塌）。现在我从第一块开始一块一块的堆积木，问堆到第几块的时候超重体积超过V，V由题目输入。</p>
-<span id="more"></span>
-
-<p>思想：</p>
-<p>首先，所有积木的超重体积随着积木的增多是单调递增的。因此可以用二分记录它在放上哪块积木时超重，然后用一个数组add记录放上某块积木时新增的超重部分的体积，求前缀和就是放上第i块后超重部分的总体积，最后二分查找一下V就可以了。当然题目是多组询问，也可以给询问排序后遍历一遍取得所有答案。</p>
-<p>但是这里有个很大的问题，就是积木可能是有一部分超重，一部分没超重，不能看做一个整体。可以说在放上第i块积木时有一部分超重了，但是没有全超重，然后可能在放上第i+1块，第i+2块，…，第j块超重部分一直在增加，直到第j块放上整个积木完全超重体积不再增加。</p>
-<p>任意时刻，F（下表面）= F（上表面） + G0（自重）。我可以二分一下每块积木的上下表面超重时分别是第几块，得到一个变换区间(i, j)。</p>
-<p>在(i,j)变换区间内有一个有趣的问题，就是放上第k块积木时超重体积增加了多少呢。</p>
-<p>假如一块积木S，在变换区间内的某时刻的超重临界点在P点，称重Fp。那么放上积木k的时候，Fp’ = Fp + G(k)。因此积木平衡点将上移直到抵消这个G(k)，而抵消是通过减少上方自重，因此从原来的临界点P到新的临界点P’，减少的积木重量为G(k)，即是新增超重部分的重量G(k)。则新增体积为V(s, k) = G(k) / ρ(s)。</p>
-<p>值得一提的是边界i和j需要单独计算一下新增的超重部分体积，这个最后处理。i,j开区间内直接处理即可。</p>
-<p>现在我定义一个公式A(s, k) = V(s, k) / G(k) = 1/ρ(s)。</p>
-<p>我们需要分别求放上某块积木k的时候，其下方所有积木增加的重量，于是对于每一个在变换区间的积木x1, x2, …, xn，体积增加都是V(xi, k)。定义∑V(k)  = G(k) * ∑A(k)。</p>
-<p>对于每块积木来说，在它变换区间范围内的点，虽然V不一定相同，但是A都是相同的1/ρ(s)。</p>
-<p>因此可以给数组A构造一个线段树，初始化为0，对于每块积木s的变换区间（共n个）进行一次区间更新，给所有数加上1/ρ(s)，复杂度O(nlogn)，然后更新完依次取得每个点的最终值，复杂度O(nlogn)。</p>
-<p>然后给每个点的最终值*G(k)，加到add上，将n个区间的边界分别加到add上，O(n)。</p>
-<p>最后还是可以通过add的前缀数组处理多组询问的答案。</p>
-<p>代码：2021年仍然不会写=w=。</p>
-]]></content>
-      <categories>
-        <category>acm</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>机试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++带有空格的字符串读取：cin.getline、getline、gets、正则表达式</title>
     <url>/acm/C++%20%E5%B8%A6%E6%9C%89%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%BB%E5%8F%96%EF%BC%9Acin.getline%E3%80%81getline%E3%80%81gets%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/ysf13579/article/details/23447945">参考</a><br><a href="https://bbs.csdn.net/topics/360010225">参考</a><br><a href="https://blog.csdn.net/tujiaw/article/details/6139896">参考</a></p>
@@ -182,6 +182,27 @@
       </tags>
   </entry>
   <entry>
+    <title>csp 201712-2 游戏 暴力，附：约瑟夫环的递推</title>
+    <url>/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/</url>
+    <content><![CDATA[<p>中问题竟然愚蠢的看错题了。中文读题能力还不如英文，有待提升。</p>
+<p>所以这道题用普通的数组模拟操作就可以了。总之跟暴力模拟的约瑟夫环没什么区别。</p>
+<p>可以用next数组模拟指针做数据结构，但是数据范围不大的情况下不建议这么写，维护一个指针环写起来还是比较麻烦的。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">bool</span> survive[MAXN];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        survive[i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, snum = n;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(snum)</span><br><span class="line">    &#123;</span><br><span class="line">        idx = (idx + <span class="number">1</span>) % n;</span><br><span class="line">        <span class="keyword">if</span>(survive[idx] == <span class="literal">true</span>)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span>(cnt % k == <span class="number">0</span> || cnt % <span class="number">10</span> == k)&#123;</span><br><span class="line">                survive[idx] = <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//printf(&quot;%d\n&quot;, idx+1);</span></span><br><span class="line">                snum--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(snum == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="keyword">if</span>(survive[i] == <span class="literal">true</span>)<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">int</span> ans = solve(n, k);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是突然想到比得十分GG的蓝桥杯国赛，必须要记录一下约瑟夫环的标准数学（找规律）解法。</p>
+<p>将k固定，设解ANS[n,k] = ans(n)</p>
+<p>具有m个数的m约瑟夫环中，删除一个数之后，相当于重新标号后的m-1约瑟夫环问题。</p>
+<p>设从a(1)开始的m约瑟夫环答案为ans(m) = s，在m+1约瑟夫环中，由于经历了重新标号，m中的标号a(i)应该为a((k+i)%(m+1)) ,所以答案下标也要从s移动到(s+k)%(m+1).</p>
+<p>公式：ans(1) = 1, ans(m+1) = (ans(m)+k)%(m+1)。代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//标准约瑟夫环，非此题题解</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">int</span> i, s = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s = (s + k) % i;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s+1);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, s+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>csp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Codeforces 1012C Hills 比较简单的DP</title>
     <url>/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/</url>
     <content><![CDATA[<p>刚刚拿到一个夏令营的offer，顺便在附近城市玩了两天，算起来出门在外有10天了？重新开始补题。</p>
@@ -207,27 +228,6 @@
       <tags>
         <tag>acm</tag>
         <tag>codeforces</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>csp 201712-2 游戏 暴力，附：约瑟夫环的递推</title>
-    <url>/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/</url>
-    <content><![CDATA[<p>中问题竟然愚蠢的看错题了。中文读题能力还不如英文，有待提升。</p>
-<p>所以这道题用普通的数组模拟操作就可以了。总之跟暴力模拟的约瑟夫环没什么区别。</p>
-<p>可以用next数组模拟指针做数据结构，但是数据范围不大的情况下不建议这么写，维护一个指针环写起来还是比较麻烦的。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">bool</span> survive[MAXN];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        survive[i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, snum = n;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(snum)</span><br><span class="line">    &#123;</span><br><span class="line">        idx = (idx + <span class="number">1</span>) % n;</span><br><span class="line">        <span class="keyword">if</span>(survive[idx] == <span class="literal">true</span>)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span>(cnt % k == <span class="number">0</span> || cnt % <span class="number">10</span> == k)&#123;</span><br><span class="line">                survive[idx] = <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//printf(&quot;%d\n&quot;, idx+1);</span></span><br><span class="line">                snum--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(snum == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="keyword">if</span>(survive[i] == <span class="literal">true</span>)<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">int</span> ans = solve(n, k);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是突然想到比得十分GG的蓝桥杯国赛，必须要记录一下约瑟夫环的标准数学（找规律）解法。</p>
-<p>将k固定，设解ANS[n,k] = ans(n)</p>
-<p>具有m个数的m约瑟夫环中，删除一个数之后，相当于重新标号后的m-1约瑟夫环问题。</p>
-<p>设从a(1)开始的m约瑟夫环答案为ans(m) = s，在m+1约瑟夫环中，由于经历了重新标号，m中的标号a(i)应该为a((k+i)%(m+1)) ,所以答案下标也要从s移动到(s+k)%(m+1).</p>
-<p>公式：ans(1) = 1, ans(m+1) = (ans(m)+k)%(m+1)。代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//标准约瑟夫环，非此题题解</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">int</span> i, s = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s = (s + k) % i;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s+1);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, s+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>acm</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>csp</tag>
       </tags>
   </entry>
   <entry>
@@ -338,18 +338,22 @@
       </tags>
   </entry>
   <entry>
-    <title>中期考核</title>
-    <url>/research-experience/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</url>
-    <content><![CDATA[<h3 id="中期考核"><a href="#中期考核" class="headerlink" title="中期考核"></a>中期考核</h3><p>研究工作花7分钟，未来计划没人听<br>讲研究工作非常重要<br>代表性方法，相关工作要分好类  </p>
-<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><p>1.是不是完全创新，或者某一种方法没解决的问题<br>把不重要的部分盖掉。<br>放可视化的结果放上来。<br>截图截作者和标题。  </p>
-<h4 id="未来计划：简略一点。"><a href="#未来计划：简略一点。" class="headerlink" title="未来计划：简略一点。"></a>未来计划：简略一点。</h4><p>字不要多<br>对比方法发表在哪里<br>画图<br>定义清楚<br>近几年文章爆发趋势<br>差异性<br>图可以拆成几页  </p>
+    <title>leetcode刷题规则</title>
+    <url>/acm/leetcode%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<h1 id="Leetcode-刷题规则"><a href="#Leetcode-刷题规则" class="headerlink" title="Leetcode 刷题规则"></a>Leetcode 刷题规则</h1><p>规则：  </p>
+<ul>
+<li>stdout可以输出，但stdout可能造成误判。</li>
+<li>不需要调用包，所有包都可以直接使用。</li>
+<li>如果运行样例与测试结果不同，注意<strong>memset</strong>，注意<strong>清零</strong>，注意<strong>初始化</strong>，注意不要有<strong>全局变量</strong>。</li>
+<li>不要<strong>读错题</strong>。  </li>
+<li>注意<strong>合理的下标名</strong>，注意尽量不要用可能是<strong>关键字</strong>的变量名。  <span id="more"></span></li>
+</ul>
 ]]></content>
       <categories>
-        <category>科研</category>
+        <category>acm</category>
       </categories>
       <tags>
-        <tag>科研</tag>
-        <tag>经验</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -375,22 +379,43 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode刷题规则</title>
-    <url>/acm/leetcode%E8%A7%84%E5%88%99/</url>
-    <content><![CDATA[<h1 id="Leetcode-刷题规则"><a href="#Leetcode-刷题规则" class="headerlink" title="Leetcode 刷题规则"></a>Leetcode 刷题规则</h1><p>规则：  </p>
-<ul>
-<li>stdout可以输出，但stdout可能造成误判。</li>
-<li>不需要调用包，所有包都可以直接使用。</li>
-<li>如果运行样例与测试结果不同，注意<strong>memset</strong>，注意<strong>清零</strong>，注意<strong>初始化</strong>，注意不要有<strong>全局变量</strong>。</li>
-<li>不要<strong>读错题</strong>。  </li>
-<li>注意<strong>合理的下标名</strong>，注意尽量不要用可能是<strong>关键字</strong>的变量名。  <span id="more"></span></li>
-</ul>
+    <title>中期考核</title>
+    <url>/research-experience/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</url>
+    <content><![CDATA[<h3 id="中期考核"><a href="#中期考核" class="headerlink" title="中期考核"></a>中期考核</h3><p>研究工作花7分钟，未来计划没人听<br>讲研究工作非常重要<br>代表性方法，相关工作要分好类  </p>
+<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><p>1.是不是完全创新，或者某一种方法没解决的问题<br>把不重要的部分盖掉。<br>放可视化的结果放上来。<br>截图截作者和标题。  </p>
+<h4 id="未来计划：简略一点。"><a href="#未来计划：简略一点。" class="headerlink" title="未来计划：简略一点。"></a>未来计划：简略一点。</h4><p>字不要多<br>对比方法发表在哪里<br>画图<br>定义清楚<br>近几年文章爆发趋势<br>差异性<br>图可以拆成几页  </p>
 ]]></content>
       <categories>
-        <category>acm</category>
+        <category>科研</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
+        <tag>科研</tag>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习-交叉熵</title>
+    <url>/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/tsyccnh/article/details/79163834">参考</a></p>
+<p><a href="https://blog.csdn.net/zxyhhjs2017/article/details/78619756?utm_source=blogkpcl1">参考</a></p>
+<p>1.信息量：一个离散型随机变量，其中某个事件发生的概率越低，信息量越大。</p>
+<p>I(xi) = -log(p(xi))</p>
+<p>2.熵：信息量的期望。</p>
+<p> H(X) = \sum ( P(xi) * I(xi) )</p>
+<p>3.KL散度：描述两个概率分布的相似程度。</p>
+<p>D_{kl}(p||q) =\sum{p(xi)*log( p(xi)/q(xi) )}\\ =\sum p(xi)*log(p(xi)) - \sum p(xi)*log(q(xi))\ = H(X) - \sum p(xi)*log(q(xi))</p>
+<p>4.交叉熵：KL散度计算公式的后半部分</p>
+<p>H(p,q)=-\sum p(xi)log(q(xi))</p>
+<p>5.机器学习中：p是标准的分布，q是网络进行训练时得到的分布。用交叉熵作为loss函数处理逻辑分类问题。</p>
+<p>单分类（图像中的物体A是{a,b,c}中的一种）：直接计算。</p>
+<p>多分类（图像中有多个物体，计算是否有a，是否有b，是否有c）：n-hot编码，每一位是二项分布，用sigmoid</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -405,6 +430,21 @@
       <tags>
         <tag>机器学习</tag>
         <tag>脑洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图像分割评估标准</title>
+    <url>/research-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/niaolianjiulin/article/details/53098437">https://blog.csdn.net/niaolianjiulin/article/details/53098437</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>知识点</category>
+        <category>计算机视觉</category>
+        <category>图像分割</category>
+      </categories>
+      <tags>
+        <tag>图像分割</tag>
       </tags>
   </entry>
   <entry>
@@ -428,6 +468,24 @@
       <tags>
         <tag>ccproxy</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>神经网络相关</title>
+    <url>/research-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/</url>
+    <content><![CDATA[<p>1.神经网络：带有成千上万个参数的分层的大型数学公式，从每一层传播到下一层时呈全连接结构，参数为连接强度（强度大，关联大）和偏移量，经过几层映射后从原始数据到最终的结果。{例：从手写数字识别中，从700多个像素点的图像，到0-9的10个点的输出层，输出信号为这个数字是几的判断}</p>
+<p>2.模型训练：根据样本期望的输出，以及模型得到的真实输出比较，调整神经网络每相邻两层映射间的参数。{例：手写数字识别中，代价为一组数据中，每个数据，预测每个数字时，p(xi)和{0或1}的差值的平方}</p>
+<p>3.反向传播算法(BMP)：从输出层到输入层，每相邻两层i和i-1间，将i层所有数据对结点权值的变化的希望相加，作为一次对i-1层的调整。然后根据第i层受到调整的程度，继续向前调整第i-1层。</p>
+<p>4.梯度下降：梯度是使带有多个参数的函数变化最快的方向，梯度下降是一个人通过计算所有数据的梯度，然后沿着负梯度方向一步一步下山。</p>
+<p>5.随机梯度下降：由于梯度下降每一步计算量过大，将数据分成一些组（bench），每次计算某一组的梯度然后下山。不一定每一步都是全局梯度，但是整体速度明显提升。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
@@ -493,49 +551,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python+ml科研经验-实验方面</title>
-    <url>/research-experiment/python+ml%E5%AE%9E%E9%AA%8C%E7%BB%8F%E9%AA%8C/</url>
-    <content><![CDATA[<h3 id="Main函数与Args的使用"><a href="#Main函数与Args的使用" class="headerlink" title="Main函数与Args的使用"></a>Main函数与Args的使用</h3><ul>
-<li>  args全局，然后引用。在函数中直接传递。</li>
-<li>  用shadow main调用main，在一个实验环境跑多份代码。注意../和./的差别</li>
-<li>  在shadow main中，调用main之前修改args的个别参数，不要修改主函数</li>
-<li>  产生可能使用和变化的新超参数，在args里添加，并保证初始值不变。方便修改，不要硬编码在函数中。</li>
-<li>  args各个部分分开：train部分，test部分，semi-supervised部分等。尽可能用int和str代替bool，防止之后用一个变量控制新功能。</li>
-<li>  print args:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;-----Args Items -----&#x27;</span>)</span></span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> vars(self.args)<span class="selector-class">.items</span>():</span><br><span class="line">    print(<span class="string">&#x27;&#123;&#125;:&#123;&#125;&#x27;</span><span class="selector-class">.format</span>(k, v))</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;done&#x27;</span>)</span></span></span><br></pre></td></tr></table></figure></li>
-<li>  save args:<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">def save_args(<span class="built_in">self</span>):</span><br><span class="line">      model_dir = <span class="built_in">os</span>.<span class="built_in">path</span>.dirname(<span class="built_in">self</span>.args.save_dir)</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.<span class="built_in">path</span>.exists(model_dir):</span><br><span class="line">          <span class="built_in">os</span>.makedirs(model_dir)</span><br><span class="line">      filename = <span class="string">&#x27;args.csv&#x27;</span></span><br><span class="line">      args_path = <span class="built_in">os</span>.<span class="built_in">path</span>.join(model_dir, filename)</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27;Save args to &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(args_path))</span><br><span class="line">      # <span class="built_in">print</span>(<span class="string">&#x27;--------Args Items----------&#x27;</span>)</span><br><span class="line">      with <span class="built_in">open</span>(args_path, <span class="string">&#x27;w&#x27;</span>) as fid:</span><br><span class="line">          <span class="keyword">for</span> k, v <span class="keyword">in</span> vars(<span class="built_in">self</span>.args).items():</span><br><span class="line">              fid.<span class="built_in">write</span>(<span class="string">&#x27;&#123;&#125;,&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(k, v))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="更新和迭代"><a href="#更新和迭代" class="headerlink" title="更新和迭代"></a>更新和迭代</h3><ul>
-<li>  大幅度修改实验前，先把一个相对完整的版本保存下来，然后新开一个项目，可以避免混乱。</li>
-</ul>
-<h3 id="起名和架构规范"><a href="#起名和架构规范" class="headerlink" title="起名和架构规范"></a>起名和架构规范</h3><ul>
-<li>  同类变量起名时，首字母尽可能一致，方便debug。</li>
-<li>  注意命名写完整，写好help，避免混乱。</li>
-<li>  output和outputs等的单复数，string和str的缩写格式统一。</li>
-<li>  一个函数实现的多个分支的功能尽可能平行。</li>
-<li>  initialization的多个部分的初始化函数分开</li>
-<li>  train(on_start_epoch, run_iteration(on_forward, calculate_loss), on_end_epoch)</li>
-<li>  尽可能保留下来更多相关信息，如当前best score， 某一个部分的result等。</li>
-</ul>
-<h3 id="checkpoint"><a href="#checkpoint" class="headerlink" title="checkpoint"></a>checkpoint</h3><ul>
-<li>  设置多种load的方式：load_all, parameters, model_only</li>
-<li>  所有的变量：变量名=checkpoint[‘变量名’]；所有的模型和优化器：model.load_state_dict(checkpoint[‘模型名’])。注意转cuda。<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line"><span class="literal">self</span>.auto_alpha.load_state_dict(checkpoint[&#x27;auto_alpha_dict&#x27;])</span><br><span class="line"><span class="literal">self</span>.auto_alpha_optimizer.load_state_dict(checkpoint[&#x27;auto_alpha_optimizer&#x27;])</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">state</span> <span class="keyword">in</span> <span class="literal">self</span>.auto_alpha_optimizer.<span class="keyword">state</span>.values():</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="keyword">state</span>.items():</span><br><span class="line">        if torch.is_tensor(v):</span><br><span class="line">            <span class="keyword">state</span>[k] = v.cuda()</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    <span class="literal">self</span>.auto_alpha.cuda()</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>实验</category>
-        <category>经验</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux服务器+pytorch实验环境配置常用命令行指令</title>
     <url>/research-experiment/python+pycharm%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
     <content><![CDATA[<hr>
@@ -594,6 +609,49 @@
       <tags>
         <tag>python</tag>
         <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python+ml科研经验-实验方面</title>
+    <url>/research-experiment/python+ml%E5%AE%9E%E9%AA%8C%E7%BB%8F%E9%AA%8C/</url>
+    <content><![CDATA[<h3 id="Main函数与Args的使用"><a href="#Main函数与Args的使用" class="headerlink" title="Main函数与Args的使用"></a>Main函数与Args的使用</h3><ul>
+<li>  args全局，然后引用。在函数中直接传递。</li>
+<li>  用shadow main调用main，在一个实验环境跑多份代码。注意../和./的差别</li>
+<li>  在shadow main中，调用main之前修改args的个别参数，不要修改主函数</li>
+<li>  产生可能使用和变化的新超参数，在args里添加，并保证初始值不变。方便修改，不要硬编码在函数中。</li>
+<li>  args各个部分分开：train部分，test部分，semi-supervised部分等。尽可能用int和str代替bool，防止之后用一个变量控制新功能。</li>
+<li>  print args:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;-----Args Items -----&#x27;</span>)</span></span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> vars(self.args)<span class="selector-class">.items</span>():</span><br><span class="line">    print(<span class="string">&#x27;&#123;&#125;:&#123;&#125;&#x27;</span><span class="selector-class">.format</span>(k, v))</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;done&#x27;</span>)</span></span></span><br></pre></td></tr></table></figure></li>
+<li>  save args:<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">def save_args(<span class="built_in">self</span>):</span><br><span class="line">      model_dir = <span class="built_in">os</span>.<span class="built_in">path</span>.dirname(<span class="built_in">self</span>.args.save_dir)</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.<span class="built_in">path</span>.exists(model_dir):</span><br><span class="line">          <span class="built_in">os</span>.makedirs(model_dir)</span><br><span class="line">      filename = <span class="string">&#x27;args.csv&#x27;</span></span><br><span class="line">      args_path = <span class="built_in">os</span>.<span class="built_in">path</span>.join(model_dir, filename)</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27;Save args to &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(args_path))</span><br><span class="line">      # <span class="built_in">print</span>(<span class="string">&#x27;--------Args Items----------&#x27;</span>)</span><br><span class="line">      with <span class="built_in">open</span>(args_path, <span class="string">&#x27;w&#x27;</span>) as fid:</span><br><span class="line">          <span class="keyword">for</span> k, v <span class="keyword">in</span> vars(<span class="built_in">self</span>.args).items():</span><br><span class="line">              fid.<span class="built_in">write</span>(<span class="string">&#x27;&#123;&#125;,&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(k, v))</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="更新和迭代"><a href="#更新和迭代" class="headerlink" title="更新和迭代"></a>更新和迭代</h3><ul>
+<li>  大幅度修改实验前，先把一个相对完整的版本保存下来，然后新开一个项目，可以避免混乱。</li>
+</ul>
+<h3 id="起名和架构规范"><a href="#起名和架构规范" class="headerlink" title="起名和架构规范"></a>起名和架构规范</h3><ul>
+<li>  同类变量起名时，首字母尽可能一致，方便debug。</li>
+<li>  注意命名写完整，写好help，避免混乱。</li>
+<li>  output和outputs等的单复数，string和str的缩写格式统一。</li>
+<li>  一个函数实现的多个分支的功能尽可能平行。</li>
+<li>  initialization的多个部分的初始化函数分开</li>
+<li>  train(on_start_epoch, run_iteration(on_forward, calculate_loss), on_end_epoch)</li>
+<li>  尽可能保留下来更多相关信息，如当前best score， 某一个部分的result等。</li>
+</ul>
+<h3 id="checkpoint"><a href="#checkpoint" class="headerlink" title="checkpoint"></a>checkpoint</h3><ul>
+<li>  设置多种load的方式：load_all, parameters, model_only</li>
+<li>  所有的变量：变量名=checkpoint[‘变量名’]；所有的模型和优化器：model.load_state_dict(checkpoint[‘模型名’])。注意转cuda。<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line"><span class="literal">self</span>.auto_alpha.load_state_dict(checkpoint[&#x27;auto_alpha_dict&#x27;])</span><br><span class="line"><span class="literal">self</span>.auto_alpha_optimizer.load_state_dict(checkpoint[&#x27;auto_alpha_optimizer&#x27;])</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">state</span> <span class="keyword">in</span> <span class="literal">self</span>.auto_alpha_optimizer.<span class="keyword">state</span>.values():</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="keyword">state</span>.items():</span><br><span class="line">        if torch.is_tensor(v):</span><br><span class="line">            <span class="keyword">state</span>[k] = v.cuda()</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    <span class="literal">self</span>.auto_alpha.cuda()</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>经验</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -660,14 +718,14 @@
 <p>27.不需要规规矩矩一个一个验证、而且可能要跑多次取均值的model，可以通过预先判断筛选掉一些。（反正服务器早晚是你的，没必要不浪费，不如节省时间多跑跑好的模型）</p>
 ]]></content>
       <categories>
+        <category>机器学习</category>
         <category>实验</category>
         <category>python</category>
-        <category>机器学习</category>
         <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>ML</tag>
+        <tag>python</tag>
         <tag>计算机视觉</tag>
       </tags>
   </entry>
@@ -720,9 +778,9 @@
 <h1 id="8-RuntimeError-dimension-out-of-range-expected-to-be-in-range-of-1-0-but-got-1"><a href="#8-RuntimeError-dimension-out-of-range-expected-to-be-in-range-of-1-0-but-got-1" class="headerlink" title="8.RuntimeError: dimension out of range (expected to be in range of [-1, 0], but got 1)"></a>8.RuntimeError: dimension out of range (expected to be in range of [-1, 0], but got 1)</h1><p>维度不对，请查看当前tensor形状<br><a href="https://blog.csdn.net/qq_40178291/article/details/100183457">相关链接</a></p>
 ]]></content>
       <categories>
+        <category>机器学习</category>
         <category>实验</category>
         <category>pytorch</category>
-        <category>机器学习</category>
         <category>深度学习</category>
       </categories>
       <tags>
@@ -784,46 +842,6 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习-交叉熵</title>
-    <url>/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/tsyccnh/article/details/79163834">参考</a></p>
-<p><a href="https://blog.csdn.net/zxyhhjs2017/article/details/78619756?utm_source=blogkpcl1">参考</a></p>
-<p>1.信息量：一个离散型随机变量，其中某个事件发生的概率越低，信息量越大。</p>
-<p>I(xi) = -log(p(xi))</p>
-<p>2.熵：信息量的期望。</p>
-<p> H(X) = \sum ( P(xi) * I(xi) )</p>
-<p>3.KL散度：描述两个概率分布的相似程度。</p>
-<p>D_{kl}(p||q) =\sum{p(xi)*log( p(xi)/q(xi) )}\\ =\sum p(xi)*log(p(xi)) - \sum p(xi)*log(q(xi))\ = H(X) - \sum p(xi)*log(q(xi))</p>
-<p>4.交叉熵：KL散度计算公式的后半部分</p>
-<p>H(p,q)=-\sum p(xi)log(q(xi))</p>
-<p>5.机器学习中：p是标准的分布，q是网络进行训练时得到的分布。用交叉熵作为loss函数处理逻辑分类问题。</p>
-<p>单分类（图像中的物体A是{a,b,c}中的一种）：直接计算。</p>
-<p>多分类（图像中有多个物体，计算是否有a，是否有b，是否有c）：n-hot编码，每一位是二项分布，用sigmoid</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图像分割评估标准</title>
-    <url>/research-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/niaolianjiulin/article/details/53098437">https://blog.csdn.net/niaolianjiulin/article/details/53098437</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>知识点</category>
-        <category>计算机视觉</category>
-        <category>图像分割</category>
-      </categories>
-      <tags>
-        <tag>图像分割</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字节跳动校园招聘内推码</title>
     <url>/shixi/1/</url>
     <content><![CDATA[<p>字节跳动校园招聘内推码：ASZ7RWS （邵帅）<br><a href="https://job.bytedance.com/campus%E5%9C%A8%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8">https://job.bytedance.com/campus在字节跳动</a> 2021 校园招聘中，每人最多可投递两个职位，每个职位可选择选择服从调剂的三个城市。如果你投递的职位未被录用，HR 有可能会根据你选择的服从调剂城市，再次邀请你进入校招流程。你的申请职位及招聘进度会随之更新，请留意相关邮件及短信通知。</p>
@@ -836,41 +854,6 @@
       <tags>
         <tag>内推</tag>
         <tag>吉大实习群</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>神经网络相关</title>
-    <url>/research-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/</url>
-    <content><![CDATA[<p>1.神经网络：带有成千上万个参数的分层的大型数学公式，从每一层传播到下一层时呈全连接结构，参数为连接强度（强度大，关联大）和偏移量，经过几层映射后从原始数据到最终的结果。{例：从手写数字识别中，从700多个像素点的图像，到0-9的10个点的输出层，输出信号为这个数字是几的判断}</p>
-<p>2.模型训练：根据样本期望的输出，以及模型得到的真实输出比较，调整神经网络每相邻两层映射间的参数。{例：手写数字识别中，代价为一组数据中，每个数据，预测每个数字时，p(xi)和{0或1}的差值的平方}</p>
-<p>3.反向传播算法(BMP)：从输出层到输入层，每相邻两层i和i-1间，将i层所有数据对结点权值的变化的希望相加，作为一次对i-1层的调整。然后根据第i层受到调整的程度，继续向前调整第i-1层。</p>
-<p>4.梯度下降：梯度是使带有多个参数的函数变化最快的方向，梯度下降是一个人通过计算所有数据的梯度，然后沿着负梯度方向一步一步下山。</p>
-<p>5.随机梯度下降：由于梯度下降每一步计算量过大，将数据分成一些组（bench），每次计算某一组的梯度然后下山。不一定每一步都是全局梯度，但是整体速度明显提升。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/shixi/2/</url>
-    <content><![CDATA[<p>蚂蚁集团是中国最大的移动支付平台支付宝的母公司，也是全球领先的金融科技开放平台，致力于以科技推动包括金融服务业在内的全球现代服务业的数字化升级，携手合作伙伴为消费者和小微企业提供普惠、绿色、可持续的服务，为世界带来微小而美好的改变，用科技让普通人和小企业，享受平等的金融和生活服务。<br>蚂蚁集团旗下产品包括支付宝、蚂蚁财富、芝麻信用、花呗、相互宝、余额宝、蚂蚁森林、网商银行等。</p>
-<p>岗位类型<br>研发类：JAVA C/C++ 前端 客户端 数据研发等<br>安全类：安全工程师<br>算法类：机器学习 图像图形 自然语言处理等<br>设计类：创意设计师 体验设计等<br>其　它：产品 运营等</p>
-<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#x79;&#x69;&#120;&#105;&#46;&#122;&#x79;&#102;&#64;&#x61;&#110;&#x74;&#x67;&#x72;&#111;&#117;&#112;&#46;&#99;&#x6f;&#x6d;">&#x79;&#x69;&#120;&#105;&#46;&#122;&#x79;&#102;&#64;&#x61;&#110;&#x74;&#x67;&#x72;&#111;&#117;&#112;&#46;&#99;&#x6f;&#x6d;</a></p>
-]]></content>
-      <categories>
-        <category>工作</category>
-        <category>暑期实习</category>
-        <category>蚂蚁</category>
-      </categories>
-      <tags>
-        <tag>内推邮箱</tag>
-        <tag>南大年级群</tag>
       </tags>
   </entry>
   <entry>
@@ -892,7 +875,7 @@
 <li>扎实的编程功底（C++/python），熟悉主流深度学习框架；<br>（pytorch/tensorflow/mxnet/caffe）；</li>
 <li>实习期 3 个月以上，每周至少出勤 4 天；</li>
 </ol>
-<p>简历请发：<a href="mailto:&#x6b;&#97;&#x69;&#x73;&#101;&#114;&#x7a;&#x68;&#x61;&#111;&#x40;&#x74;&#101;&#x6e;&#99;&#101;&#x6e;&#116;&#x2e;&#x63;&#111;&#109;">&#x6b;&#97;&#x69;&#x73;&#101;&#114;&#x7a;&#x68;&#x61;&#111;&#x40;&#x74;&#101;&#x6e;&#99;&#101;&#x6e;&#116;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>简历请发：<a href="mailto:&#107;&#97;&#105;&#115;&#101;&#x72;&#x7a;&#x68;&#97;&#x6f;&#x40;&#116;&#x65;&#x6e;&#x63;&#x65;&#x6e;&#x74;&#46;&#99;&#111;&#109;">&#107;&#97;&#105;&#115;&#101;&#x72;&#x7a;&#x68;&#97;&#x6f;&#x40;&#116;&#x65;&#x6e;&#x63;&#x65;&#x6e;&#x74;&#46;&#99;&#111;&#109;</a></p>
 <p>邮箱主题/简历命名格式：腾讯优图实习申请+姓名+CVer推荐</p>
 ]]></content>
       <categories>
@@ -903,6 +886,23 @@
       </categories>
       <tags>
         <tag>CVer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/shixi/2/</url>
+    <content><![CDATA[<p>蚂蚁集团是中国最大的移动支付平台支付宝的母公司，也是全球领先的金融科技开放平台，致力于以科技推动包括金融服务业在内的全球现代服务业的数字化升级，携手合作伙伴为消费者和小微企业提供普惠、绿色、可持续的服务，为世界带来微小而美好的改变，用科技让普通人和小企业，享受平等的金融和生活服务。<br>蚂蚁集团旗下产品包括支付宝、蚂蚁财富、芝麻信用、花呗、相互宝、余额宝、蚂蚁森林、网商银行等。</p>
+<p>岗位类型<br>研发类：JAVA C/C++ 前端 客户端 数据研发等<br>安全类：安全工程师<br>算法类：机器学习 图像图形 自然语言处理等<br>设计类：创意设计师 体验设计等<br>其　它：产品 运营等</p>
+<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#121;&#x69;&#x78;&#x69;&#46;&#x7a;&#121;&#102;&#x40;&#97;&#110;&#116;&#x67;&#x72;&#x6f;&#x75;&#x70;&#x2e;&#x63;&#111;&#x6d;">&#121;&#x69;&#x78;&#x69;&#46;&#x7a;&#121;&#102;&#x40;&#97;&#110;&#116;&#x67;&#x72;&#x6f;&#x75;&#x70;&#x2e;&#x63;&#111;&#x6d;</a></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+        <category>暑期实习</category>
+        <category>蚂蚁</category>
+      </categories>
+      <tags>
+        <tag>内推邮箱</tag>
+        <tag>南大年级群</tag>
       </tags>
   </entry>
   <entry>
@@ -976,7 +976,7 @@
 
 </li>
 </ul>
-<h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上配置custom domain之外，注意在相应域名管理网站添加域名解析。</p>
+<h2 id="腾讯云域名配置"><a href="#腾讯云域名配置" class="headerlink" title="腾讯云域名配置"></a>腾讯云域名配置</h2><p>如果域名购买自各个服务器网站，除了github上配置custom domain之外，注意在相应域名管理网站添加域名解析。<br><a href="https://blog.csdn.net/u012348774/article/details/79577333">解析:Github博客+腾讯云域名_Yan-CSDN博客</a></p>
 ]]></content>
       <categories>
         <category>小技巧</category>
@@ -1179,6 +1179,21 @@
 ]]></content>
   </entry>
   <entry>
+    <title>喜欢的课</title>
+    <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
+    <content><![CDATA[<h3 id="喜欢的网课"><a href="#喜欢的网课" class="headerlink" title="喜欢的网课"></a>喜欢的网课</h3><ul>
+<li>1.心理学与生活（6.6截止），课件已全部上传。</li>
+<li>2.走进天文学（6.6截止），课件已全部上传。</li>
+</ul>
+<h4 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h4><ul>
+<li>1.职业与创业胜任力（2.10-6.1），据说老师讲得很细很好。</li>
+<li>4.普通天文学：开课很多周了。结束考试，未结课。</li>
+<li>5.天文探秘：内容未知待考察。</li>
+<li>3.走进创业：2.10-6.15。案例驱动。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>出国需要的部分</title>
     <url>/dailylife-notes/goals/%E5%87%BA%E5%9B%BD%E9%9C%80%E6%B1%82/</url>
     <content><![CDATA[<h2 id="出国需要的点"><a href="#出国需要的点" class="headerlink" title="出国需要的点"></a>出国需要的点</h2><ul>
@@ -1211,34 +1226,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>喜欢的课</title>
-    <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
-    <content><![CDATA[<h3 id="喜欢的网课"><a href="#喜欢的网课" class="headerlink" title="喜欢的网课"></a>喜欢的网课</h3><ul>
-<li>1.心理学与生活（6.6截止），课件已全部上传。</li>
-<li>2.走进天文学（6.6截止），课件已全部上传。</li>
-</ul>
-<h4 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h4><ul>
-<li>1.职业与创业胜任力（2.10-6.1），据说老师讲得很细很好。</li>
-<li>4.普通天文学：开课很多周了。结束考试，未结课。</li>
-<li>5.天文探秘：内容未知待考察。</li>
-<li>3.走进创业：2.10-6.15。案例驱动。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>软件创新</title>
-    <url>/dailylife-notes/innovation/notes/</url>
-    <content><![CDATA[<ul>
-<li><p><a href="%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6.md">期望开发的软件</a></p>
-</li>
-<li><p><a href="%E6%9C%BA%E5%99%A8%E4%BA%BA.md">机器人的结构</a></p>
-</li>
-<li><p><a href="%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC.md">理想笔记本的功能</a></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>期望开发的软件</title>
     <url>/dailylife-notes/innovation/%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[<h3 id="我想开发的软件程序"><a href="#我想开发的软件程序" class="headerlink" title="我想开发的软件程序"></a>我想开发的软件程序</h3><ul>
@@ -1254,31 +1241,14 @@
 ]]></content>
   </entry>
   <entry>
-    <title>机器人</title>
-    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
-    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
-<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
-<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
-<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
-<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
-<li>4.学习模块：主动学习；强化学习；</li>
-<li>5.记忆模块：人脸识别和记录；消息记录；</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>理想笔记本</title>
-    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
-    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
-<li><p>生活日记</p>
+    <title>软件创新</title>
+    <url>/dailylife-notes/innovation/notes/</url>
+    <content><![CDATA[<ul>
+<li><p><a href="%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6.md">期望开发的软件</a></p>
 </li>
-<li><p>计划管理</p>
+<li><p><a href="%E6%9C%BA%E5%99%A8%E4%BA%BA.md">机器人的结构</a></p>
 </li>
-<li><p>paper笔记</p>
-</li>
-<li><p>重要通知</p>
-</li>
-<li><p>（课程笔记，作业笔记，学术报告）</p>
+<li><p><a href="%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC.md">理想笔记本的功能</a></p>
 </li>
 </ul>
 ]]></content>
@@ -1314,12 +1284,42 @@
 ]]></content>
   </entry>
   <entry>
+    <title>机器人</title>
+    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
+    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
+<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
+<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
+<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
+<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
+<li>4.学习模块：主动学习；强化学习；</li>
+<li>5.记忆模块：人脸识别和记录；消息记录；</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>人生目标</title>
     <url>/dailylife-notes/society/%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h3 id="明确的人生目标"><a href="#明确的人生目标" class="headerlink" title="明确的人生目标"></a>明确的人生目标</h3><ul>
 <li>清楚的目标：你怎么确定你达到了这个目标。</li>
 <li>明确的筛选标准：90%法则，从0-10打分，只要低于9分就不要了。</li>
 <li>故事传递价值观（如童话对小孩子的影响）<br>想象自己即将临终，想说一个什么样的故事，希望这个故事是什么样的。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>理想笔记本</title>
+    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
+<li><p>生活日记</p>
+</li>
+<li><p>计划管理</p>
+</li>
+<li><p>paper笔记</p>
+</li>
+<li><p>重要通知</p>
+</li>
+<li><p>（课程笔记，作业笔记，学术报告）</p>
+</li>
 </ul>
 ]]></content>
   </entry>
@@ -1332,17 +1332,6 @@
 <li>第二阶段前深呼吸20次以上。</li>
 <li>第三阶段绝对不反悔，全心应对前进执行中出现的情况。</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>家装设计</title>
-    <url>/dailylife-notes/society/%E5%AE%B6%E8%A3%85%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<p>家装设计图</p>
-<hr>
-<p>您好！感谢光临小店，<br>十五种风格实景图链接：<a href="http://pan.baidu.com/s/1o8xAXVc">http://pan.baidu.com/s/1o8xAXVc</a> 密码：h3x6   （压缩包下载地址链接：<a href="http://pan.baidu.com/s/1bCFWku">http://pan.baidu.com/s/1bCFWku</a> 密码：p8u4）<br>十五种风格实景图手机看图链接 <a href="https://share.weiyun.com/1a6d9340dd41b822445077f202689141%EF%BC%88%E5%89%8D%E4%B8%89%E4%B8%AA%E9%93%BE%E6%8E%A5%E4%B8%80%E6%A0%B7%EF%BC%8C%E6%89%8B%E6%9C%BA%E7%9C%8B%E5%9B%BE%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E7%94%A8%E6%89%8B%E6%9C%BA%E8%A7%82%E7%9C%8B%E3%80%82%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E4%BF%9D%E5%AD%98%E5%9C%A8%E7%BD%91%E7%9B%98">https://share.weiyun.com/1a6d9340dd41b822445077f202689141（前三个链接一样，手机看图链接方便大家用手机观看。压缩包下载链接方便大家保存在网盘</a> 或者下载带电脑）</p>
-<p>2017高清效果图大全链接：<a href="http://pan.baidu.com/s/1nvn3AzR">http://pan.baidu.com/s/1nvn3AzR</a> 密码：m8xn</p>
-<p>各类空间分类 链接<a href="https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b">https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b</a>(下载链接：<a href="http://pan.baidu.com/s/1jIqr4do">http://pan.baidu.com/s/1jIqr4do</a> 密码：n7s2）<br>记得再来哦~~^0^</p>
-<hr>
 ]]></content>
   </entry>
   <entry>
@@ -1364,14 +1353,14 @@
 ]]></content>
   </entry>
   <entry>
-    <title>拒绝别人</title>
-    <url>/dailylife-notes/society/%E6%8B%92%E7%BB%9D%E5%88%AB%E4%BA%BA/</url>
-    <content><![CDATA[<h3 id="拒绝别人"><a href="#拒绝别人" class="headerlink" title="拒绝别人"></a>拒绝别人</h3><p>拒绝自己无法完成的事情是为别人着想，长痛不如短痛。<br>拒绝一个请求不代表拒绝一个人。<br>接受一个要求代表需要放弃一些更重要的事情。   </p>
-<ul>
-<li>1时间换空间法：例如邀约：可以啊，不过我好像还有另一个重要的事情，解决掉之后在来吧。</li>
-<li>2对方筛选法：例如老板要求：我很喜欢，但是我手上还有a.b.c工作，您看我能不能先不做哪个工作。</li>
-<li>3提供其他方案：提出其他你愿意做的事情。例如：我看xxx好像比较感兴趣。我下个月帮你可以吗。</li>
-</ul>
+    <title>家装设计</title>
+    <url>/dailylife-notes/society/%E5%AE%B6%E8%A3%85%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<p>家装设计图</p>
+<hr>
+<p>您好！感谢光临小店，<br>十五种风格实景图链接：<a href="http://pan.baidu.com/s/1o8xAXVc">http://pan.baidu.com/s/1o8xAXVc</a> 密码：h3x6   （压缩包下载地址链接：<a href="http://pan.baidu.com/s/1bCFWku">http://pan.baidu.com/s/1bCFWku</a> 密码：p8u4）<br>十五种风格实景图手机看图链接 <a href="https://share.weiyun.com/1a6d9340dd41b822445077f202689141%EF%BC%88%E5%89%8D%E4%B8%89%E4%B8%AA%E9%93%BE%E6%8E%A5%E4%B8%80%E6%A0%B7%EF%BC%8C%E6%89%8B%E6%9C%BA%E7%9C%8B%E5%9B%BE%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E7%94%A8%E6%89%8B%E6%9C%BA%E8%A7%82%E7%9C%8B%E3%80%82%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E4%BF%9D%E5%AD%98%E5%9C%A8%E7%BD%91%E7%9B%98">https://share.weiyun.com/1a6d9340dd41b822445077f202689141（前三个链接一样，手机看图链接方便大家用手机观看。压缩包下载链接方便大家保存在网盘</a> 或者下载带电脑）</p>
+<p>2017高清效果图大全链接：<a href="http://pan.baidu.com/s/1nvn3AzR">http://pan.baidu.com/s/1nvn3AzR</a> 密码：m8xn</p>
+<p>各类空间分类 链接<a href="https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b">https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b</a>(下载链接：<a href="http://pan.baidu.com/s/1jIqr4do">http://pan.baidu.com/s/1jIqr4do</a> 密码：n7s2）<br>记得再来哦~~^0^</p>
+<hr>
 ]]></content>
   </entry>
   <entry>
@@ -1381,6 +1370,17 @@
 <ul>
 <li>尤利西斯合约：当下的自己和未来不理智的自己做一个约定。   </li>
 <li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>拒绝别人</title>
+    <url>/dailylife-notes/society/%E6%8B%92%E7%BB%9D%E5%88%AB%E4%BA%BA/</url>
+    <content><![CDATA[<h3 id="拒绝别人"><a href="#拒绝别人" class="headerlink" title="拒绝别人"></a>拒绝别人</h3><p>拒绝自己无法完成的事情是为别人着想，长痛不如短痛。<br>拒绝一个请求不代表拒绝一个人。<br>接受一个要求代表需要放弃一些更重要的事情。   </p>
+<ul>
+<li>1时间换空间法：例如邀约：可以啊，不过我好像还有另一个重要的事情，解决掉之后在来吧。</li>
+<li>2对方筛选法：例如老板要求：我很喜欢，但是我手上还有a.b.c工作，您看我能不能先不做哪个工作。</li>
+<li>3提供其他方案：提出其他你愿意做的事情。例如：我看xxx好像比较感兴趣。我下个月帮你可以吗。</li>
 </ul>
 ]]></content>
   </entry>
@@ -1417,6 +1417,21 @@
 ]]></content>
   </entry>
   <entry>
+    <title>社交</title>
+    <url>/dailylife-notes/society/%E7%A4%BE%E4%BA%A4/</url>
+    <content><![CDATA[<h3 id="人脉"><a href="#人脉" class="headerlink" title="人脉"></a>人脉</h3><p>清晰和睦，能和不好相处的人相处。<br>自信的求助别人。<br>自己的能力和其它人的差值。<br>除了职场以外的人脉圈。<br>考虑别人的需求。<br>职场中是长板效应。<br>在坚持中迭代和升级。<br>想做什么，对成长有没有帮助，怎么衡量是否成功，要做什么努力，原因是。</p>
+<h4 id="列举人脉"><a href="#列举人脉" class="headerlink" title="列举人脉"></a>列举人脉</h4><p>列出所有认识的人，各类同学、上级、理发师等。<br>不要一次性交易，不要指望酒会认识新朋友。<br>问问做什么工作、具体讲讲，关心其他人，表现出有兴趣。<br>对方必须知道名字。  </p>
+<h4 id="区分有效人脉和无效人脉："><a href="#区分有效人脉和无效人脉：" class="headerlink" title="区分有效人脉和无效人脉："></a>区分有效人脉和无效人脉：</h4><p>数据库，ABC分类。<br>A明确喜欢和欣赏你，啦啦队。B愿意被动的推荐你，需要主动积极的建立关系。C不太确定，希望保持良好沟通。D完全不想跟你沟通。<br>C-B-A转化。<br>维护方式：交流。</p>
+<h4 id="交流三个层面："><a href="#交流三个层面：" class="headerlink" title="交流三个层面："></a>交流三个层面：</h4><ul>
+<li>表层，打招呼和寒暄，分享很浅。   </li>
+<li>职业相关，包括职业，动态，内容和问题。业务关系。   </li>
+<li>真实层面，更加深层次的东西。需要主动打开自己的秘密，建立更加坦诚和真实的交流，建立真实的人脉。</li>
+</ul>
+<h4 id="维护人脉："><a href="#维护人脉：" class="headerlink" title="维护人脉："></a>维护人脉：</h4><p>保持亲自、系统化的沟通，每个月。<br>A类人脉需要特殊关照。<br>节点时间准备不同的问候语，尤其是重要人脉，不要群发。<br>习惯：年前28、29的时候发送一对一的专属信息<br>不要在过年前请人帮忙。<br>节日生日准备小礼物。<br>重视对口碑的维护。把关系放在产品和服务前。<br>需要稍微利他，割让一些自己的利益。  </p>
+<h4 id="要有底线。"><a href="#要有底线。" class="headerlink" title="要有底线。"></a>要有底线。</h4><p>没有谁是不可替代的。  </p>
+]]></content>
+  </entry>
+  <entry>
     <title>男士形象</title>
     <url>/dailylife-notes/society/%E7%94%B7%E5%A3%AB%E5%BD%A2%E8%B1%A1/</url>
     <content><![CDATA[<p>1.男士必备单品：衬衫（不同颜色和款式，西装</p>
@@ -1440,21 +1455,6 @@
 <li>3.吃东西，血糖显著影响大脑功能，提高血糖短期增加意志力。</li>
 <li>4.保存意志力，不在状态不佳的时候做决定。</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>社交</title>
-    <url>/dailylife-notes/society/%E7%A4%BE%E4%BA%A4/</url>
-    <content><![CDATA[<h3 id="人脉"><a href="#人脉" class="headerlink" title="人脉"></a>人脉</h3><p>清晰和睦，能和不好相处的人相处。<br>自信的求助别人。<br>自己的能力和其它人的差值。<br>除了职场以外的人脉圈。<br>考虑别人的需求。<br>职场中是长板效应。<br>在坚持中迭代和升级。<br>想做什么，对成长有没有帮助，怎么衡量是否成功，要做什么努力，原因是。</p>
-<h4 id="列举人脉"><a href="#列举人脉" class="headerlink" title="列举人脉"></a>列举人脉</h4><p>列出所有认识的人，各类同学、上级、理发师等。<br>不要一次性交易，不要指望酒会认识新朋友。<br>问问做什么工作、具体讲讲，关心其他人，表现出有兴趣。<br>对方必须知道名字。  </p>
-<h4 id="区分有效人脉和无效人脉："><a href="#区分有效人脉和无效人脉：" class="headerlink" title="区分有效人脉和无效人脉："></a>区分有效人脉和无效人脉：</h4><p>数据库，ABC分类。<br>A明确喜欢和欣赏你，啦啦队。B愿意被动的推荐你，需要主动积极的建立关系。C不太确定，希望保持良好沟通。D完全不想跟你沟通。<br>C-B-A转化。<br>维护方式：交流。</p>
-<h4 id="交流三个层面："><a href="#交流三个层面：" class="headerlink" title="交流三个层面："></a>交流三个层面：</h4><ul>
-<li>表层，打招呼和寒暄，分享很浅。   </li>
-<li>职业相关，包括职业，动态，内容和问题。业务关系。   </li>
-<li>真实层面，更加深层次的东西。需要主动打开自己的秘密，建立更加坦诚和真实的交流，建立真实的人脉。</li>
-</ul>
-<h4 id="维护人脉："><a href="#维护人脉：" class="headerlink" title="维护人脉："></a>维护人脉：</h4><p>保持亲自、系统化的沟通，每个月。<br>A类人脉需要特殊关照。<br>节点时间准备不同的问候语，尤其是重要人脉，不要群发。<br>习惯：年前28、29的时候发送一对一的专属信息<br>不要在过年前请人帮忙。<br>节日生日准备小礼物。<br>重视对口碑的维护。把关系放在产品和服务前。<br>需要稍微利他，割让一些自己的利益。  </p>
-<h4 id="要有底线。"><a href="#要有底线。" class="headerlink" title="要有底线。"></a>要有底线。</h4><p>没有谁是不可替代的。  </p>
 ]]></content>
   </entry>
 </search>
