@@ -2943,4 +2943,44 @@
         <tag>经验</tag>
       </tags>
   </entry>
+  <entry>
+    <title>语义分割-组会</title>
+    <url>/research-paper/sseg3/</url>
+    <content><![CDATA[<p>一.语义分割：全监督-半监督（包含交互式）-无监督（label？）<br>二.交互：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">polygon-RNN</span></span><br></pre></td></tr></table></figure>
+<p>三.全监督：FCN。（1.从上到下和从下到上。2.网络结构，跨层。3.多规模。4.卷积）</p>
+<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Context</span> Encoding <span class="keyword">for</span> Semantic Segmentation</span><br></pre></td></tr></table></figure>
+<p>四.半监督难度：boundingbox-&gt;point&amp;squiggles-&gt;image level<br>五.领域自适应： </p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Fully</span> Convolutional Adaptation Networks for Semantic Segmentation。</span><br></pre></td></tr></table></figure>
+<p>六.继续半监督<br>Class activation map(CAM)</p>
+<hr>
+<p><img src="https://www.evernote.com/shard/s324/res/439ab438-2e2c-4aa8-8b47-fda66ed865e5" alt="img"></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>论文笔记</category>
+        <category>计算机视觉</category>
+        <category>图像分割</category>
+      </categories>
+      <tags>
+        <tag>分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Look Before You Leap: Bridging Model-Free and Model-Based Reinforcement Learning for Planned-Ahead Vision-and-Language Navigation</title>
+    <url>/research-paper/drl27/</url>
+    <content><![CDATA[<p>结合在线和离线强化学习，提高泛化性（略）</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>深度学习</category>
+        <category>论文笔记</category>
+        <category>强化学习</category>
+      </categories>
+      <tags>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
 </search>
