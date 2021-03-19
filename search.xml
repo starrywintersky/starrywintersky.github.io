@@ -113,6 +113,25 @@
       </tags>
   </entry>
   <entry>
+    <title>C++带有空格的字符串读取：cin.getline、getline、gets、正则表达式</title>
+    <url>/acm/C++%20%E5%B8%A6%E6%9C%89%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%BB%E5%8F%96%EF%BC%9Acin.getline%E3%80%81getline%E3%80%81gets%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/ysf13579/article/details/23447945">参考</a><br><a href="https://bbs.csdn.net/topics/360010225">参考</a><br><a href="https://blog.csdn.net/tujiaw/article/details/6139896">参考</a></p>
+<p>简单来说，cin.getline属于iostream，getline(cin, **) 属于string, gets属于C语言的cstdio。</p>
+<span id="more"></span>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">cin</span>.getline(<span class="keyword">char</span>* tostr, <span class="keyword">int</span> maxlen, <span class="keyword">char</span> endch)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>getline(<span class="built_in">cin</span>, <span class="built_in">string</span> toss, <span class="keyword">char</span> endch) </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>gets(<span class="keyword">char</span>* tpstr) 不能自定义换行符，读到回车结束</span><br><span class="line"></span><br><span class="line">*<span class="built_in">cin</span>或<span class="built_in">scanf</span>(%d、%s)会留下一个换行符，直接在后面使用getline或<span class="built_in">cin</span>.getline或gets第一次会读到一个换行符。需要注意。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span><span class="built_in">scanf</span>(“%c”，ch）循环读取，比较麻烦。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>正则表达式%[^\n]。注意它匹配成功后不会删除换行符。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">105</span>];</span><br><span class="line">    <span class="keyword">int</span> maxi;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;maxi;<span class="comment">//scanf也可</span></span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxi; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%[^\n]&quot;</span>, str);</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;str&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>acm</category>
+        <category>C++</category>
+        <category>char</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>char</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2018年清华夏令营机试题（思想） 积木 二分+线段树</title>
     <url>/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/</url>
     <content><![CDATA[<p>题目描述：一摞积木(1e5)，每个长宽都是1*1，高h，密度ρ，由题目输入。每块积木承重a，由题目输入（超重不会塌）。现在我从第一块开始一块一块的堆积木，问堆到第几块的时候超重体积超过V，V由题目输入。</p>
@@ -139,25 +158,6 @@
       <tags>
         <tag>acm</tag>
         <tag>机试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++带有空格的字符串读取：cin.getline、getline、gets、正则表达式</title>
-    <url>/acm/C++%20%E5%B8%A6%E6%9C%89%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%BB%E5%8F%96%EF%BC%9Acin.getline%E3%80%81getline%E3%80%81gets%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/ysf13579/article/details/23447945">参考</a><br><a href="https://bbs.csdn.net/topics/360010225">参考</a><br><a href="https://blog.csdn.net/tujiaw/article/details/6139896">参考</a></p>
-<p>简单来说，cin.getline属于iostream，getline(cin, **) 属于string, gets属于C语言的cstdio。</p>
-<span id="more"></span>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">cin</span>.getline(<span class="keyword">char</span>* tostr, <span class="keyword">int</span> maxlen, <span class="keyword">char</span> endch)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>getline(<span class="built_in">cin</span>, <span class="built_in">string</span> toss, <span class="keyword">char</span> endch) </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>gets(<span class="keyword">char</span>* tpstr) 不能自定义换行符，读到回车结束</span><br><span class="line"></span><br><span class="line">*<span class="built_in">cin</span>或<span class="built_in">scanf</span>(%d、%s)会留下一个换行符，直接在后面使用getline或<span class="built_in">cin</span>.getline或gets第一次会读到一个换行符。需要注意。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span><span class="built_in">scanf</span>(“%c”，ch）循环读取，比较麻烦。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>正则表达式%[^\n]。注意它匹配成功后不会删除换行符。</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">105</span>];</span><br><span class="line">    <span class="keyword">int</span> maxi;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;maxi;<span class="comment">//scanf也可</span></span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxi; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%[^\n]&quot;</span>, str);</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;str&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>acm</category>
-        <category>C++</category>
-        <category>char</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>char</tag>
-        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -496,10 +496,10 @@
       </tags>
   </entry>
   <entry>
-    <title>科研脑洞-idea</title>
-    <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
+    <title>脑洞-多智能体-20190929</title>
+    <url>/research-experience/%E8%84%91%E6%B4%9E-20190929/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7280b82b5d1f8e59f905a7e68da620b009ac123be098ef904bfbd54d1b8efa07">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16bb197bd5cec8e3946fbdb4e40c728c6a2e12aa813f867cc76a2180c0e4340a83a7627a7c043271cd503bc42bb5951add705e5c1103d6db9c0fe19c4c428564ba1bdd655d7a93ffbc179ce7b2bff3efbe92e784477f65010190a8b478a0732fc4fb7518ad47a2f6b6f4bfcae68c13cc5f1c4190563b41195e680b0ef0925211da43f7b762bc1cd008665139e248fbfc494ca689a8b68168fb2383aa153c4ee89b40e10da1c03b4fd8cef5890524d23c5041f609f37e7bc40a6b0eb1f1a31766bce24140ae05bea0140d3446080a577bb914133eef07a8d0c81d18fac6d9e1b73cda6d388421f3cf714c0c0eb2656b848a0ac6f715eed646a941154b4b82c432c478c285ce18680147b39186783d8e5f5f3ce7594d41896feccad54845c4dc2c4766182156e7900b6414b5f2f7057f6a851bf5ee15a8189bd10fe6231f746f12ff09b558ebadb6e89dba46598b21c45190eec2b3e6fa9fe95c0330cc94fa71d03cf4c2171f6c4c7efa597ff844070ddf52a70ce8e6202d9d0e38e11897308c55f81be3f9fa52f51ea4b2e5c2b9290980e44814065faff90d6c4b2658d89f8e2956</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="c1f75a898e81f102e7639c56813930f8465c18b6cc38b3f6f340a5c465fcf817">1f1ff6fb140e19a4a5cd54e44db8b96da7041058026014ff9faf706705e1d30726e26120a7273d4ab981bcd8b7f4977c7269a2590e9ff4071033ed3aff3afd257cf9655488b98e1bcd2a1c7a6b10f260f2c2216fe687bd13aafacd844db3f6f8d0cc28d36c0e9431cb2ced2edaa86a1241d8845c55aaf717fec8d907b5e10a175aedc28512ddaa2ca356e86a9bc2d1560797f99c9c4072eac37c7b91ab9785b66ee640403054d8652864555af014c2e7780370bfdc3c59d84716832c4d6eaa072ae76f5836ca1ce39e1185473b1af2a5837c04e37dcbe7031a89988cddd989bf63d34c2af54775efe83c74c7a16a57a3fed168d2e0221c5f92c785206c94898bcec67b5b25f9410e6ff877c98eab899b994bc2578f3905438aa28caa1a196d33758583488773763f5fe2ca52737b7d7623a624df69a95671f3546a7c1a86437c966733651767bb13411f62ac45beda28ad6cf877546b7dcdc337ee22352d960e26a366fc6bff9de4ca1000e4430e0bf92607bd676c85adb4131cfcd3af531d2196ebdeff23f511e5b3aae33926e19b18010aed0fc11583780565a035a2db6bc0d51d2d862738661d0d0b2b7379c7cb80af997c3c3184607132efa1b52c1182053816ec6f5001137e8d639a5ee7f2593e8bf2671dcb07c0532cd79789a9824e6364338ac82cf57b814512bc68c6ef318a7efa72d6dc3c041cf7a9d10840aea4a0c0059b822f9d7db2fb2e8da24ee1638f613344296ccf14c08e7e20b6deb111ad7bce9d817302500aeee14bb47499fb5c3223aa1219ef62c5cb9c68fc2c0ef5e6fda55368b51f0b8cbf00eac03f4b2e75b6c7d9c0ff42a04f6e9b8539ab65236d57df155ad7d398932471cb7863a0a3b96b0c2a21cfb309411af30908d7f0e2d6975d4f6ccfd65226418c1a392189feb07cf25dc5b9c82a00162ece24b076b1b2c5000ac92d2fee138199fccfc0defd474069696f1e71a83e0bafb22d324c1ddd90208eb01187f64a033731e39801827f6a062368e63c6f9b8c59c9e0d5c7438c6c6950c61f8dd20024d9f62933a7e9e241fe4a577a5230db5a1103967453f29e7108be80c2f399c8e900c3b9d3556be358ad3160ef2fd678453d6d7f8b91c32cecb0e9bd1c317dd17ef67316ec0baeb38b0b70385928f6a9992c37e70eb0bbc0b7808468f73a4f9083b6826b07c5f10811ffd115d5e53694178e0db662652ecdb63a1fc5e06062d0716e315bd7ff58e48a2268910c7d59339e1fe999c6fd013f22f3fb05cd4b5c93c326e55723abf0d17db0ecff3cbe052c84d7998439559e84ef2a2681c9707d9076e1109af3b34ca20a8b5bf46bf979ae0dad45ba7124069122c1e52e9ea6a91f0808241a8778bd39766c65c688eed97dfcdb493ca4098c8ab3983dee45a6b8aa5536da82e1008b62ed13b9c3e1a051fcfd5f011f574b4ee7fab62d17e4154a3892f1f8229c90da66cd65160655d242e6e777f536628f3edebe2583e441de2b738bc017340838e6a6b7341801e2a8b84ba9cc09c191a3e2fd8159358e6d9a99309cffc85bc6d17c0297f106d3bb87dfbb1ce992f711e600ddbeee55038041a81e927a47e010b08475435a2f0b64f4e285caea3ea55c0fad66ad2c82292722ac7517a8378d13b03bbf29b712d3cf4b9cba1b6bebbe4d2261c7da45636c156c2c30e9463d72cc1e858fa1f2eca327280ee02a2f36ecef5548c270a9b0eaef381c811265b29a3cd135a62cdd7fba68b86a3cfae6daa0ee0c1f04b6c76bc4fe5f2cb7eb893ac05cb0f3b2859fece30bc71ab8860ba0787fa63cc578753c8b0bfe7729eed3d65e15779f9812daf2fa4473808a984b263fff645967d9b8a5fe8f449eff6f1a854a922fe9dc0f5eea9e134ef2e68417817dabd76dd79d546dcbdfb2366be22b2e60b6801e5f3101a36693b549ecda80255ea605626ea937636cf63f088b9930527e609da332a1235a9d09ffc4e10bdc35dbefda96dade120975f7bf63a77a336f7520c321c197449b7dffc9318c92d1c624f10304a3522a6eec617e1345e5a0db57f76e770e8a8c11c1e0a1e4d76f0de13713ed7a075143b5739f9f0ac9db69e7cea1753fca7bb601158c0dd00c6c2a40d67eca1db4e491eee130fc3625654eee025e118743225af9339f0ad4034519810123480da7d390164d1bf95c744aece97276e04854d14eee26ddd8216168295e66abbcf0982e59ead23caa2d1cd0ad5d7c3363da88fbd7d1e72af54e50dd156f27dbc9ce69c71e3684425c0b6e5a7cef9fb70315e5ccffeba85dab5fd2788e3445428e2b1060534b9cf5abb1b1cbcd874661e99f017e83ea25232d749c2c65d2fe5b3d1009abb7056c619b74ba14db58d6553f6556bd7b63029214053dca75e58689229bdf1e3d82b1c1b50db2445198e037289a8f55969ad2f2728b307d18fa649f7f1928d9a0bdb94bfe51b7da5c90ef1e6d6c223a8f3e5054d571c18e9e28ce88655a6f7ead86b42863b2fd92422d9cbbd4ce90300e2429a99fdacc5f8d3c4c3aa1b9d59777fdcf3965a745f7b8486ae338f2eebc7804aec53f15b3b3af87bb84b39bbe3409999e39b0331c7c4b38a86d17747b54caf1cfc9f6012c814e9edecf751fbebda74ae2abd1aca550c0047a5eeb8d4b1897bc6409db954504ec1114f45c8c28f98ddcf2ab8d9ae84a3c506efda1c6e7ff955f7eac0b0323d94ad5bd4cd94bd04178037d8714cdfbd50a69864f2019e05ec680f78c5a9959e9685d774bb65c3d0a4017f7928bbe813dc79b02b2c30bcc82385c43975fec4096c7908c89284aa98b1fc8146bbb42260f82fce65ebc573f6a66a7824fe014879da71be6e7ed2ffb604d12b94d3715c66cb6719dadb3eb2e596a4e30a8322c68a7c74569362ce7463fc35bf3695d938b27359fc7bc5e4c5eeb22e895363c59eeaf07780161fa38677a28ce34cc31ad4c54da8bf71bcfb1feb19e28e236718e34a45dd14b0771be3dec0b752488a32daa5d601d5c9096b3d9a5a2458bd7be25fab53565a993a8bf63249519599663cc0b636a09cb74d6b80c45b4a00dd158ef6140ae4a32bfaf9a10795cf9461b9edb31a8e48b165b0576ed32cb3c0380ea4edf7e6ca0ca593d1439a873f45bd8c55aae6c24b8369ddec092d75f3a8d4deed6fc2e485ec130d18d4c00dadd1154eee2c51f53e5c26ef47ea31a78059417125d1ef000390c615b732f9f41f2c1654b500eb8e5cf793e0bf38234efd8fd33fc51266a9ae93e9280a06f9567e33503301865d5ee6e57b4b7f8057f3bba0482c6175742b194430d6c93b2313b12f9726d6c1085babae7a89474992cbadc26cb4ca04a78d5003bbb692240d7cb048199cfd6c35c5de10ee1f036304b713367ba87ea74b187deefa64ee683c6c773d132007666ff2dc351a7acc193f815d1e3105a99f59ef5199a3ec2cc6da8d249b73d28c8a32e1798a86d9338c1c5e7f278d2ce06effb231a2cda1abf832c1b4523e6c429dad21e4523743bdfee171b2b03597433c3a57e0f032e059925ca9a4951eaf69039e4eff765e44cc62c7c4c45a22392e87e14204c8b049fee6c27f215886e8eb8b72b413825821e6af2abaa1e43097a26634cb4f0862bbccb2fb4f211d1fcd5891e5e984c2e24e0dca2dbdde498985a1935110da6349888f6415b9764d247657c8990b6909b14b2d0fa26177499ded9bbd42841546cff20e79db44459c67796971eba2c7166156bc7fa21f46ba7fc379d7fb90271a87aae7e193fb8cc42f0853d0f3f862d72286da14f7f41d3e87b306d2cb61b135242b6e34e2bee115200755a45168d7fff7e8b7b590f1011de7c79ce5b2d602453a67e7b3179ac71ec340c65503f9f131cd26650678044c635866c93773f4fb2bf98179a0990688f50ad4f05dd423c078c1f100394ab954e070b5e749ae651848cab3d12e91596933a97de599372bd8b627aec8fbf1355edb06f21fee415eda6266b9a58c3342b937c24ce666d1a2ff471ad15d5f573811d892b3a873f7411da1205073037752236bb6eb08fc9a2347344ab4fb9c2f0c771f7d6bc595c15bfa746ecfdaa39d215e1e460189961df1f5bfac6e84025e19803bccc83e06d25fbe5544b06dfc0a5d5fc5cb3997da197998bd7e119a4289d0773a5a2ff471d814efad48a7828135e9c58f0eb1525beb8c9db2f5b6303978829cc3d0586db0754c789e9029a656477c5039b253f1722cfb1ebc3360611aaabdc13a3c156d43f9b9140a99cd71bbfc78f046ed0bfbe9f5edcc27ec1dc8e8f653beb3429745c76ec7365851ea41a90b9c55b933770701b14cf66794cafc2308cf5723124fa7df3cdc9aad54715914d657e496d84f6cd95addfb9a4d2943d4c87d44682385f5892a2cf031fe4ed89fb37b8b4ebbfc52a9af2a6597a569c8acb00939bcbebe0e33b6f42154c5984f3995030d2f4a209c897e41bcd0a874aae20a93bffbec5cf4397df086ba12eae91e047d325ea2100111275e59858542cd14ce27e5696e1b82213eb3a878d53a55cec0af13ab941d3e509e5bf2bef1d274b25ada54ef8bbb84b9b3b52a6fdcb0c68ce1396ec1a5f3d69b464a71213805a84fef23e80e750bf1835285d6b053915b076a3cde433264fe8e73c471b61a44fd2f262b5d077cc2450b00a862af9711de34cd7c975d71c125efff0c531edd3694bf6c00e1231e3207af7a19c6428e18a3e7ad15d90d1433251b46fa183f25b3b37f082be641eae458a945aba1e32b7772b07d347962e0482be7617f4fa42046b29ac90e6a0ea0ffe9c95b8be32a648c3cc26f718bf351ae8472b588b8a7ff61c658bd117514857febfdfe39dd8d423df806f2cc9dc7211ba3ffea60baa4bbe1354e68be9b51cf862f5e318b7c7c8f99707a6fa0a53a5c8b8877dcf7d60fab60ed628dff1ac29249c85ab2874e84256434cfaaaaa27e558a53ba7db88e8648c7933fed299d717cd17454814104b1d140d5d5210ba1e662009ac106621964ed89978760440a323f0b233c595877537638f21e07434ed618b21448932097b8cd3495ffcd8c166c6e2f417f94ecdf8e1218c2faccccc9e03cd7d1283622fffeccafd721dfc7ca773bdad4706af47b1716e2f5cf4193d306ac10c6087ac3265b138342b0ff2e79811874a7f8dfc525256c7a9a53ccdf7c1e73b8141e3452e66e72cacd13fa0997a45ed32be48f90f5f29b35918396d66f7e1275298724c6edc00a1fa718468e1e13cda037e1f69cc97de381cc90606d0174be53380854bd595788a2483d2bb5d871eb0a67446cd31cb58113a95439ae2d87e2744cac783be0d7bac1b9e8e67b638744f4dda70503921480d1a4f4f961a467d8d0a1394e2c83357ff39c432e71b314033c3d21d7f04ab65086aaf622a32a3178cee1b5b0c6beb8627ba5a35727177cbd119ef9aa6f915b824ed7e99054041391456e0488d28396d9a976cf73a724158a960708aad75ba216f76cdf5beca862fa0056d6fcdb028425d41f37e139e5a023369e3fd914f5c93f787d2811f2f7bd62a56840a9a8bb7e60bc94061e51b4f89a7d3ea33fab05297daa6f6f67cbc1e81bdbc6278c29397b60685dd0b3ff40fcd0867d6bf38170b6f5553e9294de1670099aecb615c7cf8aac181c0b5ac6a3efc8fbd32b1f57c2d35c1267503cf34a07d050cfd672dc63288c4f3a162a950c5a59ac484a42bf0184aba7d17b1630b05df00a523067a57d4f792b3bc60498c20db9f96eb7a2159aa14738012db047415fe224aa7d755b42bdfaa47646eb6ee8b4aafe0345eb7e7964dc6c9623fbfe0ad7a0e85e84144cc6c1d9b2ebecfa909bdb2b6967ecf00e1847eaca9caea5dbf97bf78ccb94b1c2513c0511e6daaf2608082cc4aaf22cd7cb3881cdf26a4deadf1975ca85cc12e06c6ee66dea9ac5e72476c2c37b6db4e795937d71e65e5afb2c7ce9d3afa19d5450f6c92a17fc5bd2dbeb80997cebe9f322c2a50f4814522b00cee5cfaf38546260676f0121fd7e8571e9b4eab6ba7273bde1c5b987290ab738b8e5d95d39a27819b148cfc2d1ab5232cae9cf498a26d9235ded7f872552b5cbc8e8dd52669010e31a7bd22f516ea45b20e9c44bc2bfaac78005bf6c8007885ac7c42a5306049bc20cf920609bb0cf4e976271170cb31e2d376898e6d24f3e03751f50d2d88d8ca010cdacdd51bea696cc9107004f7cc910246c28416e70af8ed1799b794a77389b5c294d6641694bb82f21ddef20e38d042443c9c7fae8448e80cdcebb990ee36a61dbc03b479aa34063852ba16d3b5af04fe162aa08136aaf285361c343bc08ed3c497ed94eb8e7891ca2f2a9c1eec24b47c20f72ea7d1922c3c2a6bf24d01ac910a20f899f8b468d5c5b067498fef2af212485845645f3718d49523766e55232d40d19d91bc6a67d2cbb1bbc98ae96ae2b005b56235d89f91944ec3cfec8250eefd0574b8e9cea88286b83e01aaac4d1757cfa9f2eaa399d7998e8b445a537354ac23ab1f58f209cc712628521b98e4de69e31e3d47711987bdcd9f550e1714bc6804dbc9928c652662191acbf64c304e061fc5a73602712274acbb7e90c2a40f20954a6b841cf92716458b11f19caf9d4bc6b97c0f0539146a6c02c15e0606eaa35226ba2b201a4905feef9d7aee00927aa858661570c40d69a9fb00e2f73a72ab9d1fa77bff0ecffe2e41b15eb7ed30657269dd42274f88f9f54dd7e4ade30536d1fddec50b5cf767619c38d688ea78dbc88e28f2ad9f9522e5a5ce12fd3a89ee49baa993bea837e1d0e7f80ee9ac32cf251dcdb11965c8e40624aa882081088337e41fa90c6ed84a553d41e8f60cd46e2a129b5c65f4ed01168be590c8b813127e3c771af1eb6665158c68496e74cc699dcb30faf408ae7beb169517f3ce53e371c779621cfce87eca1d80e4292da82f227cdcaa5273dc33c9ecced8ee39137a2c9805d5ce3ecb357db783d03fe9417178822de7bc933c96c72fbd07da157b7b3deb2982dd1bb361e3f112b3e0f4832f242dcbc951559c9a9b53d7dfe232fd89a1e3c03ba4b18f03b0cd273ec78e34163780b28622f032319b2e9054e57c02bdc4970267bf8309e9d767479cf83de0714fa86f0703cc889f037b15b675d37499011a901ba645cbdd36a31507ab671f0ff2c603a88bfa622426cc5e0dc08b2623d9da2488abb074272c4b75247759e547a58fc0b896bdd8cefd96eea8c7b17b9d3b8cf49d</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -520,10 +520,10 @@
       </tags>
   </entry>
   <entry>
-    <title>脑洞-多智能体-20190929</title>
-    <url>/research-experience/%E8%84%91%E6%B4%9E-20190929/</url>
+    <title>科研脑洞-idea</title>
+    <url>/research-experience/%E8%84%91%E6%B4%9E/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="c1f75a898e81f102e7639c56813930f8465c18b6cc38b3f6f340a5c465fcf817">1f1ff6fb140e19a4a5cd54e44db8b96da7041058026014ff9faf706705e1d30726e26120a7273d4ab981bcd8b7f4977c7269a2590e9ff4071033ed3aff3afd257cf9655488b98e1bcd2a1c7a6b10f260f2c2216fe687bd13aafacd844db3f6f8d0cc28d36c0e9431cb2ced2edaa86a1241d8845c55aaf717fec8d907b5e10a175aedc28512ddaa2ca356e86a9bc2d1560797f99c9c4072eac37c7b91ab9785b66ee640403054d8652864555af014c2e7780370bfdc3c59d84716832c4d6eaa072ae76f5836ca1ce39e1185473b1af2a5837c04e37dcbe7031a89988cddd989bf63d34c2af54775efe83c74c7a16a57a3fed168d2e0221c5f92c785206c94898bcec67b5b25f9410e6ff877c98eab899b994bc2578f3905438aa28caa1a196d33758583488773763f5fe2ca52737b7d7623a624df69a95671f3546a7c1a86437c966733651767bb13411f62ac45beda28ad6cf877546b7dcdc337ee22352d960e26a366fc6bff9de4ca1000e4430e0bf92607bd676c85adb4131cfcd3af531d2196ebdeff23f511e5b3aae33926e19b18010aed0fc11583780565a035a2db6bc0d51d2d862738661d0d0b2b7379c7cb80af997c3c3184607132efa1b52c1182053816ec6f5001137e8d639a5ee7f2593e8bf2671dcb07c0532cd79789a9824e6364338ac82cf57b814512bc68c6ef318a7efa72d6dc3c041cf7a9d10840aea4a0c0059b822f9d7db2fb2e8da24ee1638f613344296ccf14c08e7e20b6deb111ad7bce9d817302500aeee14bb47499fb5c3223aa1219ef62c5cb9c68fc2c0ef5e6fda55368b51f0b8cbf00eac03f4b2e75b6c7d9c0ff42a04f6e9b8539ab65236d57df155ad7d398932471cb7863a0a3b96b0c2a21cfb309411af30908d7f0e2d6975d4f6ccfd65226418c1a392189feb07cf25dc5b9c82a00162ece24b076b1b2c5000ac92d2fee138199fccfc0defd474069696f1e71a83e0bafb22d324c1ddd90208eb01187f64a033731e39801827f6a062368e63c6f9b8c59c9e0d5c7438c6c6950c61f8dd20024d9f62933a7e9e241fe4a577a5230db5a1103967453f29e7108be80c2f399c8e900c3b9d3556be358ad3160ef2fd678453d6d7f8b91c32cecb0e9bd1c317dd17ef67316ec0baeb38b0b70385928f6a9992c37e70eb0bbc0b7808468f73a4f9083b6826b07c5f10811ffd115d5e53694178e0db662652ecdb63a1fc5e06062d0716e315bd7ff58e48a2268910c7d59339e1fe999c6fd013f22f3fb05cd4b5c93c326e55723abf0d17db0ecff3cbe052c84d7998439559e84ef2a2681c9707d9076e1109af3b34ca20a8b5bf46bf979ae0dad45ba7124069122c1e52e9ea6a91f0808241a8778bd39766c65c688eed97dfcdb493ca4098c8ab3983dee45a6b8aa5536da82e1008b62ed13b9c3e1a051fcfd5f011f574b4ee7fab62d17e4154a3892f1f8229c90da66cd65160655d242e6e777f536628f3edebe2583e441de2b738bc017340838e6a6b7341801e2a8b84ba9cc09c191a3e2fd8159358e6d9a99309cffc85bc6d17c0297f106d3bb87dfbb1ce992f711e600ddbeee55038041a81e927a47e010b08475435a2f0b64f4e285caea3ea55c0fad66ad2c82292722ac7517a8378d13b03bbf29b712d3cf4b9cba1b6bebbe4d2261c7da45636c156c2c30e9463d72cc1e858fa1f2eca327280ee02a2f36ecef5548c270a9b0eaef381c811265b29a3cd135a62cdd7fba68b86a3cfae6daa0ee0c1f04b6c76bc4fe5f2cb7eb893ac05cb0f3b2859fece30bc71ab8860ba0787fa63cc578753c8b0bfe7729eed3d65e15779f9812daf2fa4473808a984b263fff645967d9b8a5fe8f449eff6f1a854a922fe9dc0f5eea9e134ef2e68417817dabd76dd79d546dcbdfb2366be22b2e60b6801e5f3101a36693b549ecda80255ea605626ea937636cf63f088b9930527e609da332a1235a9d09ffc4e10bdc35dbefda96dade120975f7bf63a77a336f7520c321c197449b7dffc9318c92d1c624f10304a3522a6eec617e1345e5a0db57f76e770e8a8c11c1e0a1e4d76f0de13713ed7a075143b5739f9f0ac9db69e7cea1753fca7bb601158c0dd00c6c2a40d67eca1db4e491eee130fc3625654eee025e118743225af9339f0ad4034519810123480da7d390164d1bf95c744aece97276e04854d14eee26ddd8216168295e66abbcf0982e59ead23caa2d1cd0ad5d7c3363da88fbd7d1e72af54e50dd156f27dbc9ce69c71e3684425c0b6e5a7cef9fb70315e5ccffeba85dab5fd2788e3445428e2b1060534b9cf5abb1b1cbcd874661e99f017e83ea25232d749c2c65d2fe5b3d1009abb7056c619b74ba14db58d6553f6556bd7b63029214053dca75e58689229bdf1e3d82b1c1b50db2445198e037289a8f55969ad2f2728b307d18fa649f7f1928d9a0bdb94bfe51b7da5c90ef1e6d6c223a8f3e5054d571c18e9e28ce88655a6f7ead86b42863b2fd92422d9cbbd4ce90300e2429a99fdacc5f8d3c4c3aa1b9d59777fdcf3965a745f7b8486ae338f2eebc7804aec53f15b3b3af87bb84b39bbe3409999e39b0331c7c4b38a86d17747b54caf1cfc9f6012c814e9edecf751fbebda74ae2abd1aca550c0047a5eeb8d4b1897bc6409db954504ec1114f45c8c28f98ddcf2ab8d9ae84a3c506efda1c6e7ff955f7eac0b0323d94ad5bd4cd94bd04178037d8714cdfbd50a69864f2019e05ec680f78c5a9959e9685d774bb65c3d0a4017f7928bbe813dc79b02b2c30bcc82385c43975fec4096c7908c89284aa98b1fc8146bbb42260f82fce65ebc573f6a66a7824fe014879da71be6e7ed2ffb604d12b94d3715c66cb6719dadb3eb2e596a4e30a8322c68a7c74569362ce7463fc35bf3695d938b27359fc7bc5e4c5eeb22e895363c59eeaf07780161fa38677a28ce34cc31ad4c54da8bf71bcfb1feb19e28e236718e34a45dd14b0771be3dec0b752488a32daa5d601d5c9096b3d9a5a2458bd7be25fab53565a993a8bf63249519599663cc0b636a09cb74d6b80c45b4a00dd158ef6140ae4a32bfaf9a10795cf9461b9edb31a8e48b165b0576ed32cb3c0380ea4edf7e6ca0ca593d1439a873f45bd8c55aae6c24b8369ddec092d75f3a8d4deed6fc2e485ec130d18d4c00dadd1154eee2c51f53e5c26ef47ea31a78059417125d1ef000390c615b732f9f41f2c1654b500eb8e5cf793e0bf38234efd8fd33fc51266a9ae93e9280a06f9567e33503301865d5ee6e57b4b7f8057f3bba0482c6175742b194430d6c93b2313b12f9726d6c1085babae7a89474992cbadc26cb4ca04a78d5003bbb692240d7cb048199cfd6c35c5de10ee1f036304b713367ba87ea74b187deefa64ee683c6c773d132007666ff2dc351a7acc193f815d1e3105a99f59ef5199a3ec2cc6da8d249b73d28c8a32e1798a86d9338c1c5e7f278d2ce06effb231a2cda1abf832c1b4523e6c429dad21e4523743bdfee171b2b03597433c3a57e0f032e059925ca9a4951eaf69039e4eff765e44cc62c7c4c45a22392e87e14204c8b049fee6c27f215886e8eb8b72b413825821e6af2abaa1e43097a26634cb4f0862bbccb2fb4f211d1fcd5891e5e984c2e24e0dca2dbdde498985a1935110da6349888f6415b9764d247657c8990b6909b14b2d0fa26177499ded9bbd42841546cff20e79db44459c67796971eba2c7166156bc7fa21f46ba7fc379d7fb90271a87aae7e193fb8cc42f0853d0f3f862d72286da14f7f41d3e87b306d2cb61b135242b6e34e2bee115200755a45168d7fff7e8b7b590f1011de7c79ce5b2d602453a67e7b3179ac71ec340c65503f9f131cd26650678044c635866c93773f4fb2bf98179a0990688f50ad4f05dd423c078c1f100394ab954e070b5e749ae651848cab3d12e91596933a97de599372bd8b627aec8fbf1355edb06f21fee415eda6266b9a58c3342b937c24ce666d1a2ff471ad15d5f573811d892b3a873f7411da1205073037752236bb6eb08fc9a2347344ab4fb9c2f0c771f7d6bc595c15bfa746ecfdaa39d215e1e460189961df1f5bfac6e84025e19803bccc83e06d25fbe5544b06dfc0a5d5fc5cb3997da197998bd7e119a4289d0773a5a2ff471d814efad48a7828135e9c58f0eb1525beb8c9db2f5b6303978829cc3d0586db0754c789e9029a656477c5039b253f1722cfb1ebc3360611aaabdc13a3c156d43f9b9140a99cd71bbfc78f046ed0bfbe9f5edcc27ec1dc8e8f653beb3429745c76ec7365851ea41a90b9c55b933770701b14cf66794cafc2308cf5723124fa7df3cdc9aad54715914d657e496d84f6cd95addfb9a4d2943d4c87d44682385f5892a2cf031fe4ed89fb37b8b4ebbfc52a9af2a6597a569c8acb00939bcbebe0e33b6f42154c5984f3995030d2f4a209c897e41bcd0a874aae20a93bffbec5cf4397df086ba12eae91e047d325ea2100111275e59858542cd14ce27e5696e1b82213eb3a878d53a55cec0af13ab941d3e509e5bf2bef1d274b25ada54ef8bbb84b9b3b52a6fdcb0c68ce1396ec1a5f3d69b464a71213805a84fef23e80e750bf1835285d6b053915b076a3cde433264fe8e73c471b61a44fd2f262b5d077cc2450b00a862af9711de34cd7c975d71c125efff0c531edd3694bf6c00e1231e3207af7a19c6428e18a3e7ad15d90d1433251b46fa183f25b3b37f082be641eae458a945aba1e32b7772b07d347962e0482be7617f4fa42046b29ac90e6a0ea0ffe9c95b8be32a648c3cc26f718bf351ae8472b588b8a7ff61c658bd117514857febfdfe39dd8d423df806f2cc9dc7211ba3ffea60baa4bbe1354e68be9b51cf862f5e318b7c7c8f99707a6fa0a53a5c8b8877dcf7d60fab60ed628dff1ac29249c85ab2874e84256434cfaaaaa27e558a53ba7db88e8648c7933fed299d717cd17454814104b1d140d5d5210ba1e662009ac106621964ed89978760440a323f0b233c595877537638f21e07434ed618b21448932097b8cd3495ffcd8c166c6e2f417f94ecdf8e1218c2faccccc9e03cd7d1283622fffeccafd721dfc7ca773bdad4706af47b1716e2f5cf4193d306ac10c6087ac3265b138342b0ff2e79811874a7f8dfc525256c7a9a53ccdf7c1e73b8141e3452e66e72cacd13fa0997a45ed32be48f90f5f29b35918396d66f7e1275298724c6edc00a1fa718468e1e13cda037e1f69cc97de381cc90606d0174be53380854bd595788a2483d2bb5d871eb0a67446cd31cb58113a95439ae2d87e2744cac783be0d7bac1b9e8e67b638744f4dda70503921480d1a4f4f961a467d8d0a1394e2c83357ff39c432e71b314033c3d21d7f04ab65086aaf622a32a3178cee1b5b0c6beb8627ba5a35727177cbd119ef9aa6f915b824ed7e99054041391456e0488d28396d9a976cf73a724158a960708aad75ba216f76cdf5beca862fa0056d6fcdb028425d41f37e139e5a023369e3fd914f5c93f787d2811f2f7bd62a56840a9a8bb7e60bc94061e51b4f89a7d3ea33fab05297daa6f6f67cbc1e81bdbc6278c29397b60685dd0b3ff40fcd0867d6bf38170b6f5553e9294de1670099aecb615c7cf8aac181c0b5ac6a3efc8fbd32b1f57c2d35c1267503cf34a07d050cfd672dc63288c4f3a162a950c5a59ac484a42bf0184aba7d17b1630b05df00a523067a57d4f792b3bc60498c20db9f96eb7a2159aa14738012db047415fe224aa7d755b42bdfaa47646eb6ee8b4aafe0345eb7e7964dc6c9623fbfe0ad7a0e85e84144cc6c1d9b2ebecfa909bdb2b6967ecf00e1847eaca9caea5dbf97bf78ccb94b1c2513c0511e6daaf2608082cc4aaf22cd7cb3881cdf26a4deadf1975ca85cc12e06c6ee66dea9ac5e72476c2c37b6db4e795937d71e65e5afb2c7ce9d3afa19d5450f6c92a17fc5bd2dbeb80997cebe9f322c2a50f4814522b00cee5cfaf38546260676f0121fd7e8571e9b4eab6ba7273bde1c5b987290ab738b8e5d95d39a27819b148cfc2d1ab5232cae9cf498a26d9235ded7f872552b5cbc8e8dd52669010e31a7bd22f516ea45b20e9c44bc2bfaac78005bf6c8007885ac7c42a5306049bc20cf920609bb0cf4e976271170cb31e2d376898e6d24f3e03751f50d2d88d8ca010cdacdd51bea696cc9107004f7cc910246c28416e70af8ed1799b794a77389b5c294d6641694bb82f21ddef20e38d042443c9c7fae8448e80cdcebb990ee36a61dbc03b479aa34063852ba16d3b5af04fe162aa08136aaf285361c343bc08ed3c497ed94eb8e7891ca2f2a9c1eec24b47c20f72ea7d1922c3c2a6bf24d01ac910a20f899f8b468d5c5b067498fef2af212485845645f3718d49523766e55232d40d19d91bc6a67d2cbb1bbc98ae96ae2b005b56235d89f91944ec3cfec8250eefd0574b8e9cea88286b83e01aaac4d1757cfa9f2eaa399d7998e8b445a537354ac23ab1f58f209cc712628521b98e4de69e31e3d47711987bdcd9f550e1714bc6804dbc9928c652662191acbf64c304e061fc5a73602712274acbb7e90c2a40f20954a6b841cf92716458b11f19caf9d4bc6b97c0f0539146a6c02c15e0606eaa35226ba2b201a4905feef9d7aee00927aa858661570c40d69a9fb00e2f73a72ab9d1fa77bff0ecffe2e41b15eb7ed30657269dd42274f88f9f54dd7e4ade30536d1fddec50b5cf767619c38d688ea78dbc88e28f2ad9f9522e5a5ce12fd3a89ee49baa993bea837e1d0e7f80ee9ac32cf251dcdb11965c8e40624aa882081088337e41fa90c6ed84a553d41e8f60cd46e2a129b5c65f4ed01168be590c8b813127e3c771af1eb6665158c68496e74cc699dcb30faf408ae7beb169517f3ce53e371c779621cfce87eca1d80e4292da82f227cdcaa5273dc33c9ecced8ee39137a2c9805d5ce3ecb357db783d03fe9417178822de7bc933c96c72fbd07da157b7b3deb2982dd1bb361e3f112b3e0f4832f242dcbc951559c9a9b53d7dfe232fd89a1e3c03ba4b18f03b0cd273ec78e34163780b28622f032319b2e9054e57c02bdc4970267bf8309e9d767479cf83de0714fa86f0703cc889f037b15b675d37499011a901ba645cbdd36a31507ab671f0ff2c603a88bfa622426cc5e0dc08b2623d9da2488abb074272c4b75247759e547a58fc0b896bdd8cefd96eea8c7b17b9d3b8cf49d</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="7280b82b5d1f8e59f905a7e68da620b009ac123be098ef904bfbd54d1b8efa07">1f1ff6fb140e19a4a5cd54e44db8b96dae60f1c51aed54b2aba9f6a1fcc12b16bb197bd5cec8e3946fbdb4e40c728c6a2e12aa813f867cc76a2180c0e4340a83a7627a7c043271cd503bc42bb5951add705e5c1103d6db9c0fe19c4c428564ba1bdd655d7a93ffbc179ce7b2bff3efbe92e784477f65010190a8b478a0732fc4fb7518ad47a2f6b6f4bfcae68c13cc5f1c4190563b41195e680b0ef0925211da43f7b762bc1cd008665139e248fbfc494ca689a8b68168fb2383aa153c4ee89b40e10da1c03b4fd8cef5890524d23c5041f609f37e7bc40a6b0eb1f1a31766bce24140ae05bea0140d3446080a577bb914133eef07a8d0c81d18fac6d9e1b73cda6d388421f3cf714c0c0eb2656b848a0ac6f715eed646a941154b4b82c432c478c285ce18680147b39186783d8e5f5f3ce7594d41896feccad54845c4dc2c4766182156e7900b6414b5f2f7057f6a851bf5ee15a8189bd10fe6231f746f12ff09b558ebadb6e89dba46598b21c45190eec2b3e6fa9fe95c0330cc94fa71d03cf4c2171f6c4c7efa597ff844070ddf52a70ce8e6202d9d0e38e11897308c55f81be3f9fa52f51ea4b2e5c2b9290980e44814065faff90d6c4b2658d89f8e2956</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -565,6 +565,29 @@
       <tags>
         <tag>机器学习</tag>
         <tag>脑洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ccproxy服务器代理联网</title>
+    <url>/research-experiment/ccproxy%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%90%86%E8%81%94%E7%BD%91/</url>
+    <content><![CDATA[<hr>
+<h1 id="1-ssh-服务器配置代理（ccproxy-linux服务器-cmd）"><a href="#1-ssh-服务器配置代理（ccproxy-linux服务器-cmd）" class="headerlink" title="1.ssh 服务器配置代理（ccproxy+linux服务器+cmd）"></a>1.ssh 服务器配置代理（ccproxy+linux服务器+cmd）</h1><p>下载ccproxy，免费版即可。</p>
+<h2 id="1-1ccproxy-设置-gt-所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开"><a href="#1-1ccproxy-设置-gt-所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开" class="headerlink" title="1.1ccproxy: 设置-&gt;所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开"></a>1.1ccproxy: 设置-&gt;所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开</h2><p><img src="https://img-blog.csdnimg.cn/202002230301596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="1"></p>
+<h2 id="1-2ccproxy-账号-gt-添加目标服务器的ip。可改成允许部分。"><a href="#1-2ccproxy-账号-gt-添加目标服务器的ip。可改成允许部分。" class="headerlink" title="1.2ccproxy:账号-&gt;添加目标服务器的ip。可改成允许部分。"></a>1.2ccproxy:账号-&gt;添加目标服务器的ip。可改成允许部分。</h2><p><img src="https://img-blog.csdnimg.cn/20200223030244284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="2"></p>
+<h2 id="1-3-服务器：主页面（home-）-profile，后面追加三行地址（-等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）"><a href="#1-3-服务器：主页面（home-）-profile，后面追加三行地址（-等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）" class="headerlink" title="1.3.服务器：主页面（home/）/.profile，后面追加三行地址（*等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）"></a>1.3.服务器：主页面（home/<usrname>）/.profile，后面追加三行地址（*等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）</usrname></h2><p><img src="https://img-blog.csdnimg.cn/20200223030504228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="3"></p>
+<h2 id="1-4-服务器cmd"><a href="#1-4-服务器cmd" class="headerlink" title="1.4 服务器cmd:"></a>1.4 服务器cmd:</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">source</span> ~/.<span class="keyword">profile</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>可以在服务器试图下载，看ccproxy会不会出现进度条，以及若连接错误时请求的ip是否正确，再修改和重启尝试等等。</p>
+<hr>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ccproxy</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -613,29 +636,6 @@
       <tags>
         <tag>机器学习</tag>
         <tag>脑洞</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ccproxy服务器代理联网</title>
-    <url>/research-experiment/ccproxy%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%90%86%E8%81%94%E7%BD%91/</url>
-    <content><![CDATA[<hr>
-<h1 id="1-ssh-服务器配置代理（ccproxy-linux服务器-cmd）"><a href="#1-ssh-服务器配置代理（ccproxy-linux服务器-cmd）" class="headerlink" title="1.ssh 服务器配置代理（ccproxy+linux服务器+cmd）"></a>1.ssh 服务器配置代理（ccproxy+linux服务器+cmd）</h1><p>下载ccproxy，免费版即可。</p>
-<h2 id="1-1ccproxy-设置-gt-所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开"><a href="#1-1ccproxy-设置-gt-所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开" class="headerlink" title="1.1ccproxy: 设置-&gt;所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开"></a>1.1ccproxy: 设置-&gt;所有ip都改成本地电脑对外的ip地址（验证：ssh连接服务器，用who指令查看当前用户的ip），不放心所有服务都打开</h2><p><img src="https://img-blog.csdnimg.cn/202002230301596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="1"></p>
-<h2 id="1-2ccproxy-账号-gt-添加目标服务器的ip。可改成允许部分。"><a href="#1-2ccproxy-账号-gt-添加目标服务器的ip。可改成允许部分。" class="headerlink" title="1.2ccproxy:账号-&gt;添加目标服务器的ip。可改成允许部分。"></a>1.2ccproxy:账号-&gt;添加目标服务器的ip。可改成允许部分。</h2><p><img src="https://img-blog.csdnimg.cn/20200223030244284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="2"></p>
-<h2 id="1-3-服务器：主页面（home-）-profile，后面追加三行地址（-等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）"><a href="#1-3-服务器：主页面（home-）-profile，后面追加三行地址（-等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）" class="headerlink" title="1.3.服务器：主页面（home/）/.profile，后面追加三行地址（*等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）"></a>1.3.服务器：主页面（home/<usrname>）/.profile，后面追加三行地址（*等号前后无空格）：（ip用和ccproxy一样的，图是以前配置的）</usrname></h2><p><img src="https://img-blog.csdnimg.cn/20200223030504228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzYyNzg4,size_16,color_FFFFFF,t_70" alt="3"></p>
-<h2 id="1-4-服务器cmd"><a href="#1-4-服务器cmd" class="headerlink" title="1.4 服务器cmd:"></a>1.4 服务器cmd:</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">source</span> ~/.<span class="keyword">profile</span> </span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>可以在服务器试图下载，看ccproxy会不会出现进度条，以及若连接错误时请求的ip是否正确，再修改和重启尝试等等。</p>
-<hr>
-]]></content>
-      <categories>
-        <category>实验</category>
-        <category>python</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>ccproxy</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -725,49 +725,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python+ml科研经验-实验方面</title>
-    <url>/research-experiment/python+ml%E5%AE%9E%E9%AA%8C%E7%BB%8F%E9%AA%8C/</url>
-    <content><![CDATA[<h3 id="Main函数与Args的使用"><a href="#Main函数与Args的使用" class="headerlink" title="Main函数与Args的使用"></a>Main函数与Args的使用</h3><ul>
-<li>  args全局，然后引用。在函数中直接传递。</li>
-<li>  用shadow main调用main，在一个实验环境跑多份代码。注意../和./的差别</li>
-<li>  在shadow main中，调用main之前修改args的个别参数，不要修改主函数</li>
-<li>  产生可能使用和变化的新超参数，在args里添加，并保证初始值不变。方便修改，不要硬编码在函数中。</li>
-<li>  args各个部分分开：train部分，test部分，semi-supervised部分等。尽可能用int和str代替bool，防止之后用一个变量控制新功能。</li>
-<li>  print args:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;-----Args Items -----&#x27;</span>)</span></span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> vars(self.args)<span class="selector-class">.items</span>():</span><br><span class="line">    print(<span class="string">&#x27;&#123;&#125;:&#123;&#125;&#x27;</span><span class="selector-class">.format</span>(k, v))</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;done&#x27;</span>)</span></span></span><br></pre></td></tr></table></figure></li>
-<li>  save args:<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">def save_args(<span class="built_in">self</span>):</span><br><span class="line">      model_dir = <span class="built_in">os</span>.<span class="built_in">path</span>.dirname(<span class="built_in">self</span>.args.save_dir)</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.<span class="built_in">path</span>.exists(model_dir):</span><br><span class="line">          <span class="built_in">os</span>.makedirs(model_dir)</span><br><span class="line">      filename = <span class="string">&#x27;args.csv&#x27;</span></span><br><span class="line">      args_path = <span class="built_in">os</span>.<span class="built_in">path</span>.join(model_dir, filename)</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27;Save args to &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(args_path))</span><br><span class="line">      # <span class="built_in">print</span>(<span class="string">&#x27;--------Args Items----------&#x27;</span>)</span><br><span class="line">      with <span class="built_in">open</span>(args_path, <span class="string">&#x27;w&#x27;</span>) as fid:</span><br><span class="line">          <span class="keyword">for</span> k, v <span class="keyword">in</span> vars(<span class="built_in">self</span>.args).items():</span><br><span class="line">              fid.<span class="built_in">write</span>(<span class="string">&#x27;&#123;&#125;,&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(k, v))</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="更新和迭代"><a href="#更新和迭代" class="headerlink" title="更新和迭代"></a>更新和迭代</h3><ul>
-<li>  大幅度修改实验前，先把一个相对完整的版本保存下来，然后新开一个项目，可以避免混乱。</li>
-</ul>
-<h3 id="起名和架构规范"><a href="#起名和架构规范" class="headerlink" title="起名和架构规范"></a>起名和架构规范</h3><ul>
-<li>  同类变量起名时，首字母尽可能一致，方便debug。</li>
-<li>  注意命名写完整，写好help，避免混乱。</li>
-<li>  output和outputs等的单复数，string和str的缩写格式统一。</li>
-<li>  一个函数实现的多个分支的功能尽可能平行。</li>
-<li>  initialization的多个部分的初始化函数分开</li>
-<li>  train(on_start_epoch, run_iteration(on_forward, calculate_loss), on_end_epoch)</li>
-<li>  尽可能保留下来更多相关信息，如当前best score， 某一个部分的result等。</li>
-</ul>
-<h3 id="checkpoint"><a href="#checkpoint" class="headerlink" title="checkpoint"></a>checkpoint</h3><ul>
-<li>  设置多种load的方式：load_all, parameters, model_only</li>
-<li>  所有的变量：变量名=checkpoint[‘变量名’]；所有的模型和优化器：model.load_state_dict(checkpoint[‘模型名’])。注意转cuda。<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line"><span class="literal">self</span>.auto_alpha.load_state_dict(checkpoint[&#x27;auto_alpha_dict&#x27;])</span><br><span class="line"><span class="literal">self</span>.auto_alpha_optimizer.load_state_dict(checkpoint[&#x27;auto_alpha_optimizer&#x27;])</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">state</span> <span class="keyword">in</span> <span class="literal">self</span>.auto_alpha_optimizer.<span class="keyword">state</span>.values():</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="keyword">state</span>.items():</span><br><span class="line">        if torch.is_tensor(v):</span><br><span class="line">            <span class="keyword">state</span>[k] = v.cuda()</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    <span class="literal">self</span>.auto_alpha.cuda()</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>实验</category>
-        <category>经验</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux服务器+pytorch实验环境配置常用命令行指令</title>
     <url>/research-experiment/python+pycharm%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
     <content><![CDATA[<hr>
@@ -813,6 +770,49 @@
       </categories>
       <tags>
         <tag>windows10</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python+ml科研经验-实验方面</title>
+    <url>/research-experiment/python+ml%E5%AE%9E%E9%AA%8C%E7%BB%8F%E9%AA%8C/</url>
+    <content><![CDATA[<h3 id="Main函数与Args的使用"><a href="#Main函数与Args的使用" class="headerlink" title="Main函数与Args的使用"></a>Main函数与Args的使用</h3><ul>
+<li>  args全局，然后引用。在函数中直接传递。</li>
+<li>  用shadow main调用main，在一个实验环境跑多份代码。注意../和./的差别</li>
+<li>  在shadow main中，调用main之前修改args的个别参数，不要修改主函数</li>
+<li>  产生可能使用和变化的新超参数，在args里添加，并保证初始值不变。方便修改，不要硬编码在函数中。</li>
+<li>  args各个部分分开：train部分，test部分，semi-supervised部分等。尽可能用int和str代替bool，防止之后用一个变量控制新功能。</li>
+<li>  print args:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;-----Args Items -----&#x27;</span>)</span></span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> vars(self.args)<span class="selector-class">.items</span>():</span><br><span class="line">    print(<span class="string">&#x27;&#123;&#125;:&#123;&#125;&#x27;</span><span class="selector-class">.format</span>(k, v))</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">&#x27;done&#x27;</span>)</span></span></span><br></pre></td></tr></table></figure></li>
+<li>  save args:<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">def save_args(<span class="built_in">self</span>):</span><br><span class="line">      model_dir = <span class="built_in">os</span>.<span class="built_in">path</span>.dirname(<span class="built_in">self</span>.args.save_dir)</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.<span class="built_in">path</span>.exists(model_dir):</span><br><span class="line">          <span class="built_in">os</span>.makedirs(model_dir)</span><br><span class="line">      filename = <span class="string">&#x27;args.csv&#x27;</span></span><br><span class="line">      args_path = <span class="built_in">os</span>.<span class="built_in">path</span>.join(model_dir, filename)</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27;Save args to &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(args_path))</span><br><span class="line">      # <span class="built_in">print</span>(<span class="string">&#x27;--------Args Items----------&#x27;</span>)</span><br><span class="line">      with <span class="built_in">open</span>(args_path, <span class="string">&#x27;w&#x27;</span>) as fid:</span><br><span class="line">          <span class="keyword">for</span> k, v <span class="keyword">in</span> vars(<span class="built_in">self</span>.args).items():</span><br><span class="line">              fid.<span class="built_in">write</span>(<span class="string">&#x27;&#123;&#125;,&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(k, v))</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="更新和迭代"><a href="#更新和迭代" class="headerlink" title="更新和迭代"></a>更新和迭代</h3><ul>
+<li>  大幅度修改实验前，先把一个相对完整的版本保存下来，然后新开一个项目，可以避免混乱。</li>
+</ul>
+<h3 id="起名和架构规范"><a href="#起名和架构规范" class="headerlink" title="起名和架构规范"></a>起名和架构规范</h3><ul>
+<li>  同类变量起名时，首字母尽可能一致，方便debug。</li>
+<li>  注意命名写完整，写好help，避免混乱。</li>
+<li>  output和outputs等的单复数，string和str的缩写格式统一。</li>
+<li>  一个函数实现的多个分支的功能尽可能平行。</li>
+<li>  initialization的多个部分的初始化函数分开</li>
+<li>  train(on_start_epoch, run_iteration(on_forward, calculate_loss), on_end_epoch)</li>
+<li>  尽可能保留下来更多相关信息，如当前best score， 某一个部分的result等。</li>
+</ul>
+<h3 id="checkpoint"><a href="#checkpoint" class="headerlink" title="checkpoint"></a>checkpoint</h3><ul>
+<li>  设置多种load的方式：load_all, parameters, model_only</li>
+<li>  所有的变量：变量名=checkpoint[‘变量名’]；所有的模型和优化器：model.load_state_dict(checkpoint[‘模型名’])。注意转cuda。<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line"><span class="literal">self</span>.auto_alpha.load_state_dict(checkpoint[&#x27;auto_alpha_dict&#x27;])</span><br><span class="line"><span class="literal">self</span>.auto_alpha_optimizer.load_state_dict(checkpoint[&#x27;auto_alpha_optimizer&#x27;])</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">state</span> <span class="keyword">in</span> <span class="literal">self</span>.auto_alpha_optimizer.<span class="keyword">state</span>.values():</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="keyword">state</span>.items():</span><br><span class="line">        if torch.is_tensor(v):</span><br><span class="line">            <span class="keyword">state</span>[k] = v.cuda()</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    <span class="literal">self</span>.auto_alpha.cuda()</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>经验</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -916,20 +916,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python的参数传递</title>
-    <url>/research-experiment/python%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
-    <content><![CDATA[<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">def <span class="builtin-name">add</span>(a, b):</span><br><span class="line">    a = a + b</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line">def add_list(a, b):</span><br><span class="line">    a = a.append(b)</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    c = [1, 3]</span><br><span class="line">    d = [2, 4]</span><br><span class="line">    <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    e = 5</span><br><span class="line">    add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[1,3]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4,5]</span></span><br><span class="line"><span class="attribute">None</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>实验</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pytorch tensor/numpy常用操作函数</title>
     <url>/research-experiment/pytorch%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="1-tensor-mean"><a href="#1-tensor-mean" class="headerlink" title="1. tensor.mean()"></a>1. tensor.mean()</h1><p>取算术平均值。指定参数可以计算每一行或者 每一列的算术平均数</p>
@@ -958,6 +944,20 @@
       <tags>
         <tag>pytorch</tag>
         <tag>tensor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python的参数传递</title>
+    <url>/research-experiment/python%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
+    <content><![CDATA[<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">def <span class="builtin-name">add</span>(a, b):</span><br><span class="line">    a = a + b</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line">def add_list(a, b):</span><br><span class="line">    a = a.append(b)</span><br><span class="line">    return a</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    c = [1, 3]</span><br><span class="line">    d = [2, 4]</span><br><span class="line">    <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = <span class="builtin-name">add</span>(c, d)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    e = 5</span><br><span class="line">    add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br><span class="line">    c = add_list(c, e)</span><br><span class="line">    <span class="builtin-name">print</span>(c)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[1,3]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4]</span></span><br><span class="line"><span class="selector-attr">[1,3,2,4,5]</span></span><br><span class="line"><span class="attribute">None</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1029,6 +1029,270 @@
       </tags>
   </entry>
   <entry>
+    <title>机器学习-交叉熵</title>
+    <url>/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/tsyccnh/article/details/79163834">参考</a></p>
+<p><a href="https://blog.csdn.net/zxyhhjs2017/article/details/78619756?utm_source=blogkpcl1">参考</a></p>
+<p>1.信息量：一个离散型随机变量，其中某个事件发生的概率越低，信息量越大。</p>
+<p>I(xi) = -log(p(xi))</p>
+<p>2.熵：信息量的期望。</p>
+<p> H(X) = \sum ( P(xi) * I(xi) )</p>
+<p>3.KL散度：描述两个概率分布的相似程度。</p>
+<p>D_{kl}(p||q) =\sum{p(xi)*log( p(xi)/q(xi) )}\\ =\sum p(xi)*log(p(xi)) - \sum p(xi)*log(q(xi))\ = H(X) - \sum p(xi)*log(q(xi))</p>
+<p>4.交叉熵：KL散度计算公式的后半部分</p>
+<p>H(p,q)=-\sum p(xi)log(q(xi))</p>
+<p>5.机器学习中：p是标准的分布，q是网络进行训练时得到的分布。用交叉熵作为loss函数处理逻辑分类问题。</p>
+<p>单分类（图像中的物体A是{a,b,c}中的一种）：直接计算。</p>
+<p>多分类（图像中有多个物体，计算是否有a，是否有b，是否有c）：n-hot编码，每一位是二项分布，用sigmoid</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>语义分割、目标定位、目标检测、实例分割笔记</title>
+    <url>/reswarch-knowledge/%E5%88%86%E5%89%B2%E4%B8%8E%E6%A3%80%E6%B5%8B/</url>
+    <content><![CDATA[<h2 id="https-blog-csdn-net-poulang5786-article-details-80671185"><a href="#https-blog-csdn-net-poulang5786-article-details-80671185" class="headerlink" title="https://blog.csdn.net/poulang5786/article/details/80671185"></a><a href="https://blog.csdn.net/poulang5786/article/details/80671185">https://blog.csdn.net/poulang5786/article/details/80671185</a></h2><h1 id="语义分割：不区分个体。"><a href="#语义分割：不区分个体。" class="headerlink" title="语义分割：不区分个体。"></a>语义分割：不区分个体。</h1><h2 id="基本方法1：sliding-window-提取patch"><a href="#基本方法1：sliding-window-提取patch" class="headerlink" title="基本方法1：sliding window.(提取patch.)"></a>基本方法1：sliding window.(提取patch.)</h2><p>图中提取很多块patch，判断中心点的类标。<br>    评价：由于不同patch之间的重叠，方法不好，占用空间大。<br>优化：一次取整个图的卷积。<br>提升：Refinement .采用多规模的patch，链接不同大小的patch的信息。（*需要看一下代码细节）<br>    提升：用ml的方法学习如何采样才能提升效果。</p>
+<h2 id="基本方法2：FCN"><a href="#基本方法2：FCN" class="headerlink" title="基本方法2：FCN."></a>基本方法2：FCN.</h2><p>对图中所有像素分类。<br>评价：计算量太大，需要采用各种采样操作。<br>    *采样：只有一部分层做原清晰度的处理。另外的做pooling。<br>        *strided_convolution: 每次移动步长非1.</p>
+<h3 id="结构：网络分为两个部分。"><a href="#结构：网络分为两个部分。" class="headerlink" title="结构：网络分为两个部分。"></a>结构：网络分为两个部分。</h3><p>    前半部分：downsampling/upsampling.<br>    后半部分：将经过各种pooling后变小的图恢复原图。unpooling.<br>        &lt;直接pooling、钉床pooling、max unpooling(在pooling时记最大的位置，类似钉床)&gt;<br>卷积转置 transpose convolution/ back stride convolution.（<em>需要列一下公式自己算算）<br>    A</em>filter=B =&gt;&gt; B*tf = A    实际采用矩阵运算。<br>将经过CNN和pooling后输出的图像恢复成原来的图像。<br>       （2015版） 另一种：选取不同的初始位置，卷积时得到多种输出，再恢复。</p>
+<hr>
+<h1 id="分类和定位。"><a href="#分类和定位。" class="headerlink" title="分类和定位。"></a>分类和定位。</h1><p>Alex网络，现在有两个全连接层，一个是图像目标分类的预测，还有一个是向量（高度，宽度，x，y坐标）代表了目标在图像中的位置。<br>    训练网络时有两组损失，目标分类用softmax损失函数，边界输出损失用L2损失，评定预测边界和真实边界之间的差距。</p>
+<hr>
+<h1 id="目标检测：图中类已知（多个类）。"><a href="#目标检测：图中类已知（多个类）。" class="headerlink" title="目标检测：图中类已知（多个类）。"></a>目标检测：图中类已知（多个类）。</h1><h2 id="基本方法1：sliding-window-（和patch很像）"><a href="#基本方法1：sliding-window-（和patch很像）" class="headerlink" title="基本方法1：sliding window.（和patch很像）"></a>基本方法1：sliding window.（和patch很像）</h2><p>提取window，判断类。没见过的类单列为background类。<br>    如何选择crop方法是个问题。</p>
+<h3 id="方法2（改进1）：R-CNN"><a href="#方法2（改进1）：R-CNN" class="headerlink" title="方法2（改进1）：R-CNN."></a>方法2（改进1）：R-CNN.</h3><p>Region proposals + 用CNN分类。+用CNN校正边界。<br>Region proposals: 传统方法，常用于信号、图像处理。<br>    几秒内查找上千个候选的windows，有噪声，但recall率高。<br>    再用SelectiveSearch 等的方法调查windows.（被CNN替代）<br>替代：用CNN对候选框分类。</p>
+<h3 id="方法3（改进2）：Fast-R-CNN"><a href="#方法3（改进2）：Fast-R-CNN" class="headerlink" title="方法3（改进2）：Fast R-CNN."></a>方法3（改进2）：Fast R-CNN.</h3><p>对整个图像处理。从pixel -&gt; feature map, 再提取proposal.</p>
+<h3 id="方法4（改进3）：Faster-R-CNN-NIPS-2015"><a href="#方法4（改进3）：Faster-R-CNN-NIPS-2015" class="headerlink" title="方法4（改进3）：Faster R-CNN.(NIPS 2015)"></a>方法4（改进3）：Faster R-CNN.(NIPS 2015)</h3><p>用CNN自动选取Proposal.</p>
+<h2 id="基本方法2：前馈模型（一次性提取所有对象）"><a href="#基本方法2：前馈模型（一次性提取所有对象）" class="headerlink" title="基本方法2：前馈模型（一次性提取所有对象）"></a>基本方法2：前馈模型（一次性提取所有对象）</h2><p>将其视为回归问题。例：YOLO,SSD.<br>    ### SSD: 从一个点，选择多个尺寸规模的windows，判断和偏差和类别和置信度等。</p>
+<h2 id="基本方法3：R-LCN，二者之间。"><a href="#基本方法3：R-LCN，二者之间。" class="headerlink" title="基本方法3：R-LCN，二者之间。"></a>基本方法3：R-LCN，二者之间。</h2><hr>
+<h1 id="实例分割：区分每个实体。"><a href="#实例分割：区分每个实体。" class="headerlink" title="实例分割：区分每个实体。"></a>实例分割：区分每个实体。</h1><h2 id="基本方法："><a href="#基本方法：" class="headerlink" title="基本方法："></a>基本方法：</h2><p>用box做检测，再对每个小部分做分割。<br>MASK-RCNN(NIPS 2017)<br>选出Region Proposals, 在其中做SS.</p>
+<hr>
+<h1 id="医学图像分割与分析"><a href="#医学图像分割与分析" class="headerlink" title="医学图像分割与分析"></a>医学图像分割与分析</h1><p>医学图像分析（百度百科）：<a href="https://baike.baidu.com/item/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/3939451">https://baike.baidu.com/item/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/3939451</a><br>AI医疗新突破：增强罕见疾病的影像数据集，大幅提高识别准确率：<a href="https://www.jiqizhixin.com/articles/2018-07-07-2">https://www.jiqizhixin.com/articles/2018-07-07-2</a></p>
+<p>医学图像分割综述（中文论文）：file:///C:/Users/T450/Downloads/2002_Medical%20Image%20Segmentation.pdf</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+        <category>计算机视觉</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>分割</tag>
+        <tag>检测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式系统-知识点（1）</title>
+    <url>/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>钱柱中老师，617，邮件<br>定义：自主计算单元的集合，外界看上去是一个单独机器</p>
+<p>例子：网络工作站，处理器自然池数据分配，共享文件系统，用户命令最佳执行位置</p>
+<p>优点：网络速度，处理器性能提升和局限性，内存同上，存储同上以及便宜，软件协议更新很快</p>
+<p>为什么分布式：经济上服务器价格低单机价格高，速度快，传统不同系统不同位置，可靠性单机器故障仍然可容错（也是一个重要问题），计算能力可扩展性等需求，人类团队力量强大</p>
+<p>目标：多机器有用，透明让用户感受不到，开放性不断接入新的应用，可扩展性添加更多机器。</p>
+<p>机制与策略：策略是在机制上的方法。单元最短路径。机制是找一种方法运行系统，策略是在某种评判标准下最优。</p>
+<p>不同地域间的扩展。</p>
+<p>典型：<br>1计算2信息3普适<br>1集群、网格计算<br>2信息管理系统<br>3家电，问题是家电使用时间太长，更换慢，系统更新</p>
+]]></content>
+      <categories>
+        <category>课程笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>群体智能算法与启发式算法</title>
+    <url>/reswarch-knowledge/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>*遗传算法GA：种群中，选择比较合适的个体，种群交配，优胜劣汰，最终选择最优的个体。<br>*蚁群算法：一群东西初始在不同位置随机走动，达到目标的按路线长度释放衰减的正信号，大概率按信号浓度高的地方行走，正反馈调节使所有目标达到最优路径，搜索最短路径。<br>*粒子群算法：一群东西寻找一个东西，随机走动，按一定概率改变方向，向局部最优靠近。</p>
+<h1 id="次优搜索："><a href="#次优搜索：" class="headerlink" title="次优搜索："></a>次优搜索：</h1><p>模拟退火算法SA：在局部最优时概率性的继续寻找。得到局部解时概率性的选择次优解。<br>禁忌搜索算法TS：移动到相邻解，将上一部最优交换的一对元素放入禁忌表禁止继续交换以减小搜索空间。有特赦原则。</p>
+<h1 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h1><p>人工免疫系统。比较复杂有想法，虽然应用于网安，关系不大。</p>
+<h1 id="基于分层的改进："><a href="#基于分层的改进：" class="headerlink" title="基于分层的改进："></a>基于分层的改进：</h1><p>蛙跳算法：找到全体最优解，分层种群和群体两层，有不同文化交流，向群体中最优或全局最优方向行进。<br>爬山算法：古老的有问题的近似算法，类似全局梯度下降GD的思想。</p>
+]]></content>
+      <categories>
+        <category>课程笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>图像分割评估标准</title>
+    <url>/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/niaolianjiulin/article/details/53098437">https://blog.csdn.net/niaolianjiulin/article/details/53098437</a></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+        <category>计算机视觉</category>
+        <category>图像分割</category>
+      </categories>
+      <tags>
+        <tag>图像分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinforcement Learning笔记</title>
+    <url>/reswarch-knowledge/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>举例理解监督学习、无监督学习、半监督学习和强化学习的区别：<a href="https://www.jianshu.com/p/56fe011d9bae">https://www.jianshu.com/p/56fe011d9bae</a></p>
+<h2 id="学习笔记——深度Q-Learning-Deep-Q-Learing-DQN-：https-www-jianshu-com-p-72cab5460ebe"><a href="#学习笔记——深度Q-Learning-Deep-Q-Learing-DQN-：https-www-jianshu-com-p-72cab5460ebe" class="headerlink" title="学习笔记——深度Q-Learning(Deep Q-Learing(DQN))：https://www.jianshu.com/p/72cab5460ebe"></a>学习笔记——深度Q-Learning(Deep Q-Learing(DQN))：<a href="https://www.jianshu.com/p/72cab5460ebe">https://www.jianshu.com/p/72cab5460ebe</a></h2><h2 id="（高阳）强化学习研究综述：https-wenku-baidu-com-view-11cb573f770bf78a642954b6-html"><a href="#（高阳）强化学习研究综述：https-wenku-baidu-com-view-11cb573f770bf78a642954b6-html" class="headerlink" title="（高阳）强化学习研究综述：https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html"></a>（高阳）强化学习研究综述：<a href="https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html">https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html</a></h2><p>DQN:<a href="https://blog.csdn.net/bbbeoy/article/details/79072083">https://blog.csdn.net/bbbeoy/article/details/79072083</a><br>DQN:<a href="https://cloud.tencent.com/developer/article/1048358">https://cloud.tencent.com/developer/article/1048358</a><br>通过Q-learning理解强化学习：<a href="http://baijiahao.baidu.com/s?id=1597978859962737001&amp;wfr=spider&amp;for=pc">http://baijiahao.baidu.com/s?id=1597978859962737001&amp;wfr=spider&amp;for=pc</a><br>DUeling DQN:<a href="https://www.cnblogs.com/pinard/p/9923859.html">https://www.cnblogs.com/pinard/p/9923859.html</a></p>
+<hr>
+<h2 id="基于连续动作空间的行动者评论家方法研究（硕士论文）http-www-doc88-com-p-5436417127419-html"><a href="#基于连续动作空间的行动者评论家方法研究（硕士论文）http-www-doc88-com-p-5436417127419-html" class="headerlink" title="基于连续动作空间的行动者评论家方法研究（硕士论文）http://www.doc88.com/p-5436417127419.html"></a>基于连续动作空间的行动者评论家方法研究（硕士论文）<a href="http://www.doc88.com/p-5436417127419.html">http://www.doc88.com/p-5436417127419.html</a></h2><p>cs229笔记：强化学习 <a href="https://blog.csdn.net/AMDS123/article/details/68956814">https://blog.csdn.net/AMDS123/article/details/68956814</a></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据增强</title>
+    <url>/reswarch-knowledge/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/</url>
+    <content><![CDATA[<p>【技术综述】一文道尽深度学习中的数据增强方法（上）<a href="https://www.jianshu.com/p/99450dbdadcf">https://www.jianshu.com/p/99450dbdadcf</a><br>【技术综述】一文道尽深度学习中的数据增强方法（下）<a href="https://www.jianshu.com/p/661221525139">https://www.jianshu.com/p/661221525139</a></p>
+<hr>
+<p>数据集增强百度百科：<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin">https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin</a><br>SMOTE:<a href="https://www.jianshu.com/p/13fc0f7f5565">https://www.jianshu.com/p/13fc0f7f5565</a><br>小样本学习：<a href="https://blog.csdn.net/xhw205/article/details/79491649">https://blog.csdn.net/xhw205/article/details/79491649</a><br>深度学习中的数据增强（下）：<a href="https://cloud.tencent.com/developer/news/253846">https://cloud.tencent.com/developer/news/253846</a></p>
+<p>图像数据增强方法一览：<a href="https://www.jianshu.com/p/546a3affcbe6">https://www.jianshu.com/p/546a3affcbe6</a></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>Data augmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模仿学习</title>
+    <url>/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。</p>
+<hr>
+<p>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）<br><img src="https://www.evernote.com/shard/s324/res/72317ef8-1576-4d2e-badb-f6acc3ea6621" alt="img2"><br><img src="https://www.evernote.com/shard/s324/res/f822597d-69b3-4618-b0a6-33fb85a82d27" alt="img3"><br><img src="https://www.evernote.com/shard/s324/res/71f9d355-315d-4b73-944b-0a708338db09" alt="img4"></p>
+<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。</p>
+<hr>
+<h2 id="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"><a href="#模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。" class="headerlink" title="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"></a>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。</h2><p>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。</p>
+<hr>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><p>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>模仿学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deel Reinforcement Learning笔记</title>
+    <url>/reswarch-knowledge/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/poulang5786/article/details/80900858">https://blog.csdn.net/poulang5786/article/details/80900858</a><br>RL:<br>action 中有终止。<br>state中有终止。<br>MDP: 状态S、动作A、奖励R、P(经验)、r(discount vector，平衡近期奖励和远期奖励)<br>根据当前状态奖励，得到下一个动作的概率分布。<br> Q*函数：Bellman equation.</p>
+<p>DRL:<br>由于S空间过大，计算Q<em>困难，因此使用CNN等神经网络得到Q函数逼近Q</em>函数。&lt;训练使loss尽可能低，预测Q-value&gt;<br>经验表：Experience Replay. <br>(选取一个bench..?)</p>
+<p>DQN伪代码：一定概率随机探索，其他情况，模拟当前所有动作，选取所有动作中使Q-R-?函数最大的动作.</p>
+<p>缺点：探索动作可能学习困难，试图learn the policy .（AC算法）</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GAN的笔记(全链接)</title>
+    <url>/reswarch-knowledge/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<p>从头开始GAN：<a href="https://zhuanlan.zhihu.com/p/27012520">https://zhuanlan.zhihu.com/p/27012520</a><br>用GAN做数据增强的知乎搜索：<a href="https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment">https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment</a><br>有关GAN+增强的论文：Addressing Challenging Place Recognition Tasks using Generative Adversarial Networks<br>用GAN做数据增强（csdn博客）：<a href="https://blog.csdn.net/mmm_zzz/article/details/81813934">https://blog.csdn.net/mmm_zzz/article/details/81813934</a><br>另一个有关GAN+数据增强论文：GAN Augmentation: Augmenting Training Data using Generative Adversarial Networks<br>关于数据增强技术调研的郭兰哲的专栏：<a href="https://zhuanlan.zhihu.com/p/40936977">https://zhuanlan.zhihu.com/p/40936977</a><br>GAN+反向强化学习：<a href="https://www.jianshu.com/p/910dd7050ff8">https://www.jianshu.com/p/910dd7050ff8</a><br>Connecting Generative Adversarial Networks and Actor-Critic Methods：<a href="https://arxiv.org/pdf/1610.01945.pdf">https://arxiv.org/pdf/1610.01945.pdf</a><br>贝叶斯生成对抗网络（GAN）：当下性能最好的端到端半监督/无监督学习:<a href="http://www.sohu.com/a/144843442_473283">http://www.sohu.com/a/144843442_473283</a></p>
+<p>简述生成式对抗网络：<a href="https://www.cnblogs.com/wangxiaocvpr/p/6069026.html">https://www.cnblogs.com/wangxiaocvpr/p/6069026.html</a></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>GAN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>神经网络相关</title>
+    <url>/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/</url>
+    <content><![CDATA[<p>1.神经网络：带有成千上万个参数的分层的大型数学公式，从每一层传播到下一层时呈全连接结构，参数为连接强度（强度大，关联大）和偏移量，经过几层映射后从原始数据到最终的结果。{例：从手写数字识别中，从700多个像素点的图像，到0-9的10个点的输出层，输出信号为这个数字是几的判断}</p>
+<p>2.模型训练：根据样本期望的输出，以及模型得到的真实输出比较，调整神经网络每相邻两层映射间的参数。{例：手写数字识别中，代价为一组数据中，每个数据，预测每个数字时，p(xi)和{0或1}的差值的平方}</p>
+<p>3.反向传播算法(BMP)：从输出层到输入层，每相邻两层i和i-1间，将i层所有数据对结点权值的变化的希望相加，作为一次对i-1层的调整。然后根据第i层受到调整的程度，继续向前调整第i-1层。</p>
+<p>4.梯度下降：梯度是使带有多个参数的函数变化最快的方向，梯度下降是一个人通过计算所有数据的梯度，然后沿着负梯度方向一步一步下山。</p>
+<p>5.随机梯度下降：由于梯度下降每一步计算量过大，将数据分成一些组（bench），每次计算某一组的梯度然后下山。不一定每一步都是全局梯度，但是整体速度明显提升。</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>西瓜书知识点总结</title>
+    <url>/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="第一章。绪论"><a href="#第一章。绪论" class="headerlink" title="第一章。绪论"></a>第一章。绪论</h1><p>概念：<br>样本（sample）、示例（instance）<br>属性（attribute）、特征（feature）<br>属性空间（attribute space）：所有属性的取值空间集合<br>特征向量（feature vector）：属性空间中的一个点<br>维数（dimensionality）：属性个数</p>
+<p>学习（learning）、训练(training)<br>训练数据（training data）<br>训练集（training set）</p>
+<p>假设（hypothesis）：猜测的某种规律<br>真相、真实（ground-truth）<br>标记（label）：打标记<br>样例（sample）：带有标记的训练集</p>
+<p>分类（classificaion）：离散<br>回归（regression）：连续<br>正类（positive class）\反类（negative class）：针对二分类</p>
+<p>测试（testing）<br>测试样本（testing sample）</p>
+<p>聚类（clustering）<br>簇（cluster）</p>
+<p>有监督学习（supervised learning）\无监督学习（unsupervised learning）</p>
+<p>泛化（generalization）能力<br>“分布”（distribution）</p>
+<p>归纳（induction）<br>演绎（deduction）</p>
+<p>版本空间（version space）：与多个训练集的假设集合</p>
+<p>归纳偏好（inductive bias）：多个假设相互冲突不知道如何选择时，模型本身的偏好问题。（哪个特征更重要）</p>
+<p>“奥莱姆剃刀”：多个假设与观察一致，选用最简单的那个（例：二维空间点拟合曲线，拟合尽可能简单的那个）<br>NFL没有免费的午餐定理：任何机器学习的期望性能基本相同。但是此针对公正问题，而事实上不同类型的样例出现概率相差很多。机器学习脱离实际问题没有意义。</p>
+<p>连接主义（connectionism）例：感知机、神经网络、深度学习（特点：数据范围小时容易过拟合）<br>符号主义（symbolism）例：决策树<br>统计学习（stastical learning）例：支持向量机\其他核方法（kernel methods）<br>自然科学色彩：发现提出的某些方法和人脑学习相似。探索人脑<br>迁移学习（transfer learning）：类比学习+统计学习升级<br>深度学习：神经网络发展</p>
+<hr>
+<h1 id="第二章。模型评估与选择"><a href="#第二章。模型评估与选择" class="headerlink" title="第二章。模型评估与选择"></a>第二章。模型评估与选择</h1><p>错误率（error rate）：分类错误的样本占总样本的比例。<br>精度(accuracy)：1-错误率<br>误差（error）:学习器的预测输出与实际输出的差<br>    训练误差（training error）、经验误差（empirical error）<br>    泛化误差（generalization error）</p>
+<p>过拟合、欠拟合<br>过拟合：学习能力过强。障碍，不可避免：问题是NP的，机器学习求解方法是多项式的。</p>
+<p>测试误差：测试集误差。是泛化误差的近似。</p>
+<h2 id="集合划分："><a href="#集合划分：" class="headerlink" title="集合划分："></a>集合划分：</h2><p>1.留出法(hold-out)：按比例划分、两个互斥集合<br>    （采样中的分层采样）<br>需要注意训练集S和测试集D的比例。一般是2/3到4/5<br>2.交叉验证（cross validation）：k个互斥集合。每次用k-1个集合做训练集，剩下1个做测试集<br>2.1留一法（leave-one-out）：每个集合一个样本。比较准确，开销过大<br>3.自助法（bootstrapping）：取样后不删除。可重复取样。</p>
+<p>调参（parameter tuning）<br>*用训练集完成训练，测试集评估。最后需要用整体集合重新训练。</p>
+<h2 id="性能评估："><a href="#性能评估：" class="headerlink" title="性能评估："></a>性能评估：</h2><p><img src="https://www.evernote.com/shard/s324/res/59d510b8-b7cc-40eb-b093-88a06e690b40" alt="img1"></p>
+<h3 id="错误率、精度"><a href="#错误率、精度" class="headerlink" title="错误率、精度"></a>错误率、精度</h3><p>查准率\查全率：二分类问题<br>查准率P：查到的正例尽可能准确。<br>查全率R：尽可能找出所有正例。<br>二者相互矛盾。可绘制PR曲线。<br><img src="https://www.evernote.com/shard/s324/res/6579fe6f-cc01-45bd-be87-0fd127897bb5" alt="img2"><br>    平衡点（break-event point）P=R</p>
+<p>F1变量：常用。（P和R的调和平均）<br><img src="https://www.evernote.com/shard/s324/res/10393908-d31a-4b44-8eb0-c312a46462bb" alt="img3"></p>
+<pre><code>*实际问题中，对P和R的重视程度可能不同。
+</code></pre>
+<p>Fβ：可调整，加权调和平均。β&gt;1查全率更重要。β&lt;1查准率更重要。<br><img src="https://www.evernote.com/shard/s324/res/cff8fd3d-8466-458e-bece-90d01a40f081" alt="img4"></p>
+<p>多个二分类混淆矩阵：</p>
+<ul>
+<li>  1.全取每个P\R后计算：macro<br><img src="https://www.evernote.com/shard/s324/res/33d991b5-2dc7-4268-b631-1b6334202697" alt="img5"></li>
+<li>  2.全相加所有元素然后计算：micro<br><img src="https://www.evernote.com/shard/s324/res/01a1bbbf-6676-42c5-92b2-e0096cb867b3" alt="img6"><br><img src="https://www.evernote.com/shard/s324/res/43ee891f-4a62-40d0-8512-926059a11a40" alt="img7"></li>
+</ul>
+<p>ROC曲线：在不同阈值下的假正比率/假反比率曲线，弧线形。<br>用于对比模型泛化能力：AUC，阴影部分面积大小。越大越好。</p>
+<h2 id="代价敏感错误率"><a href="#代价敏感错误率" class="headerlink" title="代价敏感错误率"></a>代价敏感错误率</h2><p>当不同错误造成的影响不同时。我们希望使整体代价最小。<br><img src="https://www.evernote.com/shard/s324/res/6d91fea5-2e92-41db-99d0-5391a78658cf" alt="img8"><br><img src="https://www.evernote.com/shard/s324/res/da565414-9bf8-449d-96b9-ad793845f715" alt="img9"><br><img src="https://www.evernote.com/shard/s324/res/2260a30a-8ecf-44ee-a744-90bc9c8c2546" alt="img10"></p>
+<h2 id="机器学习问题中的检验："><a href="#机器学习问题中的检验：" class="headerlink" title="机器学习问题中的检验："></a>机器学习问题中的检验：</h2><p>训练集和测试集可能不同。需要检验泛化能力。数学统计方法、假设检验、方差等。（用到的时候学）</p>
+<h1 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h1><p>*线性模型有很好的可理解性（comprehensionbility）<br>*均方误差（平方损失square loss）物理：欧几里得距离<br>*让均方误差最小化的方法：最小二乘法。</p>
+<h1 id="第五章-神经网络"><a href="#第五章-神经网络" class="headerlink" title="第五章 神经网络"></a>第五章 神经网络</h1><p>M-P神经元特点：每个神经元接收多个神经元传来的信号的影响，超过一定阈值时向下一个神经元传递信号。<br>信号函数采用Sigmoid函数。也称挤压函数。<br><img src="https://www.evernote.com/shard/s324/res/f899dcf8-e218-46bb-973f-583703f68255" alt="img11"><br>神经网络模型函数：<br><img src="https://www.evernote.com/shard/s324/res/98f4edef-03f6-4f5e-a350-e06da23b5ab4" alt="img12"><br>感知机：两层神经元，第一层接收输入信号，传递到第二层输出。<br><img src="https://www.evernote.com/shard/s324/res/afd32647-76eb-4774-8712-b34a1be328ee" alt="img13"></p>
+<p>与运算：w1=w2=1,θ=2<br>或运算：w1=w2=1,θ=0.5<br>非运算：w1=-0.6,w2=0,θ=-0.5<br>感知机对权重的学习：<br>阈值看作一个固定权重-1的结点对应的权重wn+1。对数据(x,y)输出y^，调整：<br><img src="https://www.evernote.com/shard/s324/res/611b4baa-1246-4b20-ab8f-353e766138db" alt="img14"><br>,其中η为学习率（learning rate）<br>    感知机不能解决异或问题，不能线性可分的问题会发生震荡。解决异或可以用多层功能神经元。<br>多层前馈神经网络：常用多层，分层图，按层全互连，不会跳过一层和下一层连接。</p>
+<p><img src="https://www.evernote.com/shard/s324/res/a8f03fa0-0df1-41e3-96a6-640eaacbb691" alt="img15"></p>
+<h2 id="误差逆传播算法-BP算法"><a href="#误差逆传播算法-BP算法" class="headerlink" title="误差逆传播算法(BP算法)"></a>误差逆传播算法(BP算法)</h2><p>error backpropagation<br>？计算输出层的差，然后一层一层通过广义的阈值调整。<br>很容易过拟合。解决方法：<br>1、早停：数据集分成训练和测试，训练集误差变小测试集变大时<br>2、正则化：误差目标函数加一个描述网络复杂度的部分</p>
+<p>最优：梯度下降，沿着函数下降最快的方向。<br>避免局部最优：多起始点搜索、模拟退火、随机梯度下降、遗传算法等</p>
+<h2 id="其他神经网络"><a href="#其他神经网络" class="headerlink" title="其他神经网络"></a>其他神经网络</h2><p>RBF网络：单隐层前馈神经网络</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>机器学习</category>
+        <category>知识点</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Miss Detection vs. False Alarm: Adversarial Learning for Small Object Segmentation in Infrared Images</title>
     <url>/research-paper/1/</url>
     <content><![CDATA[<h1 id="动机和概述："><a href="#动机和概述：" class="headerlink" title="动机和概述："></a>动机和概述：</h1><p>平衡MD和FA两个指标，分开使用两个Generator，每个Generator使用不同的网络，分别根据任务生成一个结果。最后会根据两个结果以及两个的平均结果？<br>使用Conditional GAN 进行交互和对抗。</p>
@@ -1073,8 +1337,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>经典工作</category>
       </categories>
       <tags>
@@ -1186,6 +1450,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Dual-Agent Deep Reinforcement Learning for Deformable Face Tracking</title>
+    <url>/research-paper/drl14/</url>
+    <content><![CDATA[<p>a tracking agent and an alignment agent，一个移动bounding box，原有1/2。另一个根据当前关键点位置，控制是否停止。共用一个环境。<br>MA-DRL的框架细节写得不清楚，看起来比较普通没有创新，不像DRL出身的团队。</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>深度学习</category>
+        <category>论文笔记</category>
+        <category>强化学习</category>
+      </categories>
+      <tags>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Collaborative Deep Reinforcement Learning for Multi-Object Tracking</title>
     <url>/research-paper/drl15/</url>
     <content><![CDATA[<h1 id="任务："><a href="#任务：" class="headerlink" title="任务："></a>任务：</h1><p>视频中的多行人追踪任务。由于人在场景中的数量自由变化且可能相互遮挡，适用自由度高注重交互的多agent。</p>
@@ -1207,9 +1487,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Dual-Agent Deep Reinforcement Learning for Deformable Face Tracking</title>
-    <url>/research-paper/drl14/</url>
-    <content><![CDATA[<p>a tracking agent and an alignment agent，一个移动bounding box，原有1/2。另一个根据当前关键点位置，控制是否停止。共用一个环境。<br>MA-DRL的框架细节写得不清楚，看起来比较普通没有创新，不像DRL出身的团队。</p>
+    <title>Deep Reinforcement Learning with Iterative Shift for Visual Tracking(ICLR2019)</title>
+    <url>/research-paper/drl16/</url>
+    <content><![CDATA[<p><a href="http://www.yidianzixun.com/article/0LPKOG9R">http://www.yidianzixun.com/article/0LPKOG9R</a></p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1226,22 +1506,6 @@
     <title>Attention-aware deep reinforcement learning for video face recognition</title>
     <url>/research-paper/drl17/</url>
     <content><![CDATA[<p>用drl训练注意力模型，判断两个视频的人脸是否相同。drl的工作是在一堆帧中选择一个丢弃。</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
-        <category>深度学习</category>
-        <category>论文笔记</category>
-        <category>强化学习</category>
-      </categories>
-      <tags>
-        <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Reinforcement Learning with Iterative Shift for Visual Tracking(ICLR2019)</title>
-    <url>/research-paper/drl16/</url>
-    <content><![CDATA[<p><a href="http://www.yidianzixun.com/article/0LPKOG9R">http://www.yidianzixun.com/article/0LPKOG9R</a></p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1430,6 +1694,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Look Before You Leap: Bridging Model-Free and Model-Based Reinforcement Learning for Planned-Ahead Vision-and-Language Navigation</title>
+    <url>/research-paper/drl27/</url>
+    <content><![CDATA[<p>结合在线和离线强化学习，提高泛化性（略）</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>深度学习</category>
+        <category>论文笔记</category>
+        <category>强化学习</category>
+      </categories>
+      <tags>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Practical Block-wise Neural Network Architecture Generation</title>
     <url>/research-paper/drl28/</url>
     <content><![CDATA[<p>主题：用强化学习自动生成神经网络。<br><a href="https://baijiahao.baidu.com/s?id=1600615825111400186&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1600615825111400186&amp;wfr=spider&amp;for=pc</a><br><a href="https://blog.csdn.net/weixin_41313407/article/details/80189362">https://blog.csdn.net/weixin_41313407/article/details/80189362</a></p>
@@ -1568,10 +1848,13 @@
       </tags>
   </entry>
   <entry>
-    <title>CIRL: Controllable Imitative Reinforcement Learning for Vision-based Self-driving</title>
-    <url>/research-paper/drl4/</url>
-    <content><![CDATA[<p>开车，<br>action：沿路行，下个路口直行左右转。普通。<br>reward：方位和speed。<br>根据人类的驾驶视频setting。<br>实验效果一般般。</p>
-<p>为了能train出DDPG，先使用监督的数据训练以达到一个好的初始化，通过controllable gating mechanism将各个可能的动作都执行，同时根据reward信号提升DDPG的效果.<br>清华组论文</p>
+    <title>Context-Reinforced Semantic Segmentation(cvpr2019)</title>
+    <url>/research-paper/drl5/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/LawenceRay/article/details/95174059">参考</a></p>
+<p>cvpr2019，使用DRL交互学习上下文网络和分割网络。<br>结合context的语义分割<br>C-net上下文网络：智能体。<br>S-net分割网络：生成p-map（预测结果），作为环境。原图提取特征和Pyramid Pooling。</p>
+<p>将上下文学习问题定义为马尔科夫决策过程，并提出通过C Net、S Net之间的交互来学习上下文。这一优化过程可以通过深度强化学习解决，将p-map视作环境而C Net视作智能体。   </p>
+<p>细节不是很明确<br>文中几乎没有DRL有关state\action的细节，说明DRL不是文中重点而是工具，DRL正成为非differencial的优化问题一个很常见的解决框架。（因为细节比较相关，以后有代码看一下最好了）</p>
+<p>DRL使用A3C，细节被忽略。</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1585,13 +1868,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Context-Reinforced Semantic Segmentation(cvpr2019)</title>
-    <url>/research-paper/drl5/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/LawenceRay/article/details/95174059">参考</a></p>
-<p>cvpr2019，使用DRL交互学习上下文网络和分割网络。<br>结合context的语义分割<br>C-net上下文网络：智能体。<br>S-net分割网络：生成p-map（预测结果），作为环境。原图提取特征和Pyramid Pooling。</p>
-<p>将上下文学习问题定义为马尔科夫决策过程，并提出通过C Net、S Net之间的交互来学习上下文。这一优化过程可以通过深度强化学习解决，将p-map视作环境而C Net视作智能体。   </p>
-<p>细节不是很明确<br>文中几乎没有DRL有关state\action的细节，说明DRL不是文中重点而是工具，DRL正成为非differencial的优化问题一个很常见的解决框架。（因为细节比较相关，以后有代码看一下最好了）</p>
-<p>DRL使用A3C，细节被忽略。</p>
+    <title>CIRL: Controllable Imitative Reinforcement Learning for Vision-based Self-driving</title>
+    <url>/research-paper/drl4/</url>
+    <content><![CDATA[<p>开车，<br>action：沿路行，下个路口直行左右转。普通。<br>reward：方位和speed。<br>根据人类的驾驶视频setting。<br>实验效果一般般。</p>
+<p>为了能train出DDPG，先使用监督的数据训练以达到一个好的初始化，通过controllable gating mechanism将各个可能的动作都执行，同时根据reward信号提升DDPG的效果.<br>清华组论文</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1714,8 +1994,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1730,28 +2010,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
-        <category>图像分割</category>
-      </categories>
-      <tags>
-        <tag>分割</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Object Region Mining with Adversarial Erasing: A Simple Classification to Semantic Segmentation Approach(cvpr2017)</title>
-    <url>/research-paper/sseg12/</url>
-    <content><![CDATA[<h2 id="CVPR2017-弱监督-mIoU其实挺差的"><a href="#CVPR2017-弱监督-mIoU其实挺差的" class="headerlink" title="CVPR2017 弱监督 mIoU其实挺差的"></a>CVPR2017 弱监督 mIoU其实挺差的</h2><p>Object Region Mining with Adversarial Erasing: A Simple Classification to<br>Semantic Segmentation Approach<br><a href="https://www.leiphone.com/news/201709/pL7GwHcZmw9VylcZ.html">https://www.leiphone.com/news/201709/pL7GwHcZmw9VylcZ.html</a></p>
-<hr>
-<h2 id="用对抗擦除删除的是物体的一个模糊的区域。"><a href="#用对抗擦除删除的是物体的一个模糊的区域。" class="headerlink" title="用对抗擦除删除的是物体的一个模糊的区域。"></a>用对抗擦除删除的是物体的一个模糊的区域。</h2><p>即使GT很高，图像的边界问题很严重。准确说用IoU判定这个Region有点问题。<br>对抗擦除会删除一些关键语义信息，如语义边界等。经过擦除后训练的物体可能人类都识别不了，网络出现一些问题。</p>
-<hr>
-<p>开创性很好，有瓶颈比较难克服。。</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
         <category>论文笔记</category>
-        <category>计算机视觉</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1771,8 +2031,28 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
+        <category>图像分割</category>
+      </categories>
+      <tags>
+        <tag>分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Object Region Mining with Adversarial Erasing: A Simple Classification to Semantic Segmentation Approach(cvpr2017)</title>
+    <url>/research-paper/sseg12/</url>
+    <content><![CDATA[<h2 id="CVPR2017-弱监督-mIoU其实挺差的"><a href="#CVPR2017-弱监督-mIoU其实挺差的" class="headerlink" title="CVPR2017 弱监督 mIoU其实挺差的"></a>CVPR2017 弱监督 mIoU其实挺差的</h2><p>Object Region Mining with Adversarial Erasing: A Simple Classification to<br>Semantic Segmentation Approach<br><a href="https://www.leiphone.com/news/201709/pL7GwHcZmw9VylcZ.html">https://www.leiphone.com/news/201709/pL7GwHcZmw9VylcZ.html</a></p>
+<hr>
+<h2 id="用对抗擦除删除的是物体的一个模糊的区域。"><a href="#用对抗擦除删除的是物体的一个模糊的区域。" class="headerlink" title="用对抗擦除删除的是物体的一个模糊的区域。"></a>用对抗擦除删除的是物体的一个模糊的区域。</h2><p>即使GT很高，图像的边界问题很严重。准确说用IoU判定这个Region有点问题。<br>对抗擦除会删除一些关键语义信息，如语义边界等。经过擦除后训练的物体可能人类都识别不了，网络出现一些问题。</p>
+<hr>
+<p>开创性很好，有瓶颈比较难克服。。</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1787,8 +2067,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1817,8 +2097,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1875,8 +2155,32 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
+        <category>图像分割</category>
+      </categories>
+      <tags>
+        <tag>分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>语义分割-组会</title>
+    <url>/research-paper/sseg3/</url>
+    <content><![CDATA[<p>一.语义分割：全监督-半监督（包含交互式）-无监督（label？）<br>二.交互：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">polygon-RNN</span></span><br></pre></td></tr></table></figure>
+<p>三.全监督：FCN。（1.从上到下和从下到上。2.网络结构，跨层。3.多规模。4.卷积）</p>
+<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Context</span> Encoding <span class="keyword">for</span> Semantic Segmentation</span><br></pre></td></tr></table></figure>
+<p>四.半监督难度：boundingbox-&gt;point&amp;squiggles-&gt;image level<br>五.领域自适应： </p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Fully</span> Convolutional Adaptation Networks for Semantic Segmentation。</span><br></pre></td></tr></table></figure>
+<p>六.继续半监督<br>Class activation map(CAM)</p>
+<hr>
+<p><img src="https://www.evernote.com/shard/s324/res/439ab438-2e2c-4aa8-8b47-fda66ed865e5" alt="img"></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+        <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1894,8 +2198,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1920,8 +2224,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1942,8 +2246,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1958,8 +2262,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1976,8 +2280,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -1992,8 +2296,8 @@
       <categories>
         <category>科研</category>
         <category>论文</category>
-        <category>论文笔记</category>
         <category>计算机视觉</category>
+        <category>论文笔记</category>
         <category>图像分割</category>
       </categories>
       <tags>
@@ -2025,270 +2329,6 @@
       <tags>
         <tag>强化学习</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>机器学习-交叉熵</title>
-    <url>/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/tsyccnh/article/details/79163834">参考</a></p>
-<p><a href="https://blog.csdn.net/zxyhhjs2017/article/details/78619756?utm_source=blogkpcl1">参考</a></p>
-<p>1.信息量：一个离散型随机变量，其中某个事件发生的概率越低，信息量越大。</p>
-<p>I(xi) = -log(p(xi))</p>
-<p>2.熵：信息量的期望。</p>
-<p> H(X) = \sum ( P(xi) * I(xi) )</p>
-<p>3.KL散度：描述两个概率分布的相似程度。</p>
-<p>D_{kl}(p||q) =\sum{p(xi)*log( p(xi)/q(xi) )}\\ =\sum p(xi)*log(p(xi)) - \sum p(xi)*log(q(xi))\ = H(X) - \sum p(xi)*log(q(xi))</p>
-<p>4.交叉熵：KL散度计算公式的后半部分</p>
-<p>H(p,q)=-\sum p(xi)log(q(xi))</p>
-<p>5.机器学习中：p是标准的分布，q是网络进行训练时得到的分布。用交叉熵作为loss函数处理逻辑分类问题。</p>
-<p>单分类（图像中的物体A是{a,b,c}中的一种）：直接计算。</p>
-<p>多分类（图像中有多个物体，计算是否有a，是否有b，是否有c）：n-hot编码，每一位是二项分布，用sigmoid</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分布式系统-知识点（1）</title>
-    <url>/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>钱柱中老师，617，邮件<br>定义：自主计算单元的集合，外界看上去是一个单独机器</p>
-<p>例子：网络工作站，处理器自然池数据分配，共享文件系统，用户命令最佳执行位置</p>
-<p>优点：网络速度，处理器性能提升和局限性，内存同上，存储同上以及便宜，软件协议更新很快</p>
-<p>为什么分布式：经济上服务器价格低单机价格高，速度快，传统不同系统不同位置，可靠性单机器故障仍然可容错（也是一个重要问题），计算能力可扩展性等需求，人类团队力量强大</p>
-<p>目标：多机器有用，透明让用户感受不到，开放性不断接入新的应用，可扩展性添加更多机器。</p>
-<p>机制与策略：策略是在机制上的方法。单元最短路径。机制是找一种方法运行系统，策略是在某种评判标准下最优。</p>
-<p>不同地域间的扩展。</p>
-<p>典型：<br>1计算2信息3普适<br>1集群、网格计算<br>2信息管理系统<br>3家电，问题是家电使用时间太长，更换慢，系统更新</p>
-]]></content>
-      <categories>
-        <category>课程笔记</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>语义分割、目标定位、目标检测、实例分割笔记</title>
-    <url>/reswarch-knowledge/%E5%88%86%E5%89%B2%E4%B8%8E%E6%A3%80%E6%B5%8B/</url>
-    <content><![CDATA[<h2 id="https-blog-csdn-net-poulang5786-article-details-80671185"><a href="#https-blog-csdn-net-poulang5786-article-details-80671185" class="headerlink" title="https://blog.csdn.net/poulang5786/article/details/80671185"></a><a href="https://blog.csdn.net/poulang5786/article/details/80671185">https://blog.csdn.net/poulang5786/article/details/80671185</a></h2><h1 id="语义分割：不区分个体。"><a href="#语义分割：不区分个体。" class="headerlink" title="语义分割：不区分个体。"></a>语义分割：不区分个体。</h1><h2 id="基本方法1：sliding-window-提取patch"><a href="#基本方法1：sliding-window-提取patch" class="headerlink" title="基本方法1：sliding window.(提取patch.)"></a>基本方法1：sliding window.(提取patch.)</h2><p>图中提取很多块patch，判断中心点的类标。<br>    评价：由于不同patch之间的重叠，方法不好，占用空间大。<br>优化：一次取整个图的卷积。<br>提升：Refinement .采用多规模的patch，链接不同大小的patch的信息。（*需要看一下代码细节）<br>    提升：用ml的方法学习如何采样才能提升效果。</p>
-<h2 id="基本方法2：FCN"><a href="#基本方法2：FCN" class="headerlink" title="基本方法2：FCN."></a>基本方法2：FCN.</h2><p>对图中所有像素分类。<br>评价：计算量太大，需要采用各种采样操作。<br>    *采样：只有一部分层做原清晰度的处理。另外的做pooling。<br>        *strided_convolution: 每次移动步长非1.</p>
-<h3 id="结构：网络分为两个部分。"><a href="#结构：网络分为两个部分。" class="headerlink" title="结构：网络分为两个部分。"></a>结构：网络分为两个部分。</h3><p>    前半部分：downsampling/upsampling.<br>    后半部分：将经过各种pooling后变小的图恢复原图。unpooling.<br>        &lt;直接pooling、钉床pooling、max unpooling(在pooling时记最大的位置，类似钉床)&gt;<br>卷积转置 transpose convolution/ back stride convolution.（<em>需要列一下公式自己算算）<br>    A</em>filter=B =&gt;&gt; B*tf = A    实际采用矩阵运算。<br>将经过CNN和pooling后输出的图像恢复成原来的图像。<br>       （2015版） 另一种：选取不同的初始位置，卷积时得到多种输出，再恢复。</p>
-<hr>
-<h1 id="分类和定位。"><a href="#分类和定位。" class="headerlink" title="分类和定位。"></a>分类和定位。</h1><p>Alex网络，现在有两个全连接层，一个是图像目标分类的预测，还有一个是向量（高度，宽度，x，y坐标）代表了目标在图像中的位置。<br>    训练网络时有两组损失，目标分类用softmax损失函数，边界输出损失用L2损失，评定预测边界和真实边界之间的差距。</p>
-<hr>
-<h1 id="目标检测：图中类已知（多个类）。"><a href="#目标检测：图中类已知（多个类）。" class="headerlink" title="目标检测：图中类已知（多个类）。"></a>目标检测：图中类已知（多个类）。</h1><h2 id="基本方法1：sliding-window-（和patch很像）"><a href="#基本方法1：sliding-window-（和patch很像）" class="headerlink" title="基本方法1：sliding window.（和patch很像）"></a>基本方法1：sliding window.（和patch很像）</h2><p>提取window，判断类。没见过的类单列为background类。<br>    如何选择crop方法是个问题。</p>
-<h3 id="方法2（改进1）：R-CNN"><a href="#方法2（改进1）：R-CNN" class="headerlink" title="方法2（改进1）：R-CNN."></a>方法2（改进1）：R-CNN.</h3><p>Region proposals + 用CNN分类。+用CNN校正边界。<br>Region proposals: 传统方法，常用于信号、图像处理。<br>    几秒内查找上千个候选的windows，有噪声，但recall率高。<br>    再用SelectiveSearch 等的方法调查windows.（被CNN替代）<br>替代：用CNN对候选框分类。</p>
-<h3 id="方法3（改进2）：Fast-R-CNN"><a href="#方法3（改进2）：Fast-R-CNN" class="headerlink" title="方法3（改进2）：Fast R-CNN."></a>方法3（改进2）：Fast R-CNN.</h3><p>对整个图像处理。从pixel -&gt; feature map, 再提取proposal.</p>
-<h3 id="方法4（改进3）：Faster-R-CNN-NIPS-2015"><a href="#方法4（改进3）：Faster-R-CNN-NIPS-2015" class="headerlink" title="方法4（改进3）：Faster R-CNN.(NIPS 2015)"></a>方法4（改进3）：Faster R-CNN.(NIPS 2015)</h3><p>用CNN自动选取Proposal.</p>
-<h2 id="基本方法2：前馈模型（一次性提取所有对象）"><a href="#基本方法2：前馈模型（一次性提取所有对象）" class="headerlink" title="基本方法2：前馈模型（一次性提取所有对象）"></a>基本方法2：前馈模型（一次性提取所有对象）</h2><p>将其视为回归问题。例：YOLO,SSD.<br>    ### SSD: 从一个点，选择多个尺寸规模的windows，判断和偏差和类别和置信度等。</p>
-<h2 id="基本方法3：R-LCN，二者之间。"><a href="#基本方法3：R-LCN，二者之间。" class="headerlink" title="基本方法3：R-LCN，二者之间。"></a>基本方法3：R-LCN，二者之间。</h2><hr>
-<h1 id="实例分割：区分每个实体。"><a href="#实例分割：区分每个实体。" class="headerlink" title="实例分割：区分每个实体。"></a>实例分割：区分每个实体。</h1><h2 id="基本方法："><a href="#基本方法：" class="headerlink" title="基本方法："></a>基本方法：</h2><p>用box做检测，再对每个小部分做分割。<br>MASK-RCNN(NIPS 2017)<br>选出Region Proposals, 在其中做SS.</p>
-<hr>
-<h1 id="医学图像分割与分析"><a href="#医学图像分割与分析" class="headerlink" title="医学图像分割与分析"></a>医学图像分割与分析</h1><p>医学图像分析（百度百科）：<a href="https://baike.baidu.com/item/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/3939451">https://baike.baidu.com/item/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/3939451</a><br>AI医疗新突破：增强罕见疾病的影像数据集，大幅提高识别准确率：<a href="https://www.jiqizhixin.com/articles/2018-07-07-2">https://www.jiqizhixin.com/articles/2018-07-07-2</a></p>
-<p>医学图像分割综述（中文论文）：file:///C:/Users/T450/Downloads/2002_Medical%20Image%20Segmentation.pdf</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-        <category>计算机视觉</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>分割</tag>
-        <tag>检测</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>群体智能算法与启发式算法</title>
-    <url>/reswarch-knowledge/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>*遗传算法GA：种群中，选择比较合适的个体，种群交配，优胜劣汰，最终选择最优的个体。<br>*蚁群算法：一群东西初始在不同位置随机走动，达到目标的按路线长度释放衰减的正信号，大概率按信号浓度高的地方行走，正反馈调节使所有目标达到最优路径，搜索最短路径。<br>*粒子群算法：一群东西寻找一个东西，随机走动，按一定概率改变方向，向局部最优靠近。</p>
-<h1 id="次优搜索："><a href="#次优搜索：" class="headerlink" title="次优搜索："></a>次优搜索：</h1><p>模拟退火算法SA：在局部最优时概率性的继续寻找。得到局部解时概率性的选择次优解。<br>禁忌搜索算法TS：移动到相邻解，将上一部最优交换的一对元素放入禁忌表禁止继续交换以减小搜索空间。有特赦原则。</p>
-<h1 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h1><p>人工免疫系统。比较复杂有想法，虽然应用于网安，关系不大。</p>
-<h1 id="基于分层的改进："><a href="#基于分层的改进：" class="headerlink" title="基于分层的改进："></a>基于分层的改进：</h1><p>蛙跳算法：找到全体最优解，分层种群和群体两层，有不同文化交流，向群体中最优或全局最优方向行进。<br>爬山算法：古老的有问题的近似算法，类似全局梯度下降GD的思想。</p>
-]]></content>
-      <categories>
-        <category>课程笔记</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>图像分割评估标准</title>
-    <url>/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/niaolianjiulin/article/details/53098437">https://blog.csdn.net/niaolianjiulin/article/details/53098437</a></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-        <category>计算机视觉</category>
-        <category>图像分割</category>
-      </categories>
-      <tags>
-        <tag>图像分割</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinforcement Learning笔记</title>
-    <url>/reswarch-knowledge/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>举例理解监督学习、无监督学习、半监督学习和强化学习的区别：<a href="https://www.jianshu.com/p/56fe011d9bae">https://www.jianshu.com/p/56fe011d9bae</a></p>
-<h2 id="学习笔记——深度Q-Learning-Deep-Q-Learing-DQN-：https-www-jianshu-com-p-72cab5460ebe"><a href="#学习笔记——深度Q-Learning-Deep-Q-Learing-DQN-：https-www-jianshu-com-p-72cab5460ebe" class="headerlink" title="学习笔记——深度Q-Learning(Deep Q-Learing(DQN))：https://www.jianshu.com/p/72cab5460ebe"></a>学习笔记——深度Q-Learning(Deep Q-Learing(DQN))：<a href="https://www.jianshu.com/p/72cab5460ebe">https://www.jianshu.com/p/72cab5460ebe</a></h2><h2 id="（高阳）强化学习研究综述：https-wenku-baidu-com-view-11cb573f770bf78a642954b6-html"><a href="#（高阳）强化学习研究综述：https-wenku-baidu-com-view-11cb573f770bf78a642954b6-html" class="headerlink" title="（高阳）强化学习研究综述：https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html"></a>（高阳）强化学习研究综述：<a href="https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html">https://wenku.baidu.com/view/11cb573f770bf78a642954b6.html</a></h2><p>DQN:<a href="https://blog.csdn.net/bbbeoy/article/details/79072083">https://blog.csdn.net/bbbeoy/article/details/79072083</a><br>DQN:<a href="https://cloud.tencent.com/developer/article/1048358">https://cloud.tencent.com/developer/article/1048358</a><br>通过Q-learning理解强化学习：<a href="http://baijiahao.baidu.com/s?id=1597978859962737001&amp;wfr=spider&amp;for=pc">http://baijiahao.baidu.com/s?id=1597978859962737001&amp;wfr=spider&amp;for=pc</a><br>DUeling DQN:<a href="https://www.cnblogs.com/pinard/p/9923859.html">https://www.cnblogs.com/pinard/p/9923859.html</a></p>
-<hr>
-<h2 id="基于连续动作空间的行动者评论家方法研究（硕士论文）http-www-doc88-com-p-5436417127419-html"><a href="#基于连续动作空间的行动者评论家方法研究（硕士论文）http-www-doc88-com-p-5436417127419-html" class="headerlink" title="基于连续动作空间的行动者评论家方法研究（硕士论文）http://www.doc88.com/p-5436417127419.html"></a>基于连续动作空间的行动者评论家方法研究（硕士论文）<a href="http://www.doc88.com/p-5436417127419.html">http://www.doc88.com/p-5436417127419.html</a></h2><p>cs229笔记：强化学习 <a href="https://blog.csdn.net/AMDS123/article/details/68956814">https://blog.csdn.net/AMDS123/article/details/68956814</a></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据增强</title>
-    <url>/reswarch-knowledge/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/</url>
-    <content><![CDATA[<p>【技术综述】一文道尽深度学习中的数据增强方法（上）<a href="https://www.jianshu.com/p/99450dbdadcf">https://www.jianshu.com/p/99450dbdadcf</a><br>【技术综述】一文道尽深度学习中的数据增强方法（下）<a href="https://www.jianshu.com/p/661221525139">https://www.jianshu.com/p/661221525139</a></p>
-<hr>
-<p>数据集增强百度百科：<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin">https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin</a><br>SMOTE:<a href="https://www.jianshu.com/p/13fc0f7f5565">https://www.jianshu.com/p/13fc0f7f5565</a><br>小样本学习：<a href="https://blog.csdn.net/xhw205/article/details/79491649">https://blog.csdn.net/xhw205/article/details/79491649</a><br>深度学习中的数据增强（下）：<a href="https://cloud.tencent.com/developer/news/253846">https://cloud.tencent.com/developer/news/253846</a></p>
-<p>图像数据增强方法一览：<a href="https://www.jianshu.com/p/546a3affcbe6">https://www.jianshu.com/p/546a3affcbe6</a></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>Data augmentation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模仿学习</title>
-    <url>/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。</p>
-<hr>
-<p>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）<br><img src="https://www.evernote.com/shard/s324/res/72317ef8-1576-4d2e-badb-f6acc3ea6621" alt="img2"><br><img src="https://www.evernote.com/shard/s324/res/f822597d-69b3-4618-b0a6-33fb85a82d27" alt="img3"><br><img src="https://www.evernote.com/shard/s324/res/71f9d355-315d-4b73-944b-0a708338db09" alt="img4"></p>
-<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。</p>
-<hr>
-<h2 id="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"><a href="#模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。" class="headerlink" title="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"></a>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。</h2><p>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。</p>
-<hr>
-<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><p>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>模仿学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GAN的笔记(全链接)</title>
-    <url>/reswarch-knowledge/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<p>从头开始GAN：<a href="https://zhuanlan.zhihu.com/p/27012520">https://zhuanlan.zhihu.com/p/27012520</a><br>用GAN做数据增强的知乎搜索：<a href="https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment">https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment</a><br>有关GAN+增强的论文：Addressing Challenging Place Recognition Tasks using Generative Adversarial Networks<br>用GAN做数据增强（csdn博客）：<a href="https://blog.csdn.net/mmm_zzz/article/details/81813934">https://blog.csdn.net/mmm_zzz/article/details/81813934</a><br>另一个有关GAN+数据增强论文：GAN Augmentation: Augmenting Training Data using Generative Adversarial Networks<br>关于数据增强技术调研的郭兰哲的专栏：<a href="https://zhuanlan.zhihu.com/p/40936977">https://zhuanlan.zhihu.com/p/40936977</a><br>GAN+反向强化学习：<a href="https://www.jianshu.com/p/910dd7050ff8">https://www.jianshu.com/p/910dd7050ff8</a><br>Connecting Generative Adversarial Networks and Actor-Critic Methods：<a href="https://arxiv.org/pdf/1610.01945.pdf">https://arxiv.org/pdf/1610.01945.pdf</a><br>贝叶斯生成对抗网络（GAN）：当下性能最好的端到端半监督/无监督学习:<a href="http://www.sohu.com/a/144843442_473283">http://www.sohu.com/a/144843442_473283</a></p>
-<p>简述生成式对抗网络：<a href="https://www.cnblogs.com/wangxiaocvpr/p/6069026.html">https://www.cnblogs.com/wangxiaocvpr/p/6069026.html</a></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>GAN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deel Reinforcement Learning笔记</title>
-    <url>/reswarch-knowledge/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/poulang5786/article/details/80900858">https://blog.csdn.net/poulang5786/article/details/80900858</a><br>RL:<br>action 中有终止。<br>state中有终止。<br>MDP: 状态S、动作A、奖励R、P(经验)、r(discount vector，平衡近期奖励和远期奖励)<br>根据当前状态奖励，得到下一个动作的概率分布。<br> Q*函数：Bellman equation.</p>
-<p>DRL:<br>由于S空间过大，计算Q<em>困难，因此使用CNN等神经网络得到Q函数逼近Q</em>函数。&lt;训练使loss尽可能低，预测Q-value&gt;<br>经验表：Experience Replay. <br>(选取一个bench..?)</p>
-<p>DQN伪代码：一定概率随机探索，其他情况，模拟当前所有动作，选取所有动作中使Q-R-?函数最大的动作.</p>
-<p>缺点：探索动作可能学习困难，试图learn the policy .（AC算法）</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>神经网络相关</title>
-    <url>/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/</url>
-    <content><![CDATA[<p>1.神经网络：带有成千上万个参数的分层的大型数学公式，从每一层传播到下一层时呈全连接结构，参数为连接强度（强度大，关联大）和偏移量，经过几层映射后从原始数据到最终的结果。{例：从手写数字识别中，从700多个像素点的图像，到0-9的10个点的输出层，输出信号为这个数字是几的判断}</p>
-<p>2.模型训练：根据样本期望的输出，以及模型得到的真实输出比较，调整神经网络每相邻两层映射间的参数。{例：手写数字识别中，代价为一组数据中，每个数据，预测每个数字时，p(xi)和{0或1}的差值的平方}</p>
-<p>3.反向传播算法(BMP)：从输出层到输入层，每相邻两层i和i-1间，将i层所有数据对结点权值的变化的希望相加，作为一次对i-1层的调整。然后根据第i层受到调整的程度，继续向前调整第i-1层。</p>
-<p>4.梯度下降：梯度是使带有多个参数的函数变化最快的方向，梯度下降是一个人通过计算所有数据的梯度，然后沿着负梯度方向一步一步下山。</p>
-<p>5.随机梯度下降：由于梯度下降每一步计算量过大，将数据分成一些组（bench），每次计算某一组的梯度然后下山。不一定每一步都是全局梯度，但是整体速度明显提升。</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>西瓜书知识点总结</title>
-    <url>/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="第一章。绪论"><a href="#第一章。绪论" class="headerlink" title="第一章。绪论"></a>第一章。绪论</h1><p>概念：<br>样本（sample）、示例（instance）<br>属性（attribute）、特征（feature）<br>属性空间（attribute space）：所有属性的取值空间集合<br>特征向量（feature vector）：属性空间中的一个点<br>维数（dimensionality）：属性个数</p>
-<p>学习（learning）、训练(training)<br>训练数据（training data）<br>训练集（training set）</p>
-<p>假设（hypothesis）：猜测的某种规律<br>真相、真实（ground-truth）<br>标记（label）：打标记<br>样例（sample）：带有标记的训练集</p>
-<p>分类（classificaion）：离散<br>回归（regression）：连续<br>正类（positive class）\反类（negative class）：针对二分类</p>
-<p>测试（testing）<br>测试样本（testing sample）</p>
-<p>聚类（clustering）<br>簇（cluster）</p>
-<p>有监督学习（supervised learning）\无监督学习（unsupervised learning）</p>
-<p>泛化（generalization）能力<br>“分布”（distribution）</p>
-<p>归纳（induction）<br>演绎（deduction）</p>
-<p>版本空间（version space）：与多个训练集的假设集合</p>
-<p>归纳偏好（inductive bias）：多个假设相互冲突不知道如何选择时，模型本身的偏好问题。（哪个特征更重要）</p>
-<p>“奥莱姆剃刀”：多个假设与观察一致，选用最简单的那个（例：二维空间点拟合曲线，拟合尽可能简单的那个）<br>NFL没有免费的午餐定理：任何机器学习的期望性能基本相同。但是此针对公正问题，而事实上不同类型的样例出现概率相差很多。机器学习脱离实际问题没有意义。</p>
-<p>连接主义（connectionism）例：感知机、神经网络、深度学习（特点：数据范围小时容易过拟合）<br>符号主义（symbolism）例：决策树<br>统计学习（stastical learning）例：支持向量机\其他核方法（kernel methods）<br>自然科学色彩：发现提出的某些方法和人脑学习相似。探索人脑<br>迁移学习（transfer learning）：类比学习+统计学习升级<br>深度学习：神经网络发展</p>
-<hr>
-<h1 id="第二章。模型评估与选择"><a href="#第二章。模型评估与选择" class="headerlink" title="第二章。模型评估与选择"></a>第二章。模型评估与选择</h1><p>错误率（error rate）：分类错误的样本占总样本的比例。<br>精度(accuracy)：1-错误率<br>误差（error）:学习器的预测输出与实际输出的差<br>    训练误差（training error）、经验误差（empirical error）<br>    泛化误差（generalization error）</p>
-<p>过拟合、欠拟合<br>过拟合：学习能力过强。障碍，不可避免：问题是NP的，机器学习求解方法是多项式的。</p>
-<p>测试误差：测试集误差。是泛化误差的近似。</p>
-<h2 id="集合划分："><a href="#集合划分：" class="headerlink" title="集合划分："></a>集合划分：</h2><p>1.留出法(hold-out)：按比例划分、两个互斥集合<br>    （采样中的分层采样）<br>需要注意训练集S和测试集D的比例。一般是2/3到4/5<br>2.交叉验证（cross validation）：k个互斥集合。每次用k-1个集合做训练集，剩下1个做测试集<br>2.1留一法（leave-one-out）：每个集合一个样本。比较准确，开销过大<br>3.自助法（bootstrapping）：取样后不删除。可重复取样。</p>
-<p>调参（parameter tuning）<br>*用训练集完成训练，测试集评估。最后需要用整体集合重新训练。</p>
-<h2 id="性能评估："><a href="#性能评估：" class="headerlink" title="性能评估："></a>性能评估：</h2><p><img src="https://www.evernote.com/shard/s324/res/59d510b8-b7cc-40eb-b093-88a06e690b40" alt="img1"></p>
-<h3 id="错误率、精度"><a href="#错误率、精度" class="headerlink" title="错误率、精度"></a>错误率、精度</h3><p>查准率\查全率：二分类问题<br>查准率P：查到的正例尽可能准确。<br>查全率R：尽可能找出所有正例。<br>二者相互矛盾。可绘制PR曲线。<br><img src="https://www.evernote.com/shard/s324/res/6579fe6f-cc01-45bd-be87-0fd127897bb5" alt="img2"><br>    平衡点（break-event point）P=R</p>
-<p>F1变量：常用。（P和R的调和平均）<br><img src="https://www.evernote.com/shard/s324/res/10393908-d31a-4b44-8eb0-c312a46462bb" alt="img3"></p>
-<pre><code>*实际问题中，对P和R的重视程度可能不同。
-</code></pre>
-<p>Fβ：可调整，加权调和平均。β&gt;1查全率更重要。β&lt;1查准率更重要。<br><img src="https://www.evernote.com/shard/s324/res/cff8fd3d-8466-458e-bece-90d01a40f081" alt="img4"></p>
-<p>多个二分类混淆矩阵：</p>
-<ul>
-<li>  1.全取每个P\R后计算：macro<br><img src="https://www.evernote.com/shard/s324/res/33d991b5-2dc7-4268-b631-1b6334202697" alt="img5"></li>
-<li>  2.全相加所有元素然后计算：micro<br><img src="https://www.evernote.com/shard/s324/res/01a1bbbf-6676-42c5-92b2-e0096cb867b3" alt="img6"><br><img src="https://www.evernote.com/shard/s324/res/43ee891f-4a62-40d0-8512-926059a11a40" alt="img7"></li>
-</ul>
-<p>ROC曲线：在不同阈值下的假正比率/假反比率曲线，弧线形。<br>用于对比模型泛化能力：AUC，阴影部分面积大小。越大越好。</p>
-<h2 id="代价敏感错误率"><a href="#代价敏感错误率" class="headerlink" title="代价敏感错误率"></a>代价敏感错误率</h2><p>当不同错误造成的影响不同时。我们希望使整体代价最小。<br><img src="https://www.evernote.com/shard/s324/res/6d91fea5-2e92-41db-99d0-5391a78658cf" alt="img8"><br><img src="https://www.evernote.com/shard/s324/res/da565414-9bf8-449d-96b9-ad793845f715" alt="img9"><br><img src="https://www.evernote.com/shard/s324/res/2260a30a-8ecf-44ee-a744-90bc9c8c2546" alt="img10"></p>
-<h2 id="机器学习问题中的检验："><a href="#机器学习问题中的检验：" class="headerlink" title="机器学习问题中的检验："></a>机器学习问题中的检验：</h2><p>训练集和测试集可能不同。需要检验泛化能力。数学统计方法、假设检验、方差等。（用到的时候学）</p>
-<h1 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h1><p>*线性模型有很好的可理解性（comprehensionbility）<br>*均方误差（平方损失square loss）物理：欧几里得距离<br>*让均方误差最小化的方法：最小二乘法。</p>
-<h1 id="第五章-神经网络"><a href="#第五章-神经网络" class="headerlink" title="第五章 神经网络"></a>第五章 神经网络</h1><p>M-P神经元特点：每个神经元接收多个神经元传来的信号的影响，超过一定阈值时向下一个神经元传递信号。<br>信号函数采用Sigmoid函数。也称挤压函数。<br><img src="https://www.evernote.com/shard/s324/res/f899dcf8-e218-46bb-973f-583703f68255" alt="img11"><br>神经网络模型函数：<br><img src="https://www.evernote.com/shard/s324/res/98f4edef-03f6-4f5e-a350-e06da23b5ab4" alt="img12"><br>感知机：两层神经元，第一层接收输入信号，传递到第二层输出。<br><img src="https://www.evernote.com/shard/s324/res/afd32647-76eb-4774-8712-b34a1be328ee" alt="img13"></p>
-<p>与运算：w1=w2=1,θ=2<br>或运算：w1=w2=1,θ=0.5<br>非运算：w1=-0.6,w2=0,θ=-0.5<br>感知机对权重的学习：<br>阈值看作一个固定权重-1的结点对应的权重wn+1。对数据(x,y)输出y^，调整：<br><img src="https://www.evernote.com/shard/s324/res/611b4baa-1246-4b20-ab8f-353e766138db" alt="img14"><br>,其中η为学习率（learning rate）<br>    感知机不能解决异或问题，不能线性可分的问题会发生震荡。解决异或可以用多层功能神经元。<br>多层前馈神经网络：常用多层，分层图，按层全互连，不会跳过一层和下一层连接。</p>
-<p><img src="https://www.evernote.com/shard/s324/res/a8f03fa0-0df1-41e3-96a6-640eaacbb691" alt="img15"></p>
-<h2 id="误差逆传播算法-BP算法"><a href="#误差逆传播算法-BP算法" class="headerlink" title="误差逆传播算法(BP算法)"></a>误差逆传播算法(BP算法)</h2><p>error backpropagation<br>？计算输出层的差，然后一层一层通过广义的阈值调整。<br>很容易过拟合。解决方法：<br>1、早停：数据集分成训练和测试，训练集误差变小测试集变大时<br>2、正则化：误差目标函数加一个描述网络复杂度的部分</p>
-<p>最优：梯度下降，沿着函数下降最快的方向。<br>避免局部最优：多起始点搜索、模拟退火、随机梯度下降、遗传算法等</p>
-<h2 id="其他神经网络"><a href="#其他神经网络" class="headerlink" title="其他神经网络"></a>其他神经网络</h2><p>RBF网络：单隐层前馈神经网络</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>机器学习</category>
-        <category>知识点</category>
-      </categories>
   </entry>
   <entry>
     <title>Hexo+NexT主题个人博客魔改教程集合</title>
@@ -2452,7 +2492,7 @@
     <url>/shixi/2/</url>
     <content><![CDATA[<p>蚂蚁集团是中国最大的移动支付平台支付宝的母公司，也是全球领先的金融科技开放平台，致力于以科技推动包括金融服务业在内的全球现代服务业的数字化升级，携手合作伙伴为消费者和小微企业提供普惠、绿色、可持续的服务，为世界带来微小而美好的改变，用科技让普通人和小企业，享受平等的金融和生活服务。<br>蚂蚁集团旗下产品包括支付宝、蚂蚁财富、芝麻信用、花呗、相互宝、余额宝、蚂蚁森林、网商银行等。</p>
 <p>岗位类型<br>研发类：JAVA C/C++ 前端 客户端 数据研发等<br>安全类：安全工程师<br>算法类：机器学习 图像图形 自然语言处理等<br>设计类：创意设计师 体验设计等<br>其　它：产品 运营等</p>
-<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#x79;&#x69;&#120;&#x69;&#x2e;&#x7a;&#121;&#102;&#x40;&#97;&#x6e;&#x74;&#x67;&#114;&#111;&#117;&#x70;&#46;&#x63;&#x6f;&#109;">&#x79;&#x69;&#120;&#x69;&#x2e;&#x7a;&#121;&#102;&#x40;&#97;&#x6e;&#x74;&#x67;&#114;&#111;&#117;&#x70;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>工作地点：杭州、上海、北京、成都、深圳、广州等<br>联系邮箱：<a href="mailto:&#121;&#x69;&#120;&#x69;&#46;&#122;&#121;&#x66;&#x40;&#97;&#110;&#x74;&#103;&#x72;&#x6f;&#117;&#112;&#x2e;&#99;&#111;&#109;">&#121;&#x69;&#120;&#x69;&#46;&#122;&#121;&#x66;&#x40;&#97;&#110;&#x74;&#103;&#x72;&#x6f;&#117;&#112;&#x2e;&#99;&#111;&#109;</a></p>
 ]]></content>
       <categories>
         <category>工作</category>
@@ -2463,15 +2503,6 @@
         <tag>内推邮箱</tag>
         <tag>南大年级群</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/shixi/24/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>工作</category>
-        <category>暑期实习</category>
-      </categories>
   </entry>
   <entry>
     <title>腾讯优图(上海)招计算机视觉研究实习生</title>
@@ -2492,7 +2523,7 @@
 <li>扎实的编程功底（C++/python），熟悉主流深度学习框架；<br>（pytorch/tensorflow/mxnet/caffe）；</li>
 <li>实习期 3 个月以上，每周至少出勤 4 天；</li>
 </ol>
-<p>简历请发：<a href="mailto:&#107;&#97;&#105;&#x73;&#101;&#114;&#x7a;&#x68;&#x61;&#x6f;&#64;&#116;&#101;&#x6e;&#x63;&#x65;&#x6e;&#x74;&#46;&#99;&#111;&#109;">&#107;&#97;&#105;&#x73;&#101;&#114;&#x7a;&#x68;&#x61;&#x6f;&#64;&#116;&#101;&#x6e;&#x63;&#x65;&#x6e;&#x74;&#46;&#99;&#111;&#109;</a></p>
+<p>简历请发：<a href="mailto:&#107;&#97;&#105;&#x73;&#x65;&#x72;&#x7a;&#x68;&#97;&#x6f;&#64;&#116;&#101;&#110;&#99;&#x65;&#110;&#x74;&#46;&#x63;&#x6f;&#x6d;">&#107;&#97;&#105;&#x73;&#x65;&#x72;&#x7a;&#x68;&#97;&#x6f;&#64;&#116;&#101;&#110;&#99;&#x65;&#110;&#x74;&#46;&#x63;&#x6f;&#x6d;</a></p>
 <p>邮箱主题/简历命名格式：腾讯优图实习申请+姓名+CVer推荐</p>
 ]]></content>
       <categories>
@@ -2504,6 +2535,15 @@
       <tags>
         <tag>CVer</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/shixi/24/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>工作</category>
+        <category>暑期实习</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
@@ -2589,26 +2629,6 @@
       </categories>
   </entry>
   <entry>
-    <title>出国需要的部分</title>
-    <url>/dailylife-notes/goals/%E5%87%BA%E5%9B%BD%E9%9C%80%E6%B1%82/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="e43f5dd5e004f61bf545dff6975061ef687f2b122e965202f9409f36931412d1">1f1ff6fb140e19a4a5cd54e44db8b96d09dd131e7121b8a73d898b7a206ad3e33e237a1e73072aa9612e4024528f33f4bb4895ccdf9ea6eaaf1559aac448834710fa1201a6eacf645499bcd5bac9900519ec92356b27a487bda3fdda2c65304896e73856abf4fbf26963ae3dffc5b4b20963a10a274baf148806f96ae181f6b737f7d375f8278394245ea2888d36638c3026744cf055ff954f85480d9d970b9b9eaf61d59cf34d07df9169891e76db0695a5ffccfa388e76ae14c37b25dc1c9b9f0b83c6691f28e3b3ffc87eac02a3b99399ee8217feb613abba030cb304c9637fac298dec730c39fcaa7275c2b764580809e90d4bbb3cf399b2c586834d3848bb1be5abf36b1207e3af311b2ff6aad0a126b91034fb0798647b617e36a50f9b2cc09c710716109cc20c23822ef4eda5ac8849a4f8762ac1f8b8b2f636f4a9c9ae384a8695c43faf1a08f8ee9cf4c001852c64e67b6f9a67f38afacb3cd9a574b75c0a17267bcc914225e940cc268c1e8bda1e36a708c3b896712df22060a452c4be89670350049f7108f285e3e2b59523c8166b09714c2af844f912af3a9506f34ad78d06082685728e6c72744556bef442c2a098e8245fed2bdfdd628407ecf3f7e104d76645863850a756e236b4f56dd74c1fe98929f888f533ab421a828578b257cd9484622fe4970051ea4b085ad21f91b4f7896030e66a2401b65d9eaebe13e951802521f9a4020898762300ff95f03e8a3e6ca6c3aa0621a1521f2e1002323da01b722f109f074358f1eba843fc47e192a56d6aef2caca421b47a4e2cf86a7569f00b48dc7287e932c3b75c0ddece61f5b98dc2dad5ec05c5dee7d582a9299afb8f35e438e2300ad69879b2309b32e9c35be2231d128133e1933f150e72f62ac5193f0139dda6b103921133900b474670d1ab9044926b61821a19bc074c3812bb210a16629745b4e9cb1f8cb95bdedc10f39199fbfcfad25c6d1153045e5d37037fa80ed6271f384242069d0e6f086eb82fa40eefbc3c3c52eedad3fe132e30a7819408e93b92ba43ae5172bc13bbd08c25023c35f73804e35032826967a54e3009fb9f1ab64b1912e8cd602000150febde7d0229343d5f8b219538c4bfb2119d04055f7afaaefb207b261b2ac979c51deae976a6a61e13c1fd6a1795f6ba0dffe1dc2d122a5579c31069c2efecde9ef979816f9902a834f82dd48ff655244e0fb358eaf60acfa785073e421a6bc55c5e586592efcdbc5daffa584964e10708cbf1f3a685482bb8eb7a39ea226e5a46cf7498161a79c6043c13e83f4ddd945f6faeea65168fd1c4ff66d25fa86f11e5c1be37e4c4ef1f708394e3ba4ae2e16f7dc8ccec43c55523484fa35fc52210c8f3a99aa8190debd0c5e6d65018a06b2884cae1113859f6a7a593a36cdfd067f0caa070b56d4f11899e74057321debf22607921fc633d865283d3c88b26ee3517d862e1fdadf1df8eb50cc2eded23b9a4bf6a96a1234873185c7c8d37fef442c177eba4e328818eb732efc1004ba088e87a8da84f4e16f4ded88a4cf00ead74efc0d0174fe93693e4ad21d3a271c1a39a2b2d3e7ffd329d35ff165901d2004abde296ff44dc4bb05a348df2479ff8b191fddc0a58b66f161fcac777ad8803a6c42ee0af0c08e37b75cdd4d880d563c33fd40116dcc20742592487bf4b243e1bb80b0f666786ecbda00d455048bbe6d1935bad2be8e3e9504e264b299e22d761782c0be44d1383799dd3e863b52a4569e1b3c1bf1ae35f42bf1f251c7111339a1dcf4929afbe53df8a2b5575dac94c35eb6613c51a56f67111f80970379d2acef1bc06e6a25853b360cf755dc252</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>notes</category>
-        <category>goals</category>
-      </categories>
-  </entry>
-  <entry>
     <title>喜欢的课</title>
     <url>/dailylife-notes/goals/%E5%96%9C%E6%AC%A2%E7%9A%84%E7%BD%91%E8%AF%BE/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -2629,22 +2649,23 @@
       </categories>
   </entry>
   <entry>
-    <title>期望开发的软件</title>
-    <url>/dailylife-notes/innovation/%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="我想开发的软件程序"><a href="#我想开发的软件程序" class="headerlink" title="我想开发的软件程序"></a>我想开发的软件程序</h3><ul>
-<li>高级脸型身材分析：视频格式，3d建模，图像识别和分析处理。</li>
-<li>高级运动减脂营：ai的运动教练，提醒，图片识别和大小分析，自然语音处理，群聊格式。</li>
-<li>*想学小程序的编程，喵。</li>
-<li>学习小管家（软件+嵌入式）：针对载入的教程，监督学习，可提问。对完成效果合理评估。（机器学习、自然语言理解、大数据分析、图像/语音/视频分析）</li>
-<li>行动力评估系统：评价一个人的行动力、爱心等，作为一张名片。希望最终能成为社会通识。</li>
-<li>懒人伙伴系统：对没有遵守规则的现象在社区进行通报批评，对长期坚持的进行表扬和奖励，分小组相互监督。</li>
-<li>软件过滤器：封装一些软件的常用功能接口，过滤掉不应该使用的功能。或加群，如不按时间解锁需要支付大量金币（rmb）。</li>
-<li>拍照识别神器：文字识别，然后识别题干和选项，自动分割题目，可打乱题目顺序和选项顺序进行训练</li>
-</ul>
-]]></content>
+    <title>出国需要的部分</title>
+    <url>/dailylife-notes/goals/%E5%87%BA%E5%9B%BD%E9%9C%80%E6%B1%82/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e43f5dd5e004f61bf545dff6975061ef687f2b122e965202f9409f36931412d1">1f1ff6fb140e19a4a5cd54e44db8b96d09dd131e7121b8a73d898b7a206ad3e33e237a1e73072aa9612e4024528f33f4bb4895ccdf9ea6eaaf1559aac448834710fa1201a6eacf645499bcd5bac9900519ec92356b27a487bda3fdda2c65304896e73856abf4fbf26963ae3dffc5b4b20963a10a274baf148806f96ae181f6b737f7d375f8278394245ea2888d36638c3026744cf055ff954f85480d9d970b9b9eaf61d59cf34d07df9169891e76db0695a5ffccfa388e76ae14c37b25dc1c9b9f0b83c6691f28e3b3ffc87eac02a3b99399ee8217feb613abba030cb304c9637fac298dec730c39fcaa7275c2b764580809e90d4bbb3cf399b2c586834d3848bb1be5abf36b1207e3af311b2ff6aad0a126b91034fb0798647b617e36a50f9b2cc09c710716109cc20c23822ef4eda5ac8849a4f8762ac1f8b8b2f636f4a9c9ae384a8695c43faf1a08f8ee9cf4c001852c64e67b6f9a67f38afacb3cd9a574b75c0a17267bcc914225e940cc268c1e8bda1e36a708c3b896712df22060a452c4be89670350049f7108f285e3e2b59523c8166b09714c2af844f912af3a9506f34ad78d06082685728e6c72744556bef442c2a098e8245fed2bdfdd628407ecf3f7e104d76645863850a756e236b4f56dd74c1fe98929f888f533ab421a828578b257cd9484622fe4970051ea4b085ad21f91b4f7896030e66a2401b65d9eaebe13e951802521f9a4020898762300ff95f03e8a3e6ca6c3aa0621a1521f2e1002323da01b722f109f074358f1eba843fc47e192a56d6aef2caca421b47a4e2cf86a7569f00b48dc7287e932c3b75c0ddece61f5b98dc2dad5ec05c5dee7d582a9299afb8f35e438e2300ad69879b2309b32e9c35be2231d128133e1933f150e72f62ac5193f0139dda6b103921133900b474670d1ab9044926b61821a19bc074c3812bb210a16629745b4e9cb1f8cb95bdedc10f39199fbfcfad25c6d1153045e5d37037fa80ed6271f384242069d0e6f086eb82fa40eefbc3c3c52eedad3fe132e30a7819408e93b92ba43ae5172bc13bbd08c25023c35f73804e35032826967a54e3009fb9f1ab64b1912e8cd602000150febde7d0229343d5f8b219538c4bfb2119d04055f7afaaefb207b261b2ac979c51deae976a6a61e13c1fd6a1795f6ba0dffe1dc2d122a5579c31069c2efecde9ef979816f9902a834f82dd48ff655244e0fb358eaf60acfa785073e421a6bc55c5e586592efcdbc5daffa584964e10708cbf1f3a685482bb8eb7a39ea226e5a46cf7498161a79c6043c13e83f4ddd945f6faeea65168fd1c4ff66d25fa86f11e5c1be37e4c4ef1f708394e3ba4ae2e16f7dc8ccec43c55523484fa35fc52210c8f3a99aa8190debd0c5e6d65018a06b2884cae1113859f6a7a593a36cdfd067f0caa070b56d4f11899e74057321debf22607921fc633d865283d3c88b26ee3517d862e1fdadf1df8eb50cc2eded23b9a4bf6a96a1234873185c7c8d37fef442c177eba4e328818eb732efc1004ba088e87a8da84f4e16f4ded88a4cf00ead74efc0d0174fe93693e4ad21d3a271c1a39a2b2d3e7ffd329d35ff165901d2004abde296ff44dc4bb05a348df2479ff8b191fddc0a58b66f161fcac777ad8803a6c42ee0af0c08e37b75cdd4d880d563c33fd40116dcc20742592487bf4b243e1bb80b0f666786ecbda00d455048bbe6d1935bad2be8e3e9504e264b299e22d761782c0be44d1383799dd3e863b52a4569e1b3c1bf1ae35f42bf1f251c7111339a1dcf4929afbe53df8a2b5575dac94c35eb6613c51a56f67111f80970379d2acef1bc06e6a25853b360cf755dc252</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">联系作者获得密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>notes</category>
-        <category>innovation</category>
+        <category>goals</category>
       </categories>
   </entry>
   <entry>
@@ -2665,36 +2686,17 @@
       </categories>
   </entry>
   <entry>
-    <title>理想笔记本</title>
-    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
-    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
-<li><p>生活日记</p>
-</li>
-<li><p>计划管理</p>
-</li>
-<li><p>paper笔记</p>
-</li>
-<li><p>重要通知</p>
-</li>
-<li><p>（课程笔记，作业笔记，学术报告）</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>notes</category>
-        <category>innovation</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>机器人</title>
-    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
-    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
-<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
-<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
-<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
-<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
-<li>4.学习模块：主动学习；强化学习；</li>
-<li>5.记忆模块：人脸识别和记录；消息记录；</li>
+    <title>期望开发的软件</title>
+    <url>/dailylife-notes/innovation/%E6%9C%9F%E6%9C%9B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="我想开发的软件程序"><a href="#我想开发的软件程序" class="headerlink" title="我想开发的软件程序"></a>我想开发的软件程序</h3><ul>
+<li>高级脸型身材分析：视频格式，3d建模，图像识别和分析处理。</li>
+<li>高级运动减脂营：ai的运动教练，提醒，图片识别和大小分析，自然语音处理，群聊格式。</li>
+<li>*想学小程序的编程，喵。</li>
+<li>学习小管家（软件+嵌入式）：针对载入的教程，监督学习，可提问。对完成效果合理评估。（机器学习、自然语言理解、大数据分析、图像/语音/视频分析）</li>
+<li>行动力评估系统：评价一个人的行动力、爱心等，作为一张名片。希望最终能成为社会通识。</li>
+<li>懒人伙伴系统：对没有遵守规则的现象在社区进行通报批评，对长期坚持的进行表扬和奖励，分小组相互监督。</li>
+<li>软件过滤器：封装一些软件的常用功能接口，过滤掉不应该使用的功能。或加群，如不按时间解锁需要支付大量金币（rmb）。</li>
+<li>拍照识别神器：文字识别，然后识别题干和选项，自动分割题目，可打乱题目顺序和选项顺序进行训练</li>
 </ul>
 ]]></content>
       <categories>
@@ -2719,6 +2721,27 @@
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
+    <title>理想笔记本</title>
+    <url>/dailylife-notes/innovation/%E7%90%86%E6%83%B3%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="理想的笔记本"><a href="#理想的笔记本" class="headerlink" title="理想的笔记本"></a>理想的笔记本</h3><ul>
+<li><p>生活日记</p>
+</li>
+<li><p>计划管理</p>
+</li>
+<li><p>paper笔记</p>
+</li>
+<li><p>重要通知</p>
+</li>
+<li><p>（课程笔记，作业笔记，学术报告）</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
+  </entry>
+  <entry>
     <title>明确人生目标</title>
     <url>/dailylife-notes/society/%E4%BA%BA%E7%94%9F%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -2739,6 +2762,23 @@
       </categories>
   </entry>
   <entry>
+    <title>机器人</title>
+    <url>/dailylife-notes/innovation/%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
+    <content><![CDATA[<h3 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h3><ul>
+<li>0.实体的机器人<br>模块：视觉导航；机械控制；联网传输信息  </li>
+<li>1.AR/VR的机器人<br>AR：AR的视觉外观；立体声；  </li>
+<li>2.虚拟的交互机器人<br>交互：语音识别；语音输出；面部情感分析，语音情感分析；  </li>
+<li>3.聊天机器人<br>模块：情感计算，自然语言处理，智能问答；检索系统（知识图谱）  </li>
+<li>4.学习模块：主动学习；强化学习；</li>
+<li>5.记忆模块：人脸识别和记录；消息记录；</li>
+</ul>
+]]></content>
+      <categories>
+        <category>notes</category>
+        <category>innovation</category>
+      </categories>
+  </entry>
+  <entry>
     <title>做决定</title>
     <url>/dailylife-notes/society/%E5%81%9A%E5%86%B3%E5%AE%9A/</url>
     <content><![CDATA[<h3 id="做果断的决定"><a href="#做果断的决定" class="headerlink" title="做果断的决定"></a>做果断的决定</h3><p>决策前利弊分析，决策，执行，三阶段，彻底分离，设定期限。</p>
@@ -2747,6 +2787,21 @@
 <li>第二阶段前深呼吸20次以上。</li>
 <li>第三阶段绝对不反悔，全心应对前进执行中出现的情况。</li>
 </ul>
+]]></content>
+      <categories>
+        <category>notes</category>
+        <category>lifestyle</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>家装设计</title>
+    <url>/dailylife-notes/society/%E5%AE%B6%E8%A3%85%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<p>家装设计图</p>
+<hr>
+<p>您好！感谢光临小店，<br>十五种风格实景图链接：<a href="http://pan.baidu.com/s/1o8xAXVc">http://pan.baidu.com/s/1o8xAXVc</a> 密码：h3x6   （压缩包下载地址链接：<a href="http://pan.baidu.com/s/1bCFWku">http://pan.baidu.com/s/1bCFWku</a> 密码：p8u4）<br>十五种风格实景图手机看图链接 <a href="https://share.weiyun.com/1a6d9340dd41b822445077f202689141%EF%BC%88%E5%89%8D%E4%B8%89%E4%B8%AA%E9%93%BE%E6%8E%A5%E4%B8%80%E6%A0%B7%EF%BC%8C%E6%89%8B%E6%9C%BA%E7%9C%8B%E5%9B%BE%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E7%94%A8%E6%89%8B%E6%9C%BA%E8%A7%82%E7%9C%8B%E3%80%82%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E4%BF%9D%E5%AD%98%E5%9C%A8%E7%BD%91%E7%9B%98">https://share.weiyun.com/1a6d9340dd41b822445077f202689141（前三个链接一样，手机看图链接方便大家用手机观看。压缩包下载链接方便大家保存在网盘</a> 或者下载带电脑）</p>
+<p>2017高清效果图大全链接：<a href="http://pan.baidu.com/s/1nvn3AzR">http://pan.baidu.com/s/1nvn3AzR</a> 密码：m8xn</p>
+<p>各类空间分类 链接<a href="https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b">https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b</a>(下载链接：<a href="http://pan.baidu.com/s/1jIqr4do">http://pan.baidu.com/s/1jIqr4do</a> 密码：n7s2）<br>记得再来哦~~^0^</p>
+<hr>
 ]]></content>
       <categories>
         <category>notes</category>
@@ -2792,14 +2847,13 @@
       </categories>
   </entry>
   <entry>
-    <title>家装设计</title>
-    <url>/dailylife-notes/society/%E5%AE%B6%E8%A3%85%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<p>家装设计图</p>
-<hr>
-<p>您好！感谢光临小店，<br>十五种风格实景图链接：<a href="http://pan.baidu.com/s/1o8xAXVc">http://pan.baidu.com/s/1o8xAXVc</a> 密码：h3x6   （压缩包下载地址链接：<a href="http://pan.baidu.com/s/1bCFWku">http://pan.baidu.com/s/1bCFWku</a> 密码：p8u4）<br>十五种风格实景图手机看图链接 <a href="https://share.weiyun.com/1a6d9340dd41b822445077f202689141%EF%BC%88%E5%89%8D%E4%B8%89%E4%B8%AA%E9%93%BE%E6%8E%A5%E4%B8%80%E6%A0%B7%EF%BC%8C%E6%89%8B%E6%9C%BA%E7%9C%8B%E5%9B%BE%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E7%94%A8%E6%89%8B%E6%9C%BA%E8%A7%82%E7%9C%8B%E3%80%82%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E6%96%B9%E4%BE%BF%E5%A4%A7%E5%AE%B6%E4%BF%9D%E5%AD%98%E5%9C%A8%E7%BD%91%E7%9B%98">https://share.weiyun.com/1a6d9340dd41b822445077f202689141（前三个链接一样，手机看图链接方便大家用手机观看。压缩包下载链接方便大家保存在网盘</a> 或者下载带电脑）</p>
-<p>2017高清效果图大全链接：<a href="http://pan.baidu.com/s/1nvn3AzR">http://pan.baidu.com/s/1nvn3AzR</a> 密码：m8xn</p>
-<p>各类空间分类 链接<a href="https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b">https://share.weiyun.com/58c0a3e3158774363ba883c4ed461d8b</a>(下载链接：<a href="http://pan.baidu.com/s/1jIqr4do">http://pan.baidu.com/s/1jIqr4do</a> 密码：n7s2）<br>记得再来哦~~^0^</p>
-<hr>
+    <title>时间管理</title>
+    <url>/dailylife-notes/society/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h3 id="如何管理时间"><a href="#如何管理时间" class="headerlink" title="如何管理时间"></a>如何管理时间</h3><p>大脑会认为急迫的事情都很重要。   </p>
+<ul>
+<li>尤利西斯合约：当下的自己和未来不理智的自己做一个约定。   </li>
+<li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
+</ul>
 ]]></content>
       <categories>
         <category>notes</category>
@@ -2818,12 +2872,13 @@
       </categories>
   </entry>
   <entry>
-    <title>时间管理</title>
-    <url>/dailylife-notes/society/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h3 id="如何管理时间"><a href="#如何管理时间" class="headerlink" title="如何管理时间"></a>如何管理时间</h3><p>大脑会认为急迫的事情都很重要。   </p>
+    <title>演讲</title>
+    <url>/dailylife-notes/society/%E6%BC%94%E8%AE%B2/</url>
+    <content><![CDATA[<h3 id="演讲"><a href="#演讲" class="headerlink" title="演讲"></a>演讲</h3><p>演讲注意两个工作的结构和关联性。</p>
 <ul>
-<li>尤利西斯合约：当下的自己和未来不理智的自己做一个约定。   </li>
-<li>常用合约：第一天晚上，写下第二天第一件事情，通常急迫不重要，放在床头。   </li>
+<li>再提问：我们现在解决了xx问题，那么，有一个新的问题，XXX，我们如何解决？…</li>
+<li>总结：重复之前讲的问题，如：现在我们第二点讲完了/我们现在讲到xx…回到枝干。<h4 id="根枝叶果："><a href="#根枝叶果：" class="headerlink" title="根枝叶果："></a>根枝叶果：</h4>有目的，清晰的框架，生动的细节，可带走的收获。</li>
+<li>可带走的收获：一个概念名，一个金句，一个重复的口号，一个画面。</li>
 </ul>
 ]]></content>
       <categories>
@@ -2832,13 +2887,16 @@
       </categories>
   </entry>
   <entry>
-    <title>演讲</title>
-    <url>/dailylife-notes/society/%E6%BC%94%E8%AE%B2/</url>
-    <content><![CDATA[<h3 id="演讲"><a href="#演讲" class="headerlink" title="演讲"></a>演讲</h3><p>演讲注意两个工作的结构和关联性。</p>
+    <title>理财</title>
+    <url>/dailylife-notes/society/%E7%90%86%E8%B4%A2/</url>
+    <content><![CDATA[<p>投资理财</p>
 <ul>
-<li>再提问：我们现在解决了xx问题，那么，有一个新的问题，XXX，我们如何解决？…</li>
-<li>总结：重复之前讲的问题，如：现在我们第二点讲完了/我们现在讲到xx…回到枝干。<h4 id="根枝叶果："><a href="#根枝叶果：" class="headerlink" title="根枝叶果："></a>根枝叶果：</h4>有目的，清晰的框架，生动的细节，可带走的收获。</li>
-<li>可带走的收获：一个概念名，一个金句，一个重复的口号，一个画面。</li>
+<li>1.50%股票基金，50%债券定期。</li>
+<li>2.6个月的本金，存够完成一个月生活费的利息的钱。（我决定了保留6000本金）</li>
+<li>3.把赚大钱的梦想打印贴出来，越大越好，抑制一时冲动的消费。（出国留学搞科研的动力也是同理）</li>
+<li>4.知识变现/成为领域专家。假设3年后成为了专家，向用户写一个广告以推销自己，以了解自己的优势和不足。</li>
+<li>5.逐渐减少收入低又耗时的工作。</li>
+<li>6.资金的增长至少是抛物线型的，尽早开始，持之以恒。</li>
 </ul>
 ]]></content>
       <categories>
@@ -2867,17 +2925,10 @@
       </categories>
   </entry>
   <entry>
-    <title>理财</title>
-    <url>/dailylife-notes/society/%E7%90%86%E8%B4%A2/</url>
-    <content><![CDATA[<p>投资理财</p>
-<ul>
-<li>1.50%股票基金，50%债券定期。</li>
-<li>2.6个月的本金，存够完成一个月生活费的利息的钱。（我决定了保留6000本金）</li>
-<li>3.把赚大钱的梦想打印贴出来，越大越好，抑制一时冲动的消费。（出国留学搞科研的动力也是同理）</li>
-<li>4.知识变现/成为领域专家。假设3年后成为了专家，向用户写一个广告以推销自己，以了解自己的优势和不足。</li>
-<li>5.逐渐减少收入低又耗时的工作。</li>
-<li>6.资金的增长至少是抛物线型的，尽早开始，持之以恒。</li>
-</ul>
+    <title>喜欢的英文歌</title>
+    <url>/dailylife-notes/society/%E8%8B%B1%E6%96%87%E6%AD%8C/</url>
+    <content><![CDATA[<p>喜欢的英文歌</p>
+<p>Arrietty’s song</p>
 ]]></content>
       <categories>
         <category>notes</category>
@@ -2899,17 +2950,6 @@
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>notes</category>
-        <category>lifestyle</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>喜欢的英文歌</title>
-    <url>/dailylife-notes/society/%E8%8B%B1%E6%96%87%E6%AD%8C/</url>
-    <content><![CDATA[<p>喜欢的英文歌</p>
-<p>Arrietty’s song</p>
-]]></content>
       <categories>
         <category>notes</category>
         <category>lifestyle</category>
@@ -2950,46 +2990,6 @@
       <tags>
         <tag>科研</tag>
         <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>语义分割-组会</title>
-    <url>/research-paper/sseg3/</url>
-    <content><![CDATA[<p>一.语义分割：全监督-半监督（包含交互式）-无监督（label？）<br>二.交互：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">polygon-RNN</span></span><br></pre></td></tr></table></figure>
-<p>三.全监督：FCN。（1.从上到下和从下到上。2.网络结构，跨层。3.多规模。4.卷积）</p>
-<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Context</span> Encoding <span class="keyword">for</span> Semantic Segmentation</span><br></pre></td></tr></table></figure>
-<p>四.半监督难度：boundingbox-&gt;point&amp;squiggles-&gt;image level<br>五.领域自适应： </p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Fully</span> Convolutional Adaptation Networks for Semantic Segmentation。</span><br></pre></td></tr></table></figure>
-<p>六.继续半监督<br>Class activation map(CAM)</p>
-<hr>
-<p><img src="https://www.evernote.com/shard/s324/res/439ab438-2e2c-4aa8-8b47-fda66ed865e5" alt="img"></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
-        <category>论文笔记</category>
-        <category>计算机视觉</category>
-        <category>图像分割</category>
-      </categories>
-      <tags>
-        <tag>分割</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Look Before You Leap: Bridging Model-Free and Model-Based Reinforcement Learning for Planned-Ahead Vision-and-Language Navigation</title>
-    <url>/research-paper/drl27/</url>
-    <content><![CDATA[<p>结合在线和离线强化学习，提高泛化性（略）</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
-        <category>深度学习</category>
-        <category>论文笔记</category>
-        <category>强化学习</category>
-      </categories>
-      <tags>
-        <tag>强化学习</tag>
       </tags>
   </entry>
 </search>
