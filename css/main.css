@@ -1368,7 +1368,7 @@ pre .javascript .function {
   font-size: 0.8125em;
 }
 .footer {
-  color: #999;
+  color: #fff;
   font-size: 0.875em;
   padding: 20px 0;
 }
@@ -1411,12 +1411,13 @@ pre .javascript .function {
   width: 100%;
 }
 .with-love {
-  color: #ff0000;
+  color: #ffffff;
   display: inline-block;
   margin: 0 5px;
 }
 .powered-by,
 .theme-info {
+  color: #ffffff;
   display: inline-block;
 }
 @-moz-keyframes iconAnimate {
