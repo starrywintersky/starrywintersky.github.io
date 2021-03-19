@@ -1039,7 +1039,9 @@
 <figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="xml">外部链接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %&#125;</span></span><br><span class="line"><span class="xml">本地连接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> ./pdf名字.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><a href="https://blog.csdn.net/qq_43701912/article/details/107018127">加密教程-csdn</a></p>
-<h2 id="artitalk说说（原hexo-shuoshuo）"><a href="#artitalk说说（原hexo-shuoshuo）" class="headerlink" title="artitalk说说（原hexo-shuoshuo）"></a>artitalk说说（原hexo-shuoshuo）</h2><p><a href="https://blog.csdn.net/cungudafa/article/details/106224223">美化</a></p>
+<h2 id="artitalk说说（原hexo-shuoshuo）"><a href="#artitalk说说（原hexo-shuoshuo）" class="headerlink" title="artitalk说说（原hexo-shuoshuo）"></a>artitalk说说（原hexo-shuoshuo）</h2><p><a href>文档</a></p>
+<p><a href="https://blog.csdn.net/cungudafa/article/details/106224223">美化</a><br>注意：直接在color1, color2, color3等变量处，添加多色颜色配置。要加逗号。</p>
+<h2 id="自定义图标"><a href="#自定义图标" class="headerlink" title="自定义图标"></a>自定义图标</h2><p>在网站上搜索图标，直接修改名字为fa-iconname。<br><a href="https://fontawesome.com/">fa图标网址</a></p>
 ]]></content>
       <categories>
         <category>小技巧</category>
@@ -1678,7 +1680,8 @@
   <entry>
     <title>Transfer Learning for Related Reinforcement Learning Tasks via Image-to-Image Translation</title>
     <url>/research-paper/drl13/</url>
-    <content><![CDATA[<p>将强化学习的agent从一个任务迁移到另一个由变化环境，使用GAN对图片Mapping，将state对应起来。<br>用模仿学习加速新任务的rl，从imperfect demonstrations，收集原有agent的几条轨迹，模仿学习一个新任务的policy。</p>
+    <content><![CDATA[<p>评价：描述的问题很有趣，方法有限。</p>
+<p>将强化学习的agent从一个任务迁移到另一个由变化环境，（游戏场景）使用GAN对图片Mapping，将state对应起来。<br>用模仿学习加速新任务的rl，从imperfect demonstrations，收集原有agent的几条轨迹，模仿学习一个新任务的policy。</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1692,9 +1695,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Sampling Strategies for GAN Synthetic Data</title>
+    <title>FROM LANGUAGE TO GOALS INVERSE REINFORCEMENT LEARNING FOR VISION-BASED INSTRUCTION FOLLOWING</title>
     <url>/research-paper/drl12/</url>
-    <content><![CDATA[<p>将GAN生成的假数据采样的方法，包括<br>1判别器的confidence score，<br>2confidence on target label，<br>3RL：meaningful </p>
+    <content><![CDATA[<p>将语音控制机器人移动和拾取物品的，从policy改为从逆强化学习的reward。action和state很自然。<br>实验不是特别convincing，pick比navigate好.</p>
+<p>作者提到的问题：人类语言不够精确。</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1708,7 +1712,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Dual-Agent Deep Reinforcement Learning for Deformable Face Tracking</title>
+    <title>Dual-Agent Deep Reinforcement Learning for Deformable Face Tracking(ECCV2018)</title>
     <url>/research-paper/drl14/</url>
     <content><![CDATA[<p>a tracking agent and an alignment agent，一个移动bounding box，原有1/2。另一个根据当前关键点位置，控制是否停止。共用一个环境。<br>MA-DRL的框架细节写得不清楚，看起来比较普通没有创新，不像DRL出身的团队。</p>
 ]]></content>
@@ -1745,9 +1749,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Attention-aware deep reinforcement learning for video face recognition</title>
+    <title>待阅读</title>
     <url>/research-paper/drl17/</url>
-    <content><![CDATA[<p>用drl训练注意力模型，判断两个视频的人脸是否相同。drl的工作是在一堆帧中选择一个丢弃。</p>
+    <content><![CDATA[<p>待添加。<br>Deep Reinforcement Learning with Iterative Shift for Visual Tracking<br>Part-Activated Deep Reinforcement Learning for Action Prediction<br>Multi-Agent Deep Reinforcement Learning for Multi-Object Tracker<br>Improving Spatiotemporal Self-Supervision by Deep Reinforcement Learning<br>Language-driven Temporal Activity Localization: A Semantic Matching Reinforcement Learning Model</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1763,7 +1767,7 @@
   <entry>
     <title>Deep Reinforcement Learning with Iterative Shift for Visual Tracking(ICLR2019)</title>
     <url>/research-paper/drl16/</url>
-    <content><![CDATA[<p><a href="http://www.yidianzixun.com/article/0LPKOG9R">http://www.yidianzixun.com/article/0LPKOG9R</a></p>
+    <content><![CDATA[<p>参考链接：<br><a href="http://www.yidianzixun.com/article/0LPKOG9R">http://www.yidianzixun.com/article/0LPKOG9R</a></p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1777,9 +1781,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Attention-aware deep reinforcement learning for video face recognition</title>
+    <title>IRLAS: Inverse Reinforcement Learning for Architecture Search (CVPR2019)</title>
     <url>/research-paper/drl18/</url>
-    <content><![CDATA[<p>用drl训练注意力模型，判断两个视频的人脸是否相同。drl的工作是在一堆帧中选择一个丢弃。</p>
+    <content><![CDATA[<p>与block-wise qnn同作者，设计reward，通过强化学习生成的网络尽可能接近人工设计的经典网络模型。主要是比较规范。<br>关于NAS的文章很多，形成了一个体系。除了提升性能外，很多都在为减小搜索复杂性/看起来更加规范而创新。</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1827,7 +1831,8 @@
   <entry>
     <title>Reinforced Cross-Modal Matching and Self-Supervised Imitation Learning for Vision-Language Navigation (cvpr2019满分)</title>
     <url>/research-paper/drl20/</url>
-    <content><![CDATA[<p>跨模态参照，糟糕的反馈，以及泛化问题。新的强化跨模态匹配（RCM）方法，它可以通过强化学习的方式同时促进局部和全局的跨模态参照。具体来说，他们使用了一个匹配指标，它成为了鼓励模型增强外部指令和运动轨迹之间匹配的固有反馈；模型也使用了一个推理导航器，它用来在局部视觉场景中执行跨模态参照。在一个 VLN benchmark 数据集上进行的评估结果表明，们提出的 RCM 模型大幅超越已有模型，SPL 分数提高了 10%，成为了新的 SOTA。为了提高学习到的策略的泛化性，们还进一步提出了一个自模仿学习（SIL）方法，通过模仿自己以往的良好决策的方式探索未曾见过的环境。们表明了 SIL 可以逼近出更好、更高效的策略，这极大程度减小了智能体在见过和未见过的环境中的成功率表现的差别（从 30.7% 降低到 11.7%）</p>
+    <content><![CDATA[<p>CVPR 2019最佳论文，主要应该是效果好且实用。<br>Agent学习对应运动轨迹和语言子指令的映射，惩罚错误的轨迹。在环境变化时，智能体用模仿学习，利用之前比较好的轨迹迁移到新环境。</p>
+<p>（引用）<br>具体来说，他们使用了一个匹配指标，它成为了鼓励模型增强外部指令和运动轨迹之间匹配的固有反馈；模型也使用了一个推理导航器，它用来在局部视觉场景中执行跨模态参照。在一个 VLN benchmark 数据集上进行的评估结果表明，们提出的 RCM 模型大幅超越已有模型，SPL 分数提高了 10%，成为了新的 SOTA。为了提高学习到的策略的泛化性，们还进一步提出了一个自模仿学习（SIL）方法，通过模仿自己以往的良好决策的方式探索未曾见过的环境。们表明了 SIL 可以逼近出更好、更高效的策略，这极大程度减小了智能体在见过和未见过的环境中的成功率表现的差别（从 30.7% 降低到 11.7%）</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1859,7 +1864,7 @@
   <entry>
     <title>RL-GAN-Net: A Reinforcement Learning Agent Controlled GAN Network for Real-Time Point Cloud Shape Completion（CVPR2019）</title>
     <url>/research-paper/drl22/</url>
-    <content><![CDATA[<p>智能体用DRL挑选合适的种子，GAN的G生成点云，D判断并给出reward<br><a href="https://www.evernote.com/shard/s324/res/f56f8188-2ce2-4df6-82cd-ad9d13fc9606">img1</a><br><a href="https://www.evernote.com/shard/s324/res/5a4a274c-45fb-4013-a2a1-9b0c6db8691f">img2</a><br>评价:文中其实只是用DRL帮G挑选合适的生成点云的种子，也不是特别新颖创新的。但DRL确实跟各种其他框架结合可以。</p>
+    <content><![CDATA[<p>智能体用DRL挑选合适的种子，GAN的G生成点云，D判断并给出reward<br><img src="https://www.evernote.com/shard/s324/res/f56f8188-2ce2-4df6-82cd-ad9d13fc9606" alt="img1"><br><img src="https://www.evernote.com/shard/s324/res/5a4a274c-45fb-4013-a2a1-9b0c6db8691f" alt="img2"><br>评价:文中其实只是用DRL帮G挑选合适的生成点云的种子，也不是特别新颖创新的。但DRL确实跟各种其他框架结合可以。</p>
 <p>（以下内容来自引用）<br>RL GAN Net，其中强化学习RL代理提供对生成对抗性网络GAN的快速且稳健的控制。</p>
 <p>框架应用于点云形状完成，通过控制GAN将嘈杂的部分点云数据转换为高保真完成形状。虽然GAN不稳定且难以训练，但我们通过在潜在空间表示上训练GAN来避免问题，其中空间表示与原始点云输入相比减小;</p>
 <p>2使用RL代理来查找到GAN的正确输入生成最适合当前不完整点云输入的形状的潜在空间表示。建议的管道可以完美地完成具有大量缺失区域的点云。</p>
@@ -1924,9 +1929,11 @@
         <category>论文</category>
         <category>论文笔记</category>
         <category>强化学习</category>
+        <category>多标签识别与分类</category>
       </categories>
       <tags>
         <tag>强化学习</tag>
+        <tag>多标签分类</tag>
       </tags>
   </entry>
   <entry>
@@ -2068,7 +2075,8 @@
   <entry>
     <title>GraphBit: Bitwise Interaction Mining via Deep Reinforcement Learning</title>
     <url>/research-paper/drl32/</url>
-    <content><![CDATA[<p>主题：二进制图像表示法。<br>问题：二进制图像表示法中出现模棱两可的位的处理方法。认为点之前有联系，建图，用DRL将某些点之间添加链接。</p>
+    <content><![CDATA[<p>主题：二进制图像表示法。<br>问题：二进制图像表示法中出现模棱两可的位的处理方法。认为点之前有联系，建图，用DRL将某些点之间添加链接。<br><img src="https://www.evernote.com/shard/s324/res/82138b8c-3ed7-4f97-8fc7-b43637d73efa" alt="img"></p>
+<p>Bitwise Interaction Mining<br>descriptors<br>acyclic<br>crucial<br>Extracting<br>descriptors<br>essential<br>enhance<br>quantization<br>binarization<br>implicit<br>binomial<br>quantize<br>orientation<br>按位<br>交互<br>挖掘<br>描述符<br>无环的<br>关键的<br>提取<br>描述符<br>本质的<br>增强<br>量化<br>二值化<br>隐性的<br>二项式<br>量子化<br>方向</p>
 ]]></content>
       <categories>
         <category>科研</category>
