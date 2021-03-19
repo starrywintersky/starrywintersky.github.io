@@ -30,8 +30,11 @@
 <meta property="og:description" content="模仿学习">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929">
+<meta property="og:image" content="https://www.evernote.com/shard/s324/res/72317ef8-1576-4d2e-badb-f6acc3ea6621">
+<meta property="og:image" content="https://www.evernote.com/shard/s324/res/f822597d-69b3-4618-b0a6-33fb85a82d27">
+<meta property="og:image" content="https://www.evernote.com/shard/s324/res/71f9d355-315d-4b73-944b-0a708338db09">
 <meta property="article:published_time" content="2018-10-12T08:05:03.000Z">
-<meta property="article:modified_time" content="2021-03-18T15:15:03.449Z">
+<meta property="article:modified_time" content="2021-03-19T07:32:47.737Z">
 <meta property="article:author" content="Ziyuan Wang">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="模仿学习">
@@ -146,6 +149,11 @@
     <a href="/categories/notes/" rel="section"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
 
   </li>
+        <li class="menu-item menu-item-shuoshuo">
+
+    <a href="/shuoshuo/" rel="section"><i class="fa fa-commenting-o fa-commenting fa-fw"></i>说说</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -231,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 23:15:03" itemprop="dateModified" datetime="2021-03-18T23:15:03+08:00">2021-03-18</time>
+                <time title="修改时间：2021-03-19 15:32:47" itemprop="dateModified" datetime="2021-03-19T15:32:47+08:00">2021-03-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,8 +292,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。<br>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）</p>
-<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。<br>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。<br>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。<br>要点<br>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
+        <p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。</p>
+<hr>
+<p>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）<br><img src="https://www.evernote.com/shard/s324/res/72317ef8-1576-4d2e-badb-f6acc3ea6621" alt="img2"><br><img src="https://www.evernote.com/shard/s324/res/f822597d-69b3-4618-b0a6-33fb85a82d27" alt="img3"><br><img src="https://www.evernote.com/shard/s324/res/71f9d355-315d-4b73-944b-0a708338db09" alt="img4"></p>
+<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。</p>
+<hr>
+<h2 id="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"><a href="#模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。" class="headerlink" title="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"></a>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。</h2><p>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。</p>
+<hr>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><p>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
 
     </div>
 
@@ -376,6 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0%E6%98%AF%E9%80%9A%E8%BF%87%E5%9C%A8%E6%9F%90%E7%A7%8D%E6%84%8F%E4%B9%89%E4%B8%8A%E6%A8%A1%E4%BB%BF%E4%BA%BA%E7%B1%BB%E8%A1%8C%E4%B8%BA%E6%9D%A5%E6%9A%97%E7%A4%BA%E7%BB%99%E4%BA%88%E6%99%BA%E8%83%BD%E4%BD%93%E5%85%B3%E4%BA%8E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%88%E5%89%8D%E4%BF%A1%E6%81%AF%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">要点</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -403,7 +418,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

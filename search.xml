@@ -1470,10 +1470,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Collaborative Deep Reinforcement Learning for Joint Object Search</title>
+    <title>Collaborative Deep Reinforcement Learning for Joint Object Search（CVPR2017)</title>
     <url>/research-paper/drl3/</url>
-    <content><![CDATA[<p>协助的多智能体 deep RL algorithm 来学习进行联合物体定位的最优策略。我们的 proposal 服从现有的 RL 框架，但是允许多个智能体之间进行协作。在这个领域当中，有两个开放的问题：<br>　　1. how to make communications effective in between different agents ;<br>　　2. how to jointly learn good policies for all agents.<br>　　<br>　　本文提出通过 gated cross connections between the Q-networks 来学习 inter-agent communication。
-　　</p>
+    <content><![CDATA[<p>协助的多智能体 deep RL algorithm 来学习进行联合物体定位的最优策略。我们的 proposal 服从现有的 RL 框架，但是允许多个智能体之间进行协作。在这个领域当中，有两个开放的问题：<br>　　1. how to make communications effective in between different agents ;<br>　　2. how to jointly learn good policies for all agents.<br>　　<br>　　本文提出通过 gated cross connections between the Q-networks 来学习 inter-agent communication。</p>
+<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><p>多智能体联合搜索不同的物体。<br>智能体之间的message通道通过网络层互换，创建新的vitural agent训练比较自由。交互通道使用gate cross connections控制，选用自己的Q网络动作or 选用与其他物体交互的vitural agent的Q网络动作。<br>实验创造了关联的数据集子集，验证某些物体之间存在关系，比单智能体方法快。不是所有result都很powerful。</p>
 <h2 id="所提出的创新点："><a href="#所提出的创新点：" class="headerlink" title="所提出的创新点："></a>所提出的创新点：</h2><p>　　1. 是物体检测领域的第一个做 collaborative deep RL algorithm ；<br>　　2. propose a novel multi-agent Q-learning solution that facilitates learnable inter-agent communication with gated cross connections between the Q-networks；<br>　　3. 本文方法有效的探索了 相关物体之间有用的 contextual information，并且进一步的提升了检测的效果。</p>
 <p>多个agent移动</p>
 ]]></content>
@@ -1633,7 +1633,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Deep Alignment Network- A convolutional neural network for robust face alignment</title>
+    <title>Deep Alignment Network: A convolutional neural network for robust face alignment</title>
     <url>/research-paper/drl7/</url>
     <content><![CDATA[<p>DAN是一种人脸对齐的方法，采用级联神经网络结构，充分利用人脸的全局信息而非局部信息，使其效果优于现有的人脸对齐方法。<br>       该方法的总体思想为如下几步：<br>       1）DAN 参考CSR的框架，通过前向深度网络提取特征代替人工特征，训练前向网络得到关键点位的偏差代替CSR中的回归器<br>       2）用级联的网络结构来实现CSR中的迭代<br>       3）利用人脸全局信息T(I)、H、F作为前向网络的输入，得到关键点位的偏差<br>       4）构造级联网络结构<br>       5）分级训练网络，每级网络loss停止收敛时，训练下一级网络。</p>
 ]]></content>
@@ -1666,7 +1666,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Distort-and-Recover_ Color Enhancement using Deep Reinforcement Learning</title>
+    <title>Distort-and-Recover: Color Enhancement using Deep Reinforcement Learning</title>
     <url>/research-paper/drl9/</url>
     <content><![CDATA[<p>主题：色彩增强<br>原文：<a href="https://www.arxiv-vanity.com/papers/1804.04450/">https://www.arxiv-vanity.com/papers/1804.04450/</a><br>简介：使用DRL的颜色增强方法，选取图像增强的操作。训练使用高质量图像，进行扭曲-恢复的训练。（！这个可以节省标记时间和成本和主观性，为其他提供参考）</p>
 <p>#感觉跟修复受损图像的有点像啊</p>
@@ -2150,8 +2150,10 @@
   <entry>
     <title>数据增强</title>
     <url>/reswarch-knowledge/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/</url>
-    <content><![CDATA[<p>从头开始GAN：<a href="https://zhuanlan.zhihu.com/p/27012520">https://zhuanlan.zhihu.com/p/27012520</a><br>用GAN做数据增强的知乎搜索：<a href="https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment">https://www.zhihu.com/search?type=content&amp;q=GAN%20data%20augment</a><br>有关GAN+增强的论文：Addressing Challenging Place Recognition Tasks using Generative Adversarial Networks<br>用GAN做数据增强（csdn博客）：<a href="https://blog.csdn.net/mmm_zzz/article/details/81813934">https://blog.csdn.net/mmm_zzz/article/details/81813934</a><br>另一个有关GAN+数据增强论文：GAN Augmentation: Augmenting Training Data using Generative Adversarial Networks<br>关于数据增强技术调研的郭兰哲的专栏：<a href="https://zhuanlan.zhihu.com/p/40936977">https://zhuanlan.zhihu.com/p/40936977</a><br>GAN+反向强化学习：<a href="https://www.jianshu.com/p/910dd7050ff8">https://www.jianshu.com/p/910dd7050ff8</a><br>Connecting Generative Adversarial Networks and Actor-Critic Methods：<a href="https://arxiv.org/pdf/1610.01945.pdf">https://arxiv.org/pdf/1610.01945.pdf</a><br>贝叶斯生成对抗网络（GAN）：当下性能最好的端到端半监督/无监督学习:<a href="http://www.sohu.com/a/144843442_473283">http://www.sohu.com/a/144843442_473283</a></p>
-<p>简述生成式对抗网络：<a href="https://www.cnblogs.com/wangxiaocvpr/p/6069026.html">https://www.cnblogs.com/wangxiaocvpr/p/6069026.html</a></p>
+    <content><![CDATA[<p>【技术综述】一文道尽深度学习中的数据增强方法（上）<a href="https://www.jianshu.com/p/99450dbdadcf">https://www.jianshu.com/p/99450dbdadcf</a><br>【技术综述】一文道尽深度学习中的数据增强方法（下）<a href="https://www.jianshu.com/p/661221525139">https://www.jianshu.com/p/661221525139</a></p>
+<hr>
+<p>数据集增强百度百科：<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin">https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA/22778554?fr=aladdin</a><br>SMOTE:<a href="https://www.jianshu.com/p/13fc0f7f5565">https://www.jianshu.com/p/13fc0f7f5565</a><br>小样本学习：<a href="https://blog.csdn.net/xhw205/article/details/79491649">https://blog.csdn.net/xhw205/article/details/79491649</a><br>深度学习中的数据增强（下）：<a href="https://cloud.tencent.com/developer/news/253846">https://cloud.tencent.com/developer/news/253846</a></p>
+<p>图像数据增强方法一览：<a href="https://www.jianshu.com/p/546a3affcbe6">https://www.jianshu.com/p/546a3affcbe6</a></p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -2160,14 +2162,20 @@
       </categories>
       <tags>
         <tag>ML</tag>
-        <tag>GAN</tag>
+        <tag>Data augmentation</tag>
       </tags>
   </entry>
   <entry>
     <title>模仿学习</title>
     <url>/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。<br>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）</p>
-<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。<br>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。<br>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。<br>要点<br>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
+    <content><![CDATA[<p>与从零开始的强化学习相比，人类会根据现实生活中的经验推测。模仿学习：将人类的经验转移给智能体。<br>    例子：人类进入游戏，看到门会意识到他需要一把钥匙。</p>
+<hr>
+<p>传统强化学习： 在解决MDP时我们的最终目标是学习这样一种策略（序列），以便最大化我们的智能体的奖励。<br><img src="https://www.evernote.com/shard/s324/res/d922355d-680c-453e-a87d-bc0b3aa7a929" alt="img1"><br>DQN<br>贝尔曼方程（Bellman equation）<br><img src="https://www.evernote.com/shard/s324/res/72317ef8-1576-4d2e-badb-f6acc3ea6621" alt="img2"><br><img src="https://www.evernote.com/shard/s324/res/f822597d-69b3-4618-b0a6-33fb85a82d27" alt="img3"><br><img src="https://www.evernote.com/shard/s324/res/71f9d355-315d-4b73-944b-0a708338db09" alt="img4"></p>
+<p>缺点：奖励稀疏性。 “蒙提祖玛的复仇”游戏 非常难的Atari 2600游戏<br>因此我们需要大量时间。<br>但是现实中的问题学习没有足够的时间。</p>
+<hr>
+<h2 id="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"><a href="#模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。" class="headerlink" title="模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。"></a>模仿学习是通过在某种意义上模仿人类行为来暗示给予智能体关于世界的先前信息。</h2><p>于是我们希望将人类的学习经验传给智能体。<br>于是人类需要以自己的行为为数据集。<br>但是现在没办法找这样的数据集。<br>所以这是一个没有有效解决的问题。</p>
+<hr>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><p>机器学习还远远没有建立一个能够解决或多或少复杂的现实世界任务的自主智能体;<br>模仿学习是使这些智能体更接近的可能解决方案之一;<br>我们还概述了强化学习的基础知识，特别是详细描述了强化算法之一的DQN。</p>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -2314,6 +2322,7 @@
 <figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="xml">外部链接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %&#125;</span></span><br><span class="line"><span class="xml">本地连接：</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">pdf</span> ./pdf名字.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><a href="https://blog.csdn.net/qq_43701912/article/details/107018127">加密教程-csdn</a></p>
+<h2 id="artitalk说说（原hexo-shuoshuo）"><a href="#artitalk说说（原hexo-shuoshuo）" class="headerlink" title="artitalk说说（原hexo-shuoshuo）"></a>artitalk说说（原hexo-shuoshuo）</h2><p><a href="https://blog.csdn.net/cungudafa/article/details/106224223">美化</a></p>
 ]]></content>
       <categories>
         <category>小技巧</category>

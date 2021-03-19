@@ -140,6 +140,11 @@
     <a href="/categories/notes/" rel="section"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
 
   </li>
+        <li class="menu-item menu-item-shuoshuo">
+
+    <a href="/shuoshuo/" rel="section"><i class="fa fa-commenting-o fa-commenting fa-fw"></i>说说</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -779,7 +784,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/research-paper/drl3/" class="post-title-link" itemprop="url">Collaborative Deep Reinforcement Learning for Joint Object Search</a>
+            <a href="/research-paper/drl3/" class="post-title-link" itemprop="url">Collaborative Deep Reinforcement Learning for Joint Object Search（CVPR2017)</a>
         </h2>
 
         <div class="post-meta">
@@ -796,7 +801,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 21:42:10" itemprop="dateModified" datetime="2021-03-18T21:42:10+08:00">2021-03-18</time>
+                <time title="修改时间：2021-03-19 15:32:23" itemprop="dateModified" datetime="2021-03-19T15:32:23+08:00">2021-03-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -825,7 +830,7 @@
             </span>
 
           
-            <span id="/research-paper/drl3/" class="post-meta-item leancloud_visitors" data-flag-title="Collaborative Deep Reinforcement Learning for Joint Object Search" title="热度">
+            <span id="/research-paper/drl3/" class="post-meta-item leancloud_visitors" data-flag-title="Collaborative Deep Reinforcement Learning for Joint Object Search（CVPR2017)" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -856,8 +861,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>协助的多智能体 deep RL algorithm 来学习进行联合物体定位的最优策略。我们的 proposal 服从现有的 RL 框架，但是允许多个智能体之间进行协作。在这个领域当中，有两个开放的问题：<br>　　1. how to make communications effective in between different agents ;<br>　　2. how to jointly learn good policies for all agents.<br>　　<br>　　本文提出通过 gated cross connections between the Q-networks 来学习 inter-agent communication。
-　　</p>
+          <p>协助的多智能体 deep RL algorithm 来学习进行联合物体定位的最优策略。我们的 proposal 服从现有的 RL 框架，但是允许多个智能体之间进行协作。在这个领域当中，有两个开放的问题：<br>　　1. how to make communications effective in between different agents ;<br>　　2. how to jointly learn good policies for all agents.<br>　　<br>　　本文提出通过 gated cross connections between the Q-networks 来学习 inter-agent communication。</p>
+<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><p>多智能体联合搜索不同的物体。<br>智能体之间的message通道通过网络层互换，创建新的vitural agent训练比较自由。交互通道使用gate cross connections控制，选用自己的Q网络动作or 选用与其他物体交互的vitural agent的Q网络动作。<br>实验创造了关联的数据集子集，验证某些物体之间存在关系，比单智能体方法快。不是所有result都很powerful。</p>
 <h2 id="所提出的创新点："><a href="#所提出的创新点：" class="headerlink" title="所提出的创新点："></a>所提出的创新点：</h2><p>　　1. 是物体检测领域的第一个做 collaborative deep RL algorithm ；<br>　　2. propose a novel multi-agent Q-learning solution that facilitates learnable inter-agent communication with gated cross connections between the Q-networks；<br>　　3. 本文方法有效的探索了 相关物体之间有用的 contextual information，并且进一步的提升了检测的效果。</p>
 <p>多个agent移动</p>
 
@@ -1411,7 +1416,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
