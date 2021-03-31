@@ -30,7 +30,7 @@
 <li>6.不要偷懒用一个数组记录两个变量，可能会出现意想不到的问题。案例：用同一个数组表示A和a是否出现，是做不到的；</li>
 <li>7.std::string : append(<strong>number</strong>, char) / .length() / .c_str()  / .substr(begin_pos, <strong>new_len</strong>)</li>
 <li>8.std::vector : .push_back() / .size() / .pop_back() (未验证）</li>
-<li>9.std::pair : 把make_pair和pair和first和second的缩写搞下来。</li>
+<li>9.std::pair : 把make_pair和pair和first和second的缩写define下来。</li>
 <li>10.ascii  : ‘a’ = ‘A’ + 32 ， 注意还原的位置  /</li>
 </ul>
 ]]></content>
@@ -139,25 +139,6 @@
       <tags>
         <tag>acm</tag>
         <tag>机试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++带有空格的字符串读取：cin.getline、getline、gets、正则表达式</title>
-    <url>/acm/C++%20%E5%B8%A6%E6%9C%89%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%BB%E5%8F%96%EF%BC%9Acin.getline%E3%80%81getline%E3%80%81gets%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/ysf13579/article/details/23447945">参考</a><br><a href="https://bbs.csdn.net/topics/360010225">参考</a><br><a href="https://blog.csdn.net/tujiaw/article/details/6139896">参考</a></p>
-<p>简单来说，cin.getline属于iostream，getline(cin, **) 属于string, gets属于C语言的cstdio。</p>
-<span id="more"></span>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">cin</span>.getline(<span class="keyword">char</span>* tostr, <span class="keyword">int</span> maxlen, <span class="keyword">char</span> endch)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>getline(<span class="built_in">cin</span>, <span class="built_in">string</span> toss, <span class="keyword">char</span> endch) </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>gets(<span class="keyword">char</span>* tpstr) 不能自定义换行符，读到回车结束</span><br><span class="line"></span><br><span class="line">*<span class="built_in">cin</span>或<span class="built_in">scanf</span>(%d、%s)会留下一个换行符，直接在后面使用getline或<span class="built_in">cin</span>.getline或gets第一次会读到一个换行符。需要注意。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span><span class="built_in">scanf</span>(“%c”，ch）循环读取，比较麻烦。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>正则表达式%[^\n]。注意它匹配成功后不会删除换行符。</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">105</span>];</span><br><span class="line">    <span class="keyword">int</span> maxi;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;maxi;<span class="comment">//scanf也可</span></span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxi; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%[^\n]&quot;</span>, str);</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;str&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>acm</category>
-        <category>C++</category>
-        <category>char</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>char</tag>
-        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -3041,6 +3022,124 @@
 <li>  vector.pop_back()</li>
 <li>  wa之后一顿debug，最终发现sort(vector.begin(), vector.end())有时候会改变内部元素的值？这就奇怪了，不知道是不是pop_back的原因，或是我的边界值有问题。原因之后搜一下。<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> sss[<span class="number">15</span>][<span class="number">15</span>];</span><br><span class="line">    <span class="keyword">bool</span> used[<span class="number">15</span>];</span><br><span class="line">    <span class="keyword">int</span> pair_number;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;score;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="keyword">int</span> max_ans;</span><br><span class="line">    <span class="keyword">int</span> nn_score[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a &lt; b)swap(a, b);</span><br><span class="line">        <span class="keyword">if</span>(b &lt; <span class="number">1</span>)<span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">return</span> gcd(b, a%b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">calculate_score</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(nn_score, <span class="number">0</span>, <span class="keyword">sizeof</span>(nn_score));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)nn_score[i] = score[i];</span><br><span class="line">        sort(nn_score, nn_score+N);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">            ans += nn_score[i]*(i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(id &gt;= <span class="number">2</span>*N)&#123;<span class="built_in">printf</span>(<span class="string">&quot;fatal error!&quot;</span>);<span class="keyword">return</span> <span class="number">-1</span>;&#125;</span><br><span class="line">        <span class="keyword">while</span>(used[id] &amp;&amp; id &lt; <span class="number">2</span>*N)id++;</span><br><span class="line">        used[id] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = id+<span class="number">1</span>; i &lt; <span class="number">2</span>*N; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(used[i])<span class="keyword">continue</span>;</span><br><span class="line">            used[i] = <span class="literal">true</span>;</span><br><span class="line">            score.push_back(sss[id][i]);</span><br><span class="line">            pair_number++;</span><br><span class="line">            <span class="keyword">if</span>(pair_number == N)&#123;</span><br><span class="line">                <span class="keyword">int</span> ans = calculate_score();</span><br><span class="line">                <span class="keyword">if</span>(max_ans &lt; ans)max_ans = ans;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                dfs(id+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            used[i] = <span class="literal">false</span>;</span><br><span class="line">            score.pop_back();</span><br><span class="line">            pair_number--;</span><br><span class="line">        &#125;</span><br><span class="line">        used[id] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxScore</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        N = nums.<span class="built_in">size</span>() / <span class="number">2</span>;</span><br><span class="line">        max_ans = <span class="number">0</span>;</span><br><span class="line">        pair_number = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</span><br><span class="line">        score.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>*N; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; <span class="number">2</span>*N; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                sss[i][j] = gcd(nums[i], nums[j]);</span><br><span class="line">                sss[j][i] = sss[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> max_ans;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ STL sort</title>
+    <url>/acm/C++%20stl%20sort/</url>
+    <content><![CDATA[<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line">sort(<span class="built_in">begin</span>,<span class="built_in">begin</span>+len,greater&lt;data_type&gt;())</span><br><span class="line">sort(<span class="built_in">begin</span>,<span class="built_in">begin</span>+len,less&lt;data_type&gt;())</span><br></pre></td></tr></table></figure>
+<h1 id="自定义比较运算符"><a href="#自定义比较运算符" class="headerlink" title="自定义比较运算符"></a>自定义比较运算符</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">    <span class="comment">// 在cmp=true是期望的，反之是不期望的。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="sort-的本质"><a href="#sort-的本质" class="headerlink" title="sort 的本质"></a>sort 的本质</h1><ul>
+<li>  元素规模小于一定阈值16插入排序；</li>
+<li>元素规模大于一定阈值16<ul>
+<li>  递归层数阈值2*lg(n)，太深用堆排序</li>
+<li>  不深，变形的一次快排（首尾中找一个中间值的元素作为分隔）</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ STL string常用操作</title>
+    <url>/acm/C++%20stl%20string/</url>
+    <content><![CDATA[<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>string str;</p>
+<h1 id="char转换"><a href="#char转换" class="headerlink" title="char转换"></a>char转换</h1><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line"><span class="built_in">char</span> *cstr = <span class="built_in">str</span>.c_str();</span><br></pre></td></tr></table></figure>
+<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">str</span><span class="number">.</span>insert(<span class="number">ch</span>, pos)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">str</span>.erase(pos<span class="number">1</span>, pos<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">str.<span class="builtin-name">find</span>(ch)</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ STL set/map</title>
+    <url>/acm/C++%20stl%20set-map/</url>
+    <content><![CDATA[<p>set和map由红黑树RBtree实现。</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;ss;</span><br><span class="line">ss.<span class="built_in">clear</span>();</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;mm;</span><br><span class="line">mm.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">ss</span><span class="selector-class">.insert</span>(k);</span><br><span class="line"><span class="selector-tag">map</span><span class="selector-attr">[k]</span>++;</span><br></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">ss.erase<span class="comment">(num)</span></span><br><span class="line">ss.erase<span class="comment">(num_begin, num_end)</span></span><br><span class="line"><span class="comment">//?</span></span><br></pre></td></tr></table></figure>
+<h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> it = ss.<span class="built_in">begin</span>(); it != ss.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">    <span class="keyword">int</span> a = *it;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> it = mm.<span class="built_in">begin</span>(); it != mm.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">    <span class="keyword">int</span> a = it -&gt;first;</span><br><span class="line">    <span class="keyword">int</span> b = it -&gt;second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">// map</span></span><br><span class="line"><span class="keyword">if</span>(mm[<span class="built_in">num</span>] != <span class="number">0</span>)&#123;&#125;</span><br><span class="line"><span class="keyword">if</span>(mm.find(<span class="built_in">num</span>));</span><br><span class="line"><span class="comment">// set 查到返回迭代器，查不到返回std::end</span></span><br><span class="line"><span class="keyword">if</span>(ss.find(<span class="built_in">num</span>) != ss.end())&#123;&#125;</span><br><span class="line"><span class="keyword">if</span>(ss.count(<span class="built_in">num</span>))&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ STL vector</title>
+    <url>/acm/C++%20stl%20vector/</url>
+    <content><![CDATA[<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;</span><br><span class="line">vec.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">vec.push<span class="constructor">_back(<span class="params">k</span>)</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">vec.pop<span class="constructor">_back(<span class="params">k</span>)</span>;</span><br><span class="line"><span class="comment">// 似乎会出现细节问题？</span></span><br></pre></td></tr></table></figure>
+<h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(int <span class="keyword">it</span> = <span class="number">0</span>; <span class="keyword">it</span> &lt; vec.size(); <span class="keyword">it</span>++)&#123;</span><br><span class="line">    int a = vec[<span class="keyword">it</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><p>时间复杂度o(n)</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">sort(<span class="name">vec</span>.begin(), vec.end())<span class="comment">;</span></span><br><span class="line">sort(<span class="name">vec</span>.begin(), vec.end(), greater&lt;int&gt;())</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode常用简单题思想</title>
+    <url>/acm/leetcode%E5%B8%B8%E7%94%A8%E7%AE%80%E5%8D%95%E9%A2%98%E6%80%9D%E6%83%B3/</url>
+    <content><![CDATA[<ul>
+<li>  暴力：注意数据范围和边界条件</li>
+<li>  C++和STL: 注意用法</li>
+<li>  双指针/滑动窗口/前缀和（注意边界条件）</li>
+<li>  位运算（比较巧妙）</li>
+<li>  递归，排序和搜索（个人需要练一下）</li>
+<li>  离散数学：gcd辗转相除，</li>
+<li>  DP，</li>
+<li>  有待更新</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>位运算</title>
+    <url>/acm/%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="与运算：-amp"><a href="#与运算：-amp" class="headerlink" title="与运算：&amp;"></a>与运算：&amp;</h1><p>&amp;1判断最后一位是不是0，<br>&amp;x保留一些特定位；</p>
+<h1 id="或运算："><a href="#或运算：" class="headerlink" title="或运算：|"></a>或运算：|</h1><h1 id="异或运算："><a href="#异或运算：" class="headerlink" title="异或运算：^"></a>异或运算：^</h1><p>异或运算找到两个数据不一样的位<br>a^a=0，找唯一一个出现一次的数（leetcode例题)</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>  逻辑运算符优先于低于==符号。</li>
 </ul>
 ]]></content>
       <categories>
