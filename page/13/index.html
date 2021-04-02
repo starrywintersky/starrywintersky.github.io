@@ -205,6 +205,161 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/research-paper/sseg2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/research-paper/sseg2/" class="post-title-link" itemprop="url">图像分割常用算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-15 18:00:00" itemprop="dateCreated datePublished" datetime="2018-10-15T18:00:00+08:00">2018-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-18 22:36:02" itemprop="dateModified" datetime="2021-03-18T22:36:02+08:00">2021-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/research-paper/sseg2/" class="post-meta-item leancloud_visitors" data-flag-title="图像分割常用算法" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/research-paper/sseg2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/research-paper/sseg2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1.基于阈值的分割方法</p>
+<p>2.基于边缘的分割方法</p>
+<p>3.基于区域的分割方法</p>
+<p>4.基于聚类分析的图像分割方法</p>
+<p>5.基于小波变换的分割方法</p>
+<p>6.基于数学形态学的分割方法</p>
+<p>7.基于人工神经网络的分割方法</p>
+<p>基于阈值的分割方法</p>
+<p>阈值分割方法作为一种常见的区域并行技术，就是用一个或几个阈值将图像的灰度直方图分成几个类，认为图像中灰度值在同一类中的像素属于同一物体。由于是直接利用图像的灰度特性，因此计算方便简明、实用性强。显然，阈值分割方法的关键和难点是如何取得一个合适的阈值。而实际应用中，阈值设定易受噪声和光亮度影响。近年来的方法有：用最大相关性原则选择阈值的方法、基于图像拓扑稳定状态的方法、Yager测度极小化方法、灰度共生矩阵方法、方差法、熵法、峰值和谷值分析法等，其中，自适应阈值法、最大熵法、模糊阈值法、类间阈值法是对传统阈值法改进较成功的几种算法。更多的情况下，阈值的选择会综合运用2种或2种以上的方法，这也是图像分割发展的一个趋势。</p>
+<p>特点</p>
+<p>阈值分割的优点是计算简单、运算效率较高、速度快。全局阈值对于灰度相差很大的不同目标和背景能进行有效的分割。当图像的灰度差异不明显或不同目标的灰度值范围有重叠时，应采用局部阈值或动态阈值分割法。另一方面，这种方法只考虑像素本身的灰度值，一般不考虑空间特征，因而对噪声很敏感。在实际应用中，阈值法通常与其他方法结合使用。</p>
+<p>基于边缘的分割方法</p>
+<p>基于边缘检测的分割方法试图通过检测包含不同区域的边缘来解决分割问题，是最常用的方法之一。通常不同的区域之间的边缘上像素灰度值的变化往往比较剧烈，这是边缘检测得以实现的主要假设之一。常用灰度的一阶或者二阶微分算子进行边缘检测。常用的微分算子有一次微分(sobel算子，Robert算子等)，二次微分(拉普拉斯算子等)和模板操作(Prewit算子，Kirsch算子等)。</p>
+<p>特点</p>
+<p>基于边缘的分割方法其难点在于边缘检测时抗噪性和检测精度之间的矛盾。若提高检测精度，则噪声产生的伪边缘会导致不合理的轮廓；若提高抗噪性，则会产生轮廓漏检和位置偏差。为此，人们提出各种多尺度边缘检测方法，根据实际问题设计多尺度边缘信息的结合方案，以较好的兼顾抗噪性和检测精度。</p>
+<p>基于区域的分割方法</p>
+<p>区域分割的实质就是把具有某种相似性质的像索连通，从而构成最终的分割区域。它利用了图像的局部空间信息，可有效地克服其他方法存在的图像分割空间小连续的缺点。在此类方法中，如果从全图出发，按区域属性特征一致的准则决定每个像元的区域归属，形成区域图，常称之为区域生长的分割方法。如果从像元出发，按区域属性特征一致的准则，将属性接近的连通像元聚集为区域，则是区域增长的分割方法。若综合利用上述两种方法，就是分裂合并的方法。它是先将图像分割成很多的一致性较强的小区域，再按一定的规则将小区域融合成大区域，达到分割图像的目的。</p>
+<p>特点</p>
+<p>基于区域的分割方法往往会造成图像的过度分割，而单纯的基于边缘检测方法有时不能提供较好的区域结构，为此可将基于区域的方法和边缘检测的方法结合起来，发挥各自的优势以获得更好的分割效果。</p>
+<p>基于聚类分析的图像分割方法</p>
+<p>特征空间聚类法进行图像分割是将图像空间中的像素用对应的特征空间点表示，根据它们在特征空间的聚集对特征空间进行分割，然后将它们映射回原图像空间，得到分割结果。其中，K均值、模糊C均值聚类(FCM)算法是最常用的聚类算法。K均值算法先选K个初始类均值，然后将每个像素归入均值离它最近的类并计算新的类均值。迭代执行前面的步骤直到新旧类均值之差小于某一阈值。模糊C均值算法是在模糊数学基础上对K均值算法的推广，是通过最优化一个模糊目标函数实现聚类，它不像K均值聚类那样认为每个点只能属于某一类，而是赋予每个点一个对各类的隶属度，用隶属度更好地描述边缘像素亦此亦彼的特点，适合处理事物内在的不确定性。利用模糊C均值(FCM)非监督模糊聚类标定的特点进行图像分割，可以减少人为的干预，且较适合图像中存在不确定性和模糊性的特点。</p>
+<p>聚类方法应注意几个问题：</p>
+<p>(1)聚类的类数如何确定。</p>
+<p>(2)怎样确定聚类的有效性准则。</p>
+<p>(3)聚类中心的位置和特性事先不清楚时，如何设置初始值。</p>
+<p>(4)运算的开销。</p>
+<p>并且FCM算法对初始参数极为敏感，有时需要人工干预参数的初始化以接近全局最优解，提高分割速度。另外，传统FCM算法没有考虑空间信息，对噪声和灰度不均匀敏感。</p>
+<p>基于小波变换的分割方法</p>
+<p>基于小波变换的阈值图像分割方法的基本思想是，首先由二进小波变换将图像的直方图分解为不同层次的小波系数，然后依据给定的分割准则和小波系数选择阈值门限，最后利用阈值标出图像分割的区域。整个分割过程是从粗到细，有尺度变化来控制，即起始分割由粗略的L2(R)子空间上投影的直方图来实现，如果分割不理想，则利用直方图在精细的子空间上的小波系数逐步细化图像分割。分割算法的计算馈与图像尺寸大小呈线性变化。小波变换为信号在不同尺度上的分析和表征提供了一个精确和统一的框架。从图像分割的角度来看，小波分解提供了一个数学上完备的描述；小波变换通过选取合适的滤波器，可以极大地减少或去除所提取的不同特征之间的相关性，不仅具有“变焦”特性，而且在实现上有快速算法。</p>
+<p>特点</p>
+<p>小波变换是一种多尺度、多通道的分析工具它是空域和频域的局域变换，因而能有效地从信号中提取信息，通过伸缩和平移等运算功能对函数或信号进行多尺度分析，解决了傅立叶变换不能解决的许多问题。近年来多进制小波开始用于边缘检测。另外，利用正交小波基的小波变换也可提取多尺度边缘，并可通过对图像奇异度的计算和估计来区分一些边缘的类型。</p>
+<p>基于数学形态学的分割方法</p>
+<p>数学形态学是一种非线性滤波方法，可以用于抑制噪声、特性提取、边缘检测、图像分割等图像处理问题。数学形态学首先被用来处理二值图像，后来也被用来处理灰度图像，现在又有学者开始用软数学形态学和模糊形态学来解决计算机视觉方面的问题。数学形态学的特点是能将复杂的形状进行分解，并将有意义的形状分量从无用的信息中提取出来。它的基本思想是利用一个称为结构元素的探针来收集图像的信息，当探针在图像中不断的移动时，不仅可根据图像各个部分间的相互关系来了解图像的结构特征，而且利用数学形态学基本运算还可以构造出许多非常有效的图像处理与分析方法。其基本的形态运算是腐蚀与膨胀。腐蚀具有使目标缩小、目标内孔增大以及外部孤立噪声消除的效果;而膨胀是将图像中与目标物体接触的所有背景点合并到物体中的过程，结果是使目标增大、孔径缩小，可以增补目标中的空间，使其形成连通域。数学形态学中另一对基本运算方法是开运算和闭运算。开运算具有消除图像是细小物体，并在物体影响纤细处分离物体和平滑较大物体边界的作用;闭运算具有填充物体影像内细小空间， 接邻近物体和平滑边界的作用。</p>
+<p>特点</p>
+<p>数学形态学应用于图像分割，具有定位效果好、分割精度高、抗噪声性能好的特点。同时这种方法也有着自身的局限性：由于在图像处理的前期工作中，采用数学形态学的开(闭)运算，进行图像处理后，依然存在大量与目标不符的短线和孤立点;由于预处理工作的不彻底，还需要进行一系列的基于点的开(闭)运算，因此运算速度明显下降。如何将数学形态学与其它方法综合运用以克服这些缺陷，将是数学形态学以后的工作方向。连接邻近物体和平滑边界的作用。</p>
+<p>基于人工神经网络的分割方法</p>
+<p>近年来，人工神经网络识别技术已经引起了广泛的关注，并应用于图像分割。基于神经网络的分割方法的基本思想是通过训练多层感知机来得到线性决策函数，然后用决策函数对像素进行分类来达到分割的目的</p>
+<p>特点</p>
+<p>用人工神经网络的方法分割图像，需要大量的训练数据。神经网络存在巨量的连接，容易引入空间信息，能较好地解决图像中的噪声和不均匀问题。选择何种网络结构是这种方法要解决的主要问题。</p>
+<p>基于遗传学算法的分割方法</p>
+<p>遗传算法(GA)，是一种模拟自然选择和遗传机制的搜索和优化过程，它具有很强的全局优化搜索能力，是一种具有广泛适用性的自适应搜索方法。它在搜索空间中是在种群中而不是在单点上进行寻优，它在求解过程中使用遗传操作规则而不是确定性规则来工作。这些特点使得遗传算法很适于应用在图像分割中，尤其是阈值分割法以及区域生长法中。利用GA的全局寻优能力及对初始位置的不敏感特性，可以改进图像分割的性能。</p>
+<p>特点</p>
+<p>遗传算法应用于图像分割，其难点在于适应度函数的选择以及交叉概率和变异概率的确定。GA还有可能收敛于局部最优。可考虑使用能够自适应设置交叉概率和变异概率自适应遗传算法以及和模拟退火法相结合的混合遗传算法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1253,122 +1408,10 @@
   
 
     
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">西瓜书知识点总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-27 16:08:41" itemprop="dateCreated datePublished" datetime="2018-09-27T16:08:41+08:00">2018-09-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 23:13:05" itemprop="dateModified" datetime="2021-03-18T23:13:05+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">知识点</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="西瓜书知识点总结" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>机器学习-周志华</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1435,7 +1478,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -205,6 +205,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/research-paper/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/research-paper/1/" class="post-title-link" itemprop="url">Miss Detection vs. False Alarm: Adversarial Learning for Small Object Segmentation in Infrared Images</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-29 23:20:00" itemprop="dateCreated datePublished" datetime="2019-09-29T23:20:00+08:00">2019-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-18 21:57:00" itemprop="dateModified" datetime="2021-03-18T21:57:00+08:00">2021-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/" itemprop="url" rel="index"><span itemprop="name">多智能体</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/research-paper/1/" class="post-meta-item leancloud_visitors" data-flag-title="Miss Detection vs. False Alarm: Adversarial Learning for Small Object Segmentation in Infrared Images" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/research-paper/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/research-paper/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="动机和概述："><a href="#动机和概述：" class="headerlink" title="动机和概述："></a>动机和概述：</h1><p>平衡MD和FA两个指标，分开使用两个Generator，每个Generator使用不同的网络，分别根据任务生成一个结果。最后会根据两个结果以及两个的平均结果？<br>使用Conditional GAN 进行交互和对抗。</p>
+<h1 id="Conditional-GAN"><a href="#Conditional-GAN" class="headerlink" title="+Conditional GAN:"></a>+Conditional GAN:</h1><p>一个挺通用而早期的GAN框架，与普通GAN的具体区别是输入包括判别条件以及图像两部分，以保证生成器生成的图像不但接近真实而且符合判别要求（如将标签作为判别条件输入G和D，保证生成器生成的不是其他种类的图片。）文中将input image作为条件，ground truth和两个生成的predicted image都输入cGAN，loss做了从两个到三个的简单的改动。</p>
+<h1 id="评价："><a href="#评价：" class="headerlink" title="评价："></a>评价：</h1><p>想法和动机像老师提到的idea一样不错。但是这个工作的Loss也是由好几个部分组成:</p>
+<ul>
+<li><pre><code> cGAN生成的对抗loss；
+</code></pre>
+</li>
+<li><pre><code> 两种结果间的一致性loss；
+</code></pre>
+</li>
+<li><pre><code> 而且也对另外一个指标加进去了，只是加了个很小的权，据作者说可以达到更好的initialization.
+</code></pre>
+</li>
+<li><pre><code> 最后对这三种Loss的重要性加了个权，而且属于实验超参数-.-
+</code></pre>
+实验：红外数据集太少，于是收集了一部分真实数据并扩充了一部分人造数据，数据集开源了。。分别对比了普通的小物体检测和红外线图小物体检测方法，红外线图检测方法表现非常好（大概是研究的人少，任务相对困难），普通的小物体检测的Precision和F-measure还行，recall表现不够好，作者解释整体看结果还不错。<h1 id="总之Loss看起来不是很漂亮，不知道如果时间更加充足，有没有机会阅读更多paper加以改进。"><a href="#总之Loss看起来不是很漂亮，不知道如果时间更加充足，有没有机会阅读更多paper加以改进。" class="headerlink" title="总之Loss看起来不是很漂亮，不知道如果时间更加充足，有没有机会阅读更多paper加以改进。"></a>总之Loss看起来不是很漂亮，不知道如果时间更加充足，有没有机会阅读更多paper加以改进。</h1></li>
+</ul>
+<hr>
+<p>*在红外线图等一些冷门的领域做实验，我觉得是可以的，（其实去年就有想到）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1193,124 +1328,10 @@
   
 
     
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/research-paper/drl23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/research-paper/drl23/" class="post-title-link" itemprop="url">Deep Reinforcement Learning of Volume-guided Progressive View Inpainting for 3D Point Scene Completion from a Single Depth Image (cvpr2019 Oral)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-19 12:50:00" itemprop="dateCreated datePublished" datetime="2019-09-19T12:50:00+08:00">2019-09-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 21:15:15" itemprop="dateModified" datetime="2021-03-18T21:15:15+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/research-paper/drl23/" class="post-meta-item leancloud_visitors" data-flag-title="Deep Reinforcement Learning of Volume-guided Progressive View Inpainting for 3D Point Scene Completion from a Single Depth Image (cvpr2019 Oral)" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/research-paper/drl23/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/research-paper/drl23/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>基于单视角深度图恢复完整三维场景，提出了一种基于三维 与 二维卷积神经网路协同学习的多视角补全技术，并首次将深度强化学习用于引入该问题的求解过程。本文的方法在公开数据集上获得了世界领先水平。</p>
-<p>本工作受阿里巴巴创新研究计划资助。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1377,7 +1398,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
