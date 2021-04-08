@@ -205,6 +205,227 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/paper/drl5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/paper/drl5/" class="post-title-link" itemprop="url">Context-Reinforced Semantic Segmentation(cvpr2019)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-12T00:00:00+08:00">2019-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 15:07:00" itemprop="dateModified" datetime="2021-04-08T15:07:00+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/paper/drl5/" class="post-meta-item leancloud_visitors" data-flag-title="Context-Reinforced Semantic Segmentation(cvpr2019)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/paper/drl5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/paper/drl5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LawenceRay/article/details/95174059">参考</a></p>
+<p>cvpr2019，使用DRL交互学习上下文网络和分割网络。<br>结合context的语义分割<br>C-net上下文网络：智能体。<br>S-net分割网络：生成p-map（预测结果），作为环境。原图提取特征和Pyramid Pooling。</p>
+<p>将上下文学习问题定义为马尔科夫决策过程，并提出通过C Net、S Net之间的交互来学习上下文。这一优化过程可以通过深度强化学习解决，将p-map视作环境而C Net视作智能体。   </p>
+<p>细节不是很明确<br>文中几乎没有DRL有关state\action的细节，说明DRL不是文中重点而是工具，DRL正成为非differencial的优化问题一个很常见的解决框架。（因为细节比较相关，以后有代码看一下最好了）</p>
+<p>DRL使用A3C，细节被忽略。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">分布式系统-知识点（1）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-06 15:47:29" itemprop="dateCreated datePublished" datetime="2019-09-06T15:47:29+08:00">2019-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-18 20:59:44" itemprop="dateModified" datetime="2021-03-18T20:59:44+08:00">2021-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课程笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" class="post-meta-item leancloud_visitors" data-flag-title="分布式系统-知识点（1）" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>南京大学研究生-分布式系统-个人笔记。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/reswarch-knowledge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -973,236 +1194,6 @@
   
 
     
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">cvpr2018-强化学习+师兄笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-12-29 13:50:04" itemprop="dateCreated datePublished" datetime="2018-12-29T13:50:04+08:00">2018-12-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:27:26" itemprop="dateModified" datetime="2021-04-08T15:27:26+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="cvpr2018-强化学习+师兄笔记" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>脑洞</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/research-experience/%E9%93%81%E9%91%AB%E5%B8%88%E5%85%84%E7%9A%84%E7%AC%94%E8%AE%B0-cvpr2018%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/sseg1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/paper/sseg1/" class="post-title-link" itemprop="url">分割的论文整理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-12-13 18:00:00" itemprop="dateCreated datePublished" datetime="2018-12-13T18:00:00+08:00">2018-12-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:27:32" itemprop="dateModified" datetime="2021-04-08T15:27:32+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/sseg1/" class="post-meta-item leancloud_visitors" data-flag-title="分割的论文整理" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/sseg1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/sseg1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="经典的分割：https-blog-csdn-net-xiangz-csdn-article-details-79303497"><a href="#经典的分割：https-blog-csdn-net-xiangz-csdn-article-details-79303497" class="headerlink" title="经典的分割：https://blog.csdn.net/xiangz_csdn/article/details/79303497"></a>经典的分割：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiangz_csdn/article/details/79303497">https://blog.csdn.net/xiangz_csdn/article/details/79303497</a></h2><p>成型算法：<br>    FC-DenseNet: Fully convolutional densenets for semanbtic segmentation. CVPRW 2017.<br>    Random walk.<br>（来自SeedNet）交互式图像分割<br>交互方式： contour; scribble; bounding box.<br>成型算法： GrabCut[26]; random walks[13,16]; geodesics[5]; shape prior[30, 14]</p>
-<hr>
-<p>数据集：<br>Pascal VOC（20类，6929图， 类别层面的标注和个体层面的标注，可做语义/实例分割）<br>CityScapes（30类，驾驶场景。5000精细（像素精细）标注和20000粗糙标注（大概的轮廓），两级别标注）；<br>MSCOCO（难度相对大。  80 类，有超过 33 万张图片，其中 20 万张有标注，整个数据集中个体的数目超过 150 万个）</p>
-<hr>
-<p>数据集2：<br>CVPPP leaf segmentation（实例分割）<br>KITTI car segmentation（实例分割）</p>
-<hr>
-<p>VOC<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38437404/article/details/78230233?locationNum=6&amp;fps=1">https://blog.csdn.net/weixin_38437404/article/details/78230233?locationNum=6&amp;fps=1</a></p>
-<p>Annotations:17125个对象, .xml格式的标签<br>ImageSets:包括action layout main segmentation四个部分的内容，是数据集中每一种类型图片的信息。<br>JPEGImages: 17125张jpg图片,包括训练图片和测试图片。<br>SegmentationClass: 分类结果，2913张png图片<br>SegmentationObject: 也是物体分割后的结果，总共2913张png图片。<br>* SegmentationClass: 标注出每一个像素的类别 ；<br>* SegmentationObject:: 标注出每一个像素属于哪一个物体。</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cxiazaiyu/article/details/81866173">https://blog.csdn.net/Cxiazaiyu/article/details/81866173</a><br>Cityscape</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
@@ -1273,7 +1264,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
