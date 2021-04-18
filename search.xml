@@ -797,7 +797,7 @@
       </tags>
   </entry>
   <entry>
-    <title>python列表的用法</title>
+    <title>python.list</title>
     <url>/research-experiment/python%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[]]></content>
       <categories>
@@ -3211,6 +3211,69 @@
       <tags>
         <tag>acm</tag>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210417 leetcode 第 50 场双周赛</title>
+    <url>/acm/0417leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B/</url>
+    <content><![CDATA[<h1 id="21-04-17-双周赛（补题进度【3-4】）"><a href="#21-04-17-双周赛（补题进度【3-4】）" class="headerlink" title="[21.04.17]双周赛（补题进度【3/4】）"></a>[21.04.17]双周赛（补题进度【3/4】）</h1><h2 id="最少操作使数组递增"><a href="#最少操作使数组递增" class="headerlink" title="最少操作使数组递增"></a>最少操作使数组递增</h2><p>一个小坑：暴力++++会超时<br>直接计算即可   </p>
+<hr>
+<h2 id="统计一个圆中点的数目"><a href="#统计一个圆中点的数目" class="headerlink" title="统计一个圆中点的数目"></a>统计一个圆中点的数目</h2><p>直接a^2+b^2 &lt;= r^2计算    </p>
+<hr>
+<span id="more"></span>
+<h2 id="每个查询的最大异或值"><a href="#每个查询的最大异或值" class="headerlink" title="每个查询的最大异或值"></a>每个查询的最大异或值</h2><p>利用位运算的性质：s^a^a=s<br>从后往前每一步结果转移，都是上一步的k ^= a[i]<br>注意的细节：不超过第maximumBit的约束，如果maxBit &lt; max(nums)直接算，否则多余的位是111…11<br>‘’’<br>class Solution {<br>public:<br>    vector<int> getMaximumXor(vector<int>&amp; nums, int maximumBit) {<br>        int init = 0;<br>        for(int i = 0; i &lt; nums.size(); i++){<br>            init ^= nums[i];<br>        }<br>        int max_ans = 1;<br>        int i = 1;<br>        while(nums[nums.size()-1]&gt;&gt;(i-1))i++;<br>        max_ans &lt;&lt;= i;<br>        max_ans -= 1;<br>        int vvb = (1&lt;&lt;(maximumBit))-1;<br>        vector<int>ret;<br>        ret.clear();<br>        //printf(“%d-%d     “, init, max_ans);<br>        int now = init ^ max_ans;<br>        for(int i = nums.size()-1; i &gt;= 0; i–){<br>            //printf(“%d-%d     “, now, vvb);<br>            //now &amp;= vvb;<br>            ret.push_back(vvb &amp; ((now &amp; vvb) | (max_ans ^ vvb)));<br>            now ^= nums[i];<br>        }<br>        return ret;</int></int></int></p>
+<pre><code>&#125;
+</code></pre>
+<p>};<br>‘’’</p>
+<hr>
+<h2 id="使字符串有序的最少操作次数"><a href="#使字符串有序的最少操作次数" class="headerlink" title="使字符串有序的最少操作次数"></a>使字符串有序的最少操作次数</h2><p>看了半天这什么玩意，相信一定是有规律的。试图打表未果，最后看了看样例发现，这不是全排列吗。<br>总之这题是给你一串字符串，计算他是当前这些字符组成的全排列的字典序第几个。<br>无重复数字的全排列可以用康托展开，这个有重复数字的全排列，除了排列组合之外没想到什么好的解决方案。。</p>
+<p>更新：看了看题解，确实就是用组合数计算的，思路没问题，待补题。</p>
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210418 leetcode 第 237 场周赛</title>
+    <url>/acm/0418leetcode%E5%91%A8%E8%B5%9B/</url>
+    <content><![CDATA[<h1 id="21-04-18-周赛（ak）"><a href="#21-04-18-周赛（ak）" class="headerlink" title="[21.04.18]周赛（ak）"></a>[21.04.18]周赛（ak）</h1><p>第四题很离谱，做完一看，wow想拿奖要20分钟写完四道题5555</p>
+<h2 id="判断句子是否为全字母句"><a href="#判断句子是否为全字母句" class="headerlink" title="判断句子是否为全字母句"></a>判断句子是否为全字母句</h2><p>无脑hash  </p>
+<hr>
+<h2 id="雪糕的最大数量"><a href="#雪糕的最大数量" class="headerlink" title="雪糕的最大数量"></a>雪糕的最大数量</h2><p>无脑贪心</p>
+<hr>
+<span id="more"></span>
+<h2 id="单线程-CPU"><a href="#单线程-CPU" class="headerlink" title="单线程 CPU"></a>单线程 CPU</h2><p>需要绑定当前下标，起始时间和执行长度。按起始时间排序。<br>优先队列。按事件长度排序。<br>每次把所有符合时间段的事件扔进优先队列。<br>队列每次取出事件长度最小的事件，更新当前时间，扔新的事件进去。<br>这道题几乎百分百考察的是代码稳定性。<br>‘’’<br>class Solution {<br>public:<br>    static bool cmp_time(pair&lt;int, vector<int>&gt;&amp;taska, pair&lt;int, vector<int>&gt;&amp;taskb){<br>        if(taska.second[0] &lt; taskb.second[0])return true;<br>        return false;<br>    }<br>    struct cmp_len{<br>      bool operator()(pair&lt;int, vector<int>&gt;&amp;taska, pair&lt;int, vector<int> &gt;&amp;taskb)  {<br>        if(taska.second[1] &gt; taskb.second[1])return true;<br>        else if(taska.second[1] == taskb.second[1] &amp;&amp; taska.first &gt; taskb.first)return true;<br>        return false;<br>      }<br>    };<br>    // static bool cmp_time(vector<int>&amp;taska, vector<int>&amp;taskb){<br>    //     if(taska[0] &lt; taskb[0])return true;<br>    //     return false;<br>    // }<br>    vector<int> getOrder(vector&lt;vector<int>&gt;&amp; tasks) {<br>        vector<int>ret;<br>        pair&lt;int,vector<int>&gt; order[tasks.size()+5];<br>        memset(order, 0, sizeof(order));<br>        ret.clear();<br>        for(int i = 0; i &lt; tasks.size(); i++){<br>            //pair&lt;int,vector<int> now;<br>            order[i].first = i;<br>            order[i].second.push_back(tasks[i][0]);<br>            order[i].second.push_back(tasks[i][1]);<br>        }<br>        sort(order, order+tasks.size(), cmp_time);<br>        // for(int i = 0; i &lt; tasks.size(); i++){<br>        //     printf(“%d %d,%d\n”, order[i].first, order[i].second[0], order[i].second[1]);<br>        // }<br>        priority_queue&lt;pair&lt;int, vector<int>&gt;, vector&lt;pair&lt;int, vector<int>&gt; &gt;, cmp_len&gt;q;<br>        while(!q.empty())q.pop();<br>        int time = 0;<br>        for(int i = 0; i &lt; tasks.size();){<br>            //printf(“time=%d\n”, time);<br>            if(q.empty()){<br>                q.push(order[i]);<br>                time = max(time, order[i].second[0]);<br>                i++;<br>            }<br>            while(i &lt; tasks.size() &amp;&amp; time &gt;= order[i].second[0]){<br>                q.push(order[i]);<br>                i++;<br>            }<br>            if(i &lt; tasks.size() &amp;&amp; time &lt; order[i].second[0]){<br>                time += q.top().second[1];<br>                ret.push_back(q.top().first);<br>                q.pop();;<br>            }<br>        }<br>        while(!q.empty()){<br>            ret.push_back(q.top().first);<br>            q.pop();<br>        }<br>        return ret;<br>    }<br>};<br>‘’’</int></int></int></int></int></int></int></int></int></int></int></int></int></p>
+<hr>
+<h2 id="所有数对按位与结果的异或和"><a href="#所有数对按位与结果的异或和" class="headerlink" title="所有数对按位与结果的异或和"></a>所有数对按位与结果的异或和</h2><p>考虑与或非运算：<br>与相当于按位乘法，异或相当于按位加法（不进位） 。<br>众所周知，a_1<em>b+a_2</em>b+…+a_n*b = (a_1+a_2+…+a_n)*b<br>按位运算同样符合其性质。<br>‘’’<br>class Solution {<br>public:<br>    int getXORSum(vector<int>&amp; arr1, vector<int>&amp; arr2) {<br>        int arra = 0;<br>        int ans = 0;<br>        for(int i = 0; i &lt; arr1.size(); i++)arra ^= arr1[i];<br>        for(int j = 0; j &lt; arr2.size(); j++)ans ^= arra &amp; arr2[j];<br>        return ans;</int></int></p>
+<pre><code>&#125;
+</code></pre>
+<p>};<br>‘’’</p>
+]]></content>
+      <categories>
+        <category>acm</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pytorch.tensor操作</title>
+    <url>/research-experiment/pytorch-tensor/</url>
+    <content><![CDATA[<p><a href="https://www.cnblogs.com/tingtin/p/13579890.html">pytorch tensor 的拆分与拼接</a></p>
+]]></content>
+      <categories>
+        <category>实验</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>ML</tag>
+        <tag>CV</tag>
       </tags>
   </entry>
 </search>

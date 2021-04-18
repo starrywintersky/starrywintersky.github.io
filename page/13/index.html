@@ -205,6 +205,363 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/paper/drl30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/paper/drl30/" class="post-title-link" itemprop="url">Reinforcement Cutting-Agent Learning for Video Object Segmentation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-09 15:00:00" itemprop="dateCreated datePublished" datetime="2018-11-09T15:00:00+08:00">2018-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 15:11:08" itemprop="dateModified" datetime="2021-04-08T15:11:08+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/paper/drl30/" class="post-meta-item leancloud_visitors" data-flag-title="Reinforcement Cutting-Agent Learning for Video Object Segmentation" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/paper/drl30/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/paper/drl30/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>主题：半监督视频对象分割。<br><img src="https://www.evernote.com/shard/s324/res/3343f15c-d146-41d0-accf-649935173d5a" alt="img"></p>
+<p>特点：首次用DRL</p>
+<p>其他人的工作：<br>基于跟踪或匹配（1,16,43），找到前一个图像中的掩码对应。<br>    缺点：杂乱背景/无纹理前景的干扰。<br>强化学习用于对象定位和跟踪、姿态估计。</p>
+<p>*同时用于切割物体以及决策上下文框<br>切割代理</p>
+<p>结构：两个网络。CPN：（DRL）选择上下文框和物体框。CEN：FC-DenseNet56。进行掩码切割。</p>
+<p>动作：物体框的缩放移动(8)，不同规模大小的上下文框(3)，停止。CPN。<br>奖励：和CEN交互得到。用IoU.</p>
+<p>训练集：<br>CEN: saliency detection datasets: MSRA10K [6], PASCAL-S [21], SOD [27] and ECSSD [32]<br>优化：RMSprop, E-greedy strategy, (有经验池experience replay mechanism)<br>把视频通道改成RGB+object box四通道。<br>学习率随轮数下降。</p>
+<p>结论：改进效果很不错，虽然不够高。和视频好像没有太大的关系。可能是视频分割中上下文框对分割效果影响较大。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/paper/sseg4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/paper/sseg4/" class="post-title-link" itemprop="url">Multi-Evidence Filtering and Fusion for Multi-Label Classification, Object Detection and Semantic Segmentation Based on Weakly Supervised Learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-29 19:00:00" itemprop="dateCreated datePublished" datetime="2018-10-29T19:00:00+08:00">2018-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 15:12:38" itemprop="dateModified" datetime="2021-04-08T15:12:38+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/paper/sseg4/" class="post-meta-item leancloud_visitors" data-flag-title="Multi-Evidence Filtering and Fusion for Multi-Label Classification, Object Detection and Semantic Segmentation Based on Weakly Supervised Learning" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/paper/sseg4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/paper/sseg4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>监督。课程学习。<br>用度量学习和密度聚类，将多种算法得到的图结合。</p>
+<p>首先利用图像级标签得到像素级语义分割框和物体位置，然后利用这些中间结果来训练目标检测、语义分割和多标签图像分类网络。</p>
+<p>由于图像级、对象级和像素级分析相互依赖，因此它们不是独立执行的，而是被组织成具有四个阶段的单个流水线。</p>
+<p>在第一阶段，我们从自底向上和自顶向下的弱监督目标检测算法中收集训练图像中的目标定位结果。<br>在第二阶段中，我们结合度量学习和基于密度的聚类来过滤检测到的对象实例。通过这种方式，我们得到一个相对干净和完整的对象实例集。给定这些对象实例，我们进一步训练一个单标签对象分类器，该分类器应用于所有对象实例以获得它们的最终类标签。<br>第三，为了获得每个类和每个训练图像的相对干净的像素级概率图，我们融合了图像级注意力图、对象级注意力图和对象检测热图。像素级概率图用于训练完全卷积网络，该网络应用于所有训练图像以获得最终的像素级标签图。<br>最后，将所获得的目标实例和所有训练图像的像素级标签映射分别用于训练用于目标检测和语义分割的深层网络。<br>为了对训练图像进行逐像素的标签映射以帮助多标签图像分类，我们通过训练具有两个分支的单个深层网络来执行多任务学习，一个分支用于多标签图像分类，另一个分支用于像素标记。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/paper/sseg3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/paper/sseg3/" class="post-title-link" itemprop="url">语义分割-组会</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-29 18:00:00" itemprop="dateCreated datePublished" datetime="2018-10-29T18:00:00+08:00">2018-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 15:12:38" itemprop="dateModified" datetime="2021-04-08T15:12:38+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/paper/sseg3/" class="post-meta-item leancloud_visitors" data-flag-title="语义分割-组会" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/paper/sseg3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/paper/sseg3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一.语义分割：全监督-半监督（包含交互式）-无监督（label？）<br>二.交互：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">polygon-RNN</span></span><br></pre></td></tr></table></figure>
+<p>三.全监督：FCN。（1.从上到下和从下到上。2.网络结构，跨层。3.多规模。4.卷积）</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Context</span> Encoding <span class="keyword">for</span> Semantic Segmentation</span><br></pre></td></tr></table></figure>
+<p>四.半监督难度：boundingbox-&gt;point&amp;squiggles-&gt;image level<br>五.领域自适应： </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Fully</span> Convolutional Adaptation Networks for Semantic Segmentation。</span><br></pre></td></tr></table></figure>
+<p>六.继续半监督<br>Class activation map(CAM)</p>
+<hr>
+<p><img src="https://www.evernote.com/shard/s324/res/439ab438-2e2c-4aa8-8b47-fda66ed865e5" alt="img"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1061,349 +1418,6 @@
   
 
     
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/drl6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/paper/drl6/" class="post-title-link" itemprop="url">Crafting a Toolchain for Image Restoration by Deep Reinforcement Learning</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-09 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-09T00:00:00+08:00">2018-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:07:04" itemprop="dateModified" datetime="2021-04-08T15:07:04+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/drl6/" class="post-meta-item leancloud_visitors" data-flag-title="Crafting a Toolchain for Image Restoration by Deep Reinforcement Learning" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/drl6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/drl6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="主题：多工具图像复原"><a href="#主题：多工具图像复原" class="headerlink" title="主题：多工具图像复原"></a>主题：多工具图像复原</h1><ul>
-<li>  原文：<a target="_blank" rel="noopener" href="http://mmlab.ie.cuhk.edu.hk/projects/RL-Restore/">http://mmlab.ie.cuhk.edu.hk/projects/RL-Restore/</a></li>
-<li>  点评：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37380185?edition=yidianzixun&amp;utm_source=yidianzixun&amp;yidian_docid=0JAPpaZE">https://zhuanlan.zhihu.com/p/37380185?edition=yidianzixun&amp;utm_source=yidianzixun&amp;yidian_docid=0JAPpaZE</a><h1 id="工作："><a href="#工作：" class="headerlink" title="工作："></a>工作：</h1>工具箱 不同复杂程度的小规模卷积神经网络<br>RL-Restore 从工具箱选取合适的工具恢复损坏的图像<br>创建一个按步的奖励函数：图像每一步恢复的怎么样<br>领域：图像去模糊、去噪等存在多种问题时的处理。<br>low-level vision tasks such as deblurring [31, 35, 42]去模糊,  denoising [6, 24]去噪, JPEG artifacts reduction [7, 9, 41]（？可能是jpeg压缩损失） and super-resolution [8, 19, 17, 37, 39]（超分辨率：低分辨率图片-&gt;高清图片）<h1 id="其他人："><a href="#其他人：" class="headerlink" title="其他人："></a>其他人：</h1></li>
-</ul>
-<p>1.大神经网络瞎搞 2.针对单一的问题。<br>缺点：耗时和浪费资源、不透明</p>
-<h1 id="我的改进：小型工具、多个不同复杂度的神经网络、通过RL选取合适工具。透明、快速。"><a href="#我的改进：小型工具、多个不同复杂度的神经网络、通过RL选取合适工具。透明、快速。" class="headerlink" title="我的改进：小型工具、多个不同复杂度的神经网络、通过RL选取合适工具。透明、快速。"></a>我的改进：小型工具、多个不同复杂度的神经网络、通过RL选取合适工具。透明、快速。</h1><p>难点：调整程度、工具使用顺序；不可逆、相互影响</p>
-<h1 id="Agent"><a href="#Agent" class="headerlink" title="Agent:"></a>Agent:</h1><p>action（略）、state（当前图像，历史动作向量）<br>award: 处理前后PSNR差值（很方便换其他的，如perceptual loss [18],GAN loss）<br><img src="https://www.evernote.com/shard/s324/res/8e5b3ee6-f383-4523-8e19-9064b0b15f1d" alt="img"><br>结构：<br>Feature Extractor: 一个全联层+4层CNN<br>LSTM:长短期记忆网络<br>One-hot Encoder: 独热编码</p>
-<h1 id="训练："><a href="#训练：" class="headerlink" title="训练："></a>训练：</h1><p>Deep Q-learning<br>MSE均方误差最低。<br>损失函数：</p>
-<p> r = 0.99<br>两种更新：<br>1.随机。2.序列更新<br>联合训练：<br>对于输入图像，先通过工具链前向传播得到最后的复原图像，通过与清晰参考图像对比得到MSE损失，然后通过工具链对误差进行反向传播，根据平均的梯度值更新工具网络的参数<br>学习：初始学习度0.1，每20代减少0.1。使用Adam [21] optimizer训练Agent</p>
-<h1 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h1><p>和DnCNN [44]and VDSR [19]对比，效果相似的情况下复杂度明显降低</p>
-<h1 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h1><p>1.工具链长度、数量：12/3.<br>2.奖励函数：对比多个运行效果。采用的不见得最好，比其他表现好。<br>3.自动停止：奖励函数下降不超过0.15db时自动停止。小的失真如果不停止容易过度修复。</p>
-<h1 id="优点：新思路。"><a href="#优点：新思路。" class="headerlink" title="优点：新思路。"></a>优点：新思路。</h1><p>多工具自适应，解决其他图像处理的问题。<br>在细节上没有什么新鲜的，工具也比较简单。</p>
-<h2 id="来源：sensetime"><a href="#来源：sensetime" class="headerlink" title="来源：sensetime"></a>来源：sensetime</h2><p>complexity<br>复杂性<br>artifacts<br>人工制品<br>parameter<br>参数<br>specialized<br>专业的<br>degradation<br>毁坏<br>severity<br>严重程度<br>appropriate<br>合适的，适当的<br>inherently<br>固有地<br>progressively<br>逐步地<br>scheme<br>方案<br>collaboratively<br>协同地<br>deem<br>认为<br>conventional<br>传统的<br>philosophy<br>哲学<br>depict<br>描绘<br>distortions<br>畸变<br>adaptively<br>自适应<br>simultaneously<br>同时地<br>immense<br>巨大的<br>aforementioned<br>上述<br>extent<br>程度<br>demonstrated<br>论证<br>potentially<br>潜在地<br>simultaneously<br>同时地<br>discriminative<br>判别式<br>contaminated<br>污染<br>recursion<br>递归<br>compression<br>压缩<br>distortion<br>失真<br>orthogonal<br>正交<br>incorporated<br>合并<br>mechanism<br>机制<br>hallucination<br>幻觉<br>out-of-focus blur<br>失焦模糊<br>exposure<br>暴露<br>intermediate<br>中间的<br>irreversible<br>不可逆<br>Markov Decision Process<br>马尔可夫决策<br>refine<br>精炼<br>propose<br>建议<br>recurrent<br>复发的<br>plausible<br>貌似有理的<br>corrupt<br>腐坏的<br>robustness<br>鲁棒性<br>essential<br>本质的<br>derive<br>得到<br>empirically<br>经验性的<br>depict<br>描绘<br>concatenated<br>级联的<br>derived<br>衍生的<br>episode<br>片段<br>sequential<br>时序<br>gradient<br>梯度<br>iteration<br>迭代、重复</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">论文阅读要求-台湾清华大学</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-08 18:16:04" itemprop="dateCreated datePublished" datetime="2018-10-08T18:16:04+08:00">2018-10-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 16:05:32" itemprop="dateModified" datetime="2021-04-08T16:05:32+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读要求-台湾清华大学" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>论文阅读要求-来自台湾清华大学</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/research-experience/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/drl32/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/paper/drl32/" class="post-title-link" itemprop="url">GraphBit: Bitwise Interaction Mining via Deep Reinforcement Learning</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-08 18:00:00" itemprop="dateCreated datePublished" datetime="2018-10-08T18:00:00+08:00">2018-10-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:11:08" itemprop="dateModified" datetime="2021-04-08T15:11:08+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/drl32/" class="post-meta-item leancloud_visitors" data-flag-title="GraphBit: Bitwise Interaction Mining via Deep Reinforcement Learning" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/drl32/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/drl32/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>主题：二进制图像表示法。<br>问题：二进制图像表示法中出现模棱两可的位的处理方法。认为点之前有联系，建图，用DRL将某些点之间添加链接。<br><img src="https://www.evernote.com/shard/s324/res/82138b8c-3ed7-4f97-8fc7-b43637d73efa" alt="img"></p>
-<p>Bitwise Interaction Mining<br>descriptors<br>acyclic<br>crucial<br>Extracting<br>descriptors<br>essential<br>enhance<br>quantization<br>binarization<br>implicit<br>binomial<br>quantize<br>orientation<br>按位<br>交互<br>挖掘<br>描述符<br>无环的<br>关键的<br>提取<br>描述符<br>本质的<br>增强<br>量化<br>二值化<br>隐性的<br>二项式<br>量子化<br>方向</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
@@ -1474,7 +1488,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
