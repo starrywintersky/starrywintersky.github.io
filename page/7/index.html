@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/drl30/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user.jpg">
@@ -219,596 +219,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/paper/drl30/" class="post-title-link" itemprop="url">Reinforcement Cutting-Agent Learning for Video Object Segmentation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-09 15:00:00" itemprop="dateCreated datePublished" datetime="2018-11-09T15:00:00+08:00">2018-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:11:08" itemprop="dateModified" datetime="2021-04-08T15:11:08+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/drl30/" class="post-meta-item leancloud_visitors" data-flag-title="Reinforcement Cutting-Agent Learning for Video Object Segmentation" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/drl30/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/drl30/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>主题：半监督视频对象分割。<br><img src="https://www.evernote.com/shard/s324/res/3343f15c-d146-41d0-accf-649935173d5a" alt="img"></p>
-<p>特点：首次用DRL</p>
-<p>其他人的工作：<br>基于跟踪或匹配（1,16,43），找到前一个图像中的掩码对应。<br>    缺点：杂乱背景/无纹理前景的干扰。<br>强化学习用于对象定位和跟踪、姿态估计。</p>
-<p>*同时用于切割物体以及决策上下文框<br>切割代理</p>
-<p>结构：两个网络。CPN：（DRL）选择上下文框和物体框。CEN：FC-DenseNet56。进行掩码切割。</p>
-<p>动作：物体框的缩放移动(8)，不同规模大小的上下文框(3)，停止。CPN。<br>奖励：和CEN交互得到。用IoU.</p>
-<p>训练集：<br>CEN: saliency detection datasets: MSRA10K [6], PASCAL-S [21], SOD [27] and ECSSD [32]<br>优化：RMSprop, E-greedy strategy, (有经验池experience replay mechanism)<br>把视频通道改成RGB+object box四通道。<br>学习率随轮数下降。</p>
-<p>结论：改进效果很不错，虽然不够高。和视频好像没有太大的关系。可能是视频分割中上下文框对分割效果影响较大。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/sseg4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/paper/sseg4/" class="post-title-link" itemprop="url">Multi-Evidence Filtering and Fusion for Multi-Label Classification, Object Detection and Semantic Segmentation Based on Weakly Supervised Learning</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-29 19:00:00" itemprop="dateCreated datePublished" datetime="2018-10-29T19:00:00+08:00">2018-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:12:38" itemprop="dateModified" datetime="2021-04-08T15:12:38+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/sseg4/" class="post-meta-item leancloud_visitors" data-flag-title="Multi-Evidence Filtering and Fusion for Multi-Label Classification, Object Detection and Semantic Segmentation Based on Weakly Supervised Learning" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/sseg4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/sseg4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>监督。课程学习。<br>用度量学习和密度聚类，将多种算法得到的图结合。</p>
-<p>首先利用图像级标签得到像素级语义分割框和物体位置，然后利用这些中间结果来训练目标检测、语义分割和多标签图像分类网络。</p>
-<p>由于图像级、对象级和像素级分析相互依赖，因此它们不是独立执行的，而是被组织成具有四个阶段的单个流水线。</p>
-<p>在第一阶段，我们从自底向上和自顶向下的弱监督目标检测算法中收集训练图像中的目标定位结果。<br>在第二阶段中，我们结合度量学习和基于密度的聚类来过滤检测到的对象实例。通过这种方式，我们得到一个相对干净和完整的对象实例集。给定这些对象实例，我们进一步训练一个单标签对象分类器，该分类器应用于所有对象实例以获得它们的最终类标签。<br>第三，为了获得每个类和每个训练图像的相对干净的像素级概率图，我们融合了图像级注意力图、对象级注意力图和对象检测热图。像素级概率图用于训练完全卷积网络，该网络应用于所有训练图像以获得最终的像素级标签图。<br>最后，将所获得的目标实例和所有训练图像的像素级标签映射分别用于训练用于目标检测和语义分割的深层网络。<br>为了对训练图像进行逐像素的标签映射以帮助多标签图像分类，我们通过训练具有两个分支的单个深层网络来执行多任务学习，一个分支用于多标签图像分类，另一个分支用于像素标记。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/paper/sseg3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/paper/sseg3/" class="post-title-link" itemprop="url">语义分割-组会</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-29 18:00:00" itemprop="dateCreated datePublished" datetime="2018-10-29T18:00:00+08:00">2018-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:12:38" itemprop="dateModified" datetime="2021-04-08T15:12:38+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/paper/sseg3/" class="post-meta-item leancloud_visitors" data-flag-title="语义分割-组会" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/paper/sseg3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/paper/sseg3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一.语义分割：全监督-半监督（包含交互式）-无监督（label？）<br>二.交互：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">polygon-RNN</span></span><br></pre></td></tr></table></figure>
-<p>三.全监督：FCN。（1.从上到下和从下到上。2.网络结构，跨层。3.多规模。4.卷积）</p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Context</span> Encoding <span class="keyword">for</span> Semantic Segmentation</span><br></pre></td></tr></table></figure>
-<p>四.半监督难度：boundingbox-&gt;point&amp;squiggles-&gt;image level<br>五.领域自适应： </p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Fully</span> Convolutional Adaptation Networks for Semantic Segmentation。</span><br></pre></td></tr></table></figure>
-<p>六.继续半监督<br>Class activation map(CAM)</p>
-<hr>
-<p><img src="https://www.evernote.com/shard/s324/res/439ab438-2e2c-4aa8-8b47-fda66ed865e5" alt="img"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">图像分割评估标准</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-16 16:08:41" itemprop="dateCreated datePublished" datetime="2018-10-16T16:08:41+08:00">2018-10-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:16:34" itemprop="dateModified" datetime="2021-04-08T15:16:34+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="url" rel="index"><span itemprop="name">图像分割</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">知识点</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="图像分割评估标准" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>图像分割评估标准</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%B8%B8%E7%94%A8%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/" class="post-title-link" itemprop="url">神经网络相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-16 16:05:03" itemprop="dateCreated datePublished" datetime="2018-10-16T16:05:03+08:00">2018-10-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 15:29:33" itemprop="dateModified" datetime="2021-04-08T15:29:33+08:00">2021-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">知识点</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/" class="post-meta-item leancloud_visitors" data-flag-title="神经网络相关" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">讨论区：</span>
-    
-    <a title="valine" href="/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>神经网络相关</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.jpg">
-      <meta itemprop="name" content="Ziyuan Wang">
-      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Starry Wintersky">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" class="post-title-link" itemprop="url">机器学习-交叉熵</a>
+            <a href="/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" class="post-title-link" itemprop="url">机器学习-交叉熵</a>
         </h2>
 
         <div class="post-meta">
@@ -846,7 +257,7 @@
             </span>
 
           
-            <span id="/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习-交叉熵" title="热度">
+            <span id="/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习-交叉熵" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -861,8 +272,8 @@
       </span>
       <span class="post-meta-item-text">讨论区：</span>
     
-    <a title="valine" href="/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" itemprop="commentCount"></span>
+    <a title="valine" href="/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -880,7 +291,7 @@
           <p>机器学习-交叉熵</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/">
+              <a class="btn" href="/research-knowledge/%E4%BA%A4%E5%8F%89%E7%86%B5/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1061,7 +472,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user.jpg">
@@ -1075,7 +486,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">模仿学习</a>
+            <a href="/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">模仿学习</a>
         </h2>
 
         <div class="post-meta">
@@ -1113,7 +524,7 @@
             </span>
 
           
-            <span id="/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="模仿学习" title="热度">
+            <span id="/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="模仿学习" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1128,8 +539,8 @@
       </span>
       <span class="post-meta-item-text">讨论区：</span>
     
-    <a title="valine" href="/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    <a title="valine" href="/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1147,7 +558,7 @@
           <p>模仿学习</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+              <a class="btn" href="/research-knowledge/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2114,7 +1525,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user.jpg">
@@ -2128,7 +1539,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">西瓜书知识点总结</a>
+            <a href="/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">西瓜书知识点总结</a>
         </h2>
 
         <div class="post-meta">
@@ -2166,7 +1577,7 @@
             </span>
 
           
-            <span id="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="西瓜书知识点总结" title="热度">
+            <span id="/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="西瓜书知识点总结" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2181,8 +1592,8 @@
       </span>
       <span class="post-meta-item-text">讨论区：</span>
     
-    <a title="valine" href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2200,7 +1611,7 @@
           <p>机器学习-周志华</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/reswarch-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
+              <a class="btn" href="/research-knowledge/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2560,6 +1971,530 @@
   
 
     
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/" class="post-title-link" itemprop="url">Codeforces 1012C Hills 比较简单的DP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-30 21:24:05" itemprop="dateCreated datePublished" datetime="2018-07-30T21:24:05+08:00">2018-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 23:24:43" itemprop="dateModified" datetime="2021-02-24T23:24:43+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/" class="post-meta-item leancloud_visitors" data-flag-title="Codeforces 1012C Hills 比较简单的DP" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>刚刚拿到一个夏令营的offer，顺便在附近城市玩了两天，算起来出门在外有10天了？重新开始补题。</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="http://codeforces.com/problemset/problem/1012/C">题目链接</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/acm/codeforces%201012C%20Hills%20%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E7%9A%84DP/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/" class="post-title-link" itemprop="url">2018年清华夏令营机试题（思想） 积木 二分+线段树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-22 01:39:07" itemprop="dateCreated datePublished" datetime="2018-07-22T01:39:07+08:00">2018-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 15:11:53" itemprop="dateModified" datetime="2021-04-08T15:11:53+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/" class="post-meta-item leancloud_visitors" data-flag-title="2018年清华夏令营机试题（思想） 积木 二分+线段树" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>题目描述：一摞积木(1e5)，每个长宽都是1*1，高h，密度ρ，由题目输入。每块积木承重a，由题目输入（超重不会塌）。现在我从第一块开始一块一块的堆积木，问堆到第几块的时候超重体积超过V，V由题目输入。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/acm/2018%E6%B8%85%E5%8D%8E%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%9C%BA%E8%AF%95%E9%A2%98%20%EF%BC%88%E6%80%9D%E6%83%B3%EF%BC%89%E7%A7%AF%E6%9C%A8%20%E4%BA%8C%E5%88%86+%E7%BA%BF%E6%AE%B5%E6%A0%91%20/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/" class="post-title-link" itemprop="url">csp 201712-3 Crontab （恶心的）string处理 大模拟</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-22 01:03:07" itemprop="dateCreated datePublished" datetime="2018-07-22T01:03:07+08:00">2018-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 23:13:08" itemprop="dateModified" datetime="2021-02-24T23:13:08+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/" class="post-meta-item leancloud_visitors" data-flag-title="csp 201712-3 Crontab （恶心的）string处理 大模拟" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T66">题目链接</a></p>
+<p>然后贴上一份别人比我写得好看的<a target="_blank" rel="noopener" href="https://blog.csdn.net/banana_cjb/article/details/79174688">代码</a></p>
+<p>不得不说，不提前规划好怎么写，或者不用C++的string，或者写代码的时候不够心细，处理起来是很恶心的。所以考试的时候一定要先写简单的部分，否则这题性价比挺低的，尤其是错了点细节可能会让你写了上百行的代码得20分。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/acm/csp%20201712-3%20Crontab%20%EF%BC%88%E6%81%B6%E5%BF%83%E7%9A%84%EF%BC%89string%E5%A4%84%E7%90%86%20%E5%A4%A7%E6%A8%A1%E6%8B%9F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/" class="post-title-link" itemprop="url">csp 201712-2 游戏 暴力，附：约瑟夫环的递推</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-21 02:37:39" itemprop="dateCreated datePublished" datetime="2018-07-21T02:37:39+08:00">2018-07-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 23:08:21" itemprop="dateModified" datetime="2021-02-24T23:08:21+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/" class="post-meta-item leancloud_visitors" data-flag-title="csp 201712-2 游戏 暴力，附：约瑟夫环的递推" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T65">题目链接</a><br>题目描述：有一n点(500)m边(1e5)的图，有两种路，每个路有距离，走大路疲劳度+d(1e5)，走小路疲劳度+连续走的小路长度的平方。求从1到n最小的疲劳度。（答案不超过1e6）</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/acm/csp%20201712-4%20%E8%A1%8C%E8%BD%A6%E8%B7%AF%E7%BA%BF%20spfa+%E5%89%AA%E6%9E%9D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.jpg">
+      <meta itemprop="name" content="Ziyuan Wang">
+      <meta itemprop="description" content="程序媛&技术宅&科研&比赛&生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Starry Wintersky">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/" class="post-title-link" itemprop="url">csp 201712-2 游戏 暴力，附：约瑟夫环的递推</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-20 20:52:20" itemprop="dateCreated datePublished" datetime="2018-07-20T20:52:20+08:00">2018-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 23:05:55" itemprop="dateModified" datetime="2021-02-24T23:05:55+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/" class="post-meta-item leancloud_visitors" data-flag-title="csp 201712-2 游戏 暴力，附：约瑟夫环的递推" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">讨论区：</span>
+    
+    <a title="valine" href="/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一个暴力的题，以及约瑟夫环的数学解法记录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/acm/csp%20201712-2%20%E6%B8%B8%E6%88%8F%20%E6%9A%B4%E5%8A%9B+%EF%BC%88%E4%BB%A5%E6%AD%A4%E4%B8%BA%E4%BE%8B%EF%BC%89%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E7%9A%84%E9%80%92%E6%8E%A8/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
 
   
   <nav class="pagination">
@@ -2630,20 +2565,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
